@@ -20,7 +20,7 @@ const Nav_top = () => {
             onChange={(e) => handleOptionChange(e.target.value)}
             className="font-[roboto] font-[400] text-[14px] leading-[16.41px] text-[rgba(0,0,0,1)] bg-transparent outline-none appearance-none w-full h-full pl-8"
           >
-            <option className='' value="NOON">NOON</option>
+            <option className='' value="NOON">Hello World</option>
             <option value="Option 2">Option 2</option>
             <option value="Option 3">Option 3</option>
           </select>
