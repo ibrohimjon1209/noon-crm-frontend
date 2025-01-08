@@ -1,3 +1,3 @@
-# React + Vite
+# CRM-EDU
 
-git clone https://github.com/Yodgorbek-github/CRM-EDU
+```git clone https://github.com/Yodgorbek-github/CRM-EDU```
