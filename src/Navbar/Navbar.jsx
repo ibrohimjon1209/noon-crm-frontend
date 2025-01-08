@@ -24,7 +24,7 @@ const Navbar = () => {
                 <img src={logo} alt="logo" className='w-[67px] h-[67px] object-contain cursor-pointer' />
             </div>
             <div className='duration-300 nav-left w-[100%] flex h-full mt-[20px] flex-col gap-[5px] overflow-y-hidden overflow-x-hidden flex flex-col items-center'>
-                <div className='w-[85%] rounded-[10px] flex items-center bg-[#CFEBFF] pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer bg-[#CFEBFF] pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={assignment_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-[#264E86] whitespace-nowrap'>Topshiriqlar</h1>
@@ -33,7 +33,7 @@ const Navbar = () => {
 
                 <div className={`${isStudentMenuOpen
                     ? 'w-[227.29px] h-[63.26px] rounded-[8px] flex items-center flex-col bg-[rgba(245,245,245,1)]'
-                    : 'w-[85%] rounded-[10px] flex items-center bg-white pl-[25px]'
+                    : 'w-[85%] rounded-[10px] flex items-center cursor-pointer bg-white pl-[25px]'
                     }`}
                 >
                     <div onClick={setStudentMenuOpen} className={`${isStudentMenuOpen
@@ -52,63 +52,63 @@ const Navbar = () => {
                 </div>
 
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={group_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Guruh</h1>
                     </div>
                 </div>
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={student_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>O’quvchilar</h1>
                     </div>
                 </div>
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={study_division} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>O’quv bo’limi</h1>
                     </div>
                 </div>
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={wallet_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Moliya</h1>
                     </div>
                 </div>
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={control_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Nazorat</h1>
                     </div>
                 </div>
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={drive_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Boshqaruv</h1>
                     </div>
                 </div>
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={marketing_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Sotuv va marketing</h1>
                     </div>
                 </div>
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={report_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Hisobotlar</h1>
                     </div>
                 </div>
 
-                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={settings_icon} className='w-[38px] h-[38px] object-contain'/>
                         <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Sozlamalar</h1>
