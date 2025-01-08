@@ -1,48 +1,47 @@
 import { useState, React } from 'react';
-import key_icon from './Image/blue/key_icon.png';
-import student_icon from './Image/white/student_icon.png';
-import group_icon from './Image/white/group_icon.png';
-import teacher_icon from './Image/white/teacher_icon.png';
-import wallet_icon from './Image/white/wallet_icon.png';
-import calculation_icon from './Image/white/calculation_icon.png';
-import manual_icon from './Image/white/manual_icon.png';
-import setting_icon from './Image/white/setting_icon.png';
-import sign_out from './Image/white/sign_out_icon.png';
-import right_icon from './Image/white/right_icon.png';
+import assignment_icon from './Image/blue/assignment.png';
+import lydes_icon from './Image/blue/lydes.png';
+import group_icon from './Image/blue/group.png';
+import student_icon from './Image/blue/students.png';
+import study_division from './Image/blue/study division.png';
+import wallet_icon from './Image/blue/wallet.png';
+import control_icon from './Image/blue/control.png';
+import drive_icon from './Image/blue/drive.png';
+import marketing_icon from './Image/blue/marketing.png';
+import report_icon from './Image/blue/report.png';
+import settings_icon from './Image/blue/settings.png';
+import logo from './Image/black/logo vector.png';
 import './style.css'
 
 const Navbar = () => {
 
 
     const [isStudentMenuOpen, setStudentMenuOpen] = useState(false);
-    const [isGroupMenuOpen, setGroupMenuOpen] = useState(false);
-
-    const toggleStudentMenu = () => setStudentMenuOpen(!isStudentMenuOpen);
-    const toggleGroupMenu = () => setGroupMenuOpen(!isGroupMenuOpen);
 
     return (
-        <div className=' w-[289px] top-0 h-full flex flex-col justify-between bg-[rgba(0,53,95,1)] pt-[63px] pl-[24px]'>
-            <div className='duration-300 nav-left w-[265.29px] flex h-full top-0 flex-col gap-[20px] overflow-y-auto'>
-                <div className='w-[227.29px] py-[10px] rounded-[8px] flex items-center pl-[12px] bg-[rgba(245,245,245,1)]'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={key_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(0,53,95,1)]'>Dashboard</h1>
+        <div className=' w-[320px] top-0 h-full flex flex-col justify-between bg-white'>
+            <div className='w-[100%] py-[15px] flex justify-center items-center shadow-[0.2px_2px_2px_0_#00000040]'>
+                <img src={logo} alt="logo" className='w-[67px] h-[67px] object-contain cursor-pointer' />
+            </div>
+            <div className='duration-300 nav-left w-[100%] flex h-full mt-[20px] flex-col gap-[5px] overflow-y-hidden overflow-x-hidden flex flex-col items-center'>
+                <div className='w-[85%] rounded-[10px] flex items-center bg-[#CFEBFF] pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={assignment_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-[#264E86] whitespace-nowrap'>Topshiriqlar</h1>
                     </div>
                 </div>
 
-
-
                 <div className={`${isStudentMenuOpen
                     ? 'w-[227.29px] h-[63.26px] rounded-[8px] flex items-center flex-col bg-[rgba(245,245,245,1)]'
-                    : 'w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'
+                    : 'w-[85%] rounded-[10px] flex items-center bg-white pl-[25px]'
                     }`}
                 >
                     <div onClick={setStudentMenuOpen} className={`${isStudentMenuOpen
-                        ? 'w-[101px] h-[22.57px] flex gap-[16px] items-center'
-                        : 'w-[101px] h-[22.57px] flex gap-[16px] items-center'
+                        ? 'w-[101px] h-[60px] flex gap-[30px] items-center'
+                        : 'w-[101px] h-[60px] flex gap-[30px] items-center'
                         }`}>
-                        <img src={student_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Talabalar</h1>
+                        <img src={lydes_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Lidlar</h1>
                     </div>
                     {isStudentMenuOpen && (
                         <div className='duration-200 w-full h-[129px] bg-[rgba(245,245,245,1)] rounded-b-[8px]'>
@@ -53,107 +52,68 @@ const Navbar = () => {
                 </div>
 
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={group_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Guruhlar</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={group_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Guruh</h1>
                     </div>
                 </div>
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={teacher_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Ustozlar</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={student_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>O’quvchilar</h1>
                     </div>
                 </div>
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={wallet_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Moliya</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={study_division} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>O’quv bo’limi</h1>
                     </div>
                 </div>
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={calculation_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Hisobotlar</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={wallet_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Moliya</h1>
                     </div>
                 </div>
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={calculation_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Lidlar</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={control_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Nazorat</h1>
                     </div>
                 </div>
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={calculation_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Lidlar</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={drive_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Boshqaruv</h1>
                     </div>
                 </div>
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={calculation_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Lidlar</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={marketing_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Sotuv va marketing</h1>
                     </div>
                 </div>
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={calculation_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Lidlar</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={report_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Hisobotlar</h1>
                     </div>
                 </div>
 
-                <div className='w-[227.29px] h-[43.26px] rounded-[8px] flex items-center pl-[12px] bg-transparent'>
-                    <div className='w-[101px] h-[22.57px] flex gap-[13px] items-center'>
-                        <img src={calculation_icon} className='' />
-                        <h1 className='font-[roboto] font-[700] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Lidlar</h1>
+                <div className='w-[85%] rounded-[10px] flex items-center pl-[25px]'>
+                    <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
+                        <img src={settings_icon} className='w-[38px] h-[38px] object-contain'/>
+                        <h1 className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black whitespace-nowrap'>Sozlamalar</h1>
                     </div>
                 </div>
-
-            </div>
-
-
-            <div className='flex flex-col gap-[35px] mt-[100px] mb-[85px]'>
-
-                <div className='flex gap-[98px] items-center'>
-                    <div className='flex items-center gap-[10px] pl-[12px]'>
-                        <img src={manual_icon} className='w-[23px] h-[23px] brightness-200' />
-                        <h1 className='font-[roboto] font-[400] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Yo’riqnoma</h1>
-                    </div>
-
-                    <div>
-                        <img src={right_icon} />
-                    </div>
-                </div>
-
-                <div className='flex gap-[98px] items-center'>
-                    <div className='flex items-center gap-[10px] pl-[12px]'>
-                        <img src={setting_icon} className='w-[23px] h-[23px] brightness-200' />
-                        <h1 className='font-[roboto] font-[400] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Sozlamalar</h1>
-                    </div>
-
-                    <div className='hidden'>
-                        <img src={right_icon} />
-                    </div>
-                </div>
-
-                <div className='flex gap-[98px] items-center'>
-                    <div className='flex items-center gap-[10px] pl-[12px]'>
-                        <img src={sign_out} className='w-[23px] h-[23px] brightness-200' />
-                        <h1 className='font-[roboto] font-[400] text-[14px] leading-[16.41px] text-[rgba(255,255,255,1)]'>Chiqish</h1>
-                    </div>
-
-                    <div className='hidden'>
-                        <img src={right_icon} />
-                    </div>
-                </div>
-
             </div>
         </div >
     );
