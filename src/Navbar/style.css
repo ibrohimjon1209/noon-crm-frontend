@@ -1,61 +1,53 @@
-/* styles.css */
-
-/* Navbar scrollbar styles */
 .nav-left {
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: auto;
 }
 
-/* Custom scrollbar styles for WebKit browsers */
 .nav-left::-webkit-scrollbar {
-    width: 100px; /* Width of the scrollbar */
+    width: 100px;
 }
 
 .nav-left::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.5); /* Background of the scrollbar track */
-    border-radius: 100px; /* Rounded corners for track */
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 100px;
 }
 
 .nav-left::-webkit-scrollbar-thumb {
-    background: rgb(51, 0, 255); /* Color of the scrollbar thumb */
-    border-radius: 100px; /* Rounded corners for thumb */
+    background: rgb(51, 0, 255);
+    border-radius: 100px;
 }
 
-/* Remove hover effect */
 .nav-left::-webkit-scrollbar-thumb:hover {
-    background: rgb(138, 0, 0); /* Keep the color the same on hover */
+    background: rgb(138, 0, 0);
 }
 
-/* For Firefox */
 .nav-left {
-    scrollbar-width: auto; /* Makes the scrollbar auto */
-    scrollbar-color: rgb(255, 255, 255) rgba(0,53,95,1); /* Thumb and track color */
+    scrollbar-width: auto;
+    scrollbar-color: rgb(255, 255, 255) rgba(0,53,95,1);
 }
 
-/* Contents scrollbar styles */
 .contents {
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: auto;
 }
 
-/* Custom scrollbar styles for WebKit browsers */
 .contents::-webkit-scrollbar {
-    width: 100px; /* Width of the scrollbar */
+    width: 100px;
 }
 
 .contents::-webkit-scrollbar-track {
-    background: rgba(202, 1, 1, 0.5); /* Background of the scrollbar track */
-    border-radius: 100px; /* Rounded corners for track */
+    background: rgba(202, 1, 1, 0.5);
+    border-radius: 100px;
 }
 
 .contents::-webkit-scrollbar-thumb {
-    background: rgb(51, 0, 255); /* Color of the scrollbar thumb */
-    border-radius: 100px; 
+    background: rgb(51, 0, 255);
+    border-radius: 100px;
 }
 
 .contents::-webkit-scrollbar-thumb:hover {
-    background: rgb(138, 0, 0); 
+    background: rgb(138, 0, 0);
 }
 
 .contents {
-    scrollbar-width: thin; /* Makes the scrollbar auto */
-    scrollbar-color: rgb(233, 0, 0) rgba(0,53,95,1); /* Thumb and track color */
+    scrollbar-width: thin;
+    scrollbar-color: rgb(233, 0, 0) rgba(0,53,95,1);
 }

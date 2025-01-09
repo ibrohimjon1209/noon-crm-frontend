@@ -5,26 +5,24 @@ import Status from './Dashboard_status/Status';
 import Table from './Table/Table';
 
 const App = () => {
-  // Custom scrollbar styles
   const customScrollbar = {
-    overflowY: 'auto', // Enable vertical scrolling
-    scrollbarWidth: 'auto', // For Firefox
-    scrollbarColor: 'rgba(0,53,95,1) rgba(0, 0, 95, 1)', // For Firefox
+    overflowY: 'auto',
+    scrollbarWidth: 'auto',
+    scrollbarColor: 'rgba(0,53,95,1) rgba(0, 0, 95, 1)',
   };
 
-  // WebKit scrollbar styles
   const webkitScrollbarStyles = {
-    width: '100px', // Width of the scrollbar
+    width: '100px',
   };
 
   const webkitScrollbarTrackStyles = {
-    background: 'rgba(0,53,95,1)', // Background of the scrollbar track
-    borderRadius: '100px', // Rounded corners for track
+    background: 'rgba(0,53,95,1)',
+    borderRadius: '100px',
   };
 
   const webkitScrollbarThumbStyles = {
-    background: 'rgb(51, 0, 255)', // Color of the scrollbar thumb
-    borderRadius: '100px', // Rounded corners for thumb
+    background: 'rgb(51, 0, 255)',
+    borderRadius: '100px',
   };
 
   return (
@@ -37,24 +35,24 @@ const App = () => {
         <Nav_top />
         <div
           className='flex-1'
-          style={{ ...customScrollbar, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: 'rgba(0,53,95,1) rgba(255, 255, 255, 1)', }}>
+          style={{
+            ...customScrollbar,
+            overflowY: 'auto',
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'rgba(0,53,95,1) rgba(255, 255, 255, 1)',
+          }}>
           <div style={webkitScrollbarStyles} className="scrollbar">
             <div style={webkitScrollbarTrackStyles} className="scrollbar-track">
               <div style={webkitScrollbarThumbStyles} className="scrollbar-thumb"></div>
             </div>
           </div>
 
-
-
-          <Status/>
-          <Table/>
-
-
-
+          <Status />
+          <Table />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default App;
