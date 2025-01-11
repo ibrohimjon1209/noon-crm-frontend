@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './pages/Navbar/Navbar';
 import Nav_top from './pages/Navbar/Nav-top';
 import Main_home from './pages/home/main_home';
-import Not_Found from './pages/not_foun/not_found';
+import Not_Found from './pages/404_page/not_found';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { div } from 'framer-motion/client';
 
