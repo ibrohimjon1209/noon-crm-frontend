@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar/Navbar';
 import Nav_top from './Navbar/Nav-top';
 import Status from './Dashboard_status/Status';
-import Table from './Table/Table';
+import Table from './Table/main';
 
 const App = () => {
   const customScrollbar = {

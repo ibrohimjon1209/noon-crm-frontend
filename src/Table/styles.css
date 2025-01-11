@@ -1,0 +1,15 @@
+.scrollbar-thin {
+    scrollbar-width: thin; /* Firefox */
+}
+
+.scrollbar-thumb-rounded {
+    border-radius: 10px; /* Thumbni yumshoq qilish */
+}
+
+.scrollbar-thumb-blue-500 {
+    background-color: rgba(0, 53, 95, 1); /* Thumb rangi */
+}
+
+.scrollbar-track-blue-200 {
+    background-color: rgba(255, 255, 255, 1); /* Track rangi */
+}

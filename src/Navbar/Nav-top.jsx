@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import back from './Image/blue/back.png';
-import profile from './Image/white/profile.png';
+import profile from './Image/black/profile.png';
 import search from './Image/black/search.png';
 import question_icon from './Image/blue/question mark.png';
-import message_icon from './Image/blue/message.png';
-import notification_icon from './Image/blue/notification.png';
+import message_have_icon from './Image/blue/message_have.png';
+import notification_have_icon from './Image/blue/notification_have.png';
 
 const Nav_top = () => {
   const [selectedOption, setSelectedOption] = useState('NOON');
@@ -43,8 +43,8 @@ const Nav_top = () => {
           <p className='font-[400] text-[16px] leading-[22.08px] text-black cursor-pointer' style={{ fontFamily: 'Alata' }}>Рус</p>
           <p className='font-[400] text-[16px] leading-[22.08px] text-black cursor-pointer' style={{ fontFamily: 'Alata' }}>Eng</p>
           <img src={question_icon} className='w-[33px] h-[33px] cursor-pointer'/>
-          <img src={message_icon} className='w-[33px] h-[33px] cursor-pointer'/>
-          <img src={notification_icon} className='w-[33px] h-[33px] cursor-pointer'/>
+          <img src={message_have_icon} className='w-[33px] h-[33px] cursor-pointer'/>
+          <img src={notification_have_icon} className='w-[33px] h-[33px] cursor-pointer'/>
         </div>
         <img src={profile} className="w-[39px] h-[39px] rounded-[50%] cursor-pointer"/>
       </div>
