@@ -237,6 +237,39 @@ const assigments = [
         time: '11:10',
         description: 'To’lov '
     },
+    
+    {
+        name: 'Sardor Tursunov',
+        phone: '+998 90 948 31 82',
+        status: 'feature',
+        date: "17.02.2025",
+        time: '11:10',
+        description: 'To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov '
+    },
+    {
+        name: 'Sardor Tursunov',
+        phone: '+998 90 948 31 82',
+        status: 'feature',
+        date: "17.02.2025",
+        time: '11:10',
+        description: 'To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov To’lov '
+    },
+    {
+        name: 'Sardor Tursunov',
+        phone: '+998 90 948 31 82',
+        status: 'feature',
+        date: "17.02.2025",
+        time: '11:10',
+        description: 'To’lov '
+    },
+    {
+        name: 'Sardor Tursunov',
+        phone: '+998 90 948 31 82',
+        status: 'feature',
+        date: "17.02.2025",
+        time: '11:10',
+        description: 'To’lov '
+    },
 ]
 
 const gone_count = () => {
@@ -269,10 +302,20 @@ const monthly_count = () => {
     return count;
 }
 
+const feature_count = () => {
+    let count = 0;
+    for (let i = 0; i < assigments.length; i++) {
+        if (assigments[i].status === 'feature') {
+            count++;
+        }
+    }
+    return count;
+}
+
 const Assigments = () => {
     return (
     <>
-    <div className="w-auto h-[100%] flex flex-col ml-[32px] mt-[45px] mr-[323px] gap-[25px] overflow-y-hidden">
+    <div className="w-auto h-[94%] flex flex-col ml-[32px] mt-[45px] mr-[323px] gap-[25px] overflow-y-hidden">
         <h1 className="font-[roboto] font-[100] text-[20px] leading-[23.44px] text-[#264E86]">Topshiriqlar</h1>
         <div className="w-[100%] flex flex-row gap-[15px]">
         <div className="w-full flex flex-row gap-4">
@@ -396,7 +439,7 @@ const Assigments = () => {
             </div>
             <div className="w-[100%] border-t-[3px] border-[#A1A1A1] flex flex-col items-center pt-[25px] gap-3">
                 <p className="uppercase text-black font-roboto font-semibold text-lg leading-6">Kelajak</p>
-                <p className="text-black font-roboto font-semibold text-lg leading-6 text-[#A1A1A1]">2</p>
+                <p className="text-black font-roboto font-semibold text-lg leading-6 text-[#A1A1A1]">{feature_count()}</p>
                 <div className="w-full h-[65vh] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
                     {assigments.map((item, index) => (
                         item.status === 'feature' && (
