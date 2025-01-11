@@ -1,6 +1,9 @@
 import React from "react";
 import red_phone_icon from "./images/red_phone_icon.png";
 import green_phone_icon from "./images/green_phone_icon.png";
+import filter_icon from "./images/filter_icon.png";
+import arrow_down_icon from "./images/arrow_down_icon.png";
+import add_icon from "./images/add_icon.png";
 import './style.css'
 
 const assigments = [
@@ -315,8 +318,22 @@ const feature_count = () => {
 const Assigments = () => {
     return (
     <>
-    <div className="w-auto h-[94%] flex flex-col ml-[32px] mt-[45px] mr-[323px] gap-[25px] overflow-y-hidden">
-        <h1 className="font-[roboto] font-[100] text-[20px] leading-[23.44px] text-[#264E86]">Topshiriqlar</h1>
+    <div className="w-full h-auto flex flex-col items-center mt-[15px]">
+        <div className="w-[100%] px-[2%] flex flex-row justify-between items-baseline">
+            <h1 className="font-[roboto] font-[100] text-[20px] leading-[23.44px] text-[#264E86]">Topshiriqlar</h1>
+            <div className="flex flex-row gap-[10px]">
+            <div className="w-[177px] h-[55px] bg-[#0D99FF] rounded-[5px] flex items-center justify-between px-[15px] cursor-pointer">
+                <img src={filter_icon} alt="" className="w-[31px] h-[31px] object-contain"/>
+                <p className="font-[roboto] font-[600] text-[20px] leading-[23.44px] text-white">Filtr</p>
+                <img src={arrow_down_icon} alt="" />
+            </div>
+            <div className="w-[177px] h-[55px] bg-[#0D99FF] rounded-[5px] flex items-center justify-start pl-[15px] gap-[20px] cursor-pointer">
+                <img src={add_icon} alt="" />
+                <p className="font-[roboto] font-[600] text-[20px] leading-[23.44px] text-white">Qo’shish</p>
+            </div>
+            </div>
+        </div>
+    <div className="w-auto h-[94%] flex flex-col ml-[32px] mt-[20px] mr-[323px] gap-[25px] overflow-y-hidden">
         <div className="w-[100%] flex flex-row gap-[15px]">
         <div className="w-full flex flex-row gap-4">
             <div className="w-full h-full border-t-4 border-[#FE3D3D] flex flex-col items-center pt-6 gap-3">
@@ -477,6 +494,7 @@ const Assigments = () => {
                     </div>
             </div>
         </div>
+    </div>
     </div>
     </>
     );
