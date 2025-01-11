@@ -68,7 +68,7 @@ const Test = () => {
                 progress: "29/53",
                 status: "O'tildi",
                 color: "bg-emerald-500",
-                rowSpan: 1
+                rowSpan: 5
             },
 
             {
