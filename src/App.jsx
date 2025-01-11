@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './pages/Navbar/Navbar';
 import Nav_top from './pages/Navbar/Nav-top';
 import Main_home from './pages/home/main_home';
-import Assigments from './pages/assigments/assigments';
+import Assigments from './pages/assigments/assigments.jsx';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Lids from './pages/Lids/Lids';
 import Groups from './pages/Groups/Groups';
@@ -13,6 +13,7 @@ import Management from './pages/Management/Management';
 import Marketing from './pages/Marketing/Marketing';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
+import Control from './pages/Control/Control';
 
 const App = () => {
   const customScrollbar = {
@@ -40,7 +41,7 @@ const App = () => {
           >
             <Routes>
               <Route path="/" element={<Main_home />} />
-              <Route path="/assigments" element={<div className='overflow-y-hidden h-[100%]'><Assigments /></div>} />
+              <Route path="/assigments" element={<Assigments />} />
               <Route path="/lids" element={<Lids />} />
               <Route path="/groups" element={<Groups />} />
               <Route path="/students" element={<Students />} />

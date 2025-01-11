@@ -269,7 +269,7 @@ const monthly_count = () => {
     return count;
 }
 
-const Main_home = () => {
+const Assigments = () => {
     return (
     <>
     <div className="w-auto h-[100%] flex flex-col ml-[32px] mt-[45px] mr-[323px] gap-[25px] overflow-y-hidden">
@@ -439,4 +439,4 @@ const Main_home = () => {
     );
 };
 
-export default Main_home;
+export default Assigments;
