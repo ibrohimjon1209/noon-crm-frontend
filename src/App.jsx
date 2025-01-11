@@ -3,7 +3,16 @@ import Navbar from './pages/Navbar/Navbar';
 import Nav_top from './pages/Navbar/Nav-top';
 import Main_home from './pages/home/main_home';
 import Assigments from './pages/assigments/assigments';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Lids from './pages/Lids/Lids';
+import Groups from './pages/Groups/Groups';
+import Teachers from './pages/Teachers/Teachers';
+import Study_section from './pages/Study_section/Study_section';
+import Finance from './pages/Finance/Finance';
+import Management from './pages/Management/Management';
+import Marketing from './pages/Marketing/Marketing';
+import Reports from './pages/Reports/Reports';
+import Settings from './pages/Settings/Settings';
 
 const App = () => {
   const customScrollbar = {
@@ -32,6 +41,21 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Main_home />} />
               <Route path="/assigments" element={<Assigments />} />
+              <Route path="/lids" element={<Lids />} />
+              <Route path="/groups" element={<Groups />} />
+              <Route path="/teachers" element={<Teachers />} />
+              <Route path="/study_section" element={<Study_section />} />
+              <Route path="/finance" element={<Finance />} />
+              <Route path="/management" element={<Management />} />
+              <Route path="/marketing" element={<Marketing />} />
+              <Route path="/reports" element={<Reports />} />
+              <Route path="/settings" element={<Settings />} />
+
+
+
+
+              <Route path='*' element={<Navigate to="/" replace/>}/>
+
             </Routes>
           </div>
         </div>
