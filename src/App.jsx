@@ -13,6 +13,7 @@ import Management from './pages/Management/Management';
 import Marketing from './pages/Marketing/Marketing';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
+import { div } from 'framer-motion/client';
 
 const App = () => {
   const customScrollbar = {
@@ -40,7 +41,7 @@ const App = () => {
           >
             <Routes>
               <Route path="/" element={<Main_home />} />
-              <Route path="/assigments" element={<Assigments />} />
+              <Route path="/assigments" element={<div className='overflow-y-hidden h-[100%]'><Assigments /></div>} />
               <Route path="/lids" element={<Lids />} />
               <Route path="/groups" element={<Groups />} />
               <Route path="/teachers" element={<Teachers />} />

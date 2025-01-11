@@ -1,0 +1,8 @@
+.hide-scrollbar {
+    scrollbar-width: none; /* Firefox uchun */
+    -ms-overflow-style: none; /* Internet Explorer uchun */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari va Edge uchun */
+}
