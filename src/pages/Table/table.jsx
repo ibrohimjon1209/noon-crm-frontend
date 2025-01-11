@@ -283,15 +283,16 @@ const Test = () => {
                                                             animate={{ opacity: 1, scale: 1 }}
                                                             exit={{ opacity: 0, scale: 0.9 }}
                                                             transition={{ duration: 0.2 }}
-                                                            className={`${classItem.color} text-white p-[5px] rounded-md text-sm absolute w-auto inset-1`}
+                                                            className={`${classItem.color} flex flex-col items-center text-white p-[5px] rounded-md text-sm absolute w-auto inset-1`}
                                                             style={{
                                                                 height: classItem.rowSpan ? `${classItem.rowSpan * 45 - 7}px` : 'auto',
                                                             }}
-                                                        >
-                                                            <div>{classItem.name}</div>
-                                                            <div>{classItem.teacher}</div>
-                                                            <div>{classItem.progress}</div>
-                                                            <div>{classItem.status}</div>
+                                                        >   
+                                                            <div className='flex flex-col'><span className='whitespace-nowrap'>{classItem.name}</span><span className='whitespace-nowrap'>{classItem.teacher}</span></div>
+                                                            <hr className='my-[5px] w-[115%] -ml-[1%] border-white'/>
+                                                            <div className='flex flex-col w-full h-full items-center justify-center'>
+                                                            <div className='flex items-center w-full justify-center gap-[10px]'><span className='whitespace-nowrap'>{classItem.progress}</span><span className='whitespace-nowrap text-[#4E33EA]'>{classItem.status}</span></div>
+                                                            </div>
                                                         </motion.div>
                                                     )}
                                                 </AnimatePresence>
