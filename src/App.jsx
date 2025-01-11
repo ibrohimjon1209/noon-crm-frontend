@@ -6,14 +6,13 @@ import Assigments from './pages/assigments/assigments';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Lids from './pages/Lids/Lids';
 import Groups from './pages/Groups/Groups';
-import Teachers from './pages/Teachers/Teachers';
+import Students from './pages/Students/Students';
 import Study_section from './pages/Study_section/Study_section';
 import Finance from './pages/Finance/Finance';
 import Management from './pages/Management/Management';
 import Marketing from './pages/Marketing/Marketing';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
-import { div } from 'framer-motion/client';
 
 const App = () => {
   const customScrollbar = {
@@ -44,9 +43,10 @@ const App = () => {
               <Route path="/assigments" element={<div className='overflow-y-hidden h-[100%]'><Assigments /></div>} />
               <Route path="/lids" element={<Lids />} />
               <Route path="/groups" element={<Groups />} />
-              <Route path="/teachers" element={<Teachers />} />
+              <Route path="/students" element={<Students />} />
               <Route path="/study_section" element={<Study_section />} />
               <Route path="/finance" element={<Finance />} />
+              <Route path="/control" element={<Control />} />
               <Route path="/management" element={<Management />} />
               <Route path="/marketing" element={<Marketing />} />
               <Route path="/reports" element={<Reports />} />
