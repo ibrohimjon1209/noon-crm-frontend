@@ -6,81 +6,120 @@ import freeze_icon from './Image/freeze_icon.png'
 import graduate_icon from './Image/graduate_icon.png'
 import money_icon from './Image/money_icon.png'
 import archive_icon from './Image/archive_icon.png'
-
+import icon from './Image/icon.png'
 
 
 const Status = () => {
     return (
-        <div className=''>
+        <div className='px-[32px] pt-[33px] flex flex-col gap-[15px] mb-[26px]'>
 
-            <div className='flex w-full h-[225px] pl-[40px] items-center gap-[23px]'>
-                <div className='w-[133px] h-[133px] cursor-pointer flex flex-col items-center gap-[13.55px] rounded-[10px] duration-300 border-[3px] hover:border-[rgba(0,53,95,1)] border-transparent bg-[rgba(255,255,255,1)]'>
-                    <img src={lid_icon} className='mt-[18px]' />
-                    <div className='flex flex-col items-center gap-[8.86px]'>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(0,53,95,1)]'>Lidlar</h1>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(74,201,118,1)]'>35</h1>
+            <div className="first flex gap-[20px]">
+
+
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
                     </div>
                 </div>
 
-
-                <div className='w-[133px] h-[133px] cursor-pointer flex flex-col items-center gap-[13.55px] rounded-[10px] duration-300 border-[3px] hover:border-[rgba(0,53,95,1)] border-transparent bg-[rgba(255,255,255,1)]'>
-                    <img src={student_icon} className='w-[32px] h-[43px] mt-[18px]' />
-                    <div className='flex flex-col items-center gap-[8.86px]'>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(0,53,95,1)]'>Faol talabalar</h1>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(74,201,118,1)]'>129</h1>
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
                     </div>
                 </div>
 
-
-
-                <div className='w-[133px] h-[133px] cursor-pointer flex flex-col items-center gap-[13.55px] rounded-[10px] duration-300 border-[3px] hover:border-[rgba(0,53,95,1)] border-transparent bg-[rgba(255,255,255,1)]'>
-                    <img src={debtor_icon} className='mt-[18px]' />
-                    <div className='flex flex-col items-center gap-[8.86px]'>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(0,53,95,1)]'>Qarzdorlar</h1>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(201,74,74,1)]'>12</h1>
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
                     </div>
                 </div>
 
-                <div className='w-[133px] h-[133px] cursor-pointer flex flex-col items-center gap-[13.55px] rounded-[10px] duration-300 border-[3px] hover:border-[rgba(0,53,95,1)] border-transparent bg-[rgba(255,255,255,1)]'>
-                    <img src={freeze_icon} className='mt-[18px]' />
-                    <div className='flex flex-col items-center gap-[8.86px]'>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(0,53,95,1)]'>Muzlatilganlar</h1>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(74,155,201,1)]'>129</h1>
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
                     </div>
                 </div>
 
-                <div className='w-[133px] h-[133px] cursor-pointer flex flex-col items-center gap-[13.55px] rounded-[10px] duration-300 border-[3px] hover:border-[rgba(0,53,95,1)] border-transparent bg-[rgba(255,255,255,1)]'>
-                    <img src={graduate_icon} className='mt-[18px]' />
-                    <div className='flex flex-col items-center gap-[8.86px]'>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(0,53,95,1)]'>Bitirganlar</h1>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(74,155,201,1)]'>69</h1>
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
                     </div>
                 </div>
 
-                <div className='w-[133px] h-[133px] cursor-pointer flex flex-col items-center gap-[13.55px] rounded-[10px] duration-300 border-[3px] hover:border-[rgba(0,53,95,1)] border-transparent bg-[rgba(255,255,255,1)]'>
-                    <img src={money_icon} className='mt-[18px]' />
-                    <div className='flex flex-col items-center gap-[8.86px]'>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(0,53,95,1)]'>Xaqdorlar</h1>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(74,155,201,1)]'>17</h1>
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
                     </div>
                 </div>
 
-                <div className='w-[133px] h-[133px] cursor-pointer flex flex-col items-center gap-[13.55px] rounded-[10px] duration-300 border-[3px] hover:border-[rgba(0,53,95,1)] border-transparent bg-[rgba(255,255,255,1)]'>
-                    <img src={archive_icon} className='mt-[18px]' />
-                    <div className='flex flex-col items-center gap-[8.86px]'>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(0,53,95,1)]'>Arxiv</h1>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(74,155,201,1)]'>256</h1>
-                    </div>
-                </div>
-
-                <div className='w-[133px] h-[133px] cursor-pointer flex flex-col items-center gap-[13.55px] rounded-[10px] duration-300 border-[3px] hover:border-[rgba(0,53,95,1)] border-transparent bg-[rgba(255,255,255,1)]'>
-                    <img src={archive_icon} className='mt-[18px]' />
-                    <div className='flex flex-col items-center gap-[8.86px]'>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(0,53,95,1)]'>Chiqib ketganlar</h1>
-                        <h1 className='font-[roboto] font-[600] text-[16px] leading-[18.75px] text-[rgba(74,155,201,1)]'>400</h1>
-                    </div>
-                </div>
             </div>
+
+
+            <div className="second flex gap-[20px]">
+
+
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
+                    </div>
+                </div>
+
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
+                    </div>
+                </div>
+
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
+                    </div>
+                </div>
+
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
+                    </div>
+                </div>
+
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
+                    </div>
+                </div>
+
+                <div className='w-[239px] h-[80px] pl-[27px] flex items-center gap-[35px] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-lg shadow-[rgba(13,153,255,0.25)]'>
+                    <img src={icon} className='w-[55px] h-[55px] object-cover' />
+                    <div className='flex flex-col gap-[5px] justify-center'>
+                        <h1 className='font-[roboto] font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.5)]'>Buyurtma</h1>
+                        <h1 className='font-[alata] font-[400] text-[14px] leading-[19.32px] text-[rgba(0,0,0,1)]'>8</h1>
+                    </div>
+                </div>
+
+            </div>
+
 
         </div>
     )

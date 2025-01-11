@@ -23,7 +23,7 @@ const Navbar = () => {
             <div className='w-[100%] py-[15px] flex justify-center items-center shadow-[0.2px_2px_2px_0_#00000040]'>
                 <img src={logo} alt="logo" className='w-[67px] h-[67px] object-contain cursor-pointer' />
             </div>
-            <div className='duration-300 nav-left w-[100%] flex h-full mt-[20px] flex-col gap-[5px] overflow-y-hidden overflow-x-hidden flex flex-col items-center'>
+            <div className='duration-300 nav-left w-[100%] flex h-full mt-[28px] flex-col gap-[5px] overflow-y-hidden overflow-x-hidden flex flex-col items-center'>
                 <div className='w-[85%] rounded-[10px] flex items-center cursor-pointer bg-[#CFEBFF] pl-[25px]'>
                     <div className='w-[101px] h-[60px] flex gap-[30px] items-center'>
                         <img src={assignment_icon} className='w-[38px] h-[38px] object-contain'/>

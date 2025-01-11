@@ -26,7 +26,7 @@ const App = () => {
   };
 
   return (
-    <div className='flex w-full bg-[rgba(239,240,241,1)] m-auto h-screen'>
+    <div className='flex w-full  bg-[rgba(242,238,238,1)] m-auto h-screen'>
       <div className='h-screen sticky top-0'>
         <Navbar />
       </div>
