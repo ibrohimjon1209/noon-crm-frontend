@@ -1,8 +1,9 @@
 import React from 'react';
-import Navbar from './Navbar/Navbar';
-import Nav_top from './Navbar/Nav-top';
-import Status from './Dashboard_status/Status';
-import Table from './Table/main';
+import Navbar from './pages/Navbar/Navbar';
+import Nav_top from './pages/Navbar/Nav-top';
+import Main_home from './pages/home/main_home';
+import Not_Found from './pages/not_foun/not_found';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   const customScrollbar = {
@@ -46,9 +47,12 @@ const App = () => {
               <div style={webkitScrollbarThumbStyles} className="scrollbar-thumb"></div>
             </div>
           </div>
-
-          <Status />
-          <Table />
+          <Router>
+            <Routes>
+              <Route path="*" element={<Not_Found />} />
+              <Route path="/" element={<Main_home />} />
+            </Routes>
+          </Router>
         </div>
       </div>
     </div>
