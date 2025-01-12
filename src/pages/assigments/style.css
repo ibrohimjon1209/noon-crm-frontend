@@ -6,3 +6,14 @@
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+.filter-container {
+    transform: translateY(-20px); /* Boshlang'ich holat (tepadan) */
+    opacity: 0; /* Ko'rinmas holat */
+    transition: transform 4ms ease-in-out, opacity 4ms ease-in-out; /* 4ms davomiylik */
+}
+
+.filter-container.open {
+    transform: translateY(0); /* Pastga tushadi */
+    opacity: 1; /* Ko'rinadi */
+}

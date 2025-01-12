@@ -323,7 +323,7 @@ const Assigments = () => {
 
     return (
     <>
-    <div className="w-full h-[115%] flex flex-col items-center mt-[15px]">
+    <div className={`w-full ${ is_filter_open ? 'h-[120%]' : `h-[110%]`} flex flex-col items-center mt-[15px]`}>
         <div className="w-[100%] px-[2%] flex flex-row justify-between items-baseline">
             <h1 className="font-[roboto] font-[100] text-[20px] leading-[23.44px] text-[#264E86]">Topshiriqlar</h1>
             <div className="flex flex-row gap-[10px]">
@@ -337,7 +337,7 @@ const Assigments = () => {
             >
                 <img src={filter_icon} alt="" className="w-[31px] h-[31px] object-contain"/>
                 <p className="font-[roboto] font-[600] text-[20px] leading-[23.44px] text-white">Filtr</p>
-                <img src={arrow_down_icon} className={is_filter_open ? "w-[31px] h-[31px] object-contain rotate-180" : "w-[31px] h-[31px] object-contain"} alt="" />
+                <img src={arrow_down_icon} className={is_filter_open ? "w-[31px] h-[31px] object-contain -rotate-180 duration-[0.3s]" : "w-[31px] h-[31px] object-contain duration-[0.3s]"} alt="" />
             </div>
             <div className="w-[177px] h-[55px] bg-[#0D99FF] rounded-[5px] flex items-center justify-start pl-[15px] gap-[20px] cursor-pointer">
                 <img src={add_icon} alt="" />
@@ -345,7 +345,11 @@ const Assigments = () => {
             </div>
             </div>
         </div>
-        <div className={is_filter_open ? "flex flex-row gap-[10px] pl-[130px] pt-[30px]" : "flex flex-row gap-[10px] pl-[130px] pt-[30px] hidden"}>
+        <div 
+        className={`flex flex-row gap-[10px] pl-[130px] transition-all duration-[300ms] ease-out ${
+            is_filter_open ? "translate-y-0 h-auto pt-[25px] -mb-[5px]" : "h-0 overflow-hidden"
+        }`}
+        >
             <div className="w-[240px] h-[55px] bg-white rounded-[5px] flex items-center justify-between px-[28px]">
                 <p className="font-roboto font-[500] text-[19px] leading-[23.44px] text-black">
                     Mas'ul shaxs
