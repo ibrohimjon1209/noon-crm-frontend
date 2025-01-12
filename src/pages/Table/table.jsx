@@ -200,7 +200,7 @@ const Test = () => {
                 progress: "15/30",
                 status: "O'tildi",
                 color: "bg-emerald-500",
-                rowSpan: 4
+                rowSpan: 2
             },
             {
                 room: "3-xona",
