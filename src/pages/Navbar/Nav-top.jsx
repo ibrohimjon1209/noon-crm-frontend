@@ -17,9 +17,9 @@ const Nav_top = () => {
   return (
     <div className="w-full h-[97px] flex px-[40px] justify-between shadow-[0px_2px_2px_0_#00000040] items-center bg-[rgba(255,255,255,1)] sticky top-0">
       <div className="flex gap-[25px]">
-        <div className='flex items-center justify-center gap-[13px] cursor-pointer'>
+        <div className='flex items-center justify-center gap-[13px]'>
           <Link to='/'>
-            <img src={back} alt="" className='w-[24px] h-[24px]' />
+            <img src={back} alt="" className='w-[24px] h-[24px] cursor-pointer' />
 
           </Link>
           <p className='font-[roboto] font-[400] text-[18px] leading-[21.09px] text-black'>Orqaga</p>

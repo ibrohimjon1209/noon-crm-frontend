@@ -323,7 +323,7 @@ const Assigments = () => {
 
     return (
     <>
-    <div className="w-full h-auto flex flex-col items-center mt-[15px]">
+    <div className="w-full h-[115%] flex flex-col items-center mt-[15px]">
         <div className="w-[100%] px-[2%] flex flex-row justify-between items-baseline">
             <h1 className="font-[roboto] font-[100] text-[20px] leading-[23.44px] text-[#264E86]">Topshiriqlar</h1>
             <div className="flex flex-row gap-[10px]">
@@ -383,7 +383,7 @@ const Assigments = () => {
             <div className="w-full h-full border-t-4 border-[#FE3D3D] flex flex-col items-center pt-6 gap-3">
                 <p className="uppercase text-black font-roboto font-semibold text-lg leading-6">O’tib ketgan</p>
                 <p className="text-black font-roboto font-semibold text-lg leading-6 text-[#FE3D3D]">{gone_count()}</p>
-                    <div className="w-full h-[65vh] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
+                    <div className="w-full h-[37%] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
                     {assigments.map((item, index) => (
                         item.status === 'gone' && (
                             <div
@@ -423,7 +423,7 @@ const Assigments = () => {
             <div className="w-[100%] border-t-[3px] border-[#3DFE5D] flex flex-col items-center pt-[25px] gap-3">
                 <p className="uppercase text-black font-roboto font-semibold text-lg leading-6">Bugun</p>
                 <p className="text-black font-roboto font-semibold text-lg leading-6 text-[#3DFE5D]">{everyday_count()}</p>
-                <div className="w-full h-[65vh] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
+                <div className="w-full h-[37%] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
                     {assigments.map((item, index) => (
                         item.status === 'everyday' && (
                             <div
@@ -462,7 +462,7 @@ const Assigments = () => {
             <div className="w-[100%] border-t-[3px] border-[#A1A1A1] flex flex-col items-center pt-[25px] gap-3">
                 <p className="uppercase text-black font-roboto font-semibold text-lg leading-6">Oylik</p>
                 <p className="text-black font-roboto font-semibold text-lg leading-6 text-[#A1A1A1]">{monthly_count()}</p>
-                <div className="w-full h-[65vh] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
+                <div className="w-full h-[37%] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
                     {assigments.map((item, index) => (
                         item.status === 'monthly' && (
                             <div
@@ -501,7 +501,7 @@ const Assigments = () => {
             <div className="w-[100%] border-t-[3px] border-[#A1A1A1] flex flex-col items-center pt-[25px] gap-3">
                 <p className="uppercase text-black font-roboto font-semibold text-lg leading-6">Kelajak</p>
                 <p className="text-black font-roboto font-semibold text-lg leading-6 text-[#A1A1A1]">{feature_count()}</p>
-                <div className="w-full h-[65vh] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
+                <div className="w-full h-[37%] bg-transparent flex flex-col gap-4 overflow-y-scroll hide-scrollbar">
                     {assigments.map((item, index) => (
                         item.status === 'feature' && (
                             <div
