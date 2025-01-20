@@ -43,9 +43,9 @@ const Nav_top = () => {
 
       <div className="flex gap-[20px]">
         <div className="flex items-center gap-[20px] pr-[30px]">
-          <p className='font-[400] text-[16px] leading-[22.08px] text-[#0EA5E9] cursor-pointer' style={{ fontFamily: 'Alata' }}>O'zb</p>
-          <p className='font-[400] text-[16px] leading-[22.08px] text-black cursor-pointer' style={{ fontFamily: 'Alata' }}>Рус</p>
-          <p className='font-[400] text-[16px] leading-[22.08px] text-black cursor-pointer' style={{ fontFamily: 'Alata' }}>Eng</p>
+          <p className='font-[400] text-[16px] leading-[22.08px] text-[#0EA5E9] cursor-pointer' style={{ fontFamily: 'inter' }}>O'zb</p>
+          <p className='font-[400] text-[16px] leading-[22.08px] text-black cursor-pointer' style={{ fontFamily: 'inter' }}>Рус</p>
+          <p className='font-[400] text-[16px] leading-[22.08px] text-black cursor-pointer' style={{ fontFamily: 'inter' }}>Eng</p>
           <img src={question_icon} className='w-[33px] h-[33px] cursor-pointer' />
           <img src={message_have_icon} className='w-[33px] h-[33px] cursor-pointer' />
           <img src={notification_have_icon} className='w-[33px] h-[33px] cursor-pointer' />
