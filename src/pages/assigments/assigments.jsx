@@ -410,7 +410,7 @@ const Assigments = () => {
                             <div
                             key={index}
                             className="w-full h-[auto] bg-white rounded-lg flex flex-col pt-3 pl-4 pb-3 gap-3"
-                            >
+                            >   
                                 <p className="text-[#0D99FF] text-lg leading-6 font-roboto font-medium">
                                     {item.name}
                                 </p>

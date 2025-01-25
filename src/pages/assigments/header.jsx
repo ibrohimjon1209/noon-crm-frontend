@@ -160,7 +160,7 @@ const Header = ({is_filter_open, set_is_filter_open}) => {
                 <img src={filter_icon} alt="" className="w-[31px] h-[31px] object-contain"/>
                 <p className="font-[roboto] font-[600] text-[20px] leading-[23.44px] text-white">Filtr</p>
                 <img src={arrow_down_icon} className={is_filter_open ? "w-[31px] h-[31px] object-contain -rotate-180 duration-[0.3s]" : "w-[31px] h-[31px] object-contain duration-[0.3s]"} alt="" />
-            </div>
+            </div>  
             <div className="w-[177px] h-[55px] bg-[#0D99FF] rounded-[5px] flex items-center justify-start pl-[15px] gap-[20px] cursor-pointer">
                 <img src={add_icon} alt="" />
                 <p className="font-[roboto] font-[600] text-[20px] leading-[23.44px] text-white">Qo’shish</p>

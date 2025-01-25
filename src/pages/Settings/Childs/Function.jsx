@@ -90,17 +90,58 @@ const Function = () => {
 
                         <div className='w-full h-[62.17px] border-b-[1.5px] flex items-center px-[10px]'>
                             <div className='w-[677px]'>
-                                <h1 className='font-[roboto] text-[18px] leading-[21.78px] text-[rgba(64,64,64,1)]'>Band xona</h1>
+                                <h1 className='font-[roboto] text-[18px] leading-[21.78px] text-[rgba(64,64,64,1)]'>Yordamchi o'qituvchini bron qilish blokini yoqish</h1>
                             </div>
                             <img src={on} alt="" />
                         </div>
+
+
+                        <div className='w-full h-[148px] gap-[20px] border-b-[1.5px] flex flex-col px-[10px]'>
+                            <div className='w-[677px] mt-[20px]'>
+                                <h1 className='text-[18px] font-[500] font-[inter] text-[rgba(64,64,64,1)]'>Davomatda hamma keldi turishi</h1>
+                            </div>
+
+                            <div className='w-[248px] h-[67px] bg-[rgba(242,238,238,1)] '>
+
+                            </div>
+                        </div>
+
+
+
+                        <div className='w-full h-[148px] gap-[20px] border-b-[1.5px] flex flex-col px-[10px]'>
+                            <div className='w-[677px] mt-[20px]'>
+                                <h1 className='text-[18px] font-[500] font-[inter] text-[rgba(64,64,64,1)]'>O'qituvchining ish haqi ko'rsatkichi</h1>
+                            </div>
+
+                            <div className='w-[248px] h-[67px] bg-[rgba(242,238,238,1)] '>
+
+                            </div>
+                        </div>
+
+                        <div className='w-full h-[148px] gap-[20px] border-b-[1.5px] flex flex-col px-[10px]'>
+                            <div className='w-[677px] mt-[20px]'>
+                                <h1 className='text-[18px] font-[500] font-[inter] text-[rgba(64,64,64,1)]'>Qarzdorlik limiti</h1>
+                            </div>
+
+                            <div className='w-[248px] h-[67px] bg-[rgba(242,238,238,1)] '>
+
+                            </div>
+                        </div>
+
+                        
+
+
+
+
+
+
 
                         <div className='w-full h-[62.17px] border-b-[1.5px] flex items-center px-[10px]'>
                             <div className='w-[677px]'>
                                 <h1 className='font-[roboto] text-[18px] leading-[21.78px] text-[rgba(64,64,64,1)]'>Band xona</h1>
                             </div>
                             <img src={on} alt="" />
-                        </div>  
+                        </div>
 
                     </div>
                 </div>
