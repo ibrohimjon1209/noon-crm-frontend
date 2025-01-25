@@ -3,9 +3,9 @@ import on from './../Images/Vector.png'
 
 const Function = () => {
     return (
-        <div className="w-[812px] h-[80vh] overflow-hidden rounded-[15px] bg-[rgba(255,255,255,1)]">
+        <div className="w-[812px] h-[80vh] overflow-hidden pt-[15px] rounded-[20px] bg-[rgba(255,255,255,1)]">
             <div className="w-full h-full overflow-y-scroll">
-                <div className='w-full h-[3506px] pt-[30px] px-[40px]'>
+                <div className='w-full h-[3506px] pt-[10px] px-[40px]'>
                     <h1 className="font-[roboto] font-[600] text-[18px] leading-[21.78px] text-[rgba(64,64,64,1)]">
                         Funksionallik
                     </h1>
