@@ -8,7 +8,7 @@ import { sub } from 'framer-motion/client'
 const Nav_settings = ({ active, setActive }) => {
 
   return (
-    <div className='w-[426px] h-[80vh] pt-[5px] rounded-[15px] bg-[rgba(255,255,255,1)]'>
+    <div className='w-[426px] h-[730px] pt-[5px] rounded-[15px] bg-[rgba(255,255,255,1)]'>
 
       <div onClick={() => setActive("Function")} className='cursor-pointer w-full h-[60px] pl-[40.22px] flex items-center gap-[26.97px] border-b-[1px]'>
         <div className='w-[36.82px] h-[29.32px]'>

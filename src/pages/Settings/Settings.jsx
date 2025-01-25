@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Function from './Childs/Function'
-import Check from './Childs/Check'
+import Check from './Childs/check/check_main'
 import Subscribe from './Childs/Subscribe'
 import Holiday from './Childs/Holiday'
 import Nav_settings from './nav_settings'
