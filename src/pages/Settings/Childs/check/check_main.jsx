@@ -43,8 +43,8 @@ const Check = () => {
   };
 
   return (
-    <div className='flex flex-row justify-center gap-[55px] w-[100%] h-[880px]'>
-      <div className='w-[330px] pt-[20px] h-[83%] flex flex-col items-center bg-white rounded-[15px] overflow-y-scroll' style={{scrollbarWidth: 'thin'}}>
+    <div className='flex flex-row justify-center gap-[55px] w-[100%] h-auto'>
+      <div className='w-[330px] pt-[20px] h-[730px] flex flex-col items-center bg-white rounded-[15px] overflow-y-scroll' style={{scrollbarWidth: 'thin'}}>
         <div className='flex flex-col pl-[35px] w-[100%] h-[100%] gap-[15px]'>
           <p className='font-roboto font-[400] text-black text-[18px] leading-[21.09px]'>
             Chek sozlamalari
@@ -368,7 +368,12 @@ const Check = () => {
                 Izoh
               </p>
             </div>
-            <div>
+            <div className='flex flex-row gap-[30px] w-[90%] justify-end'>
+              <div className='w-[120px] h-[50px] bg-[#0D99FF] mb-[20px] rounded-[5px] flex justify-center items-center'>
+                <p className='font-roboto font-[400] text-[20px] text-white leading-[23.44px]'>
+                  Saqlash
+                </p>
+              </div>
             </div>
             </div>
           </div>
