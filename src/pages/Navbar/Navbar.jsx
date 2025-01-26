@@ -15,7 +15,7 @@ import logo from './Image/black/logo vector.png';
 import './style.css';
 
 const Navbar = () => {
-  const [isStudentMenuOpen, setStudentMenuOpen] = useState(false);
+  // const [isStudentMenuOpen, setStudentMenuOpen] = useState(false);
   const location = useLocation();
 
   return (
@@ -216,7 +216,7 @@ const Navbar = () => {
 
         <Link
           to="/settings"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] relative rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
             location.pathname === '/settings'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
@@ -231,6 +231,26 @@ const Navbar = () => {
               Sozlamalar
             </h1>
           </div>
+          <div className="absolute top-0 left-[100%] flex flex-col bg-white shadow-lg rounded-lg p-2 gap-2">
+    <Link
+      to="/settings/profile"
+      className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
+    >
+      Profil sozlamalari
+    </Link>
+    <Link
+      to="/settings/security"
+      className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
+    >
+      Xavfsizlik
+    </Link>
+    <Link
+      to="/settings/preferences"
+      className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
+    >
+      Ko'rinish sozlamalari
+    </Link>
+  </div>
         </Link>
       </div>
     </div>

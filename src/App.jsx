@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Router>
       <div className='flex w-full bg-[rgba(242,238,238,1)] m-auto h-screen'>
-        <div className='h-screen sticky top-0'>
+        <div className='z-50 h-screen sticky top-0'>
           <Navbar />
         </div>
         <div className='flex flex-col w-full overflow-hidden'>
