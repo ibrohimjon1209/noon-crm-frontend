@@ -68,7 +68,7 @@ const EditModal = ({ isOpen, onClose, initialData, onSave }) => {
 
           <button
             type="submit"
-            className="w-[140px] mx-auto h-[60px] text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF]"
+            className="w-[140px] mx-auto h-[60px] text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF] hover:scale-105 active:scale-95 duration-300"
             onClick={onClose}
           >
             Saqlash

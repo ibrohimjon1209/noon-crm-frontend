@@ -14,13 +14,13 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
         <div className="flex justify-end mr-[70px] gap-4 mt-[35px]">
           <button
             onClick={onClose}
-            className="font-roboto font-[400] text-[20px] leading-[23.44px] px-7 py-3 rounded-[4px] text-black hover:bg-gray-200"
+            className="font-roboto font-[400] text-[20px] leading-[23.44px] px-7 py-3 rounded-[4px] text-black hover:bg-gray-200 hover:scale-105 active:scale-95 duration-300"
           >
             Yo'q
           </button>
           <button
             onClick={onConfirm}
-            className="font-roboto font-[400] text-[20px] leading-[23.44px] px-7 py-3 rounded-[5px] bg-[#0D99FF] text-white hover:bg-[#0D89FF]"
+            className="font-roboto font-[400] text-[20px] leading-[23.44px] px-7 py-3 rounded-[5px] bg-[#0D99FF] text-white hover:bg-[#0D89FF] hover:scale-105 active:scale-95 duration-300"
           >
             HA
           </button>
