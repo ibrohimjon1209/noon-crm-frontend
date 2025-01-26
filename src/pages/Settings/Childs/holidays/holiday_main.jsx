@@ -11,7 +11,6 @@ const Holiday = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [currentHoliday, setCurrentHoliday] = useState(null);
-
   const holidays_data = [
     {
       title: "8-mart Xalqaro Xotin Qizlar Bayrami",

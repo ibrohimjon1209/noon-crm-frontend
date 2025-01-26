@@ -47,7 +47,7 @@ export function DateInput({ label, value, onChange }) {
     }
 
     return (
-      <div className="absolute z-10 mt-1 bg-white border border-gray-300 rounded-md shadow-lg p-2">
+      <div className="ml-[50%] absolute z-10 mt-1 bg-white border border-gray-300 rounded-md shadow-lg p-2">
         <div className="flex justify-between mb-2">
           <button onClick={() => changeMonth(-1)}>&lt;</button>
           <span>{months[month]} {year}</span>
@@ -55,7 +55,7 @@ export function DateInput({ label, value, onChange }) {
         </div>
         <div className="grid grid-cols-7 gap-1">
           {['Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh', 'Ya'].map(day => (
-            <div key={day} className="w-8 h-8 flex items-center justify-center font-bold">{day}</div>
+            <div key={day} className="w-8 h-8 flex items-center justify-center font-semibold">{day}</div>
           ))}
           {days}
         </div>

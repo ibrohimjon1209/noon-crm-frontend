@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react"
-import { DateInput } from "./date_input"
+import React, { useState, useEffect } from "react";
+import { DateInput } from "./date_input";
 
 const EditModal = ({ isOpen, onClose, initialData, onSave }) => {
   const [formData, setFormData] = useState({
     title: "",
     start_time: undefined,
     end_time: undefined,
-  })
+  });
 
   useEffect(() => {
     if (initialData) {
       setFormData({
-        ...initialData,
+        title: initialData.title || "",
         start_time: initialData.start_time ? new Date(initialData.start_time) : undefined,
         end_time: initialData.end_time ? new Date(initialData.end_time) : undefined,
-      })
+      });
     }
-  }, [initialData])
+  }, [initialData]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    onSave(formData)
-    onClose()
-  }
+    e.preventDefault();
+    onSave(formData);
+    onClose();
+  };
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -66,13 +66,17 @@ const EditModal = ({ isOpen, onClose, initialData, onSave }) => {
             onChange={(date) => setFormData({ ...formData, end_time: date })}
           />
 
-          <button onClick={onClose} type="submit" className="w-[140px] mx-auto h-[60px] text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF]">
+          <button
+            type="submit"
+            className="w-[140px] mx-auto h-[60px] text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF]"
+            onClick={onClose}
+          >
             Saqlash
           </button>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EditModal
+export default EditModal;
