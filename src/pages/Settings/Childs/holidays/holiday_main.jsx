@@ -4,10 +4,12 @@ import editIcon from "../../images/edit_icon.png";
 import deleteIcon from "../../images/delete_icon.png";
 import DeleteModal from "./delete_modal";
 import EditModal from "./edit_modal";
+import AddModal from "./add_modal";
 
 const Holiday = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [currentHoliday, setCurrentHoliday] = useState(null);
 
   const holidays_data = [
@@ -17,67 +19,7 @@ const Holiday = () => {
       end_time: "09.03.2024 | 05:00",
     },
     {
-      title: "9-may Xotia va Qadrlash kuni",
-      start_time: "10.06.2024 | 05:00",
-      end_time: "11.06.2024 | 05:00",
-    },
-    {
-      title: "Qurbon Hayiti",
-      start_time: "10.06.2024 | 05:00",
-      end_time: "11.06.2024 | 05:00",
-    },
-    {
-      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
-      start_time: "08.03.2024 | 05:00",
-      end_time: "09.03.2024 | 05:00",
-    },
-    {
-      title: "9-may Xotia va Qadrlash kuni",
-      start_time: "10.06.2024 | 05:00",
-      end_time: "11.06.2024 | 05:00",
-    },
-    {
-      title: "Qurbon Hayiti",
-      start_time: "10.06.2024 | 05:00",
-      end_time: "11.06.2024 | 05:00",
-    },
-    {
-      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
-      start_time: "08.03.2024 | 05:00",
-      end_time: "09.03.2024 | 05:00",
-    },
-    {
-      title: "9-may Xotia va Qadrlash kuni",
-      start_time: "10.06.2024 | 05:00",
-      end_time: "11.06.2024 | 05:00",
-    },
-    {
-      title: "Qurbon Hayiti",
-      start_time: "10.06.2024 | 05:00",
-      end_time: "11.06.2024 | 05:00",
-    },
-    {
-      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
-      start_time: "08.03.2024 | 05:00",
-      end_time: "09.03.2024 | 05:00",
-    },
-    {
-      title: "9-may Xotia va Qadrlash kuni",
-      start_time: "10.06.2024 | 05:00",
-      end_time: "11.06.2024 | 05:00",
-    },
-    {
-      title: "Qurbon Hayiti",
-      start_time: "10.06.2024 | 05:00",
-      end_time: "11.06.2024 | 05:00",
-    },
-    {
-      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
-      start_time: "08.03.2024 | 05:00",
-      end_time: "09.03.2024 | 05:00",
-    },
-    {
-      title: "9-may Xotia va Qadrlash kuni",
+      title: "9-may Xotira va Qadrlash kuni",
       start_time: "10.06.2024 | 05:00",
       end_time: "11.06.2024 | 05:00",
     },
@@ -103,10 +45,7 @@ const Holiday = () => {
       <div className="flex flex-row w-[100%] justify-start">
         <div
           className="flex flex-row justify-center items-center gap-[15px] bg-[#0D99FF] w-[330px] h-[60px] rounded-[50px] cursor-pointer"
-          onClick={() => {
-            setCurrentHoliday(null);
-            setIsEditModalOpen(true);
-          }}
+          onClick={() => setIsAddModalOpen(true)}
         >
           <img className="w-[32px] h-[32px] object-contain" src={plus || "/placeholder.svg"} alt="Add icon" />
           <p className="font-roboto font-[400] text-[20px] leading-[23.44px] text-white">
@@ -161,6 +100,8 @@ const Holiday = () => {
         onClose={() => setIsEditModalOpen(false)}
         holiday={currentHoliday}
       />
+
+      <AddModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
     </div>
   );
 };
