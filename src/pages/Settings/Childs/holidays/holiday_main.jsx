@@ -26,6 +26,66 @@ const Holiday = () => {
       start_time: "10.06.2024 | 05:00",
       end_time: "11.06.2024 | 05:00",
     },
+    {
+      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
+      start_time: "08.03.2024 | 05:00",
+      end_time: "09.03.2024 | 05:00",
+    },
+    {
+      title: "9-may Xotia va Qadrlash kuni",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+    {
+      title: "Qurbon Hayiti",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+    {
+      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
+      start_time: "08.03.2024 | 05:00",
+      end_time: "09.03.2024 | 05:00",
+    },
+    {
+      title: "9-may Xotia va Qadrlash kuni",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+    {
+      title: "Qurbon Hayiti",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+    {
+      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
+      start_time: "08.03.2024 | 05:00",
+      end_time: "09.03.2024 | 05:00",
+    },
+    {
+      title: "9-may Xotia va Qadrlash kuni",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+    {
+      title: "Qurbon Hayiti",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+    {
+      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
+      start_time: "08.03.2024 | 05:00",
+      end_time: "09.03.2024 | 05:00",
+    },
+    {
+      title: "9-may Xotia va Qadrlash kuni",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+    {
+      title: "Qurbon Hayiti",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
   ];
 
   const handleDelete = (holiday) => {
@@ -54,7 +114,7 @@ const Holiday = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col items-center w-[1000px] h-[86%] bg-white rounded-[15px]">
+      <div className="flex flex-col items-center w-[1000px] overflow-y-scroll h-[86%] bg-white rounded-[15px]" style={{ scrollbarWidth: "thin" }}>
         <div className="flex flex-row items-center w-[90%] h-[10%] border-b-[1px] border-[#D9D9D9]">
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[5%]">№</p>
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[35%]">Sarlavha</p>
@@ -74,13 +134,13 @@ const Holiday = () => {
             </p>
             <div className="flex w-[10%] justify-around">
               <img
-                src={editIcon || "/placeholder.svg"}
+                src={editIcon}
                 alt="Edit"
                 className="w-[24px] h-[24px] cursor-pointer"
                 onClick={() => handleEdit(item)}
               />
               <img
-                src={deleteIcon || "/placeholder.svg"}
+                src={deleteIcon}
                 alt="Delete"
                 className="w-[24px] h-[24px] cursor-pointer"
                 onClick={() => handleDelete(item)}
