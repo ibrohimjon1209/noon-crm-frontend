@@ -43,7 +43,7 @@ const Check = () => {
   return (
     <div className="flex flex-row justify-center gap-[55px] w-[100%] h-auto">
       <div
-        className="w-[330px] pt-[20px] h-[calc(100vh-180px)] flex flex-col items-center bg-white rounded-[15px] overflow-y-scroll"
+        className="w-[330px] pt-[20px] h-[calc(100vh-180px)] flex flex-col items-center bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg overflow-y-scroll"
         style={{ scrollbarWidth: "thin" }}
       >
         <div className="flex flex-col pl-[35px] w-[100%] h-[100%] gap-[15px]">
@@ -81,10 +81,10 @@ const Check = () => {
             <p className="font-roboto font-[400] text-[18px] text-black leading-[21.09px]">Auto Print</p>
             <div
               onClick={() => setAutoPrint(!auto_print)}
-              className={`rounded-[40px] ${auto_print ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${auto_print ? "justify-end" : "justify-start"} duration-[0.8ms] cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
+              className={`rounded-[40px] ${auto_print ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${auto_print ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
             >
               <div
-                className={`h-[85%] ${auto_print ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.8ms]`}
+                className={`h-[85%] ${auto_print ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.1s] ease-out`}
               ></div>
             </div>
           </div>
@@ -93,10 +93,10 @@ const Check = () => {
               <p className="font-roboto font-[400] text-[18px] text-black leading-[21.09px]">Chekning sarlavhasi</p>
               <div
                 onClick={() => setCheckTitle(!check_title)}
-                className={`rounded-[40px] ${check_title ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${check_title ? "justify-end" : "justify-start"} duration-[0.8ms] cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
+                className={`rounded-[40px] ${check_title ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${check_title ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
               >
                 <div
-                  className={`h-[85%] ${check_title ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.8ms]`}
+                  className={`h-[85%] ${check_title ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.1s] ease-out`}
                 ></div>
               </div>
             </div>
@@ -172,10 +172,10 @@ const Check = () => {
               </p>
               <div
                 onClick={() => setTransactionData(!transaction_data)}
-                className={`rounded-[40px] ${transaction_data ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${transaction_data ? "justify-end" : "justify-start"} duration-[0.8ms] cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
+                className={`rounded-[40px] ${transaction_data ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${transaction_data ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
               >
                 <div
-                  className={`h-[85%] ${transaction_data ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.8ms]`}
+                  className={`h-[85%] ${transaction_data ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.1s] ease-out`}
                 ></div>
               </div>
             </div>
