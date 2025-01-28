@@ -43,14 +43,14 @@ const Check = () => {
   return (
     <div className="flex flex-row justify-center gap-[55px] w-[100%] h-auto">
       <div
-        className="w-[330px] pt-[20px] h-[calc(100vh-180px)] flex flex-col items-center bg-white rounded-[15px] overflow-y-scroll"
+        className="w-[330px] pt-[20px] h-[calc(100vh-180px)] flex flex-col items-center bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg overflow-y-scroll"
         style={{ scrollbarWidth: "thin" }}
       >
         <div className="flex flex-col pl-[35px] w-[100%] h-[100%] gap-[15px]">
           <p className="font-roboto font-[400] text-black text-[18px] leading-[21.09px]">Chek sozlamalari</p>
           <p className="font-roboto font-[400] text-[#404040] text-[15px] leading-[18.15px]">Logo</p>
         </div>
-        <img className="-mt-[75px] w-[250px] h-[250px]" src={logo_vector || "/placeholder.svg"} alt="" />
+        <img className="w-[250px] -mt-[75px] h-[250px]" src={logo_vector || "/placeholder.svg"} alt="" />
         <div className="w-[100%] -mt-[63px] h-auto flex flex-col items-center">
           <div className="w-[80%] flex gap-[18px] border-b-[1px] border-black border-dashed pb-[18px] flex-col">
             <p className="font-roboto font-[500] text-[#404040] text-[15px] leading-[18.15px]">Sarlavha</p>
@@ -81,26 +81,26 @@ const Check = () => {
             <p className="font-roboto font-[400] text-[18px] text-black leading-[21.09px]">Auto Print</p>
             <div
               onClick={() => setAutoPrint(!auto_print)}
-              className={`rounded-[40px] ${auto_print ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${auto_print ? "justify-end" : "justify-start"} duration-[0.8ms] cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
+              className={`rounded-[40px] ${auto_print ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${auto_print ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
             >
               <div
-                className={`h-[85%] ${auto_print ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.8ms]`}
+                className={`h-[85%] ${auto_print ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.1s] ease-out`}
               ></div>
             </div>
           </div>
           <div className="w-[100%] flex flex-col">
-            <div className="flex flex-row justify-between mt-[20px] items-center mx-auto w-[80%]">
+            <div className={`flex border-black border-dashed ${!check_title && 'border-b-[1px] pb-[20px]'} flex-row justify-between mt-[20px] items-center mx-auto w-[80%]`}>
               <p className="font-roboto font-[400] text-[18px] text-black leading-[21.09px]">Chekning sarlavhasi</p>
               <div
                 onClick={() => setCheckTitle(!check_title)}
-                className={`rounded-[40px] ${check_title ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${check_title ? "justify-end" : "justify-start"} duration-[0.8ms] cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
+                className={`rounded-[40px] ${check_title ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${check_title ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
               >
                 <div
-                  className={`h-[85%] ${check_title ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.8ms]`}
+                  className={`h-[85%] ${check_title ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.1s] ease-out`}
                 ></div>
               </div>
             </div>
-            <div className="flex flex-col mt-[20px] w-[100%] gap-[20px]">
+            <div className={`${check_title ? 'flex opacity-100' : 'hidden opacity-0'} transition-all ease-in flex-col mt-[20px] w-[100%] gap-[20px]`}>
               <div className="flex flex-row gap-[30px] w-[100%]">
                 <label className="relative block pl-9 mb-3 cursor-pointer text-lg select-none">
                   <input
@@ -166,20 +166,20 @@ const Check = () => {
               </div>
               <div className="mx-auto w-[80%] border-b-[1px] border-black border-dashed"></div>
             </div>
-            <div className="flex flex-row justify-between mt-[20px] items-center mx-auto w-[80%]">
+            <div className={`flex flex-row justify-between ${transaction_data ? 'mt-[20px]' : 'my-[20px]'} duration-[0.3s] ease-out items-center mx-auto w-[80%]`}>
               <p className="font-roboto whitespace-nowrap font-[400] text-[18px] text-black leading-[21.09px]">
                 Tranzaksiya ma'lumotlari
               </p>
               <div
                 onClick={() => setTransactionData(!transaction_data)}
-                className={`rounded-[40px] ${transaction_data ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${transaction_data ? "justify-end" : "justify-start"} duration-[0.8ms] cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
+                className={`rounded-[40px] ${transaction_data ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${transaction_data ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer px-[2px] items-center border-[#264E86] border-[4px] h-[23px]`}
               >
                 <div
-                  className={`h-[85%] ${transaction_data ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.8ms]`}
+                  className={`h-[85%] ${transaction_data ? "bg-white" : "bg-[#264E86]"} w-[50%] rounded-[50%] duration-[0.1s] ease-out`}
                 ></div>
               </div>
             </div>
-            <div className="flex flex-col mt-[20px] w-[100%] gap-[20px]">
+            <div className={`${transaction_data ? 'flex opacity-100' : 'hidden opacity-0'} transition-all ease-in flex-col mt-[20px] w-[100%] gap-[20px]`}>
               <div className="flex flex-row gap-[30px] w-[100%]">
                 <label className="relative block pl-9 mb-3 cursor-pointer text-lg select-none">
                   <input

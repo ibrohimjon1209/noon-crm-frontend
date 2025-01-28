@@ -1,16 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from "react"
 
-const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
-  if (!isOpen) return null
+const Delete_modal = ({ isOpen, onClose, onConfirm }) => {
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [shouldRender, setShouldRender] = useState(false)
+
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true)
+      setTimeout(() => setIsAnimating(true), 10)
+    } else {
+      setIsAnimating(false)
+      setTimeout(() => setShouldRender(false), 300) // Match this with the transition duration
+    }
+  }, [isOpen])
+
+  if (!shouldRender) return null
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose}></div>
-      <div className="relative bg-white rounded-[20px] w-[625px] h-[549px] z-50">
+      <div
+        className={`fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
+          isAnimating ? "opacity-100" : "opacity-0"
+        }`}
+        onClick={onClose}
+      ></div>
+      <div
+        className={`relative bg-white rounded-[20px] w-[625px] h-[549px] z-50 transition-all duration-300 ease-out ${
+          isAnimating ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        }`}
+      >
         <h2 className="font-roboto font-[400] p-6 text-[20px] leading-[23.44px] uppercase text-black">
           ROSTDAN HAM O'CHIRMOQCHIMISIZ ?
         </h2>
-        <hr className='border-[#00000080] w-[100%]'/>
+        <hr className="border-[#00000080] w-[100%]" />
         <div className="flex justify-end mr-[70px] gap-4 mt-[35px]">
           <button
             onClick={onClose}
@@ -30,4 +52,4 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
   )
 }
 
-export default DeleteModal
+export default Delete_modal
