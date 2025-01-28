@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <div className="w-[230px] top-0 h-full flex flex-col justify-between bg-white">
       <div className="w-[100%] h-[67px] py-[15px] flex justify-center items-center shadow-[0.05px_1px_1px_0_#00000040]">
-        <Link to="/"> 
+        <Link to="/">
           <img
             src={logo}
             alt="logo"
@@ -32,11 +32,10 @@ const Navbar = () => {
       <div className="duration-300 nav-left w-[100%] h-full mt-[28px] gap-[5px] overflow-y-hidden overflow-x-hidden flex flex-col items-center">
         <Link
           to="/assigments"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${
-            location.pathname === '/assigments'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${location.pathname === '/assigments'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          } pl-[10px]`}
+            } pl-[10px]`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -51,11 +50,10 @@ const Navbar = () => {
 
         <Link
           to="/lids"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/lids'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/lids'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img src={lydes_icon} className="w-[38px] h-[38px] object-contain" />
@@ -67,11 +65,10 @@ const Navbar = () => {
 
         <Link
           to="/groups"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/groups'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/groups'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img src={group_icon} className="w-[38px] h-[38px] object-contain" />
@@ -83,11 +80,10 @@ const Navbar = () => {
 
         <Link
           to="/students"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/students'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/students'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -102,11 +98,10 @@ const Navbar = () => {
 
         <Link
           to="/study_section"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/study_section'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/study_section'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -121,11 +116,10 @@ const Navbar = () => {
 
         <Link
           to="/finance"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/finance'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/finance'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -140,11 +134,10 @@ const Navbar = () => {
 
         <Link
           to="/control"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/control'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/control'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -159,11 +152,10 @@ const Navbar = () => {
 
         <Link
           to="/management"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/management'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/management'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -178,11 +170,10 @@ const Navbar = () => {
 
         <Link
           to="/marketing"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/marketing'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/marketing'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -197,11 +188,10 @@ const Navbar = () => {
 
         <Link
           to="/reports"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/reports'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/reports'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -216,11 +206,10 @@ const Navbar = () => {
 
         <Link
           to="/settings"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === '/settings'
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/settings'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -231,26 +220,26 @@ const Navbar = () => {
               Sozlamalar
             </h1>
           </div>
-          <div className="absolute top-0 left-[100%] flex flex-col bg-white shadow-lg rounded-lg p-2 gap-2">
-    <Link
-      to="/settings/profile"
-      className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
-    >
-      Profil sozlamalari
-    </Link>
-    <Link
-      to="/settings/security"
-      className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
-    >
-      Xavfsizlik
-    </Link>
-    <Link
-      to="/settings/preferences"
-      className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
-    >
-      Ko'rinish sozlamalari
-    </Link>
-  </div>
+          {/* <div className="absolute top-0 left-[100%] flex flex-col bg-white shadow-lg rounded-lg p-2 gap-2">
+            <Link
+              to="/settings/profile"
+              className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
+            >
+              Profil sozlamalari
+            </Link>
+            <Link
+              to="/settings/security"
+              className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
+            >
+              Xavfsizlik
+            </Link>
+            <Link
+              to="/settings/preferences"
+              className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
+            >
+              Ko'rinish sozlamalari
+            </Link>
+          </div> */}
         </Link>
       </div>
     </div>

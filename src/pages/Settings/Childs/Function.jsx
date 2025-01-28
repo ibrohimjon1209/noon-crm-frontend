@@ -31,7 +31,7 @@ const Function = () => {
     return (
         <div className=''>  
             <div className="w-[calc(100vw-55vw)] pt-[15px] rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]">
-                <div className="w-full h-full">
+                <div className="w-full h-[calc(100vh-125px)] overflow-y-auto overflow-hidden">
                     <div className='w-full h-auto  pb-[30px] pt-[10px] px-[40px]'>
                         <h1 className="font-inter font-[700] text-[18px] leading-[21.78px] text-[#404040]">
                             Funksionallik
