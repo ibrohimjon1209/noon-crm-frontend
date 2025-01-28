@@ -29,7 +29,7 @@ const Nav_top = () => {
             <select
               value={selectedOption}
               onChange={(e) => handleOptionChange(e.target.value)}
-              className="cursor-pointer font-[roboto] font-[400] text-[18px] text-center leading-[21.09px] text-[rgba(0,0,0,1)] bg-transparent outline-none appearance-none w-full h-full"
+              className="cursor-pointer font-roboto font-[500] text-[18px] text-center leading-[21.09px] text-[rgba(0,0,0,1)] bg-transparent outline-none appearance-none w-full h-full"
             >
               <option className='cursor-pointer' value="NOON">NOON</option>
               <option className='cursor-pointer' value="Option 2">Option 2</option>
