@@ -216,11 +216,7 @@ const Navbar = () => {
 
         <Link
           to="/settings"
-<<<<<<< HEAD
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-=======
-          className={`w-[85%] relative rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
->>>>>>> 24c334a70f9852e040eafe31b245406310ace66c
             location.pathname === '/settings'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
