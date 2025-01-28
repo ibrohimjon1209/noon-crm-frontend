@@ -1,25 +1,27 @@
 import React from "react";
 import check from '../../Images/check_paper.png'
 import logo_vector from '../../Images/logo.png'
+import { div } from "framer-motion/client";
 
-const Check_paper = ({ 
-    title_input, 
-    check_bottom_text, 
-    check_language, 
-    filial_name, 
-    title, 
-    logo, 
-    cashier_name, 
-    student_name, 
-    date, cashier, 
-    value, 
-    payment_type, 
-    transaction_type, 
-    description,
-    check_title
-    }) => {
-    return (
-        <div className='w-[537px] h-auto relative'>
+const Check_paper = ({
+  title_input,
+  check_bottom_text,
+  check_language,
+  filial_name,
+  title,
+  logo,
+  cashier_name,
+  student_name,
+  date, cashier,
+  value,
+  payment_type,
+  transaction_type,
+  description,
+  check_title
+}) => {
+  return (
+    <div className="">
+      <div className='w-[calc(100vw-1200px)] h-auto relative'>
         <img className='absolute w-[100%] h-[620px]' src={check} alt="" />
         <div className={`w-[100%] h-auto z-[10] relative flex flex-col items-center ${logo ? 'pt-[30px]' : 'pt-[70px]'}`}>
           <p className='font-roboto font-[400] text-[18px] leading-[21.09px] text-black'>
@@ -96,11 +98,13 @@ const Check_paper = ({
             </div>
           </div>
           <p className='font-roboto font-[400] text-[18px] leading-[21.09px] text-black pt-[15px]'>
-              {check_bottom_text ? check_bottom_text : ""}
-            </p>
+            {check_bottom_text ? check_bottom_text : ""}
+          </p>
         </div>
       </div>
-    )
+    </div>
+
+  )
 }
 
 export default Check_paper

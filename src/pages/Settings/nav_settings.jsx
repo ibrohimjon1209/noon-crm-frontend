@@ -7,7 +7,7 @@ import holiday_icon from './Images/holiday.png';
 const Nav_settings = ({ active, setActive }) => {
   return (
     <div className='pb-[45px]'>
-      <div className='w-[426px] h-[calc(100vh-180px)] pt-[5px] rounded-[15px] bg-[rgba(255,255,255,1)]'>
+      <div className='w-[calc(100vw-80vw)] h-[calc(100vh-180px)] pt-[5px] rounded-[15px] bg-[rgba(255,255,255,1)]'>
         <div onClick={() => setActive("Function")} className='cursor-pointer w-full h-[60px] pl-[40.22px] flex items-center gap-[26.97px] border-b-[1px]'>
           <div className='w-[36.82px] h-[29.32px]'>
             <img src={function_icon} alt="Function" />

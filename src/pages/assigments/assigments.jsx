@@ -320,7 +320,7 @@ const Assigments = () => {
     <div className={`w-full ${ is_filter_open ? 'h-[120%]' : `h-[110%]`} flex flex-col items-center mt-[15px]`}>
         <Header is_filter_open={is_filter_open} set_is_filter_open={set_is_filter_open}/>
     <div className="w-auto h-[94%] flex flex-col ml-[32px] mt-[20px] mr-[323px] gap-[25px] overflow-y-hidden">
-        <div className="w-[100%] flex flex-row gap-[15px]">
+        <div className="w-[100%] flex flex-row gap-[15px]"> 
         <div className="w-full flex flex-row gap-4">
             <div className="w-full h-full border-t-4 border-[#FE3D3D] flex flex-col items-center pt-6 gap-3">
                 <p className="uppercase text-black font-roboto font-semibold text-lg leading-6">O’tib ketgan</p>

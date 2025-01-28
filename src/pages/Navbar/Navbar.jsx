@@ -19,13 +19,13 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className="w-[300px] top-0 h-full flex flex-col justify-between bg-white">
-      <div className="w-[100%] py-[15px] flex justify-center items-center shadow-[0.2px_2px_2px_0_#00000040]">
-        <Link to="/">
+    <div className="w-[230px] top-0 h-full flex flex-col justify-between bg-white">
+      <div className="w-[100%] h-[67px] py-[15px] flex justify-center items-center shadow-[0.05px_1px_1px_0_#00000040]">
+        <Link to="/"> 
           <img
             src={logo}
             alt="logo"
-            className="w-[67px] h-[67px] object-contain cursor-pointer"
+            className="scale-[75%] w-[67px] h-[67px] object-contain cursor-pointer"
           />
         </Link>
       </div>
@@ -36,14 +36,14 @@ const Navbar = () => {
             location.pathname === '/assigments'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-          } pl-[25px]`}
+          } pl-[10px]`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={assignment_icon}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Topshiriqlar
             </h1>
           </div>
@@ -51,15 +51,15 @@ const Navbar = () => {
 
         <Link
           to="/lids"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/lids'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img src={lydes_icon} className="w-[38px] h-[38px] object-contain" />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Lidlar
             </h1>
           </div>
@@ -67,15 +67,15 @@ const Navbar = () => {
 
         <Link
           to="/groups"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/groups'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img src={group_icon} className="w-[38px] h-[38px] object-contain" />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Guruh
             </h1>
           </div>
@@ -83,18 +83,18 @@ const Navbar = () => {
 
         <Link
           to="/students"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/students'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={student_icon}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               O'quvchilar
             </h1>
           </div>
@@ -102,18 +102,18 @@ const Navbar = () => {
 
         <Link
           to="/study_section"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/study_section'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={study_division}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               O'quv bo'limi
             </h1>
           </div>
@@ -121,18 +121,18 @@ const Navbar = () => {
 
         <Link
           to="/finance"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/finance'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={wallet_icon}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Moliya
             </h1>
           </div>
@@ -140,18 +140,18 @@ const Navbar = () => {
 
         <Link
           to="/control"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/control'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={control_icon}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Nazorat
             </h1>
           </div>
@@ -159,18 +159,18 @@ const Navbar = () => {
 
         <Link
           to="/management"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/management'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={drive_icon}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Boshqaruv
             </h1>
           </div>
@@ -178,18 +178,18 @@ const Navbar = () => {
 
         <Link
           to="/marketing"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/marketing'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={marketing_icon}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Sotuv va marketing
             </h1>
           </div>
@@ -197,18 +197,18 @@ const Navbar = () => {
 
         <Link
           to="/reports"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/reports'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={report_icon}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Hisobotlar
             </h1>
           </div>
@@ -216,18 +216,18 @@ const Navbar = () => {
 
         <Link
           to="/settings"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[25px] ${
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
             location.pathname === '/settings'
               ? 'bg-[#CFEBFF] text-[#264E86]'
               : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
           }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[25px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
               src={settings_icon}
               className="w-[38px] h-[38px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[18px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
               Sozlamalar
             </h1>
           </div>
