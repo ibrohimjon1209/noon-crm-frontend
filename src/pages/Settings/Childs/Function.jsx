@@ -1,6 +1,5 @@
 import React from 'react';
 import on from './../Images/Vector.png'
-import { div } from 'framer-motion/client';
 
 const Function = () => {
     return (

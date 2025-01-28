@@ -2,10 +2,28 @@ import React, { useState } from 'react'
 import Function from './Childs/Function'
 import Check from './Childs/check/check_main'
 import Subscribe from './Childs/Subscribe'
-import Holiday from './Childs/Holiday'
+import Holiday from './Childs/holidays/holiday_main'
 import Nav_settings from './nav_settings'
 
 const Settings = () => {
+
+  const holidaysData = [
+    {
+      title: "8-mart Xalqaro Xotin Qizlar Bayrami",
+      start_time: "08.03.2024 | 05:00",
+      end_time: "09.03.2024 | 05:00",
+    },
+    {
+      title: "9-may Xotira va Qadrlash kuni",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+    {
+      title: "Qurbon Hayiti",
+      start_time: "10.06.2024 | 05:00",
+      end_time: "11.06.2024 | 05:00",
+    },
+  ];
 
   const [active, setActive] = useState("Function");
 
@@ -21,7 +39,7 @@ const Settings = () => {
           {active === "Function" && <Function />}
           {active === "Check" && <Check />}
           {active === "Follow" && <Subscribe />}
-          {active === "Holiday" && <Holiday />}
+          {active === "Holiday" && <Holiday holidaysData={holidaysData} />}
         </div>
       </div>
 
