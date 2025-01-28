@@ -18,6 +18,7 @@ const Navbar = () => {
   // const [isStudentMenuOpen, setStudentMenuOpen] = useState(false);
   const location = useLocation();
 
+  
   return (
     <div className="w-[230px] top-0 h-full flex flex-col justify-between bg-white">
       <div className="w-[100%] h-[67px] py-[15px] flex justify-center items-center shadow-[0.05px_1px_1px_0_#00000040]">

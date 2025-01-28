@@ -13,7 +13,7 @@ const Add_modal = ({ isOpen, onClose, initialData, onSave }) => {
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true)
-      setTimeout(() => setIsAnimating(true), 10)
+      setTimeout(() => setIsAnimating(true), 30)
     } else {
       setIsAnimating(false)
       setTimeout(() => setShouldRender(false), 300) // Match this with the transition duration
@@ -48,7 +48,7 @@ const Add_modal = ({ isOpen, onClose, initialData, onSave }) => {
       ></div>
       <div
         className={`relative bg-white rounded-[10px] w-[625px] h-[549px] z-50 transition-all duration-300 ease-out ${
-          isAnimating ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+          isAnimating ? "translate-y-1 opacity-100" : "-translate-y-20 opacity-0"
         }`}
       >
         <div className="flex justify-between items-center pt-6 px-6 mb-6">

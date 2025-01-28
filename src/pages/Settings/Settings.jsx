@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import Function from './Childs/Function'
-import Check from './Childs/check/check_main'
-import Subscribe from './Childs/Subscribe'
-import Holiday from './Childs/holidays/holiday_main'
-import Nav_settings from './nav_settings'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom'; // Routes va Route import qilinadi
+import Function from './Childs/Function';
+import Check from './Childs/check/check_main';
+import Subscribe from './Childs/Subscribe';
+import Holiday from './Childs/holidays/holiday_main';
+import Nav_settings from './nav_settings';
 
 const Settings = () => {
-
   const holidaysData = [
     {
       title: "8-mart Xalqaro Xotin Qizlar Bayrami",
@@ -25,26 +25,21 @@ const Settings = () => {
     },
   ];
 
-  const [active, setActive] = useState("Function");
-
   return (
-    <div className='px-[32px] pt-[41px]'>
-
-
+    <div className='px-[42px] pt-[41px]'>
       <div className="flex gap-[30px]">
-
-        <Nav_settings active={active} setActive={setActive} />
-
+        <Nav_settings />
         <div>
-          {active === "Function" && <Function />}
-          {active === "Check" && <Check />}
-          {active === "Follow" && <Subscribe />}
-          {active === "Holiday" && <Holiday holidaysData={holidaysData} />}
+          <Routes>
+            <Route path="function" element={<Function />} />
+            <Route path="check" element={<Check />} />
+            <Route path="follow" element={<Subscribe />} />
+            <Route path="holiday" element={<Holiday holidaysData={holidaysData} />} />
+          </Routes>
         </div>
       </div>
-
     </div>
-  )
+  );
 }
 
-export default Settings
+export default Settings;
