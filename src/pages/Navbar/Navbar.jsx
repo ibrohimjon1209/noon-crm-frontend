@@ -11,14 +11,16 @@ import drive_icon from './Image/blue/drive.png';
 import marketing_icon from './Image/blue/marketing.png';
 import report_icon from './Image/blue/report.png';
 import settings_icon from './Image/blue/settings.png';
+import piramid from './Image/piramid.png';
 import logo from './Image/black/logo vector.png';
 import './style.css';
 
 const Navbar = () => {
   // const [isStudentMenuOpen, setStudentMenuOpen] = useState(false);
   const location = useLocation();
+  const [isHovered, setIsHovered] = useState(false);
 
-  
+
   return (
     <div className="w-[230px] top-0 h-full flex flex-col justify-between bg-white">
       <div className="w-[100%] h-[67px] py-[15px] flex justify-center items-center shadow-[0.05px_1px_1px_0_#00000040]">
@@ -34,8 +36,8 @@ const Navbar = () => {
         <Link
           to="/assigments"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${location.pathname === '/assigments'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             } pl-[10px]`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -52,8 +54,8 @@ const Navbar = () => {
         <Link
           to="/lids"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/lids'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -67,8 +69,8 @@ const Navbar = () => {
         <Link
           to="/groups"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/groups'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -82,8 +84,8 @@ const Navbar = () => {
         <Link
           to="/students"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/students'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -100,8 +102,8 @@ const Navbar = () => {
         <Link
           to="/study_section"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/study_section'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -118,8 +120,8 @@ const Navbar = () => {
         <Link
           to="/finance"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/finance'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -136,8 +138,8 @@ const Navbar = () => {
         <Link
           to="/control"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/control'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -154,8 +156,8 @@ const Navbar = () => {
         <Link
           to="/management"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/management'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -172,8 +174,8 @@ const Navbar = () => {
         <Link
           to="/marketing"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/marketing'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -190,8 +192,8 @@ const Navbar = () => {
         <Link
           to="/reports"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/reports'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
@@ -208,9 +210,11 @@ const Navbar = () => {
         <Link
           to="/settings"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/settings'
-              ? 'bg-[#CFEBFF] text-[#264E86]'
-              : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
+            ? 'bg-[#CFEBFF] text-[#264E86]'
+            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
+          onMouseEnter={() => setIsHovered(true)} // Hoverga o'tganda
+          onMouseLeave={() => setIsHovered(false)} // Hoverdan chiqganda
         >
           <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
             <img
@@ -221,26 +225,51 @@ const Navbar = () => {
               Sozlamalar
             </h1>
           </div>
-          {/* <div className="absolute top-0 left-[100%] flex flex-col bg-white shadow-lg rounded-lg p-2 gap-2">
-            <Link
-              to="/settings/profile"
-              className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
-            >
-              Profil sozlamalari
-            </Link>
-            <Link
-              to="/settings/security"
-              className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
-            >
-              Xavfsizlik
-            </Link>
-            <Link
-              to="/settings/preferences"
-              className="text-black hover:text-[#264E86] hover:bg-[#CFEBFF] px-4 py-2 rounded-lg"
-            >
-              Ko'rinish sozlamalari
-            </Link>
-          </div> */}
+
+          {/* Menu settings ko'rinishi */}
+          {isHovered && (
+            <div className='menu-settings flex absolute mt-[-210px] ml-[185px]'>
+              <img src={piramid} className='w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[235px]' alt="" />
+
+              <div>
+                <div className='flex cursor-auto flex-col gap-[20px] w-[221px] h-[286px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg'>
+                  <Link to='settings/function'>
+                    <div className='gap-[10px] flex items-center'>
+                      <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
+                      <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Umumiy sozlamalar</h1>
+                    </div>
+                  </Link>
+
+                  <Link to='settings/finance'>
+                    <div className='gap-[10px] flex items-center'>
+                      <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
+                      <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Moliya</h1>
+                    </div>
+                  </Link>
+
+                  <div className='gap-[10px] flex items-center'>
+                    <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
+                    <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>O'quv</h1>
+                  </div>
+
+                  <div className='gap-[10px] flex items-center'>
+                    <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
+                    <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Sotuv va marketing</h1>
+                  </div>
+
+                  <div className='gap-[10px] flex items-center'>
+                    <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
+                    <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Boshqaruv</h1>
+                  </div>
+
+                  <div className='gap-[10px] flex items-center'>
+                    <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
+                    <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Integratsiyalar</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </Link>
       </div>
     </div>

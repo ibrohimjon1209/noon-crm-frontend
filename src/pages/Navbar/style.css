@@ -51,3 +51,21 @@
     scrollbar-width: thin;
     scrollbar-color: rgb(233, 0, 0) rgba(0,53,95,1);
 }
+
+
+.triangle-image {
+    box-shadow: 10px black;
+
+  }
+
+
+  .bg-image {
+    background-image: url('path/to/your/image.jpg'); /* Rasm manzili */
+    background-size: cover; /* Rasmni to'liq qoplash */
+    background-position: center; /* Rasm markazda joylashishi */
+    clip-path: polygon(0 100%, 100% 100%, 50% 0); /* 3 burchakli shakl */
+    @apply border-4 border-blue-500; /* Chegara: 4px, rang: ko'k */
+    @apply shadow-lg; /* Soyali effekt */
+    width: 100%; /* Rasmning kengligi */
+    height: 100%; /* Rasmning balandligi */
+  }
