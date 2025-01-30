@@ -16,14 +16,24 @@ import logo from './Image/black/logo vector.png';
 import './style.css';
 
 const Navbar = () => {
-  // const [isStudentMenuOpen, setStudentMenuOpen] = useState(false);
-  const location = useLocation();
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
+  const location = useLocation()
 
+  const isSettingsActive = location.pathname.startsWith("/settings")
+  const activeSubmenu = location.pathname.split("/")[2] || ""
+
+  const submenuItems = [
+    { path: "function", label: "Umumiy sozlamalar" },
+    { path: "finance", label: "Moliya" },
+    { path: "education", label: "O'quv" },
+    { path: "sales", label: "Sotuv va marketing" },
+    { path: "management", label: "Boshqaruv" },
+    { path: "integrations", label: "Integratsiyalar" },
+  ]
 
   return (
     <div className="w-[230px] top-0 h-full flex flex-col justify-between bg-white">
-      <div className="w-[100%] h-[67px] py-[15px] flex justify-center items-center shadow-[0.05px_1px_1px_0_#00000040]">
+      <div className="w-[100%] h-[71px] py-[15px] flex justify-center items-center overflow-hidden shadow-[-0px_4px_4px_0_#00000040]">
         <Link to="/">
           <img
             src={logo}
@@ -40,12 +50,12 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             } pl-[10px]`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
               src={assignment_icon}
-              className="w-[38px] h-[38px] object-contain"
+              className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Topshiriqlar
             </h1>
           </div>
@@ -58,9 +68,9 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
-            <img src={lydes_icon} className="w-[38px] h-[38px] object-contain" />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
+            <img src={lydes_icon} className="w-[32px] h-[32px] object-contain" />
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Lidlar
             </h1>
           </div>
@@ -73,9 +83,9 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
-            <img src={group_icon} className="w-[38px] h-[38px] object-contain" />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
+            <img src={group_icon} className="w-[32px] h-[32px] object-contain" />
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Guruh
             </h1>
           </div>
@@ -88,12 +98,12 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
               src={student_icon}
-              className="w-[38px] h-[38px] object-contain"
+              className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               O'quvchilar
             </h1>
           </div>
@@ -106,12 +116,12 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
               src={study_division}
-              className="w-[38px] h-[38px] object-contain"
+              className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               O'quv bo'limi
             </h1>
           </div>
@@ -124,12 +134,12 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
               src={wallet_icon}
-              className="w-[38px] h-[38px] object-contain"
+              className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Moliya
             </h1>
           </div>
@@ -142,12 +152,12 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
               src={control_icon}
-              className="w-[38px] h-[38px] object-contain"
+              className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Nazorat
             </h1>
           </div>
@@ -160,12 +170,12 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
               src={drive_icon}
-              className="w-[38px] h-[38px] object-contain"
+              className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Boshqaruv
             </h1>
           </div>
@@ -178,12 +188,12 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
               src={marketing_icon}
-              className="w-[38px] h-[38px] object-contain"
+              className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[23.09px]">
               Sotuv va marketing
             </h1>
           </div>
@@ -196,81 +206,63 @@ const Navbar = () => {
             : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
             }`}
         >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
               src={report_icon}
-              className="w-[38px] h-[38px] object-contain"
+              className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Hisobotlar
             </h1>
           </div>
         </Link>
 
         <Link
-          to="/settings"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/settings'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
-          onMouseEnter={() => setIsHovered(true)} // Hoverga o'tganda
-          onMouseLeave={() => setIsHovered(false)} // Hoverdan chiqganda
-        >
-          <div className="w-[101px] h-[60px] flex gap-[12px] items-center">
-            <img
-              src={settings_icon}
-              className="w-[38px] h-[38px] object-contain"
-            />
-            <h1 className="font-[roboto] font-[400] text-[14px] leading-[21.09px] whitespace-nowrap">
-              Sozlamalar
-            </h1>
-          </div>
-
-          {/* Menu settings ko'rinishi */}
-          {isHovered && (
-            <div className='menu-settings flex absolute mt-[-210px] ml-[185px]'>
-              <img src={piramid} className='w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[235px]' alt="" />
-
-              <div>
-                <div className='flex cursor-auto flex-col gap-[20px] w-[221px] h-[286px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg'>
-                  <Link to='settings/function'>
-                    <div className='gap-[10px] flex items-center'>
-                      <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
-                      <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Umumiy sozlamalar</h1>
-                    </div>
-                  </Link>
-
-                  <Link to='settings/finance'>
-                    <div className='gap-[10px] flex items-center'>
-                      <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
-                      <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Moliya</h1>
-                    </div>
-                  </Link>
-
-                  <div className='gap-[10px] flex items-center'>
-                    <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
-                    <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>O'quv</h1>
+      to="/settings"
+      className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+        isSettingsActive ? "bg-[#CFEBFF] text-[#264E86]" : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
+        <img src={settings_icon || "/placeholder.svg"} className="w-[32px] h-[32px] object-contain" alt="Settings" />
+        <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+          Sozlamalar
+        </h1>
+      </div>
+      {isHovered && (
+        <div className="menu-settings flex absolute mt-[-210px] ml-[185px]">
+          <img
+            src={piramid || "/placeholder.svg"}
+            className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[235px]"
+            alt=""
+          />
+          <div>
+            <div className="flex cursor-auto flex-col gap-[20px] w-[221px] h-[286px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+              {submenuItems.map((item) => (
+                <Link key={item.path} to={`/settings/${item.path}`}>
+                  <div
+                    className={`gap-[10px] flex items-center transition-all duration-300 ${
+                      activeSubmenu === item.path
+                        ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
+                        : " text-black"
+                    }`}
+                  >
+                    <div
+                      className={`w-[5px] h-[5px] rounded-[50%] ${
+                        activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                      }`}
+                    ></div>
+                    <h1 className="font-roboto font-[400] text-[18px] leading-[21.09px]">{item.label}</h1>
                   </div>
-
-                  <div className='gap-[10px] flex items-center'>
-                    <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
-                    <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Sotuv va marketing</h1>
-                  </div>
-
-                  <div className='gap-[10px] flex items-center'>
-                    <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
-                    <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Boshqaruv</h1>
-                  </div>
-
-                  <div className='gap-[10px] flex items-center'>
-                    <div className='w-[5px] h-[5px] rounded-[50%] bg-black'></div>
-                    <h1 className='font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]'>Integratsiyalar</h1>
-                  </div>
-                </div>
-              </div>
+                </Link>
+              ))}
             </div>
-          )}
-        </Link>
+          </div>
+        </div>
+      )}
+    </Link>
       </div>
     </div>
   );

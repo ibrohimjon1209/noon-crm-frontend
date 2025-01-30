@@ -6,8 +6,8 @@ import subs_icon from './Images/subs.png';
 import holiday_icon from './Images/holiday.png';
 
 const Nav_settings = () => {
-  const location = useLocation(); // Hozirgi URL manzilini olish
-  const currentPath = location.pathname; // URL manzilini olish
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const getActive = (path) => {
     return currentPath === path ? 'text-[rgba(38,78,134,1)] font-[500] ' : 'font-[500] text-[rgba(0,0,0,1)]';
