@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import logo_vector from "../../Images/logo.png"
+import logo_vector from "../../imgs/logo.png"
 import Check_paper from "./check_paper"
-import { use } from "react"
 
 const Check = () => {
   const [auto_print, setAutoPrint] = useState(false)

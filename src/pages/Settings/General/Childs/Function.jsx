@@ -36,15 +36,15 @@ const Function = () => {
 
 
     return (
-        <div className='w-[calc(80vw-302px)] h-[calc(100vh-70px)] mt-[-41px] bg-transparent overflow-y-auto overflow-hidden ' style={{
+        <div className='w-[100%] h-[calc(100vh-180px)] bg-transparent overflow-y-scroll overflow-hidden ' style={{
             ...customScrollbar,
             overflowY: 'auto',
             scrollbarWidth: 'thin',
             scrollbarColor: 'rgba(0,53,95,1) rgba(255, 255, 255, 1)',
         }}>
-            <div className="w-[calc(100vw-55vw)] mt-[45px] pt-[15px] rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]">
+            <div className="w-[calc(100vw-55vw)] pt-[15px] rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]">
                 <div className="w-full h-auto">
-                    <div className='w-full h-auto  pb-[30px] pt-[10px] px-[40px]'>
+                    <div className='w-full h-auto pb-[30px] pt-[10px] px-[40px] over'>
                         <h1 className="font-inter font-[700] text-[18px] leading-[21.78px] text-[#404040]">
                             Funksionallik
                         </h1>
@@ -517,8 +517,8 @@ const Function = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
+    </div>
     );
 };
 

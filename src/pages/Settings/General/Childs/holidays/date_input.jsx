@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import calendar_icon from '../../images/calendar_icon.png';
+import calendar_icon from '../../imgs/calendar_icon.png';
 
 const months = [
   'Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'Iyun',

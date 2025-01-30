@@ -1,14 +1,9 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Routes va Route import qilinadi
-import Function from './Childs/Function';
-import Check from './Childs/check/check_main';
-import Subscribe from './Childs/Subscribe';
-import Holiday from './Childs/holidays/holiday_main';
-import Nav_settings from './nav_settings';
-import Finance from '../Finance/Finance';
-import Finance_settings from './Finance/Finance_settings';
+import { Routes, Route } from "react-router-dom"
+import Finance_settings from "./Finance/Finance_settings_main"
+import General_settings from "./General/general_settings_main"
 
 const Settings = () => {
+
   const holidaysData = [
     {
       title: "8-mart Xalqaro Xotin Qizlar Bayrami",
@@ -25,29 +20,16 @@ const Settings = () => {
       start_time: "10.06.2024 | 05:00",
       end_time: "11.06.2024 | 05:00",
     },
-  ];
+  ]
 
   return (
-    <div className='px-[42px] pt-[41px]'>
-      <div className="flex gap-[30px]">
-        <Nav_settings />
-        <div>
-          <Routes>
-            <Route path="function" element={<Function />} />
-            <Route path="check" element={<Check />} />
-            <Route path="follow" element={<Subscribe />} />
-            <Route path="holiday" element={<Holiday holidaysData={holidaysData} />} />
-          </Routes>
-        </div>
-      </div>
-
-      <div>
+  <>
         <Routes>
-          <Route path="finance" element={<Finance_settings />} />
+          <Route path="finance/*" element={<Finance_settings />} />
+          <Route path="general/*" element={<General_settings />} />
         </Routes>
-      </div>
-    </div>
-  );
+  </>
+  )
 }
 
-export default Settings;
+export default Settings
