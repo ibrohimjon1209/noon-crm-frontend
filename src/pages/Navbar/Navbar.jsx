@@ -23,8 +23,8 @@ const Navbar = () => {
   const activeSubmenu = location.pathname.split("/")[2] || ""
 
   const submenuItems = [
-    { path: "function", label: "Umumiy sozlamalar" },
-    { path: "finance", label: "Moliya" },
+    { path: "general/function", label: "Umumiy sozlamalar" },
+    { path: "finance/sponsors", label: "Moliya" },
     { path: "education", label: "O'quv" },
     { path: "sales", label: "Sotuv va marketing" },
     { path: "management", label: "Boshqaruv" },
@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <div className="w-[230px] top-0 h-full flex flex-col justify-between bg-white">
-      <div className="w-[100%] h-[71px] py-[15px] flex justify-center items-center overflow-hidden shadow-[-0px_4px_4px_0_#00000040]">
+      <div className="w-[100%] h-[67px] py-[10px] flex justify-center items-center shadow-[-0px_4px_4px_0_#00000040]">
         <Link to="/">
           <img
             src={logo}
@@ -42,7 +42,10 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className="duration-300 nav-left w-[100%] h-full mt-[28px] gap-[5px] overflow-y-hidden overflow-x-hidden flex flex-col items-center">
+      <div 
+      className="duration-300 nav-left w-[100%] h-full mt-[28px] gap-[5px] overflow-y-auto pb-[50px] overflow-x-hidden flex flex-col items-center"
+      style={{scrollbarColor: '#a9a9a9 transparent', overflow: 'auto', scrollbarWidth: 'thin'}}
+      >
         <Link
           to="/assigments"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${location.pathname === '/assigments'
@@ -218,7 +221,6 @@ const Navbar = () => {
         </Link>
 
         <Link
-      to="/settings"
       className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
         isSettingsActive ? "bg-[#CFEBFF] text-[#264E86]" : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
       }`}
@@ -254,7 +256,7 @@ const Navbar = () => {
                         activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
                       }`}
                     ></div>
-                    <h1 className="font-roboto font-[400] text-[18px] leading-[21.09px]">{item.label}</h1>
+                    <h1 className="hover:text-[#264E86] font-roboto font-[400] text-[18px] leading-[21.09px]">{item.label}</h1>
                   </div>
                 </Link>
               ))}

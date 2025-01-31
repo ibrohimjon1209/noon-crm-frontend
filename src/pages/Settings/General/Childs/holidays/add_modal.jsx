@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { DateInput } from "./date_input"
 
-const Edit_modal = ({ isOpen, onClose, initialData, onSave }) => {
+const Add_modal = ({ isOpen, onClose, initialData, onSave }) => {
   const [formData, setFormData] = useState({
     title: "",
     start_time: undefined,
@@ -13,7 +13,7 @@ const Edit_modal = ({ isOpen, onClose, initialData, onSave }) => {
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true)
-      setTimeout(() => setIsAnimating(true), 10)
+      setTimeout(() => setIsAnimating(true), 30)
     } else {
       setIsAnimating(false)
       setTimeout(() => setShouldRender(false), 300) // Match this with the transition duration
@@ -23,7 +23,7 @@ const Edit_modal = ({ isOpen, onClose, initialData, onSave }) => {
   useEffect(() => {
     if (initialData) {
       setFormData({
-        title: initialData.title || "",
+        ...initialData,
         start_time: initialData.start_time ? new Date(initialData.start_time) : undefined,
         end_time: initialData.end_time ? new Date(initialData.end_time) : undefined,
       })
@@ -53,7 +53,7 @@ const Edit_modal = ({ isOpen, onClose, initialData, onSave }) => {
       >
         <div className="flex justify-between items-center pt-6 px-6 mb-6">
           <h2 className="font-roboto font-[400] text-[20px] leading-[23.44px] uppercase text-black">
-            BAYRAM KUNLARINI TAHRIRLASH
+            Bayram kunlarini qo'shish
           </h2>
           <button
             onClick={onClose}
@@ -89,7 +89,7 @@ const Edit_modal = ({ isOpen, onClose, initialData, onSave }) => {
 
           <button
             type="submit"
-            className="w-[140px] mx-auto h-[60px] text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF] hover:scale-105 active:scale-95 duration-300"
+            className="w-[140px] mx-auto h-[60px] text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF]"
           >
             Saqlash
           </button>
@@ -99,4 +99,4 @@ const Edit_modal = ({ isOpen, onClose, initialData, onSave }) => {
   )
 }
 
-export default Edit_modal
+export default Add_modal
