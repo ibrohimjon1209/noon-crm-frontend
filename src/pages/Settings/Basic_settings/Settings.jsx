@@ -5,8 +5,7 @@ import Check from './Childs/check/check_main';
 import Subscribe from './Childs/Subscribe';
 import Holiday from './Childs/holidays/holiday_main';
 import Nav_settings from './nav_settings';
-import Finance from '../Finance/Finance';
-import Finance_settings from './Finance/Finance_settings';
+import Finance from '../../Finance/Finance';
 
 const Settings = () => {
   const holidaysData = [
@@ -43,7 +42,7 @@ const Settings = () => {
 
       <div>
         <Routes>
-          <Route path="finance" element={<Finance_settings />} />
+          <Route path="finance" element={<Finance />} />
         </Routes>
       </div>
     </div>

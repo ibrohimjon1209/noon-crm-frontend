@@ -28,6 +28,19 @@ const Function = () => {
     const [order, set_order] = useState(false)
     const [student, set_student] = useState(false)
 
+
+    const [loading, setLoading] = useState(false);
+
+
+    const save_change = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            console.log("O'zgarishlar saqlandi");
+        }, 1000);
+    };
+
+
     const customScrollbar = {
         overflowY: 'auto',
         scrollbarWidth: 'auto',
@@ -42,7 +55,7 @@ const Function = () => {
             scrollbarWidth: 'thin',
             scrollbarColor: 'rgba(0,53,95,1) rgba(255, 255, 255, 1)',
         }}>
-            <div className="w-[calc(100vw-55vw)] mt-[45px] pt-[15px] rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]">
+            <div className="mb-[110px] w-[calc(100vw-55vw)] mt-[45px] pt-[15px] rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]">
                 <div className="w-full h-auto">
                     <div className='w-full h-auto  pb-[30px] pt-[10px] px-[40px]'>
                         <h1 className="font-inter font-[700] text-[18px] leading-[21.78px] text-[#404040]">
@@ -512,6 +525,19 @@ const Function = () => {
                                 <div className='w-full flex flex-col justify-center items-start gap-[20px]'>
                                     <h1 className='text-[#404040] font-inter font-[500] text-[18px] leading-[21.78px]'>Bo'sh xotira (GB)</h1>
                                     <div className='w-full h-[64px] bg-[rgba(242,238,238,1)] rounded-[5px]'></div>
+                                </div>
+                                <div className="relative">
+                                    <button
+                                        onClick={save_change}
+                                        className={`fixed bottom-5 right-[390px] w-[142px] h-[63px] rounded-md bg-[rgba(13,153,255,1)] hover:bg-blue-400 transition-all duration-100 active:scale-95 text-white text-lg border-none cursor-pointer z-50 ${loading ? 'opacity-50' : ''}`}
+                                        disabled={loading} // Tugmani faolligini o'chirish
+                                    >
+                                        {loading ? (
+                                            <div className="animate-spin rounded-full border-4 border-t-transparent border-white w-8 h-8 mx-auto"></div>
+                                        ) : (
+                                            'Saqlash'
+                                        )}
+                                    </button>
                                 </div>
                             </div>
                         </div>
