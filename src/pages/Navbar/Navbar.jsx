@@ -234,7 +234,7 @@ const Navbar = () => {
         </h1>
       </div>
       {isHovered && (
-        <div className="menu-settings flex absolute z-50 mb-[200px] ml-[185px]">
+        <div className="menu-settings flex absolute mb-[200px] ml-[185px]">
           <img
             src={piramid || "/placeholder.svg"}
             className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[235px]"
