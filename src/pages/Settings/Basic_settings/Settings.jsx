@@ -1,17 +1,13 @@
-<<<<<<< HEAD:src/pages/Settings/Basic_settings/Settings.jsx
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Routes va Route import qilinadi
 import Function from './Childs/Function';
 import Check from './Childs/check/check_main';
 import Subscribe from './Childs/Subscribe';
 import Holiday from './Childs/holidays/holiday_main';
 import Nav_settings from './nav_settings';
 import Finance from '../../Finance/Finance';
-=======
 import { Routes, Route } from "react-router-dom"
-import Finance_settings from "./Finance/Finance_settings_main"
-import General_settings from "./General/general_settings_main"
->>>>>>> c568c3d9b098b9efeb90e888228eba776e98710a:src/pages/Settings/Settings.jsx
+import Finance_settings from "../Finance/Finance_settings_main"
+import General_settings from "../General/general_settings_main"
 
 const Settings = () => {
 
@@ -34,17 +30,12 @@ const Settings = () => {
   ]
 
   return (
-  <>
         <Routes>
-<<<<<<< HEAD:src/pages/Settings/Basic_settings/Settings.jsx
           <Route path="finance" element={<Finance />} />
-=======
           <Route path="finance/*" element={<Finance_settings />} />
           <Route path="general/*" element={<General_settings />} />
->>>>>>> c568c3d9b098b9efeb90e888228eba776e98710a:src/pages/Settings/Settings.jsx
         </Routes>
-  </>
   )
 }
 
-export default Settings
+export default Settings;

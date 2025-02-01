@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import plus from "../../../../assigments/images/add_icon.png";
-<<<<<<<< HEAD:src/pages/Settings/Basic_settings/Childs/holidays/holiday_main.jsx
 import editIcon from "../../images/edit_icon.png";
 import deleteIcon from "../../images/delete_icon.png";
-========
 import editIcon from "../../imgs/edit_icon.png";
 import deleteIcon from "../../imgs/delete_icon.png";
->>>>>>>> c568c3d9b098b9efeb90e888228eba776e98710a:src/pages/Settings/General/Childs/holidays/holiday_main.jsx
 import DeleteModal from "./delete_modal";
 import EditModal from "./edit_modal";
 import AddModal from "./add_modal";

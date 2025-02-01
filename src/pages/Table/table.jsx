@@ -252,7 +252,6 @@ const Test = () => {
                         <div className=''>
                             {/* Room numbers header */}
                             <div className={`grid grid-cols-10 border-b border-[rgba(161,161,161,1)]`}>
-                                {console.log(rooms.length)}
                                 <div className="w-[148px] border-r border-[rgba(161,161,161,1)]"></div>
                                 {rooms.map((room) => (
                                     <div key={room} className="h-[44px] flex justify-center items-center border-r border-[rgba(161,161,161,1)]">

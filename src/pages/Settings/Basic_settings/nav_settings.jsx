@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import function_icon from './imgs/function.png';
-import check_icon from './imgs/check.png';
-import subs_icon from './imgs/subs.png';
-import holiday_icon from './imgs/holiday.png';
+import function_icon from './images/function.png';
+import check_icon from './images/check.png';
+import subs_icon from './images/subs.png';
+import holiday_icon from './images/holiday.png';
 
 const Nav_settings = () => {
   const location = useLocation();

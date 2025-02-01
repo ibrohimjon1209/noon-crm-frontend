@@ -55,11 +55,8 @@ const Function = () => {
             scrollbarWidth: 'thin',
             scrollbarColor: 'rgba(0,53,95,1) rgba(255, 255, 255, 1)',
         }}>
-<<<<<<<< HEAD:src/pages/Settings/Basic_settings/Childs/Function.jsx
             <div className="mb-[110px] w-[calc(100vw-55vw)] mt-[45px] pt-[15px] rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]">
-========
             <div className="w-[calc(100vw-55vw)] pt-[15px] rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]">
->>>>>>>> c568c3d9b098b9efeb90e888228eba776e98710a:src/pages/Settings/General/Childs/Function.jsx
                 <div className="w-full h-auto">
                     <div className='w-full h-auto pb-[30px] pt-[10px] px-[40px] over'>
                         <h1 className="font-inter font-[700] text-[18px] leading-[21.78px] text-[#404040]">
@@ -549,7 +546,8 @@ const Function = () => {
                 </div>
         </div>
     </div>
-    );
-};
+  </div>
+  )
+}
 
 export default Function;
