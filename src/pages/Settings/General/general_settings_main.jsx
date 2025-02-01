@@ -6,7 +6,7 @@ import Subscribe from "./Childs/Subscribe"
 import Holiday from "./Childs/holidays/holiday_main"
 import Nav_settings from "./nav_general_settings"
 
-const Finance_bonus_main = () => {
+const General_settings_main = () => {
     
     const holidaysData = [
         {
@@ -45,4 +45,4 @@ const Finance_bonus_main = () => {
     );
 };
 
-export default Finance_bonus_main;
+export default General_settings_main;

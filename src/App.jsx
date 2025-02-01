@@ -13,7 +13,7 @@ import Management from './pages/Management/Management';
 import Marketing from './pages/Marketing/Marketing';
 import Reports from './pages/Reports/Reports';
 import Control from './pages/Control/Control';
-import Settings from './pages/Settings/Basic_settings/Settings.jsx';
+import Settings from './pages/Settings/Settings.jsx';
 
 const App = () => {
   const customScrollbar = {
