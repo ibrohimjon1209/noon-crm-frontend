@@ -27,6 +27,8 @@ const Function = () => {
     const [marketing, set_marketing] = useState(false)
     const [order, set_order] = useState(false)
     const [student, set_student] = useState(false)
+    const [selected_arrived, set_selected_arrived] = useState(false)
+    const [workers_salary, set_workers_salary] = useState(false)
 
 
     const [loading, setLoading] = useState(false);
@@ -47,6 +49,13 @@ const Function = () => {
         scrollbarColor: 'rgba(0,53,95,1) rgba(0, 0, 95, 1)',
     };
 
+    const handle_arrived_change = (option) => {
+        set_selected_arrived(option);
+    };
+
+    const handle_workers_salary_change = (option) => {
+        set_workers_salary(option);
+    };
 
     return (
         <div className='w-[100%] h-[calc(100vh-180px)] bg-transparent overflow-y-scroll overflow-hidden ' style={{
@@ -258,19 +267,59 @@ const Function = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='w-full h-[148px] gap-[20px] border-b-[1.5px] flex flex-col px-[10px]'>
+                            <div className='w-full h-[148px] items-start gap-[20px] border-b-[1.5px] flex flex-col px-[10px]'>
                                 <div className='w-[677px] mt-[20px]'>
                                     <h1 className='text-[18px] font-[500] font-[inter] text-[#404040]'>Davomatda hamma keldi turishi</h1>
                                 </div>
-                                <div className='w-[248px] h-[67px] bg-[rgba(242,238,238,1)] '>
-                                </div>
+                                <div className="relative w-[248px] h-[67px]">
+                                <select
+                                    value={selected_arrived}
+                                    onChange={(e) => handle_arrived_change(e.target.value)}
+                                    className="appearance-none w-full h-[67px] px-[30px] py-2 pr-10 border border-gray-300 rounded-md bg-[#F2EEEE] shadow-sm cursor-pointer font-roboto font-[500] text-[20px] text-black transition-all duration-150 ease-in-out focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 hover:border-blue-500"
+                                >
+                                    <option value="Keldi">Keldi</option>
+                                    <option value="Kelmadi">Kelmadi</option>
+                                </select>
+                                <svg
+                                    className="absolute right-[30px] top-1/2 -translate-y-1/2 w-4 h-3 pointer-events-none text-gray-400"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 10 6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                            <polyline points="1 1 5 5 9 1" />
+                            </svg>
+                            </div>
                             </div>
                             <div className='w-full h-[148px] gap-[20px] border-b-[1.5px] flex flex-col px-[10px]'>
                                 <div className='w-[677px] mt-[20px]'>
                                     <h1 className='text-[18px] font-[500] font-[inter] text-[#404040]'>O'qituvchining ish haqi ko'rsatkichi</h1>
                                 </div>
-                                <div className='w-[248px] h-[67px] bg-[rgba(242,238,238,1)] '>
-                                </div>
+                                <div className="relative w-[248px] h-[67px]">
+                                <select
+                                    value={workers_salary}
+                                    onChange={(e) => handle_workers_salary_change(e.target.value)}
+                                    className="appearance-none w-full h-[67px] px-[30px] py-2 pr-10 border border-gray-300 rounded-md bg-[#F2EEEE] shadow-sm cursor-pointer font-roboto font-[500] text-[20px] text-black transition-all duration-150 ease-in-out focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 hover:border-blue-500"
+                                >
+                                    <option value="Foiz">Foiz</option>
+                                    <option value="Davomat">Davomat</option>
+                                </select>
+                                <svg
+                                    className="absolute right-[30px] top-1/2 -translate-y-1/2 w-4 h-3 pointer-events-none text-gray-400"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 10 6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                            <polyline points="1 1 5 5 9 1" />
+                            </svg>
+                            </div>
                             </div>
                             <div className='w-full h-[148px] gap-[20px] border-b-[1.5px] flex flex-col px-[10px]'>
                                 <div className='w-[677px] mt-[20px]'>
