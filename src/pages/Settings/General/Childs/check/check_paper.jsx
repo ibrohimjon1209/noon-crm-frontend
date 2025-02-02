@@ -30,8 +30,8 @@ const Check_paper = ({
           <p className='font-roboto font-[400] text-[18px] leading-[21.09px] text-black pt-[15px]'>
             {title_input ? title_input : ""}
           </p>
-          {check_title ? logo ? <img className='-mt-[130px] w-[430px] h-[430px]' src={logo_vector} alt="" /> : '' : ''}
-          <div className={`flex flex-col h-auto w-[100%] ${logo ? '-mt-[120px]' : 'mt-[90px]'} gap-[15px] px-[40px]`}>
+          {check_title ? logo ? <img className='w-[130px] h-[130px] mt-[20px] object-contain' src={logo_vector} alt="" /> : '' : ''}
+          <div className={`flex flex-col h-auto w-[100%] ${logo ? 'mt-[30px]' : 'mt-[90px]'} gap-[15px] px-[40px]`}>
             <div className={`${cashier_name ? 'flex' : 'hidden'} flex-row w-[100%] justify-between`}>
               <p className='font-roboto font-[400] text-[18px] leading-[21.09px] text-black'>
                 {check_language === "O'zbek tili" ? "Kassir:" : "Кассир:"}
