@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './pages/Navbar/Navbar';
 import Nav_top from './pages/Navbar/Nav-top';
 import Main_home from './pages/home/main_home';
@@ -22,9 +22,18 @@ const App = () => {
     scrollbarColor: 'rgba(0,53,95,1) rgba(0, 0, 95, 1)',
   };
 
+
+  useEffect(() => {
+    document.body.style.transform = 'scale(0.75)'
+    document.body.style.transformOrigin = 'top left'
+    document.body.style.width = '133.33%'
+    document.body.style.overflow = 'hidden'
+    document.body.style.height = '100vh'
+  }, []);
+
   return (
     <Router>
-      <div className='flex w-full bg-[rgba(242,238,238,1)] m-auto h-screen'>
+      <div className='flex w-[100%] bg-[rgba(242,238,238,1)] m-0 h-[calc(132.5vh)]'>
         <div className='z-50 h-screen sticky top-0'>
           <Navbar />
         </div>
@@ -52,7 +61,7 @@ const App = () => {
               <Route path="/marketing" element={<Marketing />} />
               <Route path="/reports" element={<Reports />} />
               <Route path="/settings/*" element={<Settings />} />
-              <Route path='*' element={<Navigate to="/" replace/>}/>
+              <Route path='*' element={<Navigate to="/" replace />} />
 
             </Routes>
           </div>

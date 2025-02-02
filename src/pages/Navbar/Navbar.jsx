@@ -32,7 +32,7 @@ const Navbar = () => {
   ]
 
   return (
-    <div className="w-[230px] top-0 h-full flex flex-col justify-between bg-white">
+    <div className="w-[230px] top-0 h-[132vh] flex flex-col justify-between bg-white">
       <div className="w-[100%] h-[67px] py-[10px] flex justify-center items-center shadow-[-0px_4px_4px_0_#00000040]">
         <Link to="/">
           <img
@@ -42,9 +42,9 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div 
-      className="duration-300 nav-left w-[100%] h-full mt-[28px] gap-[5px] overflow-y-auto pb-[50px] overflow-x-hidden flex flex-col items-center"
-      style={{scrollbarColor: '#a9a9a9 transparent', overflow: 'auto', scrollbarWidth: 'thin'}}
+      <div
+        className="duration-300 nav-left w-[100%] h-full mt-[28px] gap-[5px] overflow-y-auto pb-[50px] overflow-x-hidden flex flex-col items-center"
+        style={{ scrollbarColor: '#a9a9a9 transparent', overflow: 'auto', scrollbarWidth: 'thin' }}
       >
         <Link
           to="/assigments"
@@ -221,53 +221,50 @@ const Navbar = () => {
         </Link>
 
         <Link
-      className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-        isSettingsActive ? "bg-[#CFEBFF] text-[#264E86]" : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-      }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
-        <img src={settings_icon || "/placeholder.svg"} className="w-[32px] h-[32px] object-contain" alt="Settings" />
-        <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
-          Sozlamalar
-        </h1>
-      </div>
-      {isHovered && (
-        <div className="menu-settings flex absolute mb-[200px] ml-[185px]">
-          <img
-            src={piramid || "/placeholder.svg"}
-            className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[235px]"
-            alt=""
-          />
-          <div>
-            <div className="flex cursor-auto flex-col gap-[20px] w-[221px] h-[286px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
-              {submenuItems.map((item) => (
-                <Link key={item.path} to={`/settings/${item.path}`}>
-                  <div
-                    className={`gap-[10px] flex items-center transition-all duration-300 ${
-                      activeSubmenu === item.path
-                        ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
-                        : " text-black"
-                    }`}
-                  >
-                    <div
-                      className={`w-[5px] h-[5px] rounded-[50%] ${
-                        activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
-                      }`}
-                    ></div>
-                    <h1 className="hover:text-[#264E86] font-roboto font-[400] text-[18px] leading-[21.09px]">{item.label}</h1>
-                  </div>
-                </Link>
-              ))}
-            </div>
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isSettingsActive ? "bg-[#CFEBFF] text-[#264E86]" : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
+            }`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
+            <img src={settings_icon || "/placeholder.svg"} className="w-[32px] h-[32px] object-contain" alt="Settings" />
+            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+              Sozlamalar
+            </h1>
           </div>
-        </div>
-      )}
-    </Link>
+          {isHovered && (
+            <div className="menu-settings flex absolute mt-[-210px] ml-[185px]">
+              <img
+                src={piramid || "/placeholder.svg"}
+                className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[235px]"
+                alt=""
+              />
+              <div>
+                <div className="flex cursor-auto flex-col gap-[20px] w-[221px] h-[286px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+                  {submenuItems.map((item) => (
+                    <Link key={item.path} to={`/settings/${item.path}`}>
+                      <div
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
+                            : " text-black"
+                          }`}
+                      >
+                        <div
+                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                            }`}
+                        ></div>
+                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">{item.label}</h1>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </Link>
       </div>
     </div>
   );
 };
 
-export default Navbar;
+export default Navbar 

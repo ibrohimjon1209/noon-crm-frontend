@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import sponsors from './imgs/sponsors.png';
-import third_human from './imgs/third_human.png'
-import payment_type from './imgs/payment_type.png'
-import manager_bonuses from './imgs/manager_bonuses.png'
-import percentage from './imgs/percentage.png'
+import sponsors from './images/sponsors.png';
+import third_human from './images/third_human.png'
+import payment_type from './images/payment_type.png'
+import manager_bonuses from './images/manager_bonuses.png'
+import percentage from './images/percentage.png'
 
 const Nav_finance = () => {
   const location = useLocation();
@@ -16,7 +16,7 @@ const Nav_finance = () => {
 
   return (
     <div className='pb-[45px]'>
-      <div className='w-[400px] h-[calc(100vh-180px)] pt-[5px] overflow-y-auto rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]'>
+      <div className='w-[22vw] h-[calc(100vh-180px)] pt-[5px] overflow-y-auto rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]'>
         <Link to="/settings/finance/sponsors" className='cursor-pointer w-full h-[60px] pl-[40.22px] flex items-center gap-[26.97px] border-b-[1px]'>
           <div className='w-[36.82px] h-[29.32px]'>
             <img src={sponsors} alt="sponsors" />
