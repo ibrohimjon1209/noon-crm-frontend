@@ -20,11 +20,11 @@ const Navbar = () => {
   const location = useLocation()
 
   const isSettingsActive = location.pathname.startsWith("/settings")
-  const activeSubmenu = location.pathname.split("/")[2] || ""
+  const activeSubmenu = location.pathname
 
   const submenuItems = [
-    { path: "general/function", label: "Umumiy sozlamalar" },
-    { path: "finance/sponsors", label: "Moliya" },
+    { path: "/settings/general/function", label: "Umumiy sozlamalar" },
+    { path: "/settings/finance/sponsors", label: "Moliya" },
     { path: "education", label: "O'quv" },
     { path: "sales", label: "Sotuv va marketing" },
     { path: "management", label: "Boshqaruv" },
@@ -242,7 +242,7 @@ const Navbar = () => {
               <div>
                 <div className="flex cursor-auto flex-col gap-[20px] w-[221px] h-[286px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
                   {submenuItems.map((item) => (
-                    <Link key={item.path} to={`/settings/${item.path}`}>
+                    <Link key={item.path} to={item.path}>
                       <div
                         className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
                             ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
@@ -253,6 +253,7 @@ const Navbar = () => {
                           className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
                             }`}
                         ></div>
+                        {console.log(activeSubmenu, item.path)}
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">{item.label}</h1>
                       </div>
                     </Link>
