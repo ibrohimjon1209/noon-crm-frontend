@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import './function.css'
 
 const Function = () => {
     const [busy_room, set_busy_room] = useState(false)
@@ -57,6 +58,30 @@ const Function = () => {
     const handle_workers_salary_change = (option) => {
         set_workers_salary(option);
     };
+
+    const [hours, setHours] = useState("")
+    const [minutes, setMinutes] = useState("")
+  
+    const minutesInputRef = useRef(null)
+  
+    const handleTimeChange = (value, setter, max, nextInput) => {
+      const numericValue = value.replace(/[^0-9]/g, "")
+  
+      if (numericValue.length <= 2) {
+        setter(numericValue)
+  
+        if (Number.parseInt(numericValue) > max) {
+          setter(max.toString().padStart(2, "0"))
+        }
+  
+        if (numericValue.length === 2 && nextInput && nextInput.current) {
+          nextInput.current.focus()
+        }
+      }
+    }
+  
+    const isHoursInvalid = Number.parseInt(hours) > 23
+    const isMinutesInvalid = Number.parseInt(minutes) > 59
 
     return (
         <div className='w-[100%] h-[calc(100vh-180px)] bg-transparent overflow-y-scroll overflow-hidden ' style={{
@@ -527,11 +552,50 @@ const Function = () => {
                             <div className='w-full flex flex-col gap-[20px] mt-[20px]'>
                                 <div className='w-full flex flex-col justify-center items-start gap-[20px]'>
                                     <h1 className='text-[#404040] font-inter font-[500] text-[18px] leading-[21.78px]'>Pul yechish vaqti</h1>
-                                    <div className='w-full h-[64px] bg-[rgba(242,238,238,1)] rounded-[5px]'></div>
+                                    <div className="rounded-[5px] px-[20px] w-full h-[64px] bg-[#F2EEEE]">
+                                    <div className="space-y-2 w-full h-full flex items-center">
+                                    <div className="flex gap-[2px] items-center h-full w-full font-inter font-[500] text-black text-[18px]">
+                                        <input
+                                        type="text"
+                                        id="hours"
+                                        value={hours}
+                                        onChange={(e) => handleTimeChange(e.target.value, setHours, 23, minutesInputRef)}
+                                        className={`w-6 text-center rounded-md ${isHoursInvalid ? "bg-red-100" : "bg-[#F2EEEE]"}`}
+                                        placeholder="00"
+                                        maxLength={2}
+                                        />
+                                        <span>:</span>
+                                        <input
+                                        type="text"
+                                        id="minutes"
+                                        ref={minutesInputRef}
+                                        value={minutes}
+                                        onChange={(e) => handleTimeChange(e.target.value, setMinutes, 59)}
+                                        className={`w-6 text-center rounded-md ${isMinutesInvalid ? "bg-red-100" : "bg-[#F2EEEE]"}`}
+                                        placeholder="00"
+                                        maxLength={2}
+                                        />
+                                    </div>
+                                    <button className='text-[black] text-[20px] font-inter font-[800]' onClick={() => {setHours(''), setMinutes('')}}>✕</button>
+                                    </div>
+                                    </div>
                                 </div>
                                 <div className='w-full flex flex-col justify-center items-start gap-[20px]'>
                                     <h1 className='text-[#404040] font-inter font-[500] text-[18px] leading-[21.78px]'>Pro arxivda turish vaqti (Max 31)</h1>
-                                    <div className='w-full h-[64px] bg-[rgba(242,238,238,1)] rounded-[5px]'></div>
+                                    <div className='w-full h-[64px] bg-[rgba(242,238,238,1)] rounded-[5px]'>
+                                        <input 
+                                        className='font-inter font-[500] text-[18px] text-black pl-[20px] w-full h-full rounded-[5px] bg-[rgba(242,238,238,1)]'
+                                        type="number"
+                                        id='pro_archive'
+                                        placeholder='Pro arxivda turish vaqti '
+                                        onChange={() => {
+                                            if (document.getElementById('pro_archive').value > 31) {
+                                                document.getElementById('pro_archive').value = 31
+                                            }
+                                        }}
+                                        maxLength={2}
+                                        />
+                                    </div>
                                 </div>
                                 <div className='w-full flex flex-col justify-center items-start gap-[20px]'>
                                     <h1 className='text-[#404040] font-inter font-[500] text-[18px] leading-[21.78px]'>Arxivni ko'rsatish vaqti</h1>
