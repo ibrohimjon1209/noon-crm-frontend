@@ -42,7 +42,7 @@ const Check = () => {
   return (
     <div className="flex flex-row justify-center gap-[55px] w-[100%] h-auto">
       <div
-        className="w-[330px] pt-[20px] h-[calc(100vh-180px)] flex flex-col items-center bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg overflow-y-scroll"
+        className="w-[330px] pt-[20px] h-[calc(135vh-180px)] flex flex-col items-center bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg overflow-y-scroll"
         style={{ scrollbarWidth: "thin" }}
       >
         <div className="flex flex-col pl-[35px] w-[100%] gap-[15px]">
@@ -356,7 +356,7 @@ const Check = () => {
                 <p className="font-inter font-[500] text-[15px] text-[#404040] leading-[18.15px]">Izoh</p>
               </div>
             </div>
-            <div className="flex flex-row mt-[20px] gap-[30px] w-[90%] justify-end">
+            <div className="flex flex-row mt-[30px] gap-[30px] w-[90%] justify-end">
                 <div className="scale-[1] hover:scale-[1.05] active:scale-[0.95] duration-300 cursor-pointer w-[120px] h-[50px] bg-[#0D99FF] mb-[20px] rounded-[5px] flex justify-center items-center">
                   <p className="font-roboto font-[400] text-[20px] text-white leading-[23.44px]">Saqlash</p>
                 </div>

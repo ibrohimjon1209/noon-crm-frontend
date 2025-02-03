@@ -127,7 +127,7 @@ const Holiday = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col items-center w-[950px] overflow-y-scroll h-[calc(100vh-255px)] bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg" style={{ scrollbarWidth: "thin" }}>
+      <div className="flex flex-col items-center w-[950px] overflow-y-scroll h-[calc(135vh-255px)] bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg" style={{ scrollbarWidth: "thin" }}>
         <div className="flex flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[5%]">№</p>
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[35%]">Sarlavha</p>
