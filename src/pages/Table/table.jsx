@@ -193,7 +193,7 @@ const Test = () => {
         Yak: [
 
             {
-                room: "5-xona",
+                room: "1-xona",
                 startTime: "10:30 - 11:00",
                 name: "Juft kun Ertalab B1",
                 teacher: "Oydin Yusupova",
@@ -217,7 +217,7 @@ const Test = () => {
 
     return (
         <div className='pt-[0px] px-[32px] pb-[33px]'>
-            <div className="w-full h-full shadow-lg shadow-[rgba(0,0,0,0.25)] rounded-[15px] pb-[15px] pt-[15px] px-[18px] bg-[rgba(255,255,255,1)] overflow-x-auto">
+            <div className="w-full h-[calc(130vh-320px)] shadow-lg shadow-[rgba(0,0,0,0.25)] rounded-[15px] pb-[15px] pt-[15px] px-[18px] bg-[rgba(255,255,255,1)] overflow-hidden">
                 {/* Days header */}
                 <div className="flex gap-[14px] mb-3">
                     {days.map((day) => (
@@ -237,7 +237,7 @@ const Test = () => {
                 </div>
 
                 {/* Table */}
-                <div className="table w-full overflow-hidden border-[2px] border-[rgba(161,161,161,1)] bg-white shadow-lg rounded-[12px]">
+                <div className="table overflow-x-auto w-full h-full border-[2px] border-[rgba(161,161,161,1)] bg-white shadow-lg rounded-[12px]">
 
                     <div
                         className='flex-1'
@@ -250,9 +250,8 @@ const Test = () => {
 
 
                         <div className=''>
-                            {/* Room numbers header */}
                             <div className={`grid grid-cols-10 border-b border-[rgba(161,161,161,1)]`}>
-                                <div className="w-[148px] border-r border-[rgba(161,161,161,1)]"></div>
+                                <div className="border-r border-[rgba(161,161,161,1)]"></div>
                                 {rooms.map((room) => (
                                     <div key={room} className="h-[44px] flex justify-center items-center border-r border-[rgba(161,161,161,1)]">
                                         <h1 className='font-[roboto] font-[400] text-[14px] leading-[16.41px] text-[rgba(0,0,0,1)]'>{room}</h1>
@@ -263,7 +262,7 @@ const Test = () => {
                             {/* Time slots */}
                             {timeSlots.map((time) => (
                                 <div key={time} className={`grid grid-cols-${10} border-b border-[rgba(161,161,161,1)]`}>
-                                    <div className="w-[148px] h-[45px] flex justify-center items-center border-r border-[rgba(161,161,161,1)] text-sm text-center">
+                                    <div className="h-[90px] flex justify-center items-center border-r border-[rgba(161,161,161,1)] text-sm text-center">
                                         <h1 className='font-[roboto] font-[100] text-[12px] leading-[14.06px] text-[rgba(0,0,0,0.5)]'>
                                             {time}
                                         </h1>
@@ -274,7 +273,7 @@ const Test = () => {
                                         );
 
                                         return (
-                                            <div key={`${room}-${time}`} className="border-r border-[rgba(161,161,161,1)] h-[45px] relative">
+                                            <div key={`${room}-${time}`} className="border-r border-[rgba(161,161,161,1)] h-[90px] relative">
                                                 <AnimatePresence>
                                                     {classItem && (
                                                         <motion.div
@@ -284,7 +283,7 @@ const Test = () => {
                                                             transition={{ duration: 0.2 }}
                                                             className={`${classItem.color} flex flex-col items-center text-white p-[5px] rounded-md text-sm absolute w-auto inset-1`}
                                                             style={{
-                                                                height: classItem.rowSpan ? `${classItem.rowSpan * 45 - 7}px` : 'auto',
+                                                                height: classItem.rowSpan ? `${classItem.rowSpan * 90 - 7}px` : 'auto',
                                                             }}
                                                         >   
                                                             <div className='flex flex-col'><span className='whitespace-nowrap'>{classItem.name}</span><span className='whitespace-nowrap'>{classItem.teacher}</span></div>

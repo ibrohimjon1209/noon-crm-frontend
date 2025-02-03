@@ -34,7 +34,7 @@ const Status = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="w-[15.2%] h-[80px] pl-[27px] flex items-center gap-[11%] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-md shadow-[#0D99FF40]"
+            className="overflow-hidden w-[15.2%] h-[80px] pl-[27px] flex items-center gap-[11%] rounded-[10px] bg-[rgba(255,255,255,1)] shadow-md shadow-[#0D99FF40]"
           >
             <img src={item.icon} className="w-[55px] h-[55px] object-contain" />
             <div className="flex flex-col gap-[5px] justify-center">
