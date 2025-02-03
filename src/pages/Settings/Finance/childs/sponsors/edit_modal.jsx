@@ -39,9 +39,9 @@ const Edit_modal = ({ isOpen, onClose, initialData, onSave }) => {
   if (!shouldRender) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="w-full h-[135vh] fixed inset-0 z-50 flex items-center justify-center">
       <div
-        className={`fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`w-full h-[135vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
           isAnimating ? "opacity-100" : "opacity-0"
         }`}
         onClick={onClose}
