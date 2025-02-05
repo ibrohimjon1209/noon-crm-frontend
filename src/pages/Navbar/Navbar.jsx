@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <div className="w-[230px] top-0 h-[132vh] flex flex-col justify-between bg-white">
-      <div className="w-[100%] h-[67px] py-[10px] flex justify-center items-center shadow-[-0px_4px_4px_0_#00000040]">
+      <div className="w-[100%] h-[67px] py-[10px] flex justify-center items-center shadow-[-0px_4px_0_0_#00000040]">
         <Link to="/">
           <img
             src={logo}
