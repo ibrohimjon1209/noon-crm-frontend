@@ -1,6 +1,41 @@
 import React, { useState, useEffect } from "react"
 
 const Add_modal = ({ isOpen, onClose, initialData, onSave }) => {
+  const [formData, setFormData] = useState({
+    title: "",
+    start_time: undefined,
+    end_time: undefined,
+  })
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [shouldRender, setShouldRender] = useState(false)
+
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true)
+      setTimeout(() => setIsAnimating(true), 30)
+    } else {
+      setIsAnimating(false)
+      setTimeout(() => setShouldRender(false), 300) // Match this with the transition duration
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    if (initialData) {
+      setFormData({
+        ...initialData,
+        start_time: initialData.start_time ? new Date(initialData.start_time) : undefined,
+        end_time: initialData.end_time ? new Date(initialData.end_time) : undefined,
+      })
+    }
+  }, [initialData])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    onSave(formData)
+    onClose()
+  }
+
+  if (!shouldRender) return null
 
   return (
     <div className="w-full h-[135vh] fixed inset-0 z-50 flex items-center justify-center">

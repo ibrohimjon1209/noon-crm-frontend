@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { DateInput } from "./date_input"
 
 const Edit_modal = ({ isOpen, onClose, initialData, onSave }) => {
   const [formData, setFormData] = useState({

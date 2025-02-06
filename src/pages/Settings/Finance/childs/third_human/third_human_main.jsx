@@ -6,7 +6,7 @@ import DeleteModal from "./delete_modal";
 import EditModal from "./edit_modal";
 import AddModal from "./add_modal";
 
-const Third_human_main = () => {
+const Sponsors_main = () => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -59,7 +59,7 @@ const Third_human_main = () => {
                     >
                         <img className="w-[32px] h-[32px] object-contain" src={plus || "/placeholder.svg"} alt="Add icon" />
                         <p className="font-roboto font-[400] text-[20px] leading-[23.44px] text-white">
-                            Hamkor qo'shish
+                            3-shaxs qo'shish
                         </p>
                     </div>
                 </div>
@@ -109,4 +109,4 @@ const Third_human_main = () => {
     )
 };
 
-export default Third_human_main;
+export default Sponsors_main;
