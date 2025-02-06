@@ -40,9 +40,9 @@ const Check = () => {
   }
 
   return (
-    <div className="flex flex-row justify-center gap-[55px] w-[100%] h-auto">
+    <div className="flex flex-row gap-[55px] w-[100%] h-auto">
       <div
-        className="w-[330px] pt-[20px] h-[calc(135vh-180px)] flex flex-col items-center bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg overflow-y-scroll"
+        className="w-[calc(48vw-250px)] pt-[20px] h-[calc(135vh-180px)] flex flex-col items-center bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg overflow-y-scroll"
         style={{ scrollbarWidth: "thin" }}
       >
         <div className="flex flex-col pl-[35px] w-[100%] gap-[15px]">

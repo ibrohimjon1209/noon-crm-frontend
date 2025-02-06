@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import red_phone_icon from "./images/red_phone_icon.png";
 import green_phone_icon from "./images/green_phone_icon.png";
+import Add_modal from "./add_modal";
 import Header from "./header";
 import './style.css'
 
@@ -315,10 +316,13 @@ const feature_count = () => {
 
 const Assigments = () => {
     const [is_filter_open, set_is_filter_open] = useState(false);
+    const [is_add_modal_open, set_is_add_modal_open] = useState(false);
+
+    const handleAddModalClose = () => set_is_add_modal_open(false);
     return (
         <>
             <div className={`w-full ${is_filter_open ? 'h-[119vh]' : `h-[119vh]`} overflow-x-hidden flex flex-col items-center mt-[15px]`}>
-                <Header is_filter_open={is_filter_open} set_is_filter_open={set_is_filter_open} />
+                <Header is_filter_open={is_filter_open} set_is_filter_open={set_is_filter_open} set_is_add_modal_open={set_is_add_modal_open}/>
                 <div className="w-full overflow-hidden h-[123vh] flex flex-col ml-[32px] mt-[20px] gap-[25px]">
 
                     <div className="w-full overflow-x-auto h-full flex flex-row pr-[30px] gap-[15px]">
@@ -522,10 +526,9 @@ const Assigments = () => {
                                 ))}
                             </div>
                         </div>
-
                     </div>
-
                 </div>
+                <Add_modal isOpen={is_add_modal_open} onClose={handleAddModalClose} />
             </div>
         </>
     );

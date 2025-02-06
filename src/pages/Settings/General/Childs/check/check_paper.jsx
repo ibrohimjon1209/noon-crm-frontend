@@ -21,7 +21,7 @@ const Check_paper = ({
 }) => {
   return (
     <div className="mt-[23px]">
-      <div className='w-[550px] h-auto relative'>
+      <div className='w-[40vw] h-auto relative'>
         <img className='absolute w-[100%] h-[620px]' src={check} alt="" />
         <div className={`w-[100%] h-auto z-[10] relative flex flex-col items-center ${logo ? 'pt-[30px]' : 'pt-[70px]'}`}>
           <p className='font-roboto font-[400] text-[18px] leading-[21.09px] text-black'>
