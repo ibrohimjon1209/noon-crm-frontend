@@ -12,7 +12,7 @@ const Sponsors_main = () => {
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [currentHoliday, setCurrentHoliday] = useState(null);
 
-    const holidays_data = [
+    const sponsors_data = [
         {
             name: "Oygul Oygulov",
             phone_number: "+998944444444",
@@ -71,7 +71,7 @@ const Sponsors_main = () => {
                         <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[25%]">Ulashish</p>
                         <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[10%]">Amallar</p>
                     </div>
-                    {holidays_data.map((item, index) => (
+                    {sponsors_data.map((item, index) => (
                         <div key={index} className="flex flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
                             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[5%]">{index + 1}</p>
                             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[35%]">{item.name}</p>
@@ -79,13 +79,8 @@ const Sponsors_main = () => {
                                 {formatPhoneNumber(item.phone_number)}
                             </p>
                             <input type="number" name="" id="" placeholder={item.shared} className="pl-[10px] flex items-center font-inter font-[400] text-[16px] leading-[18.15px] text-[rgba(0,0,0,0.7)] w-[80px] h-[34px] bg-[rgba(242,238,238,1)] rounded-[5px]" />
-                            <div className="ml-[14%] flex w-[10%] justify-around">
-                                <img
-                                    src={editIcon}
-                                    alt="Edit"
-                                    className="w-[24px] h-[24px] cursor-pointer scale-100 hover:scale-105 active:scale-95 duration-300"
-                                    onClick={() => handleEdit(item)}
-                                />
+                            <div className="ml-[14%] flex w-[10%] justify-center">
+                              
                                 <img
                                     src={deleteIcon}
                                     alt="Delete"
@@ -96,7 +91,7 @@ const Sponsors_main = () => {
                         </div>
                     ))}
                     <div className="flex pr-[34px] mt-[50px] mb-[15px]">
-                        <h1 className="font-inter font-[600] text-[15px] text-[rgba(64,64,64,1)]">Umumiy son: 5</h1>
+                        <h1 className="font-inter font-[600] text-[15px] text-[rgba(64,64,64,1)]">Umumiy son: {sponsors_data.length}</h1>
                     </div>
                 </div>
 
@@ -106,11 +101,7 @@ const Sponsors_main = () => {
                     holiday={currentHoliday}
                 />
 
-                <EditModal
-                    isOpen={isEditModalOpen}
-                    onClose={() => setIsEditModalOpen(false)}
-                    holiday={currentHoliday}
-                />
+
 
                 <AddModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
             </div>

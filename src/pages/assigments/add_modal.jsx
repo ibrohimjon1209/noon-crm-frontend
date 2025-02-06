@@ -43,7 +43,9 @@ const Add_modal = ({ isOpen, onClose }) => {
         <hr className="border-[#00000080] w-[100%]" />
         <div className="w-full h-full flex flex-col items-center px-10 pt-8 gap-[28px]">
             <div className="w-full flex flex-row gap-[40px]">
-                <div className="w-full h-[58px] bg-[#F2EEEE] rounded"></div>
+                <div className="w-full h-[58px] bg-[#F2EEEE] rounded">
+                  <input type="text" className="font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)] bg-transparent w-full h-full pl-[20px]" />
+                </div>
                 <div className="w-full h-[58px] bg-[#F2EEEE] rounded"></div>
             </div>
             <div className="w-full h-[58px] bg-[#F2EEEE]"></div>

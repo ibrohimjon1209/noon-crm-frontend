@@ -14,8 +14,8 @@ const Nav_settings = () => {
   };
 
   return (
-    <div className='pb-[45px]'>
-      <div className='w-[400px] h-[calc(135vh-180px)] pt-[5px] overflow-y-auto rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]'>
+    <div className='pb-[px]'>
+      <div className='w-[30vw] h-[calc(135vh-180px)] pt-[5px] overflow-y-auto rounded-t-[15px] rounded-b-[1px] shadow-lg bg-[rgba(255,255,255,1)]'>
         
         <Link to="/settings/general/function" className='cursor-pointer w-full h-[60px] pl-[40.22px] flex items-center gap-[26.97px] border-b-[1px]'>
           <div className='w-[36.82px] h-[29.32px]'>

@@ -28,10 +28,10 @@ const General_settings_main = () => {
 
     return (
     <>
-      <div className="px-[42px] pt-[41px]">
+      <div className="pl-[42px] pt-[41px]">
         <div className="flex gap-[30px]">
           <Nav_settings />
-          <div>
+          <div className="w-full h-full">
             <Routes>
               <Route path="/function" element={<Function />} />
               <Route path="/check" element={<Check />} />

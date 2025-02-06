@@ -237,74 +237,76 @@ const Test = () => {
                 </div>
 
                 {/* Table */}
-                <div className="table overflow-x-auto w-full h-full border-[2px] border-[rgba(161,161,161,1)] bg-white shadow-lg rounded-[12px]">
+                <div className='w-full h-full rounded-[12px] border-[rgba(161,161,161,1)] overflow-auto'>
+                    <div className="table w-full h-full border-[2px] border-[rgba(161,161,161,1)] bg-white shadow-lg rounded-[12px]">
 
-                    <div
-                        className='flex-1'
-                        style={{ ...customScrollbar, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: 'rgba(0,53,95,1) rgba(255, 255, 255, 1)', }}>
-                        <div style={webkitScrollbarStyles} className="scrollbar">
-                            <div style={webkitScrollbarTrackStyles} className="scrollbar-track">
-                                <div style={webkitScrollbarThumbStyles} className="scrollbar-thumb"></div>
+                        <div
+                            className='flex-1'
+                            style={{ ...customScrollbar, overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: 'rgba(0,53,95,1) rgba(255, 255, 255, 1)', }}>
+                            <div style={webkitScrollbarStyles} className="scrollbar">
+                                <div style={webkitScrollbarTrackStyles} className="scrollbar-track">
+                                    <div style={webkitScrollbarThumbStyles} className="scrollbar-thumb"></div>
+                                </div>
                             </div>
-                        </div>
 
 
-                        <div className=''>
-                            <div className={`grid grid-cols-10 border-b border-[rgba(161,161,161,1)]`}>
-                                <div className="border-r border-[rgba(161,161,161,1)]"></div>
-                                {rooms.map((room) => (
-                                    <div key={room} className="h-[44px] flex justify-center items-center border-r border-[rgba(161,161,161,1)]">
-                                        <h1 className='font-[roboto] font-[400] text-[14px] leading-[16.41px] text-[rgba(0,0,0,1)]'>{room}</h1>
+                            <div className=''>
+                                <div className={`grid grid-cols-10 border-b border-[rgba(161,161,161,1)]`}>
+                                    <div className="border-r border-[rgba(161,161,161,1)]"></div>
+                                    {rooms.map((room) => (
+                                        <div key={room} className="h-[44px] flex justify-center items-center border-r border-[rgba(161,161,161,1)]">
+                                            <h1 className='font-[roboto] font-[400] text-[14px] leading-[16.41px] text-[rgba(0,0,0,1)]'>{room}</h1>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Time slots */}
+                                {timeSlots.map((time) => (
+                                    <div key={time} className={`grid grid-cols-${10} border-b border-[rgba(161,161,161,1)]`}>
+                                        <div className="h-[90px] flex justify-center items-center border-r border-[rgba(161,161,161,1)] text-sm text-center">
+                                            <h1 className='font-[roboto] font-[100] text-[12px] leading-[14.06px] text-[rgba(0,0,0,0.5)]'>
+                                                {time}
+                                            </h1>
+                                        </div>
+                                        {rooms.map((room) => {
+                                            const classItem = classesByDay[activeDay]?.find(
+                                                c => c.room === room && c.startTime === time
+                                            );
+
+                                            return (
+                                                <div key={`${room}-${time}`} className="border-r border-[rgba(161,161,161,1)] h-[90px] relative">
+                                                    <AnimatePresence>
+                                                        {classItem && (
+                                                            <motion.div
+                                                                initial={{ opacity: 0, scale: 0.9 }}
+                                                                animate={{ opacity: 1, scale: 1 }}
+                                                                exit={{ opacity: 0, scale: 0.9 }}
+                                                                transition={{ duration: 0.2 }}
+                                                                className={`${classItem.color} flex flex-col items-center text-white p-[5px] rounded-md text-sm absolute w-auto inset-1`}
+                                                                style={{
+                                                                    height: classItem.rowSpan ? `${classItem.rowSpan * 90 - 7}px` : 'auto',
+                                                                }}
+                                                            >
+                                                                <div className='flex flex-col'><span className='whitespace-nowrap'>{classItem.name}</span><span className='whitespace-nowrap'>{classItem.teacher}</span></div>
+                                                                <hr className='my-[5px] w-[115%] -ml-[1%] border-white' />
+                                                                <div className='flex flex-col w-full h-full items-center justify-center'>
+                                                                    <div className='flex items-center w-full justify-center gap-[10px]'><span className='whitespace-nowrap'>{classItem.progress}</span><span className='whitespace-nowrap text-[#4E33EA]'>{classItem.status}</span></div>
+                                                                </div>
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </div>
+                                            );
+                                        })}
                                     </div>
                                 ))}
                             </div>
 
-                            {/* Time slots */}
-                            {timeSlots.map((time) => (
-                                <div key={time} className={`grid grid-cols-${10} border-b border-[rgba(161,161,161,1)]`}>
-                                    <div className="h-[90px] flex justify-center items-center border-r border-[rgba(161,161,161,1)] text-sm text-center">
-                                        <h1 className='font-[roboto] font-[100] text-[12px] leading-[14.06px] text-[rgba(0,0,0,0.5)]'>
-                                            {time}
-                                        </h1>
-                                    </div>
-                                    {rooms.map((room) => {
-                                        const classItem = classesByDay[activeDay]?.find(
-                                            c => c.room === room && c.startTime === time
-                                        );
 
-                                        return (
-                                            <div key={`${room}-${time}`} className="border-r border-[rgba(161,161,161,1)] h-[90px] relative">
-                                                <AnimatePresence>
-                                                    {classItem && (
-                                                        <motion.div
-                                                            initial={{ opacity: 0, scale: 0.9 }}
-                                                            animate={{ opacity: 1, scale: 1 }}
-                                                            exit={{ opacity: 0, scale: 0.9 }}
-                                                            transition={{ duration: 0.2 }}
-                                                            className={`${classItem.color} flex flex-col items-center text-white p-[5px] rounded-md text-sm absolute w-auto inset-1`}
-                                                            style={{
-                                                                height: classItem.rowSpan ? `${classItem.rowSpan * 90 - 7}px` : 'auto',
-                                                            }}
-                                                        >   
-                                                            <div className='flex flex-col'><span className='whitespace-nowrap'>{classItem.name}</span><span className='whitespace-nowrap'>{classItem.teacher}</span></div>
-                                                            <hr className='my-[5px] w-[115%] -ml-[1%] border-white'/>
-                                                            <div className='flex flex-col w-full h-full items-center justify-center'>
-                                                            <div className='flex items-center w-full justify-center gap-[10px]'><span className='whitespace-nowrap'>{classItem.progress}</span><span className='whitespace-nowrap text-[#4E33EA]'>{classItem.status}</span></div>
-                                                            </div>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            ))}
                         </div>
 
 
                     </div>
-
-
                 </div>
             </div>
         </div>
