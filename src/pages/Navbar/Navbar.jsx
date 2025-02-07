@@ -25,7 +25,7 @@ const Navbar = () => {
   const submenuItems = [
     { path: "/settings/general/function", label: "Umumiy sozlamalar" },
     { path: "/settings/finance/sponsors", label: "Moliya" },
-    { path: "education", label: "O'quv" },
+    { path: "/settings/study/arrive", label: "O'quv" },
     { path: "sales", label: "Sotuv va marketing" },
     { path: "management", label: "Boshqaruv" },
     { path: "integrations", label: "Integratsiyalar" },
