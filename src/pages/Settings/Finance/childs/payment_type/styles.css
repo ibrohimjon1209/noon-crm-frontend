@@ -1,0 +1,31 @@
+.checkbox {
+    width: 27px;
+    height: 25px;
+    background-color: white; /* Asl fon rangi */
+    border: 2px solid #ccc; /* Chegarasi */
+    border-radius: 4px; /* Burchaklarni yumshatish */
+    position: relative;
+    cursor: pointer; /* Kursorni qo'lda o'zgartirish */
+}
+
+.checkbox.checked {
+    background-color: #459ddb; /* Bosilganda fon rangi */
+    border-color: #459ddb; /* Bosilganda chegaraning rangi */
+}
+
+.checkbox::after {
+    content: "";
+    position: absolute;
+    width: 10px; /* Belgining o'lchami */
+    height: 0px; /* Belgining o'lchami */
+    background-color: transparent; /* Bosilmagan holatda shaffof */
+    border-radius: 50%; /* Yuqoriga o'zgartirish */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Markazlashtirish */
+    transition: background-color 0.1s ease; /* O'zgarishlar uchun animatsiya */
+}
+
+.checkbox.checked::after {
+    background-color: white; /* Belgining rangi */
+}

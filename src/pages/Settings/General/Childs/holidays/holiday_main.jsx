@@ -145,7 +145,7 @@ const Holiday = () => {
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[25%]">
               {item.end_time}
             </p>
-            <div className="flex w-[10%] justify-around">
+            <div className="w -[10%] flex justify-around">
               <img
                 src={editIcon}
                 alt="Edit"
