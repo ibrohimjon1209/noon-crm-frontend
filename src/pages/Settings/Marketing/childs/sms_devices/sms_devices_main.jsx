@@ -39,15 +39,7 @@ const Holiday = () => {
 
   ]
 
-  const handleDelete = (holiday) => {
-    setCurrentHoliday(holiday);
-    setIsDeleteModalOpen(true);
-  };
-
-  const handleEdit = (holiday) => {
-    setCurrentHoliday(holiday);
-    setIsEditModalOpen(true);
-  };
+  
 
   return (
     <div className="flex w-[100%] h-[100%] flex-col  gap-[16px]">
