@@ -43,13 +43,11 @@ export default function CategoryList() {
 
     return (
         <div className="p-6 bg-white rounded-lg shadow-md max-w-7xl  mr-4">
-            {/* Kategoriya qo'shish tugmasi */}
             <button onClick={() => setIsOpen(true)} className="flex items-center justify-center gap-2 w-64 h-16 rounded-full bg-[#0D99FF] text-gray-50 text-[20px]">
                 <IoMdAdd size={25} />
                 Kategoriya qo‘shish
             </button>
 
-            {/* Kategoriya Ro'yxati */}
             <ul className="rounded-lg divide-y">
                 {categories.map((category, index) => (
                     <li key={index} className="flex justify-between items-center p-4 h-[5rem]">
