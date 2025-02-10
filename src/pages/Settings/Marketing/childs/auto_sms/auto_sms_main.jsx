@@ -45,7 +45,7 @@ const Monthly_payment_main = () => {
             <h1 className='font-inter font-[500] text-[18px] leading-[21.78px] text-[#404040]'>Kurs puli to'lansa</h1>
           </div>
           <div className="w-[23%] h-[100%] flex justify-between items-center">
-            <div>
+            <div className="cursor-pointer">
               <div
                 onClick={() => set_finance(!finance)}
                 className={`rounded-[40px] mr-[10px] ${finance ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${finance ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer items-center px-[2px] border-[#264E86] border-[4px] h-[24px]`}
@@ -56,13 +56,13 @@ const Monthly_payment_main = () => {
               </div>
             </div>
             <img
-              className="w-[35px] mr-[10px]"
+              className="w-[35px] mr-[10px] cursor-pointer"
               src={editIcon}
               alt="Edit"
               onClick={handleEdit}
             />
             <img
-              className="w-[30px]"
+              className="w-[30px] cursor-pointer"
               src={deleteIcon}
               alt="Delete"
               onClick={handleDelete}
@@ -79,7 +79,7 @@ const Monthly_payment_main = () => {
             <h1 className='font-inter font-[500] text-[18px] leading-[21.78px] text-[#404040]'>Darsga kelmasa</h1>
           </div>
           <div className="w-[23%] h-[100%] flex justify-between items-center">
-            <div>
+            <div className="cursor-pointer">
               <div
                 onClick={() => set_kelmasa(!kelmasa)}
                 className={`rounded-[40px] mr-[10px] ${kelmasa ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${kelmasa ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer items-center px-[2px] border-[#264E86] border-[4px] h-[24px]`}
@@ -90,20 +90,18 @@ const Monthly_payment_main = () => {
               </div>
             </div>
             <img
-              className="w-[35px] mr-[10px]"
+              className="w-[35px] mr-[10px] cursor-pointer"
               src={editIcon}
               alt="Edit"
               onClick={handleEdit}
             />
             <img
-              className="w-[30px]"
+              className="w-[30px] cursor-pointer"
               src={deleteIcon}
               alt="Delete"
               onClick={handleDelete}
             />
-
           </div>
-
         </div>
         <div className="w-[95%] h-[50px] border-b-[1px] border-gray flex">
           <p className="p-[5px] mt-[5px] font-[600]">Yo'qlama qilgandan</p>
@@ -116,7 +114,7 @@ const Monthly_payment_main = () => {
             <h1 className='font-inter font-[500] text-[18px] leading-[21.78px] text-[#404040]'>Qarzdorlar</h1>
           </div>
           <div className="w-[23%] h-[100%] flex justify-between items-center">
-            <div>
+            <div className="cursor-pointer">
               <div
                 onClick={() => set_qarzdorlar(!qarzdorlar)}
                 className={`rounded-[40px] mr-[10px] ${qarzdorlar ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${qarzdorlar ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer items-center px-[2px] border-[#264E86] border-[4px] h-[24px]`}
@@ -127,13 +125,13 @@ const Monthly_payment_main = () => {
               </div>
             </div>
             <img
-              className="w-[33px] mr-[10px]"
+              className="w-[33px] mr-[10px] cursor-pointer"
               src={editIcon}
               alt="Edit"
               onClick={handleEdit}
             />
             <img
-              className="w-[30px]"
+              className="w-[30px] cursor-pointer"
               src={deleteIcon}
               alt="Delete"
               onClick={handleDelete}
