@@ -5,6 +5,7 @@ const Add_modal = ({ isOpen, onClose, initialData, onSave }) => {
     title: "",
     start_time: undefined,
     end_time: undefined,
+    phone: "", // Telefon raqami uchun boshlang'ich qiymat
   })
   const [isAnimating, setIsAnimating] = useState(false)
   const [shouldRender, setShouldRender] = useState(false)
@@ -35,6 +36,23 @@ const Add_modal = ({ isOpen, onClose, initialData, onSave }) => {
     onClose()
   }
 
+  const handlePhoneFocus = () => {
+    if (!formData.phone.startsWith("+998")) {
+      setFormData(prev => ({
+        ...prev,
+        phone: "+998"
+      }));
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;
+    setFormData(prev => ({
+      ...prev,
+      phone: value // Foydalanuvchi kiritgan raqamni saqlash
+    }));
+  };
+
   if (!shouldRender) return null
 
   return (
@@ -45,12 +63,12 @@ const Add_modal = ({ isOpen, onClose, initialData, onSave }) => {
         onClick={onClose}
       ></div>
       <div
-        className={`relative bg-white rounded-[10px] w-[625px] h-[549px] z-50 transition-all duration-300 ease-out ${isAnimating ? "translate-y-1 opacity-100" : "-translate-y-20 opacity-0"
+        className={`relative bg-white rounded-[10px] w-[625px] h-[349px] z-50 transition-all duration-300 ease-out ${isAnimating ? "translate-y-1 opacity-100" : "-translate-y-20 opacity-0"
           }`}
       >
         <div className="flex justify-between items-center pt-6 px-6 mb-6">
           <h2 className="font-roboto font-[400] text-[20px] leading-[23.44px] uppercase text-black">
-            Hamkor qo'shish
+            3-shaxs qo'shish
           </h2>
           <button
             onClick={onClose}
@@ -60,17 +78,38 @@ const Add_modal = ({ isOpen, onClose, initialData, onSave }) => {
           </button>
         </div>
         <hr className="border-[#00000080] w-[100%]" />
-        <div className="pt-[15px]">
-          <div onClick={onClose} className="w-full h-[60px] border-b-[0.5px] hover:bg-[rgba(242,238,238,1)] border-black  flex items-center pl-[30px]">
-            <h1 className="font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]">Diyorbek Omonboyev</h1>
+        <div className="pt-[30px] px-[30px] flex flex-col">
+          <div className=" flex justify-between">
+
+            <div className="flex flex-col gap-[15px] ">
+              <h1 className="font-roboto font-[400] text-[20px] leading-[23.44px] text-[rgba(0,0,0,1)]">ISM</h1>
+              <input type="text" placeholder="Ism" className="pl-[17px] placeholder:text-[rgba(0,0,0,0.8)] w-[260px] h-[50px] bg-[rgba(242,238,238,1)] rounded-[5px] font-roboto font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.8)]" />
+            </div>
+
+            <div className="flex flex-col gap-[15px] ">
+              <h1 className="font-roboto font-[400] text-[20px] leading-[23.44px] text-[rgba(0,0,0,1)]">Telefon raqam</h1>
+              <input
+                type="text"
+                value={formData.phone}
+                onFocus={handlePhoneFocus}
+                onChange={handlePhoneChange}
+                placeholder="Telefon raqami"
+                className="pl-[17px] placeholder:text-[rgba(0,0,0,0.8)] w-[260px] h-[50px] bg-[rgba(242,238,238,1)] rounded-[5px] font-roboto font-[400] text-[16px] leading-[18.75px] text-[rgba(0,0,0,0.8)]"
+              />
+            </div>
           </div>
-          <div onClick={onClose} className="w-full h-[60px] border-b-[0.5px] hover:bg-[rgba(242,238,238,1)] border-black flex items-center pl-[30px]">
-            <h1 className="font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]">Mirzohid Ismoilov</h1>
-          </div>
-          <div onClick={onClose} className="w-full h-[60px] border-b-[0.5px] hover:bg-[rgba(242,238,238,1)] border-black flex items-center pl-[30px]">
-            <h1 className="font-roboto font-[400] text-[18px] leading-[21.09px] text-[rgba(0,0,0,1)]">Ibrohimjon Mamirov</h1>
+
+          <div className="flex justify-end gap-[20px]">
+            <div>
+              <button onClick={onClose} className="hover:scale-[102%] hover:bg-[#dedfe0] active:scale-[95%] transition-all duration-100 mt-[50px] w-[142px] h-[63px] rounded-[5px] bg-[rgba(242,238,238,1)] font-roboto font-[400] text-[20px] leading-[23.44px] text-[rgba(0,0,0,1)]">Orqaga</button>
+            </div>
+            <div>
+              <button onClick={onClose} className="hover:scale-[102%] hover:bg-[#459ddb] active:scale-[95%] transition-all duration-100 mt-[50px] w-[142px] h-[63px] rounded-[5px] bg-[rgba(13,153,255,1)] font-roboto font-[400] text-[20px] leading-[23.44px] text-[rgba(255,255,255,1)]">Saqlash</button>
+
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   )
