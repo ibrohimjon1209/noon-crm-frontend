@@ -13,6 +13,7 @@ const Settings = () => {
           <Route path="general/*" element={<General_settings />} />
           <Route path="study/*" element={<Study_settings />} />
           <Route path="marketing/*" element={<Marketing_settings />} />
+          <Route path="management/*" element={<Marketing_settings />} />
         </Routes>
   )
 }

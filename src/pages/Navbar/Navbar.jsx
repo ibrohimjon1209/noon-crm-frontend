@@ -27,7 +27,7 @@ const Navbar = () => {
     { path: "/settings/finance/sponsors", active: '/settings/finance', label: "Moliya" },
     { path: "/settings/study/arrive", active: '/settings/study', label: "O'quv" },
     { path: "/settings/marketing/phone", active: '/settings/marketing', label: "Sotuv va marketing" },
-    { path: "management", active: '', label: "Boshqaruv" },
+    { path: "/settings/management/system", active: '/settings/management', label: "Boshqaruv" },
     { path: "integrations", active: '', label: "Integratsiyalar" },
   ];
 
