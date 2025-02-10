@@ -72,7 +72,7 @@ const Monthly_payment_main = () => {
         </div>
 
 
-        <textarea className="w-[90%] h-[20%] resize-none border-black border-[1px] p-[10px] rounded-[10px] ">Assalomu alaykum Hurmatli o'quvchi "NAME"! Sizning Amu Web School dagi avvalgi balansingiz "OLD-BALANCE" so'm edi, hisobingizga AMOUNT so'm to'lov qabul qilindi, hozirda balansingiz: "BALANCE" so'm. Qo'shimcha ma'lumot uchun adminstratsiya telefon raqami: 935053700</textarea>
+        <textarea className="w-[90%] h-[20%] resize-none border-black border-[1px] p-[10px] rounded-[10px] bg-default">Assalomu alaykum Hurmatli o'quvchi "NAME"! Sizning Amu Web School dagi avvalgi balansingiz "OLD-BALANCE" so'm edi, hisobingizga AMOUNT so'm to'lov qabul qilindi, hozirda balansingiz: "BALANCE" so'm. Qo'shimcha ma'lumot uchun adminstratsiya telefon raqami: 935053700</textarea>
 
         <div className='w-[95%] h-[68px] flex justify-between items-center px-[10px] border-black border-[1px]--'>
           <div className='w-[677px]'>
