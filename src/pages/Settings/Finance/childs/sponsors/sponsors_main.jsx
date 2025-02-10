@@ -23,6 +23,11 @@ const Sponsors_main = () => {
             phone_number: "+998333321747",
             shared: "3",
         },
+        {
+            name: "Ma'mirov Ibrohimjon",
+            phone_number: "+998333321747",
+            shared: "3",
+        },
     ];
 
     const formatPhoneNumber = (number) => {
@@ -64,12 +69,11 @@ const Sponsors_main = () => {
                     </div>
                 </div>
                 <div className="flex flex-col items-center w-[calc(60vw)] overflow-y-scroll h-auto bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg" style={{ scrollbarWidth: "thin" }}>
-                    <div className="flex mt-[10px] flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
+                    <div className="flex mt-[10px] flex-row items-center w-[90%] py-[19px] border-b-[1px]  border-[#D9D9D9]">
                         <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[5%]">№</p>
                         <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[35%]">To'liq ismi</p>
                         <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[25%]">Telefon raqami</p>
                         <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[25%]">Ulashish</p>
-                        <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[10%]">Amallar</p>
                     </div>
                     {sponsors_data.map((item, index) => (
                         <div key={index} className="flex flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
@@ -79,8 +83,8 @@ const Sponsors_main = () => {
                                 {formatPhoneNumber(item.phone_number)}
                             </p>
                             <input type="number" name="" id="" placeholder={item.shared} className="pl-[10px] flex items-center font-inter font-[400] text-[16px] leading-[18.15px] text-[rgba(0,0,0,0.7)] w-[80px] h-[34px] bg-[rgba(242,238,238,1)] rounded-[5px]" />
-                            <div className="ml-[14%] flex w-[10%] justify-center">
-                              
+                            <div className="ml-[16%] pl-[80px] flex w-[10%] justify-center">
+
                                 <img
                                     src={deleteIcon}
                                     alt="Delete"

@@ -40,7 +40,7 @@ const Monthly_payment_main = () => {
         </div>
 
 
-        <div className='w-[95%] h-[68px] flex justify-between items-center px-[10px]'>
+        <div className='w-[95%] h-[68px] flex justify-between items-center px-[2%]'>
           <div className='w-[677px]'>
             <h1 className='font-inter font-[500] text-[18px] leading-[21.78px] text-[#404040] text-black'>Kurs puli to'lansa</h1>
           </div>
@@ -72,7 +72,7 @@ const Monthly_payment_main = () => {
         </div>
 
 
-        <textarea className="w-[90%] h-[20%] resize-none border-black border-[1px] p-[10px] rounded-[10px] bg-default">Assalomu alaykum Hurmatli o'quvchi "NAME"! Sizning Amu Web School dagi avvalgi balansingiz "OLD-BALANCE" so'm edi, hisobingizga AMOUNT so'm to'lov qabul qilindi, hozirda balansingiz: "BALANCE" so'm. Qo'shimcha ma'lumot uchun adminstratsiya telefon raqami: 935053700</textarea>
+        <textarea className="w-[93%] h-[20%] resize-none border-black border-[1px] p-[10px] rounded-[10px] bg-white text-black m-0">Assalomu alaykum Hurmatli o'quvchi "NAME"! Sizning Amu Web School dagi avvalgi balansingiz "OLD-BALANCE" so'm edi, hisobingizga AMOUNT so'm to'lov qabul qilindi, hozirda balansingiz: "BALANCE" so'm. Qo'shimcha ma'lumot uchun adminstratsiya telefon raqami: 935053700</textarea>
 
         <div className='w-[95%] h-[68px] flex justify-between items-center px-[10px] border-black border-[1px]--'>
           <div className='w-[677px]'>
