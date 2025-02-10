@@ -20,7 +20,7 @@ const Marketing_settings_main = () => {
                 <Route path="/phone" element={<Phone />} />
                 <Route path="/hashtag" element={<Hashtag />} />
                 <Route path="/students-type" element={<Students_type />} />
-                <Route path="/sections" element={<Sections />} />
+                <Route path="/sections/*" element={<Sections />} />
                 <Route path="/auto-sms" element={<Auto_sms />} />
                 <Route path="/sms-devices" element={<Sms_devices />} />
             </Routes>
