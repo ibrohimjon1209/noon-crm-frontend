@@ -27,8 +27,8 @@ const Navbar = () => {
     { path: "/settings/finance/sponsors", active: '/settings/finance', label: "Moliya" },
     { path: "/settings/study/arrive", active: '/settings/study', label: "O'quv" },
     { path: "/settings/marketing/phone", active: '/settings/marketing', label: "Sotuv va marketing" },
-    { path: "/settings/management/system", active: '/settings/management', label: "Boshqaruv" },
-    { path: "integrations", active: '', label: "Integratsiyalar" },
+    { path: "/settings/management/manager", active: '/settings/management', label: "Boshqaruv" },
+    { path: "/settings/integration", active: '/settings/integration', label: "Integratsiyalar" },
   ];
 
   return (
