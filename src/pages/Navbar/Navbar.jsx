@@ -1,35 +1,35 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import assignment_icon from './Image/blue/assignment.png';
-import lydes_icon from './Image/blue/lydes.png';
-import group_icon from './Image/blue/group.png';
-import student_icon from './Image/blue/students.png';
-import study_division from './Image/blue/study division.png';
-import wallet_icon from './Image/blue/wallet.png';
-import control_icon from './Image/blue/control.png';
-import drive_icon from './Image/blue/drive.png';
-import marketing_icon from './Image/blue/marketing.png';
-import report_icon from './Image/blue/report.png';
-import settings_icon from './Image/blue/settings.png';
-import piramid from './Image/piramid.png';
-import logo from './Image/black/logo vector.png';
-import './style.css';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import assignment_icon from "./Image/blue/assignment.png";
+import lydes_icon from "./Image/blue/lydes.png";
+import group_icon from "./Image/blue/group.png";
+import student_icon from "./Image/blue/students.png";
+import study_division from "./Image/blue/study division.png";
+import wallet_icon from "./Image/blue/wallet.png";
+import control_icon from "./Image/blue/control.png";
+import drive_icon from "./Image/blue/drive.png";
+import marketing_icon from "./Image/blue/marketing.png";
+import report_icon from "./Image/blue/report.png";
+import settings_icon from "./Image/blue/settings.png";
+import piramid from "./Image/piramid.png";
+import logo from "./Image/black/logo vector.png";
+import "./style.css";
 
 const Navbar = () => {
-  const [isHovered, setIsHovered] = useState(false)
-  const location = useLocation()
+  const [isHovered, setIsHovered] = useState(false);
+  const location = useLocation();
 
-  const isSettingsActive = location.pathname.startsWith("/settings")
-  const activeSubmenu = location.pathname
-
+  const isSettingsActive = location.pathname.startsWith("/settings");
+  const toActiveSubmenu = location.pathname.split("/");
+  const activeSubmenu = `/${toActiveSubmenu[1]}/${toActiveSubmenu[2]}`;
   const submenuItems = [
-    { path: "/settings/general/function", label: "Umumiy sozlamalar" },
-    { path: "/settings/finance/sponsors", label: "Moliya" },
-    { path: "/settings/study/arrive", label: "O'quv" },
-    { path: "/settings/marketing/phone", label: "Sotuv va marketing" },
-    { path: "management", label: "Boshqaruv" },
-    { path: "integrations", label: "Integratsiyalar" },
-  ]
+    { path: "/settings/general/function", active: '/settings/general', label: "Umumiy sozlamalar" },
+    { path: "/settings/finance/sponsors", active: '/settings/finance', label: "Moliya" },
+    { path: "/settings/study/arrive", active: '/settings/study', label: "O'quv" },
+    { path: "/settings/marketing/phone", active: '/settings/marketing', label: "Sotuv va marketing" },
+    { path: "/settings/management/manager", active: '/settings/management', label: "Boshqaruv" },
+    { path: "/settings/integration", active: '/settings/integration', label: "Integratsiyalar" },
+  ];
 
   return (
     <div className="w-[230px] top-0 h-[132vh] flex flex-col justify-between bg-white">
@@ -44,14 +44,19 @@ const Navbar = () => {
       </div>
       <div
         className="duration-300 nav-left w-[100%] h-full mt-[28px] gap-[5px] overflow-y-auto pb-[50px] overflow-x-hidden flex flex-col items-center"
-        style={{ scrollbarColor: '#a9a9a9 transparent', overflow: 'auto', scrollbarWidth: 'thin' }}
+        style={{
+          scrollbarColor: "#a9a9a9 transparent",
+          overflow: "auto",
+          scrollbarWidth: "thin",
+        }}
       >
         <Link
           to="/assigments"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${location.pathname === '/assigments'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            } pl-[10px]`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${
+            location.pathname === "/assigments"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          } pl-[10px]`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -66,13 +71,17 @@ const Navbar = () => {
 
         <Link
           to="/lids"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/lids'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/lids"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
-            <img src={lydes_icon} className="w-[32px] h-[32px] object-contain" />
+            <img
+              src={lydes_icon}
+              className="w-[32px] h-[32px] object-contain"
+            />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Lidlar
             </h1>
@@ -81,13 +90,17 @@ const Navbar = () => {
 
         <Link
           to="/groups"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/groups'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/groups"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
-            <img src={group_icon} className="w-[32px] h-[32px] object-contain" />
+            <img
+              src={group_icon}
+              className="w-[32px] h-[32px] object-contain"
+            />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Guruh
             </h1>
@@ -96,10 +109,11 @@ const Navbar = () => {
 
         <Link
           to="/students"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/students'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/students"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -114,10 +128,11 @@ const Navbar = () => {
 
         <Link
           to="/study_section"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/study_section'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/study_section"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -132,10 +147,11 @@ const Navbar = () => {
 
         <Link
           to="/finance"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/finance'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/finance"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -150,10 +166,11 @@ const Navbar = () => {
 
         <Link
           to="/control"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/control'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/control"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -168,10 +185,11 @@ const Navbar = () => {
 
         <Link
           to="/management"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/management'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/management"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -186,10 +204,11 @@ const Navbar = () => {
 
         <Link
           to="/marketing"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/marketing'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/marketing"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -204,10 +223,11 @@ const Navbar = () => {
 
         <Link
           to="/reports"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === '/reports'
-            ? 'bg-[#CFEBFF] text-[#264E86]'
-            : 'bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]'
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/reports"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -221,13 +241,20 @@ const Navbar = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isSettingsActive ? "bg-[#CFEBFF] text-[#264E86]" : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            isSettingsActive
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
+          }`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
-            <img src={settings_icon || "/placeholder.svg"} className="w-[32px] h-[32px] object-contain" alt="Settings" />
+            <img
+              src={settings_icon || "/placeholder.svg"}
+              className="w-[32px] h-[32px] object-contain"
+              alt="Settings"
+            />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Sozlamalar
             </h1>
@@ -244,17 +271,23 @@ const Navbar = () => {
                   {submenuItems.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${
+                          activeSubmenu === item.active
                             ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
                             : " text-black"
-                          }`}
+                        }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
-                            }`}
+                          className={`w-[5px] h-[5px] rounded-[50%] ${
+                            activeSubmenu === item.path
+                              ? "bg-[#264E86]"
+                              : "bg-black"
+                          }`}
                         ></div>
                         {console.log(activeSubmenu, item.path)}
-                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">{item.label}</h1>
+                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                          {item.label}
+                        </h1>
                       </div>
                     </Link>
                   ))}
@@ -268,4 +301,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar 
+export default Navbar;
