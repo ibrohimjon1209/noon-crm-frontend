@@ -26,7 +26,15 @@ const Holiday = () => {
       imei : "33423432344534",
       moder : "Xudoyorxon ",
       status : "Online",
-      holat : "foal emas"
+      holat : "aktiv"
+    },
+    {
+      device: "VIVO sdfsdf",
+      company : "Android",
+      imei : "33423432344534",
+      moder : "Xudoyorxon ",
+      status : "Online",
+      holat : "aktiv"
     }
 
   ]
