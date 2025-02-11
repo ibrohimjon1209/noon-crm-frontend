@@ -13,14 +13,14 @@ const Marketing_settings_main = () => {
     return (
     <>
         <div className="pl-[42px] pt-[41px]">
-        <div className="flex gap-[30px]">
+        <div className="flex gap-4">
             <Nav_settings />
             <div className="w-full h-full">
             <Routes>
                 <Route path="/phone" element={<Phone />} />
                 <Route path="/hashtag" element={<Hashtag />} />
                 <Route path="/students-type" element={<Students_type />} />
-                <Route path="/sections" element={<Sections />} />
+                <Route path="/sections/*" element={<Sections />} />
                 <Route path="/auto-sms" element={<Auto_sms />} />
                 <Route path="/sms-devices" element={<Sms_devices />} />
             </Routes>

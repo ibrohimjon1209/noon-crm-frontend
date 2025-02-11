@@ -62,7 +62,6 @@ const App = () => {
               <Route path="/reports" element={<Reports />} />
               <Route path="/settings/*" element={<Settings />} />
               <Route path='*' element={<Navigate to="/" replace />} />
-
             </Routes>
           </div>
         </div>
