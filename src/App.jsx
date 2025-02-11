@@ -4,7 +4,7 @@ import Nav_top from './pages/Navbar/Nav-top';
 import Main_home from './pages/home/main_home';
 import Assigments from './pages/assigments/assigments.jsx';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Lids from './pages/Lids/Lids';
+import Lids from './pages/Lids/Lids_main.jsx';
 import Groups from './pages/Groups/Groups';
 import Students from './pages/Students/Students';
 import Study_section from './pages/Study_section/Study_section';
@@ -51,7 +51,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Main_home />} />
               <Route path="/assigments" element={<Assigments />} />
-              <Route path="/lids" element={<Lids />} />
+              <Route path="/lids/*" element={<Lids />} />
               <Route path="/groups" element={<Groups />} />
               <Route path="/students" element={<Students />} />
               <Route path="/study_section" element={<Study_section />} />
