@@ -105,21 +105,21 @@ const Function = () => {
                             Funksionallik
                         </h1>
                         <div className='mt-[10px]'>
-                            <div className='w-full h-[68px] border-b-[1.5px] border-[#D9D9D9] flex justify-between items-center px-[10px]'>
-                                <div className='w-[677px]'>
-                                    <h1 className='font-inter font-[500] text-[18px] leading-[21.78px] text-[#404040]'>Band xona</h1>
-                                </div>
-                                <div>
-                                    <div
-                                        onClick={() => set_busy_room(!busy_room)}
-                                        className={`rounded-[40px] ${busy_room ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${busy_room ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer items-center px-[2px] border-[#264E86] border-[4px] h-[24px]`}
-                                    >
+                                <div className='w-full h-[68px] border-b-[1.5px] border-[#D9D9D9] flex justify-between items-center px-[10px]'>
+                                    <div className='w-[677px]'>
+                                        <h1 className='font-inter font-[500] text-[18px] leading-[21.78px] text-[#404040]'>Band xona</h1>
+                                    </div>
+                                    <div>
                                         <div
-                                            className={`h-[14px] ${busy_room ? "bg-white" : "bg-[#264E86]"} w-[14px] rounded-[50%] duration-[0.1s] ease-out`}
-                                        ></div>
+                                            onClick={() => set_busy_room(!busy_room)}
+                                            className={`rounded-[40px] ${busy_room ? "bg-[#264E86]" : "bg-white"} w-[38px] flex ${busy_room ? "justify-end" : "justify-start"} duration-[0.1s] ease-out cursor-pointer items-center px-[2px] border-[#264E86] border-[4px] h-[24px]`}
+                                        >
+                                            <div
+                                                className={`h-[14px] ${busy_room ? "bg-white" : "bg-[#264E86]"} w-[14px] rounded-[50%] duration-[0.1s] ease-out`}
+                                            ></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             <div className='w-full h-[68px] border-b-[1.5px] border-[#D9D9D9] flex justify-between items-center px-[10px]'>
                                 <div className='w-[677px]'>
                                     <h1 className='font-inter font-[500] text-[18px] leading-[21.78px] text-[#404040]'>Davomat funksionalligi</h1>
