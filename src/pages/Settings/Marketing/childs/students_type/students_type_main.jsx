@@ -2,8 +2,9 @@ import { useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import { RiPencilLine } from "react-icons/ri";
+import StudentsModal from "./students_modal";
 
-export default function CategoryList() {
+export default function StudentsType() {
     const [categories, setCategories] = useState([
         "Ism",
         "Talaba",
@@ -11,10 +12,15 @@ export default function CategoryList() {
         "1-4 sinflar",
         "8-11 sinflar",
     ]);
+    console.log(...categories);
+
 
     const [isOpen, setIsOpen] = useState(false);
     const [newCategory, setNewCategory] = useState("");
     const [editIndex, setEditIndex] = useState(null);
+    console.log(isOpen);
+
+
 
     const handleAddCategory = () => {
         if (newCategory.trim() !== "") {
@@ -41,6 +47,7 @@ export default function CategoryList() {
         setIsOpen(true);
     };
 
+
     return (
         <div className="p-6 bg-white rounded-lg shadow-md max-w-7xl  mr-4">
             <button onClick={() => setIsOpen(true)} className="flex items-center justify-center gap-2 w-64 h-16 rounded-full bg-[#0D99FF] text-gray-50 text-[20px]">
@@ -63,30 +70,9 @@ export default function CategoryList() {
                     </li>
                 ))}
             </ul>
+                    <StudentsModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
 
-            {isOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-opacity-50">
-                    <div className="bg-slate-500 p-6 rounded-lg shadow-lg w-96">
-                        <h2 className="text-lg font-semibold mb-4">
-                            {editIndex !== null ? "Kategoriyani tahrirlash" : "Kategoriya qo‘shish"}
-                        </h2>
-                        <input
-                            value={newCategory}
-                            onChange={(e) => setNewCategory(e.target.value)}
-                            placeholder="Kategoriya nomi..."
-                            className="w-full p-2 border rounded-lg mb-4"
-                        />
-                        <div className="flex justify-end gap-2">
-                            <button onClick={() => setIsOpen(false)} className="px-4 py-2 bg-gray-800 text-white rounded-lg">
-                                Bekor qilish
-                            </button>
-                            <button onClick={handleAddCategory} className="px-4 py-2 bg-blue-500 text-white rounded-lg">
-                                Saqlash
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+
         </div>
     );
 }

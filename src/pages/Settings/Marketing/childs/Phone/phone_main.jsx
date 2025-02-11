@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoMdAdd } from 'react-icons/io';
+import PhoneModal from './phone_modal';
 
 const PhoneMain = () => {
+  const [open, setIsOpen] = useState(false);
 
   const statuses = [
     { name: "SMS qurilmalar", color: "bg-red-500" },
@@ -13,7 +15,7 @@ const PhoneMain = () => {
 
   return (
     <div className="max-w-7xl mr-4">
-      <button className="flex items-center justify-center gap-2 w-64 h-16 rounded-full bg-[#0D99FF] text-gray-50 text-[20px]">
+      <button onClick={() => setIsOpen(true)} className="flex items-center justify-center gap-2 w-64 h-16 rounded-full bg-[#0D99FF] text-gray-50 text-[20px]">
         <IoMdAdd size={25} />
         Rang qo'shish
       </button>
@@ -37,6 +39,10 @@ const PhoneMain = () => {
           </tbody>
         </table>
       </div>
+      <PhoneModal isOpen={open} onClose={() => setIsOpen(false)}>
+        <label className="block text-sm font-medium">Bo'lim</label>
+        <input type="text" className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </PhoneModal>
     </div>
   );
 }

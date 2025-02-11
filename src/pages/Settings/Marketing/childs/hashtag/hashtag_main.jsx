@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { RiPencilLine } from "react-icons/ri";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
+import HashtagModal from "../hashtag/hashtag_modal";
 
 
 const HashtagTable = () => {
+    const [ModalOpen, setModalOpen] = useState(false);
 
     const [hashtags, setHashtags] = useState([
         { id: 1, name: "Chegirmali (for Staff)" },
@@ -16,11 +18,11 @@ const HashtagTable = () => {
 
     const handleDelete = (index) => {
         setHashtags(hashtags.filter((_, i) => i !== index));
-      };
+    };
 
     return (
         <div className="max-w-7xl mr-4">
-            <button className="flex items-center justify-center gap-2 w-64 h-16 rounded-full bg-[#0D99FF] text-gray-50 text-[20px]">
+            <button onClick={() => setModalOpen(true)} className="flex items-center justify-center gap-2 w-64 h-16 rounded-full bg-[#0D99FF] text-gray-50 text-[20px]">
                 <IoMdAdd size={25} />
                 Hashtag qo'shish
             </button>
@@ -51,6 +53,11 @@ const HashtagTable = () => {
                     </tbody>
                 </table>
             </div>
+            <HashtagModal isOpen={ModalOpen} onClose={() => setModalOpen(false)}>
+                <label className="block text-sm font-medium">Hashtag</label>
+                <input type="text" className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            </HashtagModal>
+
         </div>
     );
 };

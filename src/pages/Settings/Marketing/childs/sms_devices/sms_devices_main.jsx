@@ -14,32 +14,32 @@ const Holiday = () => {
   const phone_data = [
     {
       device: "VIVO v2036",
-      company : "BEELINE UZ",
-      imei : "33423432344534",
-      moder : "Xudoyorxon ",
-      status : "Online",
-      holat : "foal emas"
+      company: "BEELINE UZ",
+      imei: "33423432344534",
+      moder: "Xudoyorxon ",
+      status: "Online",
+      holat: "foal emas"
     },
     {
       device: "VIVO sdfsdf",
-      company : "MOBIUZ",
-      imei : "33423432344534",
-      moder : "Xudoyorxon ",
-      status : "Online",
-      holat : "aktiv"
+      company: "MOBIUZ",
+      imei: "33423432344534",
+      moder: "Xudoyorxon ",
+      status: "Online",
+      holat: "aktiv"
     },
     {
       device: "VIVO sdfsdf",
-      company : "Android",
-      imei : "33423432344534",
-      moder : "Xudoyorxon ",
-      status : "Online",
-      holat : "aktiv"
+      company: "Android",
+      imei: "33423432344534",
+      moder: "Xudoyorxon ",
+      status: "Online",
+      holat: "aktiv"
     }
 
   ]
 
-  
+
 
   return (
     <div className="flex w-[100%] h-[100%] flex-col  gap-[16px]">
