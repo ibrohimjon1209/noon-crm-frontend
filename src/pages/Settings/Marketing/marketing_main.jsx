@@ -13,7 +13,7 @@ const Marketing_settings_main = () => {
     return (
     <>
         <div className="pl-[42px] pt-[41px]">
-        <div className="flex gap-[30px]">
+        <div className="flex gap-4">
             <Nav_settings />
             <div className="w-full h-full">
             <Routes>
