@@ -48,7 +48,7 @@ const Monthly_payment_main = () => {
         <div className="flex flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[8%]">№</p>
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[50%]">Mashg'ilot nomi</p>
-          <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[18%]">O'quv sig'imi</p>
+          <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[18%]">O'quvchi sig'imi</p>
         </div>
         {sabab.map((item, index) => (
           <div key={index} className="flex flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
