@@ -34,9 +34,9 @@ const PhoneModal = ({ isOpen, onClose }) => {
                     </h2>
                     <button
                         onClick={onClose}
-                        className="text-gray-500 text-[20px] text-black font-roboto font-[700] hover:text-gray-700"
+                        className="text-black font-roboto font-[700] hover:text-gray-700"
                     >
-                        <CgClose/>
+                        <CgClose size={25} />
                     </button>
                 </div>
                 <hr className="border-[#00000080] w-[100%]" />
