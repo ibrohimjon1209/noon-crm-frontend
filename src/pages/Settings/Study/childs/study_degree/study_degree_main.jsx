@@ -65,6 +65,7 @@ const Monthly_payment_main = () => {
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[37%] text-[black]">{item.nomi}</p>
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[31%] text-[black]">{item.min_degree}</p>
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[35%] text-[black]">{item.max_degree}</p>
+            
             <div className="flex w-[10%] justify-around">
               <img
                 src={editIcon}

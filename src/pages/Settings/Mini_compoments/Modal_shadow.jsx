@@ -1,8 +1,11 @@
+import { div } from 'framer-motion/client'
 import React from 'react'
 
-const Modal_shadow = () => {
+const Modal_shadow = ({ isOpen, onClose, children }) => {
+
+
   return (
-    <div>Modal_shadow</div>
+   <div></div>
   )
 }
 

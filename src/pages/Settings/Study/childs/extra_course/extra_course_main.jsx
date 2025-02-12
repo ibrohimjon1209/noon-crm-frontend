@@ -11,26 +11,27 @@ const Monthly_payment_main = () => {
     {
       nomi: "Speaking Practice",
       sigim: "12",
-      sigim: "12"
+      davomiyligi: "12"
     },
     {
       nomi: "QOLDIRILGAN DARS",
       sigim: "12",
-      sigim: "12"
+      davomiyligi: "12"
     },
     {
       nomi: "WRITING",
       sigim: "12",
-      sigim: "12"
+      davomiyligi: "12"
     },
     {
       nomi: "Speaking and listening",
       sigim: "12",
+      davomiyligi: "12"
     },
     {
       nomi: "Test",
       sigim: "12",
-      sigim: "12"
+      davomiyligi: "12"
     },
 
 

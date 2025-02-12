@@ -16,19 +16,26 @@ import logo from "./Image/black/logo vector.png";
 import "./style.css";
 
 const Navbar = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [settings_is_hovered, set_settings_is_hovered] = useState(false);
+  const [lids_is_hovered, set_lids_is_hovered] = useState(false);
   const location = useLocation();
 
   const isSettingsActive = location.pathname.startsWith("/settings");
+  const isLidsActive = location.pathname.startsWith("/lids");
   const toActiveSubmenu = location.pathname.split("/");
   const activeSubmenu = `/${toActiveSubmenu[1]}/${toActiveSubmenu[2]}`;
-  const submenuItems = [
+  const settings_submenu_items = [
     { path: "/settings/general/function", active: '/settings/general', label: "Umumiy sozlamalar" },
     { path: "/settings/finance/sponsors", active: '/settings/finance', label: "Moliya" },
     { path: "/settings/study/arrive", active: '/settings/study', label: "O'quv" },
     { path: "/settings/marketing/phone", active: '/settings/marketing', label: "Sotuv va marketing" },
     { path: "/settings/management/manager", active: '/settings/management', label: "Boshqaruv" },
     { path: "/settings/integration", active: '/settings/integration', label: "Integratsiyalar" },
+  ];
+
+  const lids_submenu_items = [
+    { path: "/lids/lesson", active: '/lids/lesson', label: "Birinchi dars" },
+    { path: "/lids/orders", active: '/lids/orders', label: "Buyurtmalar" },
   ];
 
   return (
@@ -70,12 +77,13 @@ const Navbar = () => {
         </Link>
 
         <Link
-          to="/lids"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === "/lids"
+            isLidsActive
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
           }`}
+          onMouseEnter={() => set_lids_is_hovered(true)}
+          onMouseLeave={() => set_lids_is_hovered(false)}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -86,6 +94,41 @@ const Navbar = () => {
               Lidlar
             </h1>
           </div>
+          {lids_is_hovered && (
+            <div className="menu-settings flex absolute mt-[30px] ml-[185px]">
+              <img
+                src={piramid || "/placeholder.svg"}
+                className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[30px]"
+                alt=""
+              />
+              <div>
+                <div className="flex cursor-auto flex-col gap-[20px] w-[221px] h-[106px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+                  {lids_submenu_items.map((item) => (
+                    <Link key={item.path} to={item.path}>
+                      <div
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${
+                          activeSubmenu === item.active
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                            : " text-black"
+                        }`}
+                      >
+                        <div
+                          className={`w-[5px] h-[5px] rounded-[50%] ${
+                            activeSubmenu === item.path
+                              ? "bg-[#264E86]"
+                              : "bg-black"
+                          }`}
+                        ></div>
+                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                          {item.label}
+                        </h1>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </Link>
 
         <Link
@@ -246,8 +289,8 @@ const Navbar = () => {
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
           }`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() => set_settings_is_hovered(true)}
+          onMouseLeave={() => set_settings_is_hovered(false)}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -259,7 +302,7 @@ const Navbar = () => {
               Sozlamalar
             </h1>
           </div>
-          {isHovered && (
+          {settings_is_hovered && (
             <div className="menu-settings flex absolute mt-[-210px] ml-[185px]">
               <img
                 src={piramid || "/placeholder.svg"}
@@ -268,7 +311,7 @@ const Navbar = () => {
               />
               <div>
                 <div className="flex cursor-auto flex-col gap-[20px] w-[221px] h-[286px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
-                  {submenuItems.map((item) => (
+                  {settings_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
                         className={`gap-[10px] flex items-center transition-all duration-300 ${
@@ -284,7 +327,6 @@ const Navbar = () => {
                               : "bg-black"
                           }`}
                         ></div>
-                        {console.log(activeSubmenu, item.path)}
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
                         </h1>
