@@ -70,13 +70,13 @@ const Holiday = () => {
                 src={editIcon}
                 alt="Edit"
                 className="w-[24px] h-[24px] cursor-pointer scale-100 hover:scale-105 active:scale-95 duration-300"
-                onClick={() => handleEdit(item)}
+                onClick={() => setIsEditModalOpen(item)}
               />
               <img
                 src={deleteIcon}
                 alt="Delete"
                 className="w-[24px] h-[24px] cursor-pointer scale-100 hover:scale-105 active:scale-95 duration-300"
-                onClick={() => handleDelete(item)}
+                onClick={() =>  setIsDeleteModalOpen(item)}
               />
             </div>
           </div>
@@ -86,13 +86,13 @@ const Holiday = () => {
       <DeleteModal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
-        holiday={currentHoliday}
+       
       />
 
       <EditModal
         isOpen={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}
-        holiday={currentHoliday}
+    
       />
 
       
