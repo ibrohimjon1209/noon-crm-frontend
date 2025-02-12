@@ -1,32 +1,41 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react";
 
 const Add_modal = ({ isOpen, onClose }) => {
-  const [isAnimating, setIsAnimating] = useState(false)
-  const [shouldRender, setShouldRender] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+  const colorPickerRef = useRef(null); // Rang tanlovchi inputga havola
 
-
-  useEffect(() => { 
+  useEffect(() => {
     if (isOpen) {
-      setShouldRender(true)
-      setTimeout(() => setIsAnimating(true), 30)
-    } else {
-      setIsAnimating(false)
-      setTimeout(() => setShouldRender(false), 300)
-    }
-  }, [isOpen])
+      setShouldRender(true);
+      setTimeout(() => setIsAnimating(true), 30);
 
-  if (!shouldRender) return null
+      // Modal ochilganda rang tanlovchini avtomatik ochish
+      setTimeout(() => {
+        if (colorPickerRef.current) {
+          colorPickerRef.current.click();
+        }
+      }, 100);
+    } else {
+      setIsAnimating(false);
+      setTimeout(() => setShouldRender(false), 300);
+    }
+  }, [isOpen]);
+
+  if (!shouldRender) return null;
 
   return (
     <div className="w-full h-[135vh] fixed inset-0 z-50 flex items-center justify-center">
       <div
-        className={`w-full h-[135vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${isAnimating ? "opacity-100" : "opacity-0"
-          }`}
+        className={`w-full h-[135vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
+          isAnimating ? "opacity-100" : "opacity-0"
+        }`}
         onClick={onClose}
       ></div>
       <div
-        className={`relative bg-white rounded-[10px] w-[625px] h-[800px] z-50 transition-all duration-300 ease-out ${isAnimating ? "translate-y-1 opacity-100" : "-translate-y-20 opacity-0"
-          }`}
+        className={`relative bg-white rounded-[10px] w-[625px] h-[800px] z-50 transition-all duration-300 ease-out ${
+          isAnimating ? "translate-y-1 opacity-100" : "-translate-y-20 opacity-0"
+        }`}
       >
         <div className="flex justify-between items-center pt-6 px-6 mb-6">
           <h2 className="font-roboto font-[400] text-[20px] leading-[23.44px] uppercase text-black">
@@ -66,16 +75,13 @@ const Add_modal = ({ isOpen, onClose }) => {
             />
           </div>
 
-          <div className="w-[100%] h-[45%] border-black border-[1px] mt-[2%] flex justify-around ">
-            <div className="w-[70%] h-[100%] border-black border-[1px] flex justify-around">
-              <label className="font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">Rangi</label>
-              <div className="w-[75%] h-[100%] bg-[gray]">
-                
-                
-              </div>
+          <div className="w-[100%] h-[45%]  mt-[2%] flex justify-around ">
+            <div className="w-[70%] h-[100%] flex">
+              <label className=" mt-[30px] font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">Rangi</label>
+              <input className="ml-[30px] mt-[30px] w-[50px] h-[50px]" type="color" ref={colorPickerRef} />
             </div>
 
-            <div className="w-[30%] h-[100%] flex justify-end border-[1px] border-black items-end">
+            <div className="w-[30%] h-[100%] flex justify-end items-end">
               <button
                 type="submit"
                 className="w-[140px] h-[60px] text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF] ]"
@@ -84,12 +90,10 @@ const Add_modal = ({ isOpen, onClose }) => {
               </button>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Add_modal
+export default Add_modal;
