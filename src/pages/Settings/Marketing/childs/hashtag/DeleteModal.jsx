@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react";
 
-const Delete_modal = ({ isOpen, onClose, onConfirm }) => {
+const DeleteModal = ({ isOpen, onClose, onConfirm }) => {
     const [isAnimating, setIsAnimating] = useState(false)
     const [shouldRender, setShouldRender] = useState(false)
+
+
 
     useEffect(() => {
         if (isOpen) {
@@ -13,8 +15,10 @@ const Delete_modal = ({ isOpen, onClose, onConfirm }) => {
             setTimeout(() => setShouldRender(false), 300) // Match this with the transition duration
         }
     }, [isOpen])
-
     if (!shouldRender) return null
+    if (!isOpen) return null;
+
+
 
     return (
         <div className="w-full h-[135vh] fixed inset-0 z-50 flex items-center justify-center">
@@ -47,7 +51,7 @@ const Delete_modal = ({ isOpen, onClose, onConfirm }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Delete_modal
+export default DeleteModal;
