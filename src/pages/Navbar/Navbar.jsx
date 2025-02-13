@@ -18,24 +18,78 @@ import "./style.css";
 const Navbar = () => {
   const [settings_is_hovered, set_settings_is_hovered] = useState(false);
   const [lids_is_hovered, set_lids_is_hovered] = useState(false);
+  const [students_is_hovered, set_students_hovered] = useState(false);
   const location = useLocation();
 
   const isSettingsActive = location.pathname.startsWith("/settings");
   const isLidsActive = location.pathname.startsWith("/lids");
+  const isStudentsActive = location.pathname.startsWith("/students");
   const toActiveSubmenu = location.pathname.split("/");
   const activeSubmenu = `/${toActiveSubmenu[1]}/${toActiveSubmenu[2]}`;
   const settings_submenu_items = [
-    { path: "/settings/general/function", active: '/settings/general', label: "Umumiy sozlamalar" },
-    { path: "/settings/finance/sponsors", active: '/settings/finance', label: "Moliya" },
-    { path: "/settings/study/arrive", active: '/settings/study', label: "O'quv" },
-    { path: "/settings/marketing/phone", active: '/settings/marketing', label: "Sotuv va marketing" },
-    { path: "/settings/management/manager", active: '/settings/management', label: "Boshqaruv" },
-    { path: "/settings/integration", active: '/settings/integration', label: "Integratsiyalar" },
+    {
+      path: "/settings/general/function",
+      active: "/settings/general",
+      label: "Umumiy sozlamalar",
+    },
+    {
+      path: "/settings/finance/sponsors",
+      active: "/settings/finance",
+      label: "Moliya",
+    },
+    {
+      path: "/settings/study/arrive",
+      active: "/settings/study",
+      label: "O'quv",
+    },
+    {
+      path: "/settings/marketing/phone",
+      active: "/settings/marketing",
+      label: "Sotuv va marketing",
+    },
+    {
+      path: "/settings/management/manager",
+      active: "/settings/management",
+      label: "Boshqaruv",
+    },
+    {
+      path: "/settings/integration",
+      active: "/settings/integration",
+      label: "Integratsiyalar",
+    },
+  ];
+
+  const studets_submenu_items = [
+    {
+      path: "/students/new-student-list",
+      active: "/students/new-student-list",
+      label: "Yangi o'quvchilar",
+    },
+    {
+      path: "/students/students-active",
+      active: "/students/students-active",
+      label: "Aktiv o'quvchilar",
+    },
+    {
+      path: "/students/students-archive",
+      active: "/students/students-archive",
+      label: "Arxiv o'quvchilar",
+    },
+    {
+      path: "/students/students-list",
+      active: "/students/students-list",
+      label: "O'quvchilar ro'yxati",
+    },
+    {
+      path: "/students/students-parent",
+      active: "/students/students-parent",
+      label: "Ota-ona",
+    },
   ];
 
   const lids_submenu_items = [
-    { path: "/lids/lesson", active: '/lids/lesson', label: "Birinchi dars" },
-    { path: "/lids/orders", active: '/lids/orders', label: "Buyurtmalar" },
+    { path: "/lids/lesson", active: "/lids/lesson", label: "Birinchi dars" },
+    { path: "/lids/orders", active: "/lids/orders", label: "Buyurtmalar" },
   ];
 
   return (
@@ -153,10 +207,12 @@ const Navbar = () => {
         <Link
           to="/students"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === "/students"
+            isStudentsActive
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
           }`}
+          onMouseEnter={() => set_students_hovered(true)}
+          onMouseLeave={() => set_students_hovered(false)}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -167,6 +223,41 @@ const Navbar = () => {
               O'quvchilar
             </h1>
           </div>
+          {students_is_hovered && (
+            <div className="menu-settings flex absolute mt-[165px] ml-[185px]">
+              <img
+                src={piramid || "/placeholder.svg"}
+                className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[20px]"
+                alt=""
+              />
+              <div>
+                <div className="flex cursor-auto flex-col gap-[20px] w-[221px] h-[226px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+                  {studets_submenu_items.map((item) => (
+                    <Link key={item.path} to={item.path}>
+                      <div
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${
+                          activeSubmenu === item.active
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                            : " text-black"
+                        }`}
+                      >
+                        <div
+                          className={`w-[5px] h-[5px] rounded-[50%] ${
+                            activeSubmenu === item.path
+                              ? "bg-[#264E86]"
+                              : "bg-black"
+                          }`}
+                        ></div>
+                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                          {item.label}
+                        </h1>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </Link>
 
         <Link
