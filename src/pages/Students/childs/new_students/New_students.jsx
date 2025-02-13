@@ -42,7 +42,7 @@ function New_students() {
         className="flex-col bg-white w-[96.1%] text-[#404040] mt-[15px] h-[1000px] overflow-scroll rounded-xl"
       >
         <div
-          className={`ml-6 mt-2 flex justify-between sticky top-0 left-0 w-full p-4 ${
+          className={`ml-6 mt-0 flex justify-between sticky top-0 left-0 w-full p-4 ${
             isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
           } transition-all duration-300`}
         >
@@ -56,7 +56,7 @@ function New_students() {
           <table className="w-full border-collapse">
             <thead>
               <tr
-                className={`sticky top-[50px] left-0 w-full p-4 ${
+                className={`sticky top-[70px] left-0 w-full p-4 ${
                   isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
                 } transition-all duration-300`}
               >
