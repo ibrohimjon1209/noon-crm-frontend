@@ -3,10 +3,14 @@ import plus from "../../../../assigments/images/add_icon.png";
 import Add_modal from "./add_modal";
 import editIcon from "./img/edit_icon.png"
 import deleteIcon from "./img/delete_icon.png"
-import { div } from "framer-motion/client";
+import DeleteModal from "./delete_modal";
+import EditModal from "./edit_modal";
+// import { div } from "framer-motion/client";
 
 const Monthly_payment_main = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const sabab = [
     {
       training: "Boshqa markazga boryapti",
@@ -28,12 +32,7 @@ const Monthly_payment_main = () => {
       training: "Uyidagilari ruxsat bermabdi",
       sigim: "Davomat",
     },
-
-
   ]
-
-
-
 
   return (
     <div className="flex flex-col w-full h-full gap-[30px]">
@@ -60,13 +59,13 @@ const Monthly_payment_main = () => {
                 src={editIcon}
                 alt="Edit"
                 className="w-[24px] h-[24px] cursor-pointer scale-100 hover:scale-105 active:scale-95 duration-300"
-                // onClick={() => handleEdit(item)}
+                onClick={() => setIsEditModalOpen(item)}
               />
               <img
                 src={deleteIcon}
                 alt="Delete"
                 className="w-[24px] h-[24px] cursor-pointer scale-100 hover:scale-105 active:scale-95 duration-300"
-                // onClick={() => handleDelete(item)}
+                onClick={() => setIsDeleteModalOpen(item)}
               />
             </div>
           </div>
@@ -75,6 +74,15 @@ const Monthly_payment_main = () => {
 
 
       </div>
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+      />
+
+      <EditModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+      />
       <Add_modal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
     </div>
   );
