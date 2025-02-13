@@ -6,18 +6,17 @@ const HashtagModal = ({ isOpen, onClose, onSave, editValue }) => {
     const [shouldRender, setShouldRender] = useState(false)
     const [hashtag, setHashtag] = useState("");
 
-    // 🔄 Edit rejimida eski qiymat inputga tushishi kerak
     useEffect(() => {
         if (editValue) {
             setHashtag(editValue);
         } else {
-            setHashtag(""); // Agar yangi hashtag bo‘lsa, input tozalansin
+            setHashtag("");
         }
     }, [editValue]);
 
     const handleSave = () => {
         if (hashtag.trim() !== "") {
-            onSave(hashtag); // 🔥 Saqlash funksiyasini chaqiramiz
+            onSave(hashtag);
             setHashtag("");
         }
     };

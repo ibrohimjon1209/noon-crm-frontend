@@ -3,12 +3,15 @@ import { RiPencilLine } from "react-icons/ri";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import HashtagModal from "../hashtag/hashtag_modal";
+import DeleteModal from "./DeleteModal";
 
 const HashtagTable = () => {
 
     const [open, setIsOpen] = useState(false);
     const [editIndex, setEditIndex] = useState(null); // Edit qilingan index
     const [editValue, setEditValue] = useState("");   // Eski qiymatni inputga yuklash
+    const [deleteIndex, setDeleteIndex] = useState(null);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
     const [hashtags, setHashtags] = useState([
         { id: 1, name: "Chegirmali (for Staff)" },
@@ -38,8 +41,17 @@ const HashtagTable = () => {
         setIsOpen(true);
     };
 
-    const handleDelete = (index) => {
-        setHashtags(hashtags.filter((_, i) => i !== index));
+    const confirmDeleteHashtag = (index) => {
+        setDeleteIndex(index);
+        setIsDeleteModalOpen(true);
+    };
+
+    const handleDelete = () => {
+        if (deleteIndex !== null) {
+            setHashtags(hashtags.filter((_, i) => i !== deleteIndex));
+        }
+        setIsDeleteModalOpen(false);
+        setDeleteIndex(null);
     };
 
     return (
@@ -72,7 +84,7 @@ const HashtagTable = () => {
                                         <RiPencilLine size={25} onClick={() => handleEditHashtag(index)} />
                                     </button>
                                     <button className="text-gray-800 hover:text-red-500">
-                                        <FaRegTrashAlt size={25} onClick={() => handleDelete(index)} />
+                                        <FaRegTrashAlt size={25} onClick={() => confirmDeleteHashtag(index)} />
                                     </button>
                                 </td>
                             </tr>
@@ -86,6 +98,11 @@ const HashtagTable = () => {
                 onSave={handleSaveHashtag}
                 // editValue={editIndex !== null ? editValue : ""}
                 editValue={editValue}
+            />
+            <DeleteModal 
+            isOpen={isDeleteModalOpen} 
+            onClose={() => setIsDeleteModalOpen(false)} 
+            onConfirm={handleDelete} 
             />
 
 
