@@ -3,10 +3,15 @@ import { RiPencilLine } from "react-icons/ri";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import HashtagModal from "../hashtag/hashtag_modal";
-
+import DeleteModal from "./DeleteModal";
 
 const HashtagTable = () => {
-    const [ModalOpen, setModalOpen] = useState(false);
+
+    const [open, setIsOpen] = useState(false);
+    const [editIndex, setEditIndex] = useState(null); // Edit qilingan index
+    const [editValue, setEditValue] = useState("");   // Eski qiymatni inputga yuklash
+    const [deleteIndex, setDeleteIndex] = useState(null);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
     const [hashtags, setHashtags] = useState([
         { id: 1, name: "Chegirmali (for Staff)" },
@@ -16,13 +21,47 @@ const HashtagTable = () => {
         { id: 5, name: "Kitob berildi (IELTS A)" },
     ]);
 
-    const handleDelete = (index) => {
-        setHashtags(hashtags.filter((_, i) => i !== index));
+    const handleSaveHashtag = (newHashtag) => {
+        if (editIndex !== null) {
+            const updatedHashtags = [...hashtags];
+            updatedHashtags[editIndex] = { ...updatedHashtags[editIndex], name: newHashtag };
+            setHashtags(updatedHashtags);
+            setEditIndex(null);
+        } else {
+            setHashtags([...hashtags, { id: Date.now(), name: newHashtag }]);
+        }
+        setIsOpen(false);
+    };
+    console.log(editValue);
+
+    // Edit tugmasini bosganda modal ochiladi
+    const handleEditHashtag = (index) => {
+        setEditIndex(index);
+        setEditValue(hashtags[index].name);
+        setIsOpen(true);
+    };
+
+    const confirmDeleteHashtag = (index) => {
+        setDeleteIndex(index);
+        setIsDeleteModalOpen(true);
+    };
+
+    const handleDelete = () => {
+        if (deleteIndex !== null) {
+            setHashtags(hashtags.filter((_, i) => i !== deleteIndex));
+        }
+        setIsDeleteModalOpen(false);
+        setDeleteIndex(null);
     };
 
     return (
         <div className="max-w-7xl mr-4">
-            <button onClick={() => setModalOpen(true)} className="flex items-center justify-center gap-2 w-64 h-16 rounded-full bg-[#0D99FF] text-gray-50 text-[20px]">
+            <button
+                onClick={() => {
+                    setIsOpen(true);
+                }
+                }
+                className="flex items-center justify-center gap-2 w-64 h-16 rounded-full bg-[#0D99FF] text-gray-50 text-[20px]">
                 <IoMdAdd size={25} />
                 Hashtag qo'shish
             </button>
@@ -42,10 +81,10 @@ const HashtagTable = () => {
                                 <td className="py-3 text-gray-800 text-base font-medium">{hashtag.name}</td>
                                 <td className="py-3 px-6 text-right space-x-2">
                                     <button className="text-gray-800 hover:text-blue-500">
-                                        <RiPencilLine size={25} />
+                                        <RiPencilLine size={25} onClick={() => handleEditHashtag(index)} />
                                     </button>
                                     <button className="text-gray-800 hover:text-red-500">
-                                        <FaRegTrashAlt size={25} onClick={() => handleDelete(index)} />
+                                        <FaRegTrashAlt size={25} onClick={() => confirmDeleteHashtag(index)} />
                                     </button>
                                 </td>
                             </tr>
@@ -53,10 +92,19 @@ const HashtagTable = () => {
                     </tbody>
                 </table>
             </div>
-            <HashtagModal isOpen={ModalOpen} onClose={() => setModalOpen(false)}>
-                <label className="block text-sm font-medium">Hashtag</label>
-                <input type="text" className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
-            </HashtagModal>
+            <HashtagModal
+                isOpen={open}
+                onClose={() => setIsOpen(false)}
+                onSave={handleSaveHashtag}
+                // editValue={editIndex !== null ? editValue : ""}
+                editValue={editValue}
+            />
+            <DeleteModal 
+            isOpen={isDeleteModalOpen} 
+            onClose={() => setIsDeleteModalOpen(false)} 
+            onConfirm={handleDelete} 
+            />
+
 
         </div>
     );

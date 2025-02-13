@@ -32,17 +32,20 @@ const PhoneMain = () => {
               <tr key={index} className="border-b hover:bg-gray-50">
                 <td className="h-[5rem] py-3 px-6 text-gray-700 font-medium">{status.name}</td>
                 <td className="">
-                  <span className={`w-4 h-4 inline-block rounded-full ${status.color}`}></span>
+                  <span className={`w-4 h-4 inline-block rounded-full ${status.color}`}
+                    onClick={() => console.log("Span bosildi!")}
+                  >
+                  </span>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <PhoneModal isOpen={open} onClose={() => setIsOpen(false)}>
-        <label className="block text-sm font-medium">Bo'lim</label>
-        <input type="text" className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
-      </PhoneModal>
+      <PhoneModal
+        isOpen={open}
+        onClose={() => setIsOpen(false)}
+      />
     </div>
   );
 }

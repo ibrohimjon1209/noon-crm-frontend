@@ -3,34 +3,38 @@ import plus from "../../../../assigments/images/add_icon.png";
 import Add_modal from "./add_modal";
 import editIcon from "./img/edit_icon.png"
 import deleteIcon from "./img/delete_icon.png"
-import { div } from "framer-motion/client";
+import DeleteModal from "./delete_modal";
+import EditModal from "./edit_modal";
 
 const Monthly_payment_main = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const  mashgulot = [
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const mashgulot = [
     {
       nomi: "Speaking Practice",
       sigim: "12",
-      sigim: "12"
+      davomiyligi: "12"
     },
     {
       nomi: "QOLDIRILGAN DARS",
       sigim: "12",
-      sigim: "12"
+      davomiyligi: "12"
     },
     {
       nomi: "WRITING",
       sigim: "12",
-      sigim: "12"
+      davomiyligi: "12"
     },
     {
       nomi: "Speaking and listening",
       sigim: "12",
+      davomiyligi: "12"
     },
     {
       nomi: "Test",
       sigim: "12",
-      sigim: "12"
+      davomiyligi: "12"
     },
 
 
@@ -66,21 +70,27 @@ const Monthly_payment_main = () => {
                 src={editIcon}
                 alt="Edit"
                 className="w-[24px] h-[24px] cursor-pointer scale-100 hover:scale-105 active:scale-95 duration-300"
-                // onClick={() => handleEdit(item)}
+                onClick={() => setIsEditModalOpen(item)}
               />
               <img
                 src={deleteIcon}
                 alt="Delete"
                 className="w-[24px] h-[24px] cursor-pointer scale-100 hover:scale-105 active:scale-95 duration-300"
-                // onClick={() => handleDelete(item)}
+                onClick={() => setIsDeleteModalOpen(item)}
               />
             </div>
           </div>
         ))}
-
-
-
       </div>
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+      />
+
+      <EditModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+      />
       <Add_modal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
     </div>
   );
