@@ -4,22 +4,22 @@
 }
 
 .my-icon {
-  width: 40px; /* Kattaroq o'lcham */
+  width: 40px; 
   height: 40px;
   padding: 5px;
-  border-radius: 8px; /* Kattaroq o'lcham */
+  border-radius: 8px; 
   transition: background-color 0.3s ease;
 }
 
 .my-icon:hover {
-  background-color: #ffffff; /* Hover holatidagi background */
+  background-color: #ffffff; 
 }
 
 .my-icon path {
-  fill: #949494; /* Asl rang */
+  fill: #949494;
   transition: fill 0.3s ease;
 }
 
 .my-icon:hover path {
-  fill: #108bff; /* Hover holatidagi rang */
+  fill: #108bff; 
 }
