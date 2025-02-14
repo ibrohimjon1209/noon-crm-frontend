@@ -9,13 +9,12 @@ const Groups = () => {
   return (
     <>
       <Routes>
-          <Route path="group/*" element={<Group />} />
-          <Route path="rooms/*" element={<Rooms />} />
-          <Route path="students/*" element={<Students />} />
-          <Route path="table/*" element={<Table />} />
-          <Route path="task/*" element={<Task />} />
+          <Route path="/group" element={<Group />} />
+          <Route path="/rooms" element={<Rooms />} />
+          <Route path="/students" element={<Students />} />
+          <Route path="/table" element={<Table />} />
+          <Route path="/task" element={<Task />} />
         </Routes>
-        <Group />
     </>
   )
 }

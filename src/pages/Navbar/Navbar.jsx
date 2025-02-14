@@ -220,7 +220,6 @@ const Navbar = () => {
                 </Link>
 
                 <Link
-                    to="/groups"
                     className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isGroupsActive
                         ? "bg-[#CFEBFF] text-[#264E86]"
                         : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
