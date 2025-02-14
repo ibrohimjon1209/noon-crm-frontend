@@ -358,8 +358,8 @@ const Header = () => {
                 </div>
             </div>
             <div className="flex flex-row justify-end pr-[2%] gap-[10px] pl-[130px] h-auto mt-[15px]">
-            <div
-                    className="w-[260px] h-[70px] bg-white rounded-[5px] relative z-10 " 
+                <div
+                    className="w-[260px] h-[70px] bg-white rounded-[5px] relative z-10 "
                 >
                     <div
                         className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_colors_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between ${colors_value.length > 15 ? 'px-[20px]' : 'px-[28px]'}`}
@@ -397,9 +397,9 @@ const Header = () => {
                         </ul>
                     </div>
                 </div>
-                <input 
-                    type="text" 
-                    className="w-[260px] h-[70px] bg-white rounded-[5px] relative font-roboto font-[400] text-[19px] leading-[23.44px] text-black px-[20px]" 
+                <input
+                    type="text"
+                    className="w-[260px] h-[70px] bg-white rounded-[5px] relative font-roboto font-[400] text-[19px] leading-[23.44px] text-black px-[20px]"
                     placeholder="Qidirish"
                 />
             </div>
