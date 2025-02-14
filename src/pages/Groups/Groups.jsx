@@ -13,8 +13,9 @@ const Groups = () => {
           <Route path="rooms/*" element={<Rooms />} />
           <Route path="students/*" element={<Students />} />
           <Route path="table/*" element={<Table />} />
-          <Route path="Task/*" element={<Task />} />
+          <Route path="task/*" element={<Task />} />
         </Routes>
+        <Group />
     </>
   )
 }
