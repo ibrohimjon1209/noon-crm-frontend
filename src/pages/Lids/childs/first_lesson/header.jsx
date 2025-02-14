@@ -274,7 +274,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div
-                    className="w-[260px] h-[70px] bg-white rounded-[5px] relative"
+                    className="w-[260px] h-[70px] bg-white rounded-[5px] z-20 relative"
                 >
                     <div
                         className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_calendar_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between px-[25px]`}
@@ -359,7 +359,7 @@ const Header = () => {
             </div>
             <div className="flex flex-row justify-end pr-[2%] gap-[10px] pl-[130px] h-auto mt-[15px]">
             <div
-                    className="w-[260px] h-[70px] bg-white rounded-[5px] relative"
+                    className="w-[260px] h-[70px] bg-white rounded-[5px] relative z-10 " 
                 >
                     <div
                         className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_colors_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between ${colors_value.length > 15 ? 'px-[20px]' : 'px-[28px]'}`}
