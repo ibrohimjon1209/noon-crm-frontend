@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../../Lids/childs/first_lesson/header";
 import "./new_students.css";
-import { div } from "framer-motion/client";
 
 function New_students() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
-    useState(false);
+  const [is_open_student_modal_comment, setIs_open_student_modal_comment] =useState(false);
+  const [selectRows, setSelectRows] = useState(15)
+
+
   const handleCloseMopdalComment = () => {
     setIs_open_student_modal_comment(false);
   };
+
+  const handleSelectedRows = (event) => {
+    const value = parseInt(event.target.value, 10)
+    setSelectRows(value)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,7 +113,7 @@ function New_students() {
               </tr>
             </thead>
             <tbody>
-              {Array(30)
+              {Array(selectRows)
                 .fill(data[0])
                 .map((row, index) => (
                   <tr
@@ -154,7 +160,7 @@ function New_students() {
             </tbody>
           </table>
         </div>
-        <Pagination />
+        <Pagination handleSelectedRows={handleSelectedRows} />
         <StudentSendComment
           onClose={handleCloseMopdalComment}
           isOpen={is_open_student_modal_comment}
@@ -164,16 +170,16 @@ function New_students() {
   );
 }
 
-const Pagination = () => {
+const Pagination = ({handleSelectedRows}) => {
   return (
     <div className="w-[2240px] fixed flex justify-end p-3 rounded-xl bottom-[-299px] bg-white">
       <div className="flex items-center gap-2 p-4">
         <div className="relative">
-          <select className="appearance-none bg-white text-[18px] rounded px-3 py-1 pr-8 focus:outline-none focus:border-blue-500">
-            <option>10 rows</option>
-            <option>20 rows</option>
-            <option>30 rows</option>
-            <option>40 rows</option>
+          <select onChange={handleSelectedRows} className="appearance-none bg-white text-[18px] rounded px-3 py-1 pr-8 focus:outline-none focus:border-blue-500">
+            <option value={10}>10 rows</option>
+            <option value={20}>20 rows</option>
+            <option value={50}>50 rows</option>
+            <option value={100}>100 rows</option>
           </select>
 
           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -277,7 +283,7 @@ const StudentSendComment = ({ onClose, isOpen }) => {
       setTimeout(() => setIsAnimating(true), 10);
     } else {
       setIsAnimating(false);
-      setTimeout(() => setShouldRender(false), 300); // Match this with the transition duration
+      setTimeout(() => setShouldRender(false), 300);
     }
   }, [isOpen]);
 
@@ -302,7 +308,7 @@ const StudentSendComment = ({ onClose, isOpen }) => {
           <p className="text-3xl">Ilhomov</p>
           <button
             onClick={onClose}
-            className="text-black text-[20px] text-black font-roboto font-[800] hover:text-gray-700"
+            className="text-black text-[20px] font-roboto font-[800] hover:text-gray-700"
           >
             ✕
           </button>
