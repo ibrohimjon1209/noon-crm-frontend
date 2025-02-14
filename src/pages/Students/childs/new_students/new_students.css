@@ -2,3 +2,24 @@
   overflow: scroll;
   scrollbar-width: none;
 }
+
+.my-icon {
+  width: 40px; /* Kattaroq o'lcham */
+  height: 40px;
+  padding: 5px;
+  border-radius: 8px; /* Kattaroq o'lcham */
+  transition: background-color 0.3s ease;
+}
+
+.my-icon:hover {
+  background-color: #ffffff; /* Hover holatidagi background */
+}
+
+.my-icon path {
+  fill: #949494; /* Asl rang */
+  transition: fill 0.3s ease;
+}
+
+.my-icon:hover path {
+  fill: #108bff; /* Hover holatidagi rang */
+}
