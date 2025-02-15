@@ -4,18 +4,18 @@ import "./new_students.css";
 
 function New_students() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [is_open_student_modal_comment, setIs_open_student_modal_comment] =useState(false);
-  const [selectRows, setSelectRows] = useState(15)
-
+  const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
+    useState(false);
+  const [selectRows, setSelectRows] = useState(15);
 
   const handleCloseMopdalComment = () => {
     setIs_open_student_modal_comment(false);
   };
 
   const handleSelectedRows = (event) => {
-    const value = parseInt(event.target.value, 10)
-    setSelectRows(value)
-  }
+    const value = parseInt(event.target.value, 10);
+    setSelectRows(value);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -170,12 +170,15 @@ function New_students() {
   );
 }
 
-const Pagination = ({handleSelectedRows}) => {
+const Pagination = ({ handleSelectedRows }) => {
   return (
     <div className="w-[2240px] fixed flex justify-end p-3 rounded-xl bottom-[-299px] bg-white">
       <div className="flex items-center gap-2 p-4">
         <div className="relative">
-          <select onChange={handleSelectedRows} className="appearance-none bg-white text-[18px] rounded px-3 py-1 pr-8 focus:outline-none focus:border-blue-500">
+          <select
+            onChange={handleSelectedRows}
+            className="appearance-none bg-white text-[18px] rounded px-3 py-1 pr-8 focus:outline-none focus:border-blue-500"
+          >
             <option value={10}>10 rows</option>
             <option value={20}>20 rows</option>
             <option value={50}>50 rows</option>
@@ -298,13 +301,13 @@ const StudentSendComment = ({ onClose, isOpen }) => {
         onClick={onClose}
       ></div>
       <div
-        className={`absolute flex justify-between flex-col bottom-9 right-5 p-5 bg-white rounded-[20px] w-[525px] h-[630px] z-50 transition-all duration-300 ease-out ${
+        className={`absolute flex justify-between flex-col bottom-9 right-5 rounded-tl-[100px]  bg-white rounded-[20px] w-[525px] h-[630px] z-50 transition-all duration-300 ease-out ${
           isAnimating
             ? "translate-y-1 opacity-100"
             : "-translate-y-20 opacity-0"
         }`}
       >
-        <div className="p-6 border-b-2 flex justify-between border-gray-500">
+        <div className="p-6 border-b-[10px] rounded-tl-[100px] flex pl-[60px]  justify-between border-black/30">
           <p className="text-3xl">Ilhomov</p>
           <button
             onClick={onClose}
@@ -313,9 +316,10 @@ const StudentSendComment = ({ onClose, isOpen }) => {
             ✕
           </button>
         </div>
-        <div>
-          <p>salom !</p>
+        <div className="p-5">
+          <p className="text-[22px]">salom !</p>
         </div>
+        <div className="p-5">
         <div className="p-2 flex border-2 rounded-xl border-gray-500">
           <input
             type="text"
@@ -328,6 +332,7 @@ const StudentSendComment = ({ onClose, isOpen }) => {
           >
             Send
           </button>
+        </div>
         </div>
       </div>
     </div>
