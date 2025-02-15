@@ -43,7 +43,7 @@ const Add_modal = ({ isOpen, onClose }) => {
         <hr className="border-[#00000080] w-[100%]" />
         <div className="pt-[20px] px-6 flex h-[100%] flex-col w-[100%]">
           <div className="space-y-[20px]">
-            <label className="font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">O'qituvchi darajasi darajasi</label>
+            <label className="font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">O'qituvchi darajasi</label>
             <input
               type="text"
               className="w-full h-[45px] p-2 border border-gray-300 text-black text-[17px] bg-[#F2EEEE] rounded-md"

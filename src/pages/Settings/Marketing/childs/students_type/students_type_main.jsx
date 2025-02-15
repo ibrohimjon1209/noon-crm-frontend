@@ -3,6 +3,7 @@ import StudentsModal from "./students_modal";
 import { IoMdAdd } from "react-icons/io";
 import { RiPencilLine } from "react-icons/ri";
 import { FaRegTrashAlt } from "react-icons/fa";
+import DeleteModal from "../hashtag/DeleteModal";
 
 const StudentType = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,27 +16,37 @@ const StudentType = () => {
     ]);
     const [editIndex, setEditIndex] = useState(null); // Edit qilingan index
     const [editValue, setEditValue] = useState("");   // Eski qiymatni inputga yuklash
+    const [deleteIndex, setDeleteIndex] = useState(null);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-    // Kategoriya qo‘shish yoki yangilash
     const handleSaveHashtag = (newHashtag) => {
         if (editIndex !== null) {
-            // 🔄 Eski hashtagni yangilash
             const updatedHashtags = [...hashtags];
             updatedHashtags[editIndex] = newHashtag;
             setHashtags(updatedHashtags);
             setEditIndex(null);
         } else {
-            // Yangi hashtag qo‘shish
             setHashtags([...hashtags, newHashtag]);
         }
-        setIsOpen(false); // Modalni yopish
+        setIsOpen(false);
     };
-
-    // Edit tugmasini bosganda modal ochiladi
     const handleEditHashtag = (index) => {
         setEditIndex(index);
         setEditValue(hashtags[index]);
         setIsOpen(true);
+    };
+
+    const confirmDeleteHashtag = (index) => {
+        setDeleteIndex(index);
+        setIsDeleteModalOpen(true);
+    };
+
+    const handleDelete = () => {
+        if (deleteIndex !== null) {
+            setHashtags(hashtags.filter((_, i) => i !== deleteIndex));
+        }
+        setIsDeleteModalOpen(false);
+        setDeleteIndex(null);
     };
 
     return (
@@ -52,6 +63,12 @@ const StudentType = () => {
                 editValue={editValue}
             />
 
+            <DeleteModal
+                isOpen={isDeleteModalOpen}
+                onClose={() => setIsDeleteModalOpen(false)}
+                onConfirm={handleDelete}
+            />
+
             <div className="mt-4">
                 <ul>
                     {hashtags.map((tag, index) => (
@@ -66,7 +83,7 @@ const StudentType = () => {
                                 </button>
 
                                 <button
-                                    onClick={() => setHashtags(hashtags.filter((_, i) => i !== index))}
+                                    onClick={() => confirmDeleteHashtag(index)}
                                     className="ml-2 text-gray-800 hover:text-red-500"
                                 >
                                     <FaRegTrashAlt size={25} />
