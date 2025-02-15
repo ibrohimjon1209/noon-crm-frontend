@@ -19,7 +19,9 @@ const Group_main = () => {
   const [colors_value, set_colors_value] = useState("Ranglar bo'yicha");
   const [is_colors_open, set_is_colors_open] = useState(false);
 
-  const [time, setTime] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+
   const [search, setSearch] = useState("");
 
   const data = [
@@ -177,29 +179,30 @@ const Group_main = () => {
               <input
                 type="time"
                 className="ml-2 bg-transparent text-gray-500 focus:outline-none"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
+                value={startTime}
+                onChange={(e) => setStartTime(e.target.value)}
               />
-              {time && (
-                <button
-                  onClick={() => setTime("")}
-                  className="ml-2 text-gray-500 hover:text-gray-700"
-                >
-                  <img src={clear} alt="clear" className="w-4 h-4" />
-                </button>
-              )}
+                {startTime && (
+                  <button
+                    onClick={() => setStartTime("")}
+                    className="ml-2 text-gray-500 hover:text-gray-700"
+                  >
+                    <img src={clear} alt="clear" className="w-4 h-4" />
+                  </button>
+                )}
             </div>
+
             <div className="w-[300px] h-[70px] bg-white rounded-[5px] flex items-center justify-around">
               <label className="text-gray-700 text-[25px]">Tugash vaqti</label>
               <input
                 type="time"
                 className="ml-2 bg-transparent text-gray-500 focus:outline-none"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
+                value={endTime}
+                onChange={(e) => setEndTime(e.target.value)}
               />
-              {time && (
+              {endTime && (
                 <button
-                  onClick={() => setTime("")}
+                  onClick={() => setEndTime("")}
                   className="ml-2 text-gray-500 hover:text-gray-700"
                 >
                   <img src={clear} alt="clear" className="w-4 h-4" />
