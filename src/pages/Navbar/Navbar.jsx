@@ -27,6 +27,7 @@ const Navbar = () => {
     const isSettingsActive = location.pathname.startsWith("/settings");
     const isLidsActive = location.pathname.startsWith("/lids");
     const isStudentsActive = location.pathname.startsWith("/students");
+    const isStudytsActive = location.pathname.startsWith("/study_section");
     const isGroupsActive = location.pathname.startsWith("/groups");
     const toActiveSubmenu = location.pathname.split("/");
     const activeSubmenu = `/${toActiveSubmenu[1]}/${toActiveSubmenu[2]}`;
@@ -328,7 +329,7 @@ const Navbar = () => {
 
                 <Link
                     to="/study_section"
-                    className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isStudentsActive
+                    className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isStudytsActive
                         ? "bg-[#CFEBFF] text-[#264E86]"
                         : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
                         }`}
