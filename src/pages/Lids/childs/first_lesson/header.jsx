@@ -4,7 +4,6 @@ import calendar_icon from "./imgs/calendar_icon.png"
 import './style.css'
 
 const Header = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
     const [is_human_open, set_is_human_open] = useState(false);
     const [is_colors_open, set_is_colors_open] = useState(false);
     const [is_student_open, set_is_student_open] = useState(false);
@@ -403,7 +402,7 @@ const Header = () => {
                     placeholder="Qidirish"
                 />
             </div>
-        </div>
+    </div>
     );
 };
 
