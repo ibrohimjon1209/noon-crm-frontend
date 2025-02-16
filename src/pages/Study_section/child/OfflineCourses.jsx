@@ -50,7 +50,7 @@ const OfflineCourses = () => {
                 <input
                     type="text"
                     placeholder="Qidirish"
-                    className="ml-auto border rounded-lg w-[237px] h-btn-h indent-6 bg-white"
+                    className="ml-auto border rounded-lg w-[237px] h-16 indent-6 bg-white"
                 />
             </div>
             <div className="w-full p-8 mx-auto bg-white shadow-md rounded-lg overflow-hidden">
