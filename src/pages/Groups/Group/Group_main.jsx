@@ -149,7 +149,7 @@ const Group_main = () => {
                   <div className="p-2 border-b border-gray-300">
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border rounded focus:outline-none placeholder:text-[black]"
+                      className="w-full px-3 py-2 border rounded focus:outline-none placeholder:text-[black] bg-[white]"
                       placeholder="Qidirish..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
@@ -232,7 +232,7 @@ const Group_main = () => {
                   <div className="p-2 border-b border-gray-300">
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border rounded focus:outline-none"
+                      className="w-full px-3 py-2 border rounded focus:outline-none bg-[white]"
                       placeholder="Qidirish..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
@@ -282,7 +282,7 @@ const Group_main = () => {
                   <div className="p-2 border-b border-gray-300">
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border rounded focus:outline-none"
+                      className="w-full px-3 py-2 border rounded focus:outline-none bg-[white]"
                       placeholder="Qidirish..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
@@ -331,7 +331,7 @@ const Group_main = () => {
                   <div className="p-2 border-b border-gray-300">
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border rounded focus:outline-none"
+                      className="w-full px-3 py-2 border rounded focus:outline-none bg-[white]"
                       placeholder="Qidirish..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
@@ -371,7 +371,7 @@ const Group_main = () => {
               <th className="py-3 px-4 text-left scale-[1.5]">
                 <input
                   type="checkbox"
-                  className="w-3 h-3 border-2 border-gray-400 bg-[white] scale-[1.3] cursor-pointer transition-all"
+                  className="w-4 h-4 appearance-auto border border-gray-400 bg-red-500 cursor-pointer transition-all"
                 />
               </th>
               <th className="py-3 px-4 text-left">№</th>
@@ -394,7 +394,8 @@ const Group_main = () => {
                 <td className="py-3 px-4 scale-[1.5]">
                   <input
                     type="checkbox"
-                    className="w-3 h-3 border-2 scale-[1.3] border-gray-400 bg-[white] cursor-pointer transition-all" />
+                    className="w-4 h-4 appearance-auto border border-gray-400 bg-red-500 cursor-pointer transition-all"
+                  />
                 </td>
                 <td className="py-3 px-4 text-[black]">{index + 1}</td>
                 <td className="py-3 px-4 text-[black]">{item.id}</td>

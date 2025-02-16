@@ -60,9 +60,9 @@ const Rooms_main = () => {
           <thead>
             <tr>
               <th className="h-[25px] p-2 scale-[1.5]">
-              <input
+                <input
                   type="checkbox"
-                  className="w-3 h-3 border-2 border-gray-400 bg-[white] scale-[1.3] cursor-pointer transition-all"
+                  className="w-4 h-4 appearance-auto border-gray-400 bg-red-500 cursor-pointer transition-all"
                 />
               </th>
               <th className="h-[25px] p-2 text-[black]">№</th>
@@ -75,10 +75,10 @@ const Rooms_main = () => {
             {rooms.map((room, index) => (
               <tr key={room.id} className="text-center">
                 <td className="h-[25px] p-2 scale-[1.5]">
-                <input
-                  type="checkbox"
-                  className="w-3 h-3 border-2 border-gray-400 bg-[white] scale-[1.3] cursor-pointer transition-all"
-                />
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4 appearance-auto border-gray-400 bg-red-500 cursor-pointer transition-all"
+                  />
                 </td>
                 <td className="h-[50px] p-2 text-[black]">{index + 1}</td>
                 <td className="p-2 text-[black]">{room.title}</td>
