@@ -1,6 +1,7 @@
 #elka {
-  overflow: scroll;
-  scrollbar-width: none;
+  overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(0, 53, 95) rgb(255, 255, 255);
 }
 
 .my-icon {

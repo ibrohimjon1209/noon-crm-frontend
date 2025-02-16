@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../../Lids/childs/first_lesson/header";
-import "./new_students.css";
 
-function New_students() {
+function Active_students() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
     useState(false);
@@ -38,10 +37,9 @@ function New_students() {
       name: "Ilhomov Elyor Eldorvich",
       phone: "+998 90 762 92 82",
       balans: "-50.000 UZS",
-      group: "Web Dasturlash",
-      teacher: "Falonchi Falonchiyev",
+      paymentDate: "12.01.2024 | 00:00",
+      createdDate: "14.11.2023 | 12:00",
       moderator: "Asila opa",
-      level: "O'rta",
       appDownload: "11.02.2025",
     },
   ];
@@ -52,7 +50,41 @@ function New_students() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <Header is_filter_open={true} />
+      <div className="flex w-full pl-[40px]">
+        <div className="flex gap-4 h-[70px] mt-[25px]">
+          <button className="w-[150px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.08 2.045c-1.874.165-3.723.904-5.28 2.109-.437.339-1.307 1.209-1.646 1.646-1.8 2.326-2.505 5.195-1.976 8.046.29 1.566.959 3.04 1.976 4.354.339.437 1.209 1.307 1.646 1.646 2.441 1.889 5.453 2.566 8.44 1.895 2.487-.559 4.752-2.144 6.145-4.301.806-1.247 1.283-2.527 1.521-4.08.098-.641.098-2.079 0-2.72-.285-1.858-.936-3.388-2.06-4.84-.339-.437-1.209-1.307-1.646-1.646-2.067-1.599-4.554-2.336-7.12-2.109m1.752 1.997a8.182 8.182 0 0 1 4.208 1.747c.354.286 1.027.972 1.286 1.311A8.123 8.123 0 0 1 20 12a8.1 8.1 0 0 1-1.789 5.04c-.286.354-.972 1.027-1.311 1.286A8.123 8.123 0 0 1 12 20a8.123 8.123 0 0 1-4.9-1.674c-.339-.259-1.025-.932-1.311-1.286A7.99 7.99 0 0 1 4.8 8.529a7.375 7.375 0 0 1 1.459-2.083 7.632 7.632 0 0 1 2.267-1.645 8.025 8.025 0 0 1 4.306-.759m-1.213 3.014c-.241.075-.371.176-.491.38l-.108.184-.011 2.976-.011 2.977-.729-.721c-.413-.409-.802-.758-.897-.807-.351-.177-.732-.087-1.073.254-.34.34-.431.721-.255 1.073.054.107.626.713 1.574 1.668.82.825 1.529 1.558 1.578 1.629.125.183.533.371.804.371s.679-.188.804-.371c.049-.071.758-.804 1.578-1.629.948-.955 1.52-1.561 1.574-1.668.176-.352.085-.733-.255-1.073-.341-.341-.722-.431-1.073-.254-.095.049-.484.399-.898.808l-.73.722v-2.88c0-3.208.003-3.169-.261-3.434-.234-.234-.735-.326-1.12-.205"
+                fill-rule="evenodd"
+                fill="#ffffff"
+              ></path>
+            </svg>
+            Import
+          </button>
+          <button className="w-[150px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.08 2.045c-1.874.165-3.723.904-5.28 2.109-.437.339-1.307 1.209-1.646 1.646-1.8 2.326-2.505 5.195-1.976 8.046.29 1.566.959 3.04 1.976 4.354.339.437 1.209 1.307 1.646 1.646 2.441 1.889 5.453 2.566 8.44 1.895 2.487-.559 4.752-2.144 6.145-4.301.806-1.247 1.283-2.527 1.521-4.08.098-.641.098-2.079 0-2.72-.285-1.858-.936-3.388-2.06-4.84-.339-.437-1.209-1.307-1.646-1.646-2.067-1.599-4.554-2.336-7.12-2.109m1.752 1.997a8.182 8.182 0 0 1 4.208 1.747c.354.286 1.027.972 1.286 1.311A8.123 8.123 0 0 1 20 12a8.1 8.1 0 0 1-1.789 5.04c-.286.354-.972 1.027-1.311 1.286A8.123 8.123 0 0 1 12 20a8.123 8.123 0 0 1-4.9-1.674c-.339-.259-1.025-.932-1.311-1.286A7.99 7.99 0 0 1 4.8 8.529a7.375 7.375 0 0 1 1.459-2.083 7.632 7.632 0 0 1 2.267-1.645 8.025 8.025 0 0 1 4.306-.759m-1.301 3.043c-.15.072-.284.171-.336.247-.048.071-.757.803-1.577 1.628-.948.955-1.52 1.561-1.574 1.668-.176.352-.085.733.255 1.073.341.341.722.431 1.073.254.095-.049.484-.398.897-.807l.729-.721.011 2.977.011 2.976.111.189a.862.862 0 0 0 .3.3c.171.1.225.111.572.111.356 0 .397-.008.578-.12a.76.76 0 0 0 .297-.319l.102-.199.011-2.958.011-2.957.729.721c.413.409.802.758.897.807.351.177.732.087 1.073-.254.34-.34.431-.721.255-1.073-.054-.107-.626-.713-1.574-1.668-.82-.825-1.529-1.557-1.577-1.628-.054-.079-.185-.173-.346-.25-.345-.163-.587-.162-.928.003"
+                fill-rule="evenodd"
+                fill="#ffffff"
+              ></path>
+            </svg>
+            Export
+          </button>
+        </div>
+        <Header is_filter_open={true} />
+      </div>
       <div
         id="elka"
         className="flex-col bg-white w-[96.1%] text-[#404040] mt-[15px] pb-[0px] h-[990px] overflow-scroll rounded-xl"
@@ -98,16 +130,16 @@ function New_students() {
                   Balans
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
-                  Guruh
+                  To'lov sanasi
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
-                  O'qituvchi
+                  Yaratilgan sana
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
                   Moderator
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
-                  Ilovani yuklab olish sanasi
+                  Taklif qilganlari ilovani yuklab olish sanasi
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl"></th>
               </tr>
@@ -131,8 +163,12 @@ function New_students() {
                     <td className="p-5 border text-[18px]">{row.name}</td>
                     <td className="p-5 border text-[18px]">{row.phone}</td>
                     <td className="p-5 border text-[18px]">{row.balans}</td>
-                    <td className="p-5 border text-[18px]">{row.group}</td>
-                    <td className="p-5 border text-[18px]">{row.teacher}</td>
+                    <td className="p-5 border text-[18px]">
+                      {row.paymentDate}
+                    </td>
+                    <td className="p-5 border text-[18px]">
+                      {row.createdDate}
+                    </td>
                     <td className="p-5 border text-[18px]">{row.moderator}</td>
                     <td className="p-5 border text-[18px]">
                       {row.appDownload}
@@ -159,10 +195,9 @@ function New_students() {
                 ))}
             </tbody>
           </table>
-        <div className="sticky bottom-0">
-        <Pagination handleSelectedRows={handleSelectedRows} />
-        </div>
-
+          <div className="sticky bottom-0">
+            <Pagination handleSelectedRows={handleSelectedRows} />
+          </div>
         </div>
         <StudentSendComment
           onClose={handleCloseMopdalComment}
@@ -176,7 +211,7 @@ function New_students() {
 const Pagination = ({ handleSelectedRows }) => {
   return (
     <div className="w-[100%] flex justify-between items-center p-3 rounded-xl bg-white">
-        <p></p>
+      <p></p>
       <div className="flex justify-between gap-2 p-4">
         <div className="relative">
           <select
@@ -324,23 +359,23 @@ const StudentSendComment = ({ onClose, isOpen }) => {
           <p className="text-[22px]">salom !</p>
         </div>
         <div className="p-5">
-        <div className="p-2 flex border-2 rounded-xl border-gray-500">
-          <input
-            type="text"
-            className="w-[85%] h-[50px] border-none outline-none rounded-lg pl-2 text-[18px] placeholder:text-[18px]"
-            placeholder="Izoh..."
-          />
-          <button
-            onClick={onClose}
-            className="w-[80px] rounded-lg bg-blue-500 text-white"
-          >
-            Send
-          </button>
-        </div>
+          <div className="p-2 flex border-2 rounded-xl border-gray-500">
+            <input
+              type="text"
+              className="w-[85%] h-[50px] border-none outline-none rounded-lg pl-2 text-[18px] placeholder:text-[18px]"
+              placeholder="Izoh..."
+            />
+            <button
+              onClick={onClose}
+              className="w-[80px] rounded-lg bg-blue-500 text-white"
+            >
+              Send
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default New_students;
+export default Active_students;
