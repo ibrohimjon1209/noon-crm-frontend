@@ -52,7 +52,7 @@ const Rooms_main = () => {
           </div>
         </div>
 
-        <input className="search1" style={{ "width": "260px", "height": "70px", "borderRadius": "5px", "padding": "0 20px", "transform": "scale(0.9)" }} type="search" placeholder="Qidirish" />
+        <input className="search1" style={{ "width": "260px", "height": "70px", "borderRadius": "5px", "padding": "0 20px", "transform": "scale(0.9)", "background": "white" }} type="search" placeholder="Qidirish" />
       </div>
 
       <div className="w-[95%] h-[45vw] overflow-auto m-auto mt-6 bg-white rounded-[10px]">
@@ -60,24 +60,30 @@ const Rooms_main = () => {
           <thead>
             <tr>
               <th className="h-[25px] p-2 scale-[1.5]">
-                <input type="checkbox" />
+              <input
+                  type="checkbox"
+                  className="w-3 h-3 border-2 border-gray-400 bg-[white] scale-[1.3] cursor-pointer transition-all"
+                />
               </th>
-              <th className="h-[25px] p-2">№</th>
-              <th className="h-[25px] p-2">Sarlavha</th>
-              <th className="h-[25px] p-2">O‘quvchilar sig‘imi</th>
-              <th className="h-[25px] p-2"><h2>Umumiy son: {rooms.length}</h2></th>
+              <th className="h-[25px] p-2 text-[black]">№</th>
+              <th className="h-[25px] p-2 text-[black]">Sarlavha</th>
+              <th className="h-[25px] p-2 text-[black]">O‘quvchilar sig‘imi</th>
+              <th className="h-[25px] p-2 text-[black]"><h2>Umumiy son: {rooms.length}</h2></th>
             </tr>
           </thead>
           <tbody>
             {rooms.map((room, index) => (
               <tr key={room.id} className="text-center">
                 <td className="h-[25px] p-2 scale-[1.5]">
-                  <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  className="w-3 h-3 border-2 border-gray-400 bg-[white] scale-[1.3] cursor-pointer transition-all"
+                />
                 </td>
-                <td className="h-[50px] p-2">{index + 1}</td>
-                <td className="p-2">{room.title}</td>
-                <td className="p-2">{room.capacity}</td>
-                <td className="p-2 flex justify-center gap-3">
+                <td className="h-[50px] p-2 text-[black]">{index + 1}</td>
+                <td className="p-2 text-[black]">{room.title}</td>
+                <td className="p-2 text-[black]">{room.capacity}</td>
+                <td className="p-2 text-[black] flex justify-center gap-3">
                   <div className="flex w-[30%] justify-around">
                     {/* Tahrirlash tugmasi */}
                     <img
