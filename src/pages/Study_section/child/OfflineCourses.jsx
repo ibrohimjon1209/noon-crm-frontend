@@ -4,16 +4,23 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 import { GoChevronDown, GoChevronUp } from 'react-icons/go';
 import { PiArrowCircleDown, PiArrowCircleUp } from 'react-icons/pi';
 import { RiPencilLine } from 'react-icons/ri';
+import HashtagModal from '../../Settings/Marketing/childs/hashtag/hashtag_modal';
+import DeleteModal from '../../Settings/Marketing/childs/hashtag/DeleteModal';
 
 const OfflineCourses = () => {
     const [openDropdown, setOpenDropdown] = useState(null);
-    console.log(openDropdown);
 
     const toggleDropdown = (index) => {
         setOpenDropdown(openDropdown === index ? null : index);
     };
 
-    const courses = [
+    const [open, setIsOpen] = useState(false);
+    const [editIndex, setEditIndex] = useState(null); // Edit qilingan index
+    const [editValue, setEditValue] = useState("");   // Eski qiymatni inputga yuklash
+    const [deleteIndex, setDeleteIndex] = useState(null);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+    const [courses, setCourses] = useState([
         { title: "Korean", color: "bg-green-500", levels: ["Beginner", "Elementary"] },
         { title: "SAT", color: "bg-gray-700", levels: ["Math", "Reading"] },
         { title: "Notiqlik Kursi", color: "bg-gray-300", levels: ["Public Speaking", "Debate"] },
@@ -25,14 +32,55 @@ const OfflineCourses = () => {
         { title: "Arab Tili", color: "bg-gray-700", levels: ["Beginner", "Advanced"] },
         { title: "Rus Tili", color: "bg-gray-300", levels: ["Beginner", "Intermediate"] },
         { title: "Yapon Tili", color: "bg-blue-700", levels: ["Hiragana", "Kanji"] },
-    ];
+    ])
+
+    console.log(courses[3].color);
+
+
+    const handleSaveHashtag = (newCourses) => {
+        if (editIndex !== null) {
+            const updatedHashtags = [...courses];
+            updatedHashtags[editIndex] = { ...updatedHashtags[editIndex], title: newCourses, color: "bg-green-500", levels: ['Boshlangich'] };
+            setCourses(updatedHashtags);
+            setEditIndex(null);
+        } else {
+            setCourses([...courses, { title: newCourses, color: "bg-green-500", levels: ['Boshlangich'] }]);
+        }
+        setIsOpen(false);
+
+    };
+
+    const handleEditHashtag = (index) => {
+        setEditIndex(index);
+        setEditValue(courses[index].name);
+        setIsOpen(true);
+    };
+
+    const confirmDeleteHashtag = (index) => {
+        setDeleteIndex(index);
+        setIsDeleteModalOpen(true);
+    };
+
+    const handleDelete = () => {
+        if (deleteIndex !== null) {
+            setCourses(courses.filter((_, i) => i !== deleteIndex));
+        }
+        setIsDeleteModalOpen(false);
+        setDeleteIndex(null);
+    };
+
 
     return (
         <div className="w-full p-6">
             {/* Header */}
             <div className="flex items-center justify-between mb-4">
                 <div className='flex gap-8'>
-                    <button className="bg-[#0D99FF] text-white w-[254px] h-[66px] rounded-lg flex items-center justify-center gap-2">
+                    <button
+                        onClick={() => {
+                            setIsOpen(true);
+                        }
+                        }
+                        className="bg-[#0D99FF] text-white taxt-[20px] w-[254px] h-[66px] rounded-lg flex items-center justify-center gap-2">
                         <CiCirclePlus size={25} />
                         O‘quvchi qo‘shish
                     </button>
@@ -72,8 +120,8 @@ const OfflineCourses = () => {
                             >{course.title}</span>
                             <div className='flex '>
                                 <span className={`w-6 h-6 mr-72 ${course.color} rounded`} />
-                                <RiPencilLine className="text-blue-500 size-7 cursor-pointer mr-4" />
-                                <FaRegTrashAlt className="text-red-500 size-7 cursor-pointer" />
+                                <RiPencilLine onClick={() => handleEditHashtag(index)} className="text-blue-500 size-7 cursor-pointer mr-4" />
+                                <FaRegTrashAlt onClick={() => confirmDeleteHashtag(index)} className="text-red-500 size-7 cursor-pointer" />
                             </div>
                         </div>
                         {/* Dropdown (Levels) */}
@@ -89,6 +137,19 @@ const OfflineCourses = () => {
                     </div>
                 ))}
             </div>
+
+            <HashtagModal
+                isOpen={open}
+                onClose={() => setIsOpen(false)}
+                onSave={handleSaveHashtag}
+                // editValue={editIndex !== null ? editValue : ""}
+                editValue={editValue}
+            />
+            <DeleteModal
+                isOpen={isDeleteModalOpen}
+                onClose={() => setIsDeleteModalOpen(false)}
+                onConfirm={handleDelete}
+            />
         </div>
     );
 };

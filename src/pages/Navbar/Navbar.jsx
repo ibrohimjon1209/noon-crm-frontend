@@ -125,9 +125,9 @@ const Navbar = () => {
 
   const study_submenu_items = [
     {
-      path: "/study_section/categoryStudy",
-      active: "/study_section/categoryStudy",
-      label: "Kategoriyalar",
+      path: "/study_section/offlineCourses",
+      active: "/study_section/offlineCourses",
+      label: "Offline kurslar",
     },
     {
       path: "/study_section/onlineCourses",
@@ -135,9 +135,9 @@ const Navbar = () => {
       label: "Online kurslar",
     },
     {
-      path: "/study_section/offlineCourses",
-      active: "/study_section/offlineCourses",
-      label: "Offline kurslar",
+      path: "/study_section/categoryStudy",
+      active: "/study_section/categoryStudy",
+      label: "Kategoriyalar",
     },
   ];
 
@@ -162,11 +162,10 @@ const Navbar = () => {
       >
         <Link
           to="/assigments"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${
-            location.pathname === "/assigments"
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${location.pathname === "/assigments"
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          } pl-[10px]`}
+            } pl-[10px]`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -180,11 +179,10 @@ const Navbar = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            isLidsActive
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isLidsActive
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
           onMouseEnter={() => set_lids_is_hovered(true)}
           onMouseLeave={() => set_lids_is_hovered(false)}
         >
@@ -209,18 +207,16 @@ const Navbar = () => {
                   {lids_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${
-                          activeSubmenu === item.active
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
                             ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
                             : " text-black"
-                        }`}
+                          }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${
-                            activeSubmenu === item.path
+                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
                               ? "bg-[#264E86]"
                               : "bg-black"
-                          }`}
+                            }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
@@ -235,11 +231,10 @@ const Navbar = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            isGroupsActive
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isGroupsActive
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
           onMouseEnter={() => set_groups_hovered(true)}
           onMouseLeave={() => set_groups_hovered(false)}
         >
@@ -264,18 +259,16 @@ const Navbar = () => {
                   {groups_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${
-                          activeSubmenu === item.active
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
                             ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
                             : " text-black"
-                        }`}
+                          }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${
-                            activeSubmenu === item.path
+                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
                               ? "bg-[#264E86]"
                               : "bg-black"
-                          }`}
+                            }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
@@ -290,11 +283,10 @@ const Navbar = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            isStudentsActive
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isStudentsActive
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
           onMouseEnter={() => set_students_hovered(true)}
           onMouseLeave={() => set_students_hovered(false)}
         >
@@ -319,18 +311,16 @@ const Navbar = () => {
                   {studets_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${
-                          activeSubmenu === item.active
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
                             ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
                             : " text-black"
-                        }`}
+                          }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${
-                            activeSubmenu === item.path
+                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
                               ? "bg-[#264E86]"
                               : "bg-black"
-                          }`}
+                            }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
@@ -344,11 +334,10 @@ const Navbar = () => {
           )}
         </Link>
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            isStudytsActive
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isStudytsActive
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
           onMouseEnter={() => set_study_hovered(true)}
           onMouseLeave={() => set_study_hovered(false)}
         >
@@ -374,18 +363,16 @@ const Navbar = () => {
                   {study_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${
-                          activeSubmenu === item.active
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
                             ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
                             : " text-black"
-                        }`}
+                          }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${
-                            activeSubmenu === item.path
+                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
                               ? "bg-[#264E86]"
                               : "bg-black"
-                          }`}
+                            }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
@@ -403,11 +390,10 @@ const Navbar = () => {
 
         <Link
           to="/finance"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === "/finance"
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/finance"
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -422,11 +408,10 @@ const Navbar = () => {
 
         <Link
           to="/control"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === "/control"
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/control"
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -441,11 +426,10 @@ const Navbar = () => {
 
         <Link
           to="/management"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === "/management"
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/management"
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -460,11 +444,10 @@ const Navbar = () => {
 
         <Link
           to="/marketing"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === "/marketing"
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/marketing"
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -479,11 +462,10 @@ const Navbar = () => {
 
         <Link
           to="/reports"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            location.pathname === "/reports"
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/reports"
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-          }`}
+            }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -497,11 +479,10 @@ const Navbar = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
-            isSettingsActive
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isSettingsActive
               ? "bg-[#CFEBFF] text-[#264E86]"
               : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
-          }`}
+            }`}
           onMouseEnter={() => set_settings_is_hovered(true)}
           onMouseLeave={() => set_settings_is_hovered(false)}
         >
@@ -527,18 +508,16 @@ const Navbar = () => {
                   {settings_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${
-                          activeSubmenu === item.active
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
                             ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
                             : " text-black"
-                        }`}
+                          }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${
-                            activeSubmenu === item.path
+                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
                               ? "bg-[#264E86]"
                               : "bg-black"
-                          }`}
+                            }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
