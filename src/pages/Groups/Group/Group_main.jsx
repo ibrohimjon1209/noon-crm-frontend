@@ -357,7 +357,7 @@ const Group_main = () => {
                 </div>
               )}
             </div>
-            <input className="search1" style={{ "background": "white", "width": "260px", "height": "70px", "borderRadius": "5px", "padding": "0 20px",}} type="search" placeholder="Qidirish" />
+            <input className="search1" style={{ "background": "white", "width": "260px", "height": "70px", "borderRadius": "5px", "padding": "0 20px", }} type="search" placeholder="Qidirish" />
           </div>
         </div>
 
@@ -368,7 +368,12 @@ const Group_main = () => {
         <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
           <thead>
             <tr className="bg-blue-500 text-white">
-              <th className="py-3 px-4 text-left scale-[1.5]"><input type="checkbox"/></th>
+              <th className="py-3 px-4 text-left scale-[1.5]">
+                <input
+                  type="checkbox"
+                  className="w-3 h-3 border-2 border-gray-400 bg-[white] scale-[1.3] cursor-pointer transition-all"
+                />
+              </th>
               <th className="py-3 px-4 text-left">№</th>
               <th className="py-3 px-4 text-left">ID</th>
               <th className="py-3 px-4 text-left">Guruh nomi</th>
@@ -386,7 +391,11 @@ const Group_main = () => {
           <tbody>
             {data.map((item, index) => (
               <tr key={index} className="border-b border-gray-200 hover:bg-gray-100">
-                <td className="py-3 px-4 scale-[1.5]"><input type="checkbox"/></td>
+                <td className="py-3 px-4 scale-[1.5]">
+                  <input
+                    type="checkbox"
+                    className="w-3 h-3 border-2 scale-[1.3] border-gray-400 bg-[white] cursor-pointer transition-all" />
+                </td>
                 <td className="py-3 px-4 text-[black]">{index + 1}</td>
                 <td className="py-3 px-4 text-[black]">{item.id}</td>
                 <td className="py-3 px-4 text-[black]">{item.group}</td>
