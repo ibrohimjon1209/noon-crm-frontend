@@ -61,9 +61,10 @@ const Rooms_main = () => {
             <tr>
               <th className="h-[25px] p-2 scale-[1.5]">
               <input
-                  type="checkbox"
-                  className="w-3 h-3 border-2 border-gray-400 bg-[white] scale-[1.3] cursor-pointer transition-all"
-                />
+                    type="checkbox"
+                    className="scale-[1.3] bg-[]"
+                    
+                  />
               </th>
               <th className="h-[25px] p-2 text-[black]">№</th>
               <th className="h-[25px] p-2 text-[black]">Sarlavha</th>
