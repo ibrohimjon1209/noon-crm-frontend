@@ -97,21 +97,19 @@ const First_lesson = () => {
                       />
                       <span
                         className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-              ${
-                students.every((student) => student.checked)
-                  ? "bg-[#0EA5E9]"
-                  : "bg-white"
-              } 
+              ${students.every((student) => student.checked)
+                            ? "bg-[#0EA5E9]"
+                            : "bg-white"
+                          } 
               after:content-[''] after:absolute 
               after:top-[3px] after:left-[6px] 
               after:w-1.5 after:h-2.5 
               after:border-white after:border-r-2 
               after:border-b-2 after:rotate-45
-              ${
-                students.every((student) => student.checked)
-                  ? "after:block"
-                  : "after:hidden"
-              }`}
+              ${students.every((student) => student.checked)
+                            ? "after:block"
+                            : "after:hidden"
+                          }`}
                       ></span>
                     </label>
                   </div>
