@@ -1,578 +1,36 @@
-"use client"
-
-import { useState } from "react"
-import plus from "../imgs/add_icon.png"
-import exprt from "../imgs/export.png"
-import imprt from "../imgs/import.png"
-import arrow_down_black_icon from "../imgs/arrow_down_black_icon.png"
-import "./Group_main.css"
+import { useState } from "react";
+import Header from "./header";
+import "./Group_main.css";
 
 const Group_main = () => {
-  const [human_value, set_human_value] = useState("O'qituvchi")
-  const [is_human_open, set_is_human_open] = useState(false)
-
-  const [course_value, set_course_value] = useState("Kurs")
-  const [is_course_open, set_is_course_open] = useState(false)
-
-  const [moderator_value, set_moderator_value] = useState("Moderator")
-  const [is_moderator_open, set_is_moderator_open] = useState(false)
-
-  const [colors_value, set_colors_value] = useState("Ranglar bo'yicha")
-  const [is_colors_open, set_is_colors_open] = useState(false)
-
-  const [startTime, setStartTime] = useState("")
-  const [endTime, setEndTime] = useState("")
-
-  const [search, setSearch] = useState("")
-  const [checkedRows, setCheckedRows] = useState({})
+  const [checkedRows, setCheckedRows] = useState({});
 
   const data = [
-    {
-      id: 123,
-      group: "IT",
-      course: "IT",
-      level: "Boshlang‘ich",
-      day: "Toq",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 124,
-      group: "IT",
-      course: "Ingliz Tili",
-      level: "O‘rta",
-      day: "Juft",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 125,
-      group: "IT",
-      course: "Rus Tili",
-      level: "Yuqori",
-      day: "Du-Se",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 126,
-      group: "IT",
-      course: "IT",
-      level: "Boshlang‘ich",
-      day: "Toq",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 127,
-      group: "IT",
-      course: "Rus Tili",
-      level: "Yuqori",
-      day: "Du-Se",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 128,
-      group: "IT",
-      course: "Ingliz Tili",
-      level: "O‘rta",
-      day: "Juft",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 129,
-      group: "IT",
-      course: "IT",
-      level: "Boshlang‘ich",
-      day: "Toq",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 130,
-      group: "IT",
-      course: "Rus Tili",
-      level: "Yuqori",
-      day: "Du-Se",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 131,
-      group: "IT",
-      course: "Ingliz Tili",
-      level: "O‘rta",
-      day: "Juft",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 132,
-      group: "IT",
-      course: "IT",
-      level: "Boshlang‘ich",
-      day: "Toq",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 133,
-      group: "IT",
-      course: "Rus Tili",
-      level: "Yuqori",
-      day: "Du-Se",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 134,
-      group: "IT",
-      course: "Ingliz Tili",
-      level: "O‘rta",
-      day: "Juft",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 135,
-      group: "IT",
-      course: "IT",
-      level: "Boshlang‘ich",
-      day: "Toq",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 136,
-      group: "IT",
-      course: "Rus Tili",
-      level: "Yuqori",
-      day: "Du-Se",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 137,
-      group: "IT",
-      course: "Ingliz Tili",
-      level: "O‘rta",
-      day: "Juft",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 138,
-      group: "IT",
-      course: "IT",
-      level: "Boshlang‘ich",
-      day: "Toq",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 139,
-      group: "IT",
-      course: "Rus Tili",
-      level: "Yuqori",
-      day: "Du-Se",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 140,
-      group: "IT",
-      course: "Ingliz Tili",
-      level: "O‘rta",
-      day: "Juft",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-    {
-      id: 141,
-      group: "IT",
-      course: "IT",
-      level: "Boshlang‘ich",
-      day: "Toq",
-      time: "11:25–13:05",
-      date: "22.05.2024–22.05.2025",
-      students: 31,
-      teacher: "Ali Xasanov",
-      room: "121-xona",
-      status: "Active",
-    },
-  ]
-
-  const humans_list = ["Diyorbek Omonboyev", "Falonchi Pistonchiyev", "Falonchi Pistonchiyeva", "Salima"]
-  const course_list = ["Ingliz tili", "Rus tili", "Arab tili", "IT", "Matematika"]
-  const moderator_list = ["Diyorbek Omonboyev", "Falonchi Pistonchiyev", "Falonchi Pistonchiyeva", "Salima"]
-
-  const colors_list = ["yashil", "ko'k", "sariq", "olovrang", "qizil"]
-
-  const handle_select_human = (human) => {
-    set_human_value(human)
-    set_is_human_open(false)
-  }
-
-  const handle_select_course = (course) => {
-    set_course_value(course)
-    set_is_course_open(false)
-  }
-
-  const handle_select_moderator = (moderator) => {
-    set_moderator_value(moderator)
-    set_is_moderator_open(false)
-  }
-  const handle_select_colors = (colors) => {
-    set_colors_value(colors)
-    set_is_colors_open(false)
-  }
+    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
+    { id: 124, group: "IT", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
+    { id: 125, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" }
+  ];
 
   const handleAllChecked = (e) => {
-    const isChecked = e.target.checked
-    const newCheckedRows = {}
+    const isChecked = e.target.checked;
+    const newCheckedRows = {};
     data.forEach((item) => {
-      newCheckedRows[item.id] = isChecked
-    })
-    setCheckedRows(newCheckedRows)
-  }
+      newCheckedRows[item.id] = isChecked;
+    });
+    setCheckedRows(newCheckedRows);
+  };
 
   const handleSingleCheck = (id) => {
     setCheckedRows((prev) => ({
       ...prev,
       [id]: !prev[id],
-    }))
-  }
+    }));
+  };
 
   return (
     <>
-      <div className="w-[112vw] h-[200px] flex justify-around items-center mt-[30px] ms-[20px]">
-        <div className="w-[25%] h-[100%]">
-          <div className="w-[50%] h-[50%] flex justify-around items-center">
-            <div className="bg-[#0D99FF] w-[170px] h-[60px] ms-[3%] rounded-[50px] flex justify-center items-center gap-[15px] cursor-pointer hover:scale-[1.05] active:scale-[0.95]">
-              <img className="w-[20%]" src={plus || "/placeholder.svg"} alt="" />
-              <h1 className="text-white text-[20px]">Qo'shish</h1>
-            </div>
-          </div>
-          <div className="w-[100%] h-[50%] flex justify-around items-center">
-            <div
-              className="block bg-[#0D99FF] w-[170px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
-              // onClick={() => setIsAddModalOpen(true)}
-            >
-              <img className="w-[20%]" src={exprt || "/placeholder.svg"} alt="" />
-              <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">Export</h1>
-            </div>
-            <div
-              className="block bg-[#0D99FF] w-[170px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
-              // onClick={() => setIsAddModalOpen(true)}
-            >
-              <img className="w-[20%]" src={imprt || "/placeholder.svg"} alt="" />
-              <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">Import</h1>
-            </div>
-          </div>
-        </div>
-
-        {/* O'qituvchi tanlash dropdown */}
-        <div className="w-[75%] h-[100%]">
-          <div className="w-[100%] h-[50%] flex justify-around items-center">
-            <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative  ">
-              <div
-                className="h-[70px] w-[260px] flex items-center border-[#C5C5C5] border-[1.5px] rounded-[5px] justify-between px-[20px] cursor-pointer"
-                onClick={() => set_is_human_open(!is_human_open)}
-              >
-                <p className="text-[19px] text-[black]">{human_value}</p>
-                <img
-                  src={arrow_down_black_icon || "/placeholder.svg"}
-                  className={`w-[31px] h-[31px] duration-300 ${is_human_open ? "-rotate-180" : ""}`}
-                  alt=""
-                />
-              </div>
-
-              {is_human_open && (
-                <div className="absolute top-[70px] left-0 w-full bg-white border-[#C5C5C5] shadow-md rounded-[5px] z-10">
-                  {/* 🔍 Qidirish input */}
-                  <div className="p-2 border-b border-gray-300">
-                    <input
-                      type="text"
-                      className="w-full px-3 py-2 border rounded focus:outline-none placeholder:text-[black] bg-[white]"
-                      placeholder="Qidirish..."
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                    />
-                  </div>
-
-                  {/* 🔽 O‘qituvchilar ro‘yxati */}
-                  <ul className="max-h-[200px] overflow-y-auto">
-                    {humans_list
-                      .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
-                      .map((item, index) => (
-                        <li
-                          key={index}
-                          className="px-4 py-2 cursor-pointer hover:bg-[#CFEBFF] text-[black]"
-                          onClick={() => handle_select_human(item)}
-                        >
-                          {item}
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {/* Boshlanish vaqti input */}
-            <div className="w-[260px] h-[70px] bg-white rounded-[5px] flex items-center justify-around ">
-              <label className="text-gray-700 text-[20px] text-[black]">Boshlanish vaqti</label>
-              <input
-                type="time"
-                className="ml-2 bg-transparent text-[black] focus:outline-none "
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}
-              />
-              {/* {startTime && (
-                <button
-                  onClick={() => setStartTime("")}
-                  className="ml-2 text-gray-500 hover:text-gray-700"
-                >
-                  <img src={clear || "/placeholder.svg"} alt="clear" className="w-4 h-4" />
-                </button>
-              )} */}
-            </div>
-
-            <div className="w-[260px] h-[70px] bg-white rounded-[5px] flex items-center justify-around">
-              <label className="text-gray-700 text-[20px] text-[black]">Tugash vaqti</label>
-              <input
-                type="time"
-                className="ml-2 bg-transparent text-gray-500 focus:outline-none text-[black]"
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}
-              />
-              {/* {endTime && (
-                <button
-                  onClick={() => setEndTime("")}
-                  className="ml-2 text-gray-500 hover:text-gray-700"
-                >
-                  <img src={clear || "/placeholder.svg"} alt="clear" className="w-4 h-4" />
-                </button>
-              )} */}
-            </div>
-
-            <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
-              <div
-                className="h-[70px] w-[260px] flex items-center border-[#C5C5C5] border-[1.5px] rounded-[5px] justify-between px-[20px] cursor-pointer"
-                onClick={() => set_is_course_open(!is_course_open)}
-              >
-                <p className="text-[19px] text-[black]">{course_value}</p>
-                <img
-                  src={arrow_down_black_icon || "/placeholder.svg"}
-                  className={`w-[31px] h-[31px] duration-300 ${is_course_open ? "-rotate-180" : ""}`}
-                  alt=""
-                />
-              </div>
-
-              {is_course_open && (
-                <div className="absolute top-[70px] left-0 w-full bg-white border-[#C5C5C5] shadow-md rounded-[5px] z-10">
-                  {/* 🔍 Qidirish input */}
-                  <div className="p-2 border-b border-gray-300">
-                    <input
-                      type="text"
-                      className="w-full px-3 py-2 border rounded focus:outline-none bg-[white]"
-                      placeholder="Qidirish..."
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                    />
-                  </div>
-
-                  {/* 🔽 O‘qituvchilar ro‘yxati */}
-                  <ul className="max-h-[200px] overflow-y-auto">
-                    {course_list
-                      .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
-                      .map((item, index) => (
-                        <li
-                          key={index}
-                          className="px-4 py-2 cursor-pointer hover:bg-[#CFEBFF] text-[black]"
-                          onClick={() => handle_select_course(item)}
-                        >
-                          {item}
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="w-[75%] h-[50%] flex justify-around items-center ms-[25%]">
-            <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative ">
-              <div
-                className="h-[70px] w-[260px] text-[black] flex items-center border-[#C5C5C5] border-[1.5px] rounded-[5px] justify-between px-[20px] cursor-pointer"
-                onClick={() => set_is_moderator_open(!is_moderator_open)}
-              >
-                <p className="text-[19px]">{moderator_value}</p>
-                <img
-                  src={arrow_down_black_icon || "/placeholder.svg"}
-                  className={`w-[31px] h-[31px] duration-300 ${is_moderator_open ? "-rotate-180" : ""}`}
-                  alt=""
-                />
-              </div>
-
-              {is_moderator_open && (
-                <div className="absolute top-[70px] left-0 w-full bg-white border-[#C5C5C5] shadow-md rounded-[5px] z-10">
-                  {/* 🔍 Qidirish input */}
-                  <div className="p-2 border-b border-gray-300">
-                    <input
-                      type="text"
-                      className="w-full px-3 py-2 border rounded focus:outline-none bg-[white]"
-                      placeholder="Qidirish..."
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                    />
-                  </div>
-
-                  {/* 🔽 O‘qituvchilar ro‘yxati */}
-                  <ul className="max-h-[200px] overflow-y-auto">
-                    {moderator_list
-                      .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
-                      .map((item, index) => (
-                        <li
-                          key={index}
-                          className="px-4 py-2 cursor-pointer hover:bg-[#CFEBFF] text-[black]"
-                          onClick={() => handle_select_moderator(item)}
-                        >
-                          {item}
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
-              <div
-                className="h-[70px] w-[260px] text-[black] flex items-center border-[#C5C5C5] border-[1.5px] rounded-[5px] justify-between px-[20px] cursor-pointer"
-                onClick={() => set_is_colors_open(!is_colors_open)}
-              >
-                <p className="text-[19px]">{colors_value}</p>
-                <img
-                  src={arrow_down_black_icon || "/placeholder.svg"}
-                  className={`w-[31px] h-[31px] duration-300 ${is_colors_open ? "-rotate-180" : ""}`}
-                  alt=""
-                />
-              </div>
-
-              {is_colors_open && (
-                <div className="absolute top-[70px] left-0 w-full bg-white border-[#C5C5C5] shadow-md rounded-[5px] z-10">
-                  {/* 🔍 Qidirish input */}
-                  <div className="p-2 border-b border-gray-300">
-                    <input
-                      type="text"
-                      className="w-full px-3 py-2 border rounded focus:outline-none bg-[white]"
-                      placeholder="Qidirish..."
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                    />
-                  </div>
-
-                  {/* 🔽 O‘qituvchilar ro‘yxati */}
-                  <ul className="max-h-[200px] overflow-y-auto">
-                    {colors_list
-                      .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
-                      .map((item, index) => (
-                        <li
-                          key={index}
-                          className="px-4 py-2 cursor-pointer hover:bg-[#CFEBFF] text-[black]"
-                          onClick={() => handle_select_colors(item)}
-                        >
-                          {item}
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-            <input
-              className="search1"
-              style={{ background: "white", width: "260px", height: "70px", borderRadius: "5px", padding: "0 20px" }}
-              type="search"
-              placeholder="Qidirish"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="overflow-scroll w-[112vw] h-[45vw] m-auto rounded-[10px] mt-[10px]">
+      <Header />
+      <div className="overflow-auto w-[112vw] h-[45vw] m-auto rounded-[10px] mt-[50px]">
         <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
           <thead>
             <tr className="bg-blue-500 text-white">
@@ -582,18 +40,31 @@ const Group_main = () => {
                     <input
                       type="checkbox"
                       className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
-                      checked={Object.values(checkedRows).every(Boolean)}
+                      checked={
+                        Object.keys(checkedRows).length === data.length &&
+                        Object.values(checkedRows).every(Boolean)
+                      }
                       onChange={handleAllChecked}
                     />
                     <span
                       className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-              ${Object.values(checkedRows).every(Boolean) ? "bg-[#0EA5E9]" : "bg-white"} 
-              after:content-[''] after:absolute 
-              after:top-[3px] after:left-[6px] 
-              after:w-1.5 after:h-2.5 
-              after:border-white after:border-r-2 
-              after:border-b-2 after:rotate-45
-              ${Object.values(checkedRows).every(Boolean) ? "after:block" : "after:hidden"}`}
+                        ${
+                          Object.keys(checkedRows).length === data.length &&
+                          Object.values(checkedRows).every(Boolean)
+                            ? "bg-[#0EA5E9]"
+                            : "bg-white"
+                        } 
+                        after:content-[''] after:absolute 
+                        after:top-[3px] after:left-[6px] 
+                        after:w-1.5 after:h-2.5 
+                        after:border-white after:border-r-2 
+                        after:border-b-2 after:rotate-45
+                        ${
+                          Object.keys(checkedRows).length === data.length &&
+                          Object.values(checkedRows).every(Boolean)
+                            ? "after:block"
+                            : "after:hidden"
+                        }`}
                     ></span>
                   </label>
                 </div>
@@ -625,13 +96,13 @@ const Group_main = () => {
                     />
                     <span
                       className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-              ${checkedRows[item.id] ? "bg-[#0EA5E9]" : "bg-white"} 
-              after:content-[''] after:absolute 
-              after:top-[3px] after:left-[6px] 
-              after:w-1.5 after:h-2.5 
-              after:border-white after:border-r-2 
-              after:border-b-2 after:rotate-45
-              ${checkedRows[item.id] ? "after:block" : "after:hidden"}`}
+                        ${checkedRows[item.id] ? "bg-[#0EA5E9]" : "bg-white"} 
+                        after:content-[''] after:absolute 
+                        after:top-[3px] after:left-[6px] 
+                        after:w-1.5 after:h-2.5 
+                        after:border-white after:border-r-2 
+                        after:border-b-2 after:rotate-45
+                        ${checkedRows[item.id] ? "after:block" : "after:hidden"}`}
                     ></span>
                   </label>
                 </td>
@@ -653,18 +124,7 @@ const Group_main = () => {
         </table>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Group_main
-
-
-// import React from 'react'
-
-// const Group_main = () => {
-//   return (
-//     <div>Group_main</div>
-//   )
-// }
-
-// export default Group_main;
+export default Group_main;

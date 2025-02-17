@@ -43,8 +43,8 @@ const Rooms_main = () => {
 
   return (
     <>
-      <div className='w-[112vw] h-[100px] m-[auto] mt-[30px] flex justify-between items-center'>
-        <div className='w-[30%] h-[100%] flex justify-around items-center'>
+      <div className='w-[95%] h-[100px] m-[auto] mt-[30px] flex justify-between items-center'>
+        <div className='w-[500px] h-[100%] flex justify-start items-center'>
           <div
             className="bg-[#0D99FF] w-[220px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
             onClick={() => setIsAddModalOpen(true)}
@@ -53,7 +53,7 @@ const Rooms_main = () => {
             <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">Xona qo'shish</h1>
           </div>
 
-          <div className="block bg-[#0D99FF] w-[170px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]">
+          <div className=" ms-[20px] block bg-[#0D99FF] w-[170px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]">
             <img className='w-[20%]' src={exprt} alt="" />
             <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">Export</h1>
           </div>

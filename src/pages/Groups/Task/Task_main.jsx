@@ -39,14 +39,17 @@ const Task_main = () => {
   return (
     <>
       {/* Xona qo‘shish tugmasi */}
-      <div
-        className="bg-[#0D99FF] w-[220px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
-        onClick={() => setIsAddModalOpen(true)}
-      >
-        <img src={plus} alt="Add" />
-        <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">
-          Xona qo'shish
-        </h1>
+      <div className="w-[95%] h-[auto] m-auto mt-[20px]">
+        <div
+          className="bg-[#0D99FF] w-[220px] h-[60px]  rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
+          onClick={() => setIsAddModalOpen(true)}
+        >
+          <img src={plus} alt="Add" />
+          <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">
+            Xona qo'shish
+          </h1>
+        </div>
+
       </div>
 
       {/* Xonalar jadvali */}
@@ -54,8 +57,8 @@ const Task_main = () => {
         <table className="w-full mt-[30px] m-auto">
           <thead>
             <tr>
-              <th className="h-[25px] p-2 scale-[1.5]">
-                <div className="flex -mt-[8px] h-[100%] flex-row gap-[30px] pr-4 w-[100%] border">
+              <th className="h-[25px] p-2 scale-[1.5]  ">
+                <div className=" h-[100%] m-auto pr-4 w-[50%] ">
                   <label className="relative block cursor-pointer text-lg select-none">
                     <input
                       type="checkbox"
@@ -89,10 +92,10 @@ const Task_main = () => {
             {rooms.map((room, index) => (
               <tr key={room.id} className="text-center">
                 <td className="h-[25px] p-2 scale-[1.5]">
-                  <label className="relative block cursor-pointer text-lg select-none">
+                  <label className=" w-[100%] h-[100%] -ms-[8px] mt-[10px]  m-auto block cursor-pointer text-lg select-none">
                     <input
                       type="checkbox"
-                      className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+                      className="absolute opacity-0 cursor-pointer"
                       checked={room.checked}
                       onChange={() => handleSingleCheck(room.id)}
                     />
