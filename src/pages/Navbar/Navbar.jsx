@@ -473,7 +473,7 @@ const Navbar = () => {
             : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
           onMouseEnter={() => set_finance_hovered(true)}
-          onMouseLeave={() => set_finance_hovered(true)}
+          onMouseLeave={() => set_finance_hovered(false)}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
