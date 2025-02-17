@@ -154,7 +154,7 @@ const Header = () => {
     return (
         <div className="w-full">
             <div
-                className="flex flex-row justify-end pr-[2%] gap-[10px] pl-[130px] h-auto pt-[25px] -mb-[5px]">
+                className="flex flex-row justify-end pr-[2%] gap-[10px] pl-[130px] h-[95px] pt-[25px] -mb-[5px]">
                 <div
                     className="w-[260px] h-[70px] bg-white rounded-[5px] relative"
                 >
