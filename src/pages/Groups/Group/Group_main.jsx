@@ -319,7 +319,7 @@ const Group_main = () => {
 
   return (
     <>
-      <div className="w-[112vw] h-[150px] flex justify-around items-center mt-[30px] ms-[20px]">
+      <div className="w-[112vw] h-[200px] flex justify-around items-center mt-[30px] ms-[20px]">
         <div className="w-[25%] h-[100%]">
           <div className="w-[50%] h-[50%] flex justify-around items-center">
             <div className="bg-[#0D99FF] w-[170px] h-[60px] ms-[3%] rounded-[50px] flex justify-center items-center gap-[15px] cursor-pointer hover:scale-[1.05] active:scale-[0.95]">
