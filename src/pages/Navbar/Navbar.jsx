@@ -127,9 +127,9 @@ const Navbar = () => {
 
   const study_submenu_items = [
     {
-      path: "/study_section/categoryStudy",
-      active: "/study_section/categoryStudy",
-      label: "Kategoriyalar",
+      path: "/study_section/offlineCourses",
+      active: "/study_section/offlineCourses",
+      label: "Offline kurslar",
     },
     {
       path: "/study_section/onlineCourses",
@@ -137,9 +137,9 @@ const Navbar = () => {
       label: "Online kurslar",
     },
     {
-      path: "/study_section/offlineCourses",
-      active: "/study_section/offlineCourses",
-      label: "Offline kurslar",
+      path: "/study_section/categoryStudy",
+      active: "/study_section/categoryStudy",
+      label: "Kategoriyalar",
     },
   ];
 
@@ -474,6 +474,7 @@ const Navbar = () => {
             }`}
           onMouseEnter={() => set_finance_hovered(true)}
           onMouseLeave={() => set_finance_hovered(false)}
+          to="/finance"
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -531,8 +532,8 @@ const Navbar = () => {
         <Link
           to="/control"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/control"
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">

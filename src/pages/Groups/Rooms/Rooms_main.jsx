@@ -14,25 +14,32 @@ const Rooms_main = () => {
   const [selectedRoom, setSelectedRoom] = useState(null); // Tanlangan xona
 
   const [rooms, setRooms] = useState([
-    { id: 1, title: "Room", capacity: 29 },
-    { id: 2, title: "Ingliz tili xona", capacity: 29 },
-    { id: 3, title: "1-xona", capacity: 29 },
-    { id: 4, title: "Matematika xonasi", capacity: 29 },
-    { id: 5, title: "Kimyo laboratoriyasi", capacity: 29 },
-    { id: 6, title: "Tarix xonasi", capacity: 29 },
-    { id: 1, title: "Room", capacity: 29 },
-    { id: 2, title: "Ingliz tili xona", capacity: 29 },
-    { id: 3, title: "1-xona", capacity: 29 },
-    { id: 4, title: "Matematika xonasi", capacity: 29 },
-    { id: 5, title: "Kimyo laboratoriyasi", capacity: 29 },
-    { id: 6, title: "Tarix xonasi", capacity: 29 },
-    { id: 1, title: "Room", capacity: 29 },
-    { id: 2, title: "Ingliz tili xona", capacity: 29 },
-    { id: 3, title: "1-xona", capacity: 29 },
-    { id: 4, title: "Matematika xonasi", capacity: 29 },
-    { id: 5, title: "Kimyo laboratoriyasi", capacity: 29 },
-    { id: 6, title: "Tarix xonasi", capacity: 29 },
+    { id: 1, title: "Room", capacity: 29, checked: false },
+    { id: 2, title: "Ingliz tili xona", capacity: 29, checked: false },
+    { id: 3, title: "1-xona", capacity: 29, checked: false },
+    { id: 4, title: "Matematika xonasi", capacity: 29, checked: false },
+    { id: 5, title: "Kimyo laboratoriyasi", capacity: 29, checked: false },
+    { id: 6, title: "Tarix xonasi", capacity: 29, checked: false },
+    { id: 7, title: "Room", capacity: 29, checked: false },
+    { id: 8, title: "Ingliz tili xona", capacity: 29, checked: false },
+    { id: 9, title: "1-xona", capacity: 29, checked: false },
+    { id: 10, title: "Matematika xonasi", capacity: 29, checked: false },
+    { id: 11, title: "Kimyo laboratoriyasi", capacity: 29, checked: false },
+    { id: 12, title: "Tarix xonasi", capacity: 29, checked: false },
   ]);
+
+  const handleAllChecked = (e) => {
+    const checked = e.target.checked;
+    setRooms(rooms.map((room) => ({ ...room, checked })));
+  };
+
+  const handleSingleCheck = (id) => {
+    setRooms(
+      rooms.map((room) =>
+        room.id === id ? { ...room, checked: !room.checked } : room
+      )
+    );
+  };
 
   return (
     <>
@@ -60,11 +67,32 @@ const Rooms_main = () => {
           <thead>
             <tr>
               <th className="h-[25px] p-2 scale-[1.5]">
-              <input
-                    type="checkbox"
-                    className="scale-[1.3] bg-[]"
-                    
-                  />
+                <div className="-mt-[8px] h-[100%] w-[100%]">
+                  <label className="relative block cursor-pointer text-lg select-none">
+                    <input
+                      type="checkbox"
+                      className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+                      checked={rooms.every((room) => room.checked)}
+                      onChange={handleAllChecked}
+                    />
+                    <span
+                      className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
+              ${rooms.every((room) => room.checked)
+                          ? "bg-[#0EA5E9]"
+                          : "bg-white"
+                        } 
+              after:content-[''] after:absolute 
+              after:top-[3px] after:left-[6px] 
+              after:w-1.5 after:h-2.5 
+              after:border-white after:border-r-2 
+              after:border-b-2 after:rotate-45
+              ${rooms.every((room) => room.checked)
+                          ? "after:block"
+                          : "after:hidden"
+                        }`}
+                    ></span>
+                  </label>
+                </div>
               </th>
               <th className="h-[25px] p-2 text-[black]">№</th>
               <th className="h-[25px] p-2 text-[black]">Sarlavha</th>
@@ -76,10 +104,24 @@ const Rooms_main = () => {
             {rooms.map((room, index) => (
               <tr key={room.id} className="text-center">
                 <td className="h-[25px] p-2 scale-[1.5]">
-                <input
-                  type="checkbox"
-                  className="w-3 h-3 border-2 border-gray-400 bg-[white] scale-[1.3] cursor-pointer transition-all"
-                />
+                  <label className="-mt-[8px] relative block cursor-pointer text-lg select-none">
+                    <input
+                      type="checkbox"
+                      className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+                      checked={room.checked}
+                      onChange={() => handleSingleCheck(room.id)}
+                    />
+                    <span
+                      className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
+              ${room.checked ? "bg-[#0EA5E9]" : "bg-white"} 
+              after:content-[''] after:absolute 
+              after:top-[3px] after:left-[6px] 
+              after:w-1.5 after:h-2.5 
+              after:border-white after:border-r-2 
+              after:border-b-2 after:rotate-45
+              ${room.checked ? "after:block" : "after:hidden"}`}
+                    ></span>
+                  </label>
                 </td>
                 <td className="h-[50px] p-2 text-[black]">{index + 1}</td>
                 <td className="p-2 text-[black]">{room.title}</td>

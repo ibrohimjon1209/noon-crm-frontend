@@ -1,124 +1,345 @@
-import React, { useState } from "react";
-import plus from "../imgs/add_icon.png";
-import exprt from "../imgs/export.png";
-import imprt from "../imgs/import.png";
-import arrow_down_black_icon from "../imgs/arrow_down_black_icon.png";
-import clear from '../imgs/clear.png';
+"use client"
+
+import { useState } from "react"
+import plus from "../imgs/add_icon.png"
+import exprt from "../imgs/export.png"
+import imprt from "../imgs/import.png"
+import arrow_down_black_icon from "../imgs/arrow_down_black_icon.png"
 import "./Group_main.css"
 
 const Group_main = () => {
-  const [human_value, set_human_value] = useState("O'qituvchi");
-  const [is_human_open, set_is_human_open] = useState(false);
+  const [human_value, set_human_value] = useState("O'qituvchi")
+  const [is_human_open, set_is_human_open] = useState(false)
 
-  const [course_value, set_course_value] = useState("Kurs");
-  const [is_course_open, set_is_course_open] = useState(false);
+  const [course_value, set_course_value] = useState("Kurs")
+  const [is_course_open, set_is_course_open] = useState(false)
 
-  const [moderator_value, set_moderator_value] = useState("Moderator");
-  const [is_moderator_open, set_is_moderator_open] = useState(false);
+  const [moderator_value, set_moderator_value] = useState("Moderator")
+  const [is_moderator_open, set_is_moderator_open] = useState(false)
 
-  const [colors_value, set_colors_value] = useState("Ranglar bo'yicha");
-  const [is_colors_open, set_is_colors_open] = useState(false);
+  const [colors_value, set_colors_value] = useState("Ranglar bo'yicha")
+  const [is_colors_open, set_is_colors_open] = useState(false)
 
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+  const [startTime, setStartTime] = useState("")
+  const [endTime, setEndTime] = useState("")
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("")
+  const [checkedRows, setCheckedRows] = useState({})
 
   const data = [
-    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-  ];
+    {
+      id: 123,
+      group: "IT",
+      course: "IT",
+      level: "Boshlang‘ich",
+      day: "Toq",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 124,
+      group: "IT",
+      course: "Ingliz Tili",
+      level: "O‘rta",
+      day: "Juft",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 125,
+      group: "IT",
+      course: "Rus Tili",
+      level: "Yuqori",
+      day: "Du-Se",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 126,
+      group: "IT",
+      course: "IT",
+      level: "Boshlang‘ich",
+      day: "Toq",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 127,
+      group: "IT",
+      course: "Rus Tili",
+      level: "Yuqori",
+      day: "Du-Se",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 128,
+      group: "IT",
+      course: "Ingliz Tili",
+      level: "O‘rta",
+      day: "Juft",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 129,
+      group: "IT",
+      course: "IT",
+      level: "Boshlang‘ich",
+      day: "Toq",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 130,
+      group: "IT",
+      course: "Rus Tili",
+      level: "Yuqori",
+      day: "Du-Se",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 131,
+      group: "IT",
+      course: "Ingliz Tili",
+      level: "O‘rta",
+      day: "Juft",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 132,
+      group: "IT",
+      course: "IT",
+      level: "Boshlang‘ich",
+      day: "Toq",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 133,
+      group: "IT",
+      course: "Rus Tili",
+      level: "Yuqori",
+      day: "Du-Se",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 134,
+      group: "IT",
+      course: "Ingliz Tili",
+      level: "O‘rta",
+      day: "Juft",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 135,
+      group: "IT",
+      course: "IT",
+      level: "Boshlang‘ich",
+      day: "Toq",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 136,
+      group: "IT",
+      course: "Rus Tili",
+      level: "Yuqori",
+      day: "Du-Se",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 137,
+      group: "IT",
+      course: "Ingliz Tili",
+      level: "O‘rta",
+      day: "Juft",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 138,
+      group: "IT",
+      course: "IT",
+      level: "Boshlang‘ich",
+      day: "Toq",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 139,
+      group: "IT",
+      course: "Rus Tili",
+      level: "Yuqori",
+      day: "Du-Se",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 140,
+      group: "IT",
+      course: "Ingliz Tili",
+      level: "O‘rta",
+      day: "Juft",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+    {
+      id: 141,
+      group: "IT",
+      course: "IT",
+      level: "Boshlang‘ich",
+      day: "Toq",
+      time: "11:25–13:05",
+      date: "22.05.2024–22.05.2025",
+      students: 31,
+      teacher: "Ali Xasanov",
+      room: "121-xona",
+      status: "Active",
+    },
+  ]
 
+  const humans_list = ["Diyorbek Omonboyev", "Falonchi Pistonchiyev", "Falonchi Pistonchiyeva", "Salima"]
+  const course_list = ["Ingliz tili", "Rus tili", "Arab tili", "IT", "Matematika"]
+  const moderator_list = ["Diyorbek Omonboyev", "Falonchi Pistonchiyev", "Falonchi Pistonchiyeva", "Salima"]
 
-
-
-  const humans_list = [
-    "Diyorbek Omonboyev",
-    "Falonchi Pistonchiyev",
-    "Falonchi Pistonchiyeva",
-    "Salima",
-  ];
-  const course_list = [
-    "Ingliz tili",
-    "Rus tili",
-    "Arab tili",
-    "IT",
-    "Matematika"
-  ];
-  const moderator_list = [
-    "Diyorbek Omonboyev",
-    "Falonchi Pistonchiyev",
-    "Falonchi Pistonchiyeva",
-    "Salima",
-  ];
-
-  const colors_list = [
-    "yashil",
-    "ko'k",
-    "sariq",
-    "olovrang",
-    "qizil"
-  ];
+  const colors_list = ["yashil", "ko'k", "sariq", "olovrang", "qizil"]
 
   const handle_select_human = (human) => {
-    set_human_value(human);
-    set_is_human_open(false);
-  };
+    set_human_value(human)
+    set_is_human_open(false)
+  }
 
   const handle_select_course = (course) => {
-    set_course_value(course);
-    set_is_course_open(false);
-  };
+    set_course_value(course)
+    set_is_course_open(false)
+  }
 
   const handle_select_moderator = (moderator) => {
-    set_moderator_value(moderator);
-    set_is_moderator_open(false);
-  };
+    set_moderator_value(moderator)
+    set_is_moderator_open(false)
+  }
   const handle_select_colors = (colors) => {
-    set_colors_value(colors);
-    set_is_colors_open(false);
-  };
+    set_colors_value(colors)
+    set_is_colors_open(false)
+  }
+
+  const handleAllChecked = (e) => {
+    const isChecked = e.target.checked
+    const newCheckedRows = {}
+    data.forEach((item) => {
+      newCheckedRows[item.id] = isChecked
+    })
+    setCheckedRows(newCheckedRows)
+  }
+
+  const handleSingleCheck = (id) => {
+    setCheckedRows((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }))
+  }
+
   return (
     <>
-      <div className="w-[112vw] h-[150px] flex justify-around items-center mt-[30px] ms-[20px]">
+      <div className="w-[112vw] h-[200px] flex justify-around items-center mt-[30px] ms-[20px]">
         <div className="w-[25%] h-[100%]">
           <div className="w-[50%] h-[50%] flex justify-around items-center">
             <div className="bg-[#0D99FF] w-[170px] h-[60px] ms-[3%] rounded-[50px] flex justify-center items-center gap-[15px] cursor-pointer hover:scale-[1.05] active:scale-[0.95]">
-              <img className="w-[20%]" src={plus} alt="" />
+              <img className="w-[20%]" src={plus || "/placeholder.svg"} alt="" />
               <h1 className="text-white text-[20px]">Qo'shish</h1>
             </div>
-
           </div>
           <div className="w-[100%] h-[50%] flex justify-around items-center">
             <div
               className="block bg-[#0D99FF] w-[170px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
-            // onClick={() => setIsAddModalOpen(true)}
+              // onClick={() => setIsAddModalOpen(true)}
             >
-              <img className='w-[20%]' src={exprt} alt="" />
+              <img className="w-[20%]" src={exprt || "/placeholder.svg"} alt="" />
               <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">Export</h1>
             </div>
             <div
               className="block bg-[#0D99FF] w-[170px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
-            // onClick={() => setIsAddModalOpen(true)}
+              // onClick={() => setIsAddModalOpen(true)}
             >
-              <img className='w-[20%]' src={imprt} alt="" />
+              <img className="w-[20%]" src={imprt || "/placeholder.svg"} alt="" />
               <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">Import</h1>
             </div>
           </div>
@@ -126,9 +347,6 @@ const Group_main = () => {
 
         {/* O'qituvchi tanlash dropdown */}
         <div className="w-[75%] h-[100%]">
-
-
-
           <div className="w-[100%] h-[50%] flex justify-around items-center">
             <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative  ">
               <div
@@ -137,7 +355,7 @@ const Group_main = () => {
               >
                 <p className="text-[19px] text-[black]">{human_value}</p>
                 <img
-                  src={arrow_down_black_icon}
+                  src={arrow_down_black_icon || "/placeholder.svg"}
                   className={`w-[31px] h-[31px] duration-300 ${is_human_open ? "-rotate-180" : ""}`}
                   alt=""
                 />
@@ -159,9 +377,7 @@ const Group_main = () => {
                   {/* 🔽 O‘qituvchilar ro‘yxati */}
                   <ul className="max-h-[200px] overflow-y-auto">
                     {humans_list
-                      .filter((item) =>
-                        item.toLowerCase().includes(search.toLowerCase())
-                      )
+                      .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
                       .map((item, index) => (
                         <li
                           key={index}
@@ -190,7 +406,7 @@ const Group_main = () => {
                   onClick={() => setStartTime("")}
                   className="ml-2 text-gray-500 hover:text-gray-700"
                 >
-                  <img src={clear} alt="clear" className="w-4 h-4" />
+                  <img src={clear || "/placeholder.svg"} alt="clear" className="w-4 h-4" />
                 </button>
               )} */}
             </div>
@@ -208,7 +424,7 @@ const Group_main = () => {
                   onClick={() => setEndTime("")}
                   className="ml-2 text-gray-500 hover:text-gray-700"
                 >
-                  <img src={clear} alt="clear" className="w-4 h-4" />
+                  <img src={clear || "/placeholder.svg"} alt="clear" className="w-4 h-4" />
                 </button>
               )} */}
             </div>
@@ -220,7 +436,7 @@ const Group_main = () => {
               >
                 <p className="text-[19px] text-[black]">{course_value}</p>
                 <img
-                  src={arrow_down_black_icon}
+                  src={arrow_down_black_icon || "/placeholder.svg"}
                   className={`w-[31px] h-[31px] duration-300 ${is_course_open ? "-rotate-180" : ""}`}
                   alt=""
                 />
@@ -242,9 +458,7 @@ const Group_main = () => {
                   {/* 🔽 O‘qituvchilar ro‘yxati */}
                   <ul className="max-h-[200px] overflow-y-auto">
                     {course_list
-                      .filter((item) =>
-                        item.toLowerCase().includes(search.toLowerCase())
-                      )
+                      .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
                       .map((item, index) => (
                         <li
                           key={index}
@@ -260,8 +474,6 @@ const Group_main = () => {
             </div>
           </div>
 
-
-
           <div className="w-[75%] h-[50%] flex justify-around items-center ms-[25%]">
             <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative ">
               <div
@@ -270,7 +482,7 @@ const Group_main = () => {
               >
                 <p className="text-[19px]">{moderator_value}</p>
                 <img
-                  src={arrow_down_black_icon}
+                  src={arrow_down_black_icon || "/placeholder.svg"}
                   className={`w-[31px] h-[31px] duration-300 ${is_moderator_open ? "-rotate-180" : ""}`}
                   alt=""
                 />
@@ -292,9 +504,7 @@ const Group_main = () => {
                   {/* 🔽 O‘qituvchilar ro‘yxati */}
                   <ul className="max-h-[200px] overflow-y-auto">
                     {moderator_list
-                      .filter((item) =>
-                        item.toLowerCase().includes(search.toLowerCase())
-                      )
+                      .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
                       .map((item, index) => (
                         <li
                           key={index}
@@ -309,9 +519,6 @@ const Group_main = () => {
               )}
             </div>
 
-
-
-
             <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
               <div
                 className="h-[70px] w-[260px] text-[black] flex items-center border-[#C5C5C5] border-[1.5px] rounded-[5px] justify-between px-[20px] cursor-pointer"
@@ -319,7 +526,7 @@ const Group_main = () => {
               >
                 <p className="text-[19px]">{colors_value}</p>
                 <img
-                  src={arrow_down_black_icon}
+                  src={arrow_down_black_icon || "/placeholder.svg"}
                   className={`w-[31px] h-[31px] duration-300 ${is_colors_open ? "-rotate-180" : ""}`}
                   alt=""
                 />
@@ -341,9 +548,7 @@ const Group_main = () => {
                   {/* 🔽 O‘qituvchilar ro‘yxati */}
                   <ul className="max-h-[200px] overflow-y-auto">
                     {colors_list
-                      .filter((item) =>
-                        item.toLowerCase().includes(search.toLowerCase())
-                      )
+                      .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
                       .map((item, index) => (
                         <li
                           key={index}
@@ -357,11 +562,14 @@ const Group_main = () => {
                 </div>
               )}
             </div>
-            <input className="search1" style={{ "background": "white", "width": "260px", "height": "70px", "borderRadius": "5px", "padding": "0 20px", }} type="search" placeholder="Qidirish" />
+            <input
+              className="search1"
+              style={{ background: "white", width: "260px", height: "70px", borderRadius: "5px", padding: "0 20px" }}
+              type="search"
+              placeholder="Qidirish"
+            />
           </div>
         </div>
-
-
       </div>
 
       <div className="overflow-scroll w-[112vw] h-[45vw] m-auto rounded-[10px] mt-[10px]">
@@ -369,10 +577,26 @@ const Group_main = () => {
           <thead>
             <tr className="bg-blue-500 text-white">
               <th className="py-3 px-4 text-left scale-[1.5]">
-                <input
-                  type="checkbox"
-                  className="w-4 h-4 appearance-auto border border-gray-400 bg-red-500 cursor-pointer transition-all"
-                />
+                <div className="flex -mt-[8px] flex-row gap-[30px] pr-4 w-[100%]">
+                  <label className="relative block cursor-pointer text-lg select-none">
+                    <input
+                      type="checkbox"
+                      className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+                      checked={Object.values(checkedRows).every(Boolean)}
+                      onChange={handleAllChecked}
+                    />
+                    <span
+                      className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
+              ${Object.values(checkedRows).every(Boolean) ? "bg-[#0EA5E9]" : "bg-white"} 
+              after:content-[''] after:absolute 
+              after:top-[3px] after:left-[6px] 
+              after:w-1.5 after:h-2.5 
+              after:border-white after:border-r-2 
+              after:border-b-2 after:rotate-45
+              ${Object.values(checkedRows).every(Boolean) ? "after:block" : "after:hidden"}`}
+                    ></span>
+                  </label>
+                </div>
               </th>
               <th className="py-3 px-4 text-left">№</th>
               <th className="py-3 px-4 text-left">ID</th>
@@ -392,10 +616,24 @@ const Group_main = () => {
             {data.map((item, index) => (
               <tr key={index} className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="py-3 px-4 scale-[1.5]">
-                  <input
-                    type="checkbox"
-                    className="w-4 h-4 appearance-auto border border-gray-400 bg-red-500 cursor-pointer transition-all"
-                  />
+                  <label className="-mt-[8px] relative block cursor-pointer text-lg select-none">
+                    <input
+                      type="checkbox"
+                      className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+                      checked={checkedRows[item.id] || false}
+                      onChange={() => handleSingleCheck(item.id)}
+                    />
+                    <span
+                      className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
+              ${checkedRows[item.id] ? "bg-[#0EA5E9]" : "bg-white"} 
+              after:content-[''] after:absolute 
+              after:top-[3px] after:left-[6px] 
+              after:w-1.5 after:h-2.5 
+              after:border-white after:border-r-2 
+              after:border-b-2 after:rotate-45
+              ${checkedRows[item.id] ? "after:block" : "after:hidden"}`}
+                    ></span>
+                  </label>
                 </td>
                 <td className="py-3 px-4 text-[black]">{index + 1}</td>
                 <td className="py-3 px-4 text-[black]">{item.id}</td>
@@ -414,12 +652,13 @@ const Group_main = () => {
           </tbody>
         </table>
       </div>
-
     </>
-  );
-};
+  )
+}
 
-export default Group_main;
+export default Group_main
+
+
 // import React from 'react'
 
 // const Group_main = () => {
