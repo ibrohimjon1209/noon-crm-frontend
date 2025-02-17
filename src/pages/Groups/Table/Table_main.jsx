@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Table from './Table'
 const Table_main = () => {
   return (
-    <div>Table_main</div>
+    <>
+      <Table />
+    </>
   )
 }
 

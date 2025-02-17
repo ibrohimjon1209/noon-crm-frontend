@@ -28,18 +28,16 @@ const Students_main = () => {
     },
   ]);
 
-  // Barcha checkboxlarni tanlash yoki yechish
+  const allChecked = students.length > 0 && students.every(student => student.checked);
+
   const handleAllChecked = (e) => {
     const checked = e.target.checked;
-    setStudents((prevStudents) =>
-      prevStudents.map((student) => ({ ...student, checked }))
-    );
+    setStudents(students.map(student => ({ ...student, checked })));
   };
 
-  // Faqat bitta checkboxni tanlash yoki yechish
   const handleSingleCheck = (id) => {
-    setStudents((prevStudents) =>
-      prevStudents.map((student) =>
+    setStudents(
+      students.map(student =>
         student.id === id ? { ...student, checked: !student.checked } : student
       )
     );
@@ -57,39 +55,29 @@ const Students_main = () => {
                     <input
                       type="checkbox"
                       className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
-                      checked={students.every((student) => student.checked)}
+                      checked={allChecked}
                       onChange={handleAllChecked}
                     />
                     <span
                       className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-                        ${
-                          students.every((student) => student.checked)
-                            ? "bg-[#0EA5E9]"
-                            : "bg-white"
-                        } 
+                        ${allChecked ? "bg-[#0EA5E9]" : "bg-white"} 
                         after:content-[''] after:absolute 
                         after:top-[3px] after:left-[6px] 
                         after:w-1.5 after:h-2.5 
                         after:border-white after:border-r-2 
                         after:border-b-2 after:rotate-45
-                        ${
-                          students.every((student) => student.checked)
-                            ? "after:block"
-                            : "after:hidden"
-                        }`}
+                        ${allChecked ? "after:block" : "after:hidden"}`}
                     ></span>
                   </label>
                 </div>
               </th>
-              <th className="w-12 p-2 text whitespace-nowrap-left ">№</th>
-              <th className="p-2 text-left whitespace-nowrap">ID</th>
-              <th className="p-2 text-left whitespace-nowrap">
-                O'quvchining ismi
-              </th>
-              <th className="p-2 text-left whitespace-nowrap">O'qituvchi</th>
-              <th className="p-2 text-left whitespace-nowrap">Guruh nomi</th>
-              <th className="p-2 text-left whitespace-nowrap">Guruh holati</th>
-              <th className="p-2 text-left whitespace-nowrap">
+              <th className="w-12 p-2 text-left">№</th>
+              <th className="p-2 text-left">ID</th>
+              <th className="p-2 text-left">O'quvchining ismi</th>
+              <th className="p-2 text-left">O'qituvchi</th>
+              <th className="p-2 text-left">Guruh nomi</th>
+              <th className="p-2 text-left">Guruh holati</th>
+              <th className="p-2 text-left">
                 <p>Umumiy son</p>
                 {students.length}
               </th>
@@ -118,12 +106,12 @@ const Students_main = () => {
                     ></span>
                   </label>
                 </td>
-                <td className="p-2 whitespace-nowrap">{index + 1}</td>
-                <td className="p-2 whitespace-nowrap">{row.id}</td>
-                <td className="p-2 whitespace-nowrap">{row.student_name}</td>
-                <td className="p-2 whitespace-nowrap">{row.teacher}</td>
-                <td className="p-2 whitespace-nowrap">{row.group_name}</td>
-                <td className="p-2 whitespace-nowrap">{row.status}</td>
+                <td className="p-2">{index + 1}</td>
+                <td className="p-2">{row.id}</td>
+                <td className="p-2">{row.student_name}</td>
+                <td className="p-2">{row.teacher}</td>
+                <td className="p-2">{row.group_name}</td>
+                <td className="p-2">{row.status}</td>
               </tr>
             ))}
           </tbody>
