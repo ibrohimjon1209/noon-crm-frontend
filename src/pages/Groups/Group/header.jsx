@@ -224,11 +224,17 @@ const Header = () => {
                         </div>
                         <div className="w-[240px] h-[70px] bg-white rounded-[5px] relative flex justify-evenly items-center">
                             <p className="p-[10px]">Boshlanish vaqti</p>
-                            <input type="time"/>
+                            <input
+                                type="time"
+                                className="bg-white border border-gray-300 text-gray-700 rounded-lg shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                            />
                         </div>
                         <div className="w-[240px] h-[70px] bg-white rounded-[5px] relative flex justify-evenly items-center">
                             <p className="p-[10px]">Tugash vaqti</p>
-                            <input type="time"/>
+                            <input
+                                type="time"
+                                className="bg-white border border-gray-300 text-gray-700 rounded-lg shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                            />
                         </div>
                         <div
                             className="w-[240px] h-[70px] bg-white rounded-[5px] relative flex justify-evenly items-center"
