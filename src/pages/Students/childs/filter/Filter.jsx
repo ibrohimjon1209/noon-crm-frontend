@@ -3,7 +3,7 @@ import arrow_down_black_icon from "../../../Lids/childs/first_lesson/imgs/arrow_
 import calendar_icon from "../../../Lids/childs/first_lesson/imgs/calendar_icon.png";
 import "../../../Lids/childs/first_lesson/style.css";
 
-const Filter = () => {
+const Filter = ({itemText}) => {
   const [is_human_open, set_is_human_open] = useState(false);
   const [is_colors_open, set_is_colors_open] = useState(false);
   const [is_student_open, set_is_student_open] = useState(false);
@@ -583,7 +583,7 @@ const Filter = () => {
               name=""
               id=""
             />
-            <label className="text-[22px]">Muzlatilgan</label>
+            <label className="text-[22px]">{itemText}</label>
           </div>
           <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative z-10 ">
             <div

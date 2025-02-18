@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Filter from "../filter/Filter";
 
-function Active_students() {
+function Archive_students() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
     useState(false);
@@ -37,10 +37,14 @@ function Active_students() {
       name: "Ilhomov Elyor Eldorvich",
       phone: "+998 90 762 92 82",
       balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
+      archiveGroup: "Elementry",
+      archiveTeacher: "Oydin Islomova",
       createdDate: "14.11.2023 | 12:00",
       moderator: "Asila opa",
       appDownload: "11.02.2025",
+      proArchiveDate: "10.04.2022 | 14:00",
+      archiveDate: "08.09.2020 | 20:00",
+      reason: "maktabdan qochgan",
     },
   ];
 
@@ -51,8 +55,10 @@ function Active_students() {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex w-full pl-[40px]">
-        
-        <Filter is_filter_open={true} itemText={'Muzlatilgan'} />
+        <Filter
+          is_filter_open={true}
+          itemText={"Bir necha marotaba pro arxivga tushgan"}
+        />
       </div>
       <div
         id="elka"
@@ -99,7 +105,10 @@ function Active_students() {
                   Balans
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
-                  To'lov sanasi
+                  Arxivlangan guruh
+                </th>
+                <th className="p-5 text-left border text-gray-400 text-xl">
+                  Arxivlangan o'qtuvchi
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
                   Yaratilgan sana
@@ -108,7 +117,13 @@ function Active_students() {
                   Moderator
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
-                  Taklif qilganlari ilovani yuklab olish sanasi
+                  Pro arxivlangan sana
+                </th>
+                <th className="p-5 text-left border text-gray-400 text-xl">
+                  Arxivlangan sana
+                </th>
+                <th className="p-5 text-left border text-gray-400 text-xl">
+                  Sababi
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl"></th>
                 <th className="p-5 text-left border text-gray-400 text-xl"></th>
@@ -134,15 +149,33 @@ function Active_students() {
                     <td className="p-5 border text-[18px]">{row.phone}</td>
                     <td className="p-5 border text-[18px]">{row.balans}</td>
                     <td className="p-5 border text-[18px]">
-                      {row.paymentDate}
+                      {row.archiveGroup}
+                    </td>
+                    <td className="p-5 border text-[18px]">
+                      {row.archiveTeacher}
                     </td>
                     <td className="p-5 border text-[18px]">
                       {row.createdDate}
                     </td>
                     <td className="p-5 border text-[18px]">{row.moderator}</td>
                     <td className="p-5 border text-[18px]">
-                      {row.appDownload}
+                      {row.proArchiveDate}
                     </td>
+                    <td className="p-5 border text-[18px]">
+                      {row.archiveDate}
+                    </td>
+                    <td className="p-5 border text-[18px] relative">
+                      <span className="bg-gray-300 text-center text-[16px] p-2 relative group">
+                        sababi
+                        <span className="absolute left-[-15px] top-[-70px] mt-1 hidden group-hover:block bg-gray-700 text-white text-[16px] p-2 rounded-md shadow-lg">
+                          {row.reason}
+                        </span>
+                      </span>
+                      <span className="bg-red-500 ml-2 text-white text-center rounded-xl text-[16px] py-[5px] px-[10px]">
+                        active
+                      </span>
+                    </td>
+
                     <td className="p-5 border text-[18px]">
                       <svg
                         width="23"
@@ -160,7 +193,7 @@ function Active_students() {
                         ></path>
                       </svg>
                     </td>
-                    <td className="p-5 border text-[18px] flex justify-center">
+                    <td className="p-5 border text-[18px] ">
                       <button onClick={() => handleSendStudentComment()}>
                         {" "}
                         <svg
@@ -365,4 +398,4 @@ const StudentSendComment = ({ onClose, isOpen }) => {
   );
 };
 
-export default Active_students;
+export default Archive_students;
