@@ -21,12 +21,14 @@ const Navbar = () => {
   const [students_is_hovered, set_students_hovered] = useState(false);
   const [groups_is_hovered, set_groups_hovered] = useState(false);
   const [study_is_hovered, set_study_hovered] = useState(false);
+  const [finance_is_hovered, set_finance_hovered] = useState(false);
   const location = useLocation();
 
   const isSettingsActive = location.pathname.startsWith("/settings");
   const isLidsActive = location.pathname.startsWith("/lids");
   const isStudentsActive = location.pathname.startsWith("/students");
   const isStudytsActive = location.pathname.startsWith("/study_section");
+  const isFinanceActive = location.pathname.startsWith("/finance");
   const isGroupsActive = location.pathname.startsWith("/groups");
   const toActiveSubmenu = location.pathname.split("/");
   const activeSubmenu = `/${toActiveSubmenu[1]}/${toActiveSubmenu[2]}`;
@@ -141,6 +143,82 @@ const Navbar = () => {
     },
   ];
 
+
+  const finance_submenu_items_action = [
+    {
+      path: "/finance/checkout",
+      active: "/finance/checkout",
+      label: "Kassa",
+    },
+    {
+      path: "/groups/rooms",
+      active: "/groups/rooms",
+      label: "Bonus",
+    },
+    {
+      path: "/groups/students",
+      active: "/group/students",
+      label: "Jarima",
+    },
+    {
+      path: "/groups/table",
+      active: "/groups/table",
+      label: "Oylik chiqarish",
+    },
+  ];
+
+  const finance_submenu_items_report = [
+    {
+      path: "/finance/checkout",
+      active: "/finance/checkout",
+      label: "Balans",
+    },
+    {
+      path: "/groups/rooms",
+      active: "/groups/rooms",
+      label: "Kirim chiqim",
+    },
+    {
+      path: "/groups/rooms",
+      active: "/groups/rooms",
+      label: "Tushum rejasi",
+    },
+    {
+      path: "/groups/students",
+      active: "/group/students",
+      label: "O'quvchining to'lanmagan to'lovlari",
+    },
+    {
+      path: "/groups/table",
+      active: "/groups/table",
+      label: "Oylik chiqarish",
+    },
+  ];
+
+  const finance_submenu_items_info = [
+    {
+      path: "/finance/checkout",
+      active: "/finance/checkout",
+      label: "Kassa",
+    },
+    {
+      path: "/groups/rooms",
+      active: "/groups/rooms",
+      label: "Bonus",
+    },
+    {
+      path: "/groups/students",
+      active: "/group/students",
+      label: "Jarima",
+    },
+    {
+      path: "/groups/table",
+      active: "/groups/table",
+      label: "Oylik chiqarish",
+    },
+  ];
+
+
   return (
     <div className="w-[230px] top-0 h-[132vh] flex flex-col justify-between bg-white">
       <div className="w-[100%] h-[67px] py-[10px] flex justify-center items-center shadow-[-0px_4px_0_0_#00000040]">
@@ -163,8 +241,8 @@ const Navbar = () => {
         <Link
           to="/assigments"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${location.pathname === "/assigments"
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             } pl-[10px]`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
@@ -180,8 +258,8 @@ const Navbar = () => {
 
         <Link
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isLidsActive
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
           onMouseEnter={() => set_lids_is_hovered(true)}
           onMouseLeave={() => set_lids_is_hovered(false)}
@@ -208,14 +286,14 @@ const Navbar = () => {
                     <Link key={item.path} to={item.path}>
                       <div
                         className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                            : " text-black"
+                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                          : " text-black"
                           }`}
                       >
                         <div
                           className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                              ? "bg-[#264E86]"
-                              : "bg-black"
+                            ? "bg-[#264E86]"
+                            : "bg-black"
                             }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
@@ -232,8 +310,8 @@ const Navbar = () => {
 
         <Link
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isGroupsActive
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
           onMouseEnter={() => set_groups_hovered(true)}
           onMouseLeave={() => set_groups_hovered(false)}
@@ -260,14 +338,14 @@ const Navbar = () => {
                     <Link key={item.path} to={item.path}>
                       <div
                         className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                            : " text-black"
+                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                          : " text-black"
                           }`}
                       >
                         <div
                           className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                              ? "bg-[#264E86]"
-                              : "bg-black"
+                            ? "bg-[#264E86]"
+                            : "bg-black"
                             }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
@@ -284,8 +362,8 @@ const Navbar = () => {
 
         <Link
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isStudentsActive
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
           onMouseEnter={() => set_students_hovered(true)}
           onMouseLeave={() => set_students_hovered(false)}
@@ -312,14 +390,14 @@ const Navbar = () => {
                     <Link key={item.path} to={item.path}>
                       <div
                         className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                            : " text-black"
+                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                          : " text-black"
                           }`}
                       >
                         <div
                           className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                              ? "bg-[#264E86]"
-                              : "bg-black"
+                            ? "bg-[#264E86]"
+                            : "bg-black"
                             }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
@@ -333,10 +411,11 @@ const Navbar = () => {
             </div>
           )}
         </Link>
+
         <Link
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isStudytsActive
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
           onMouseEnter={() => set_study_hovered(true)}
           onMouseLeave={() => set_study_hovered(false)}
@@ -364,14 +443,14 @@ const Navbar = () => {
                     <Link key={item.path} to={item.path}>
                       <div
                         className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                            : " text-black"
+                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                          : " text-black"
                           }`}
                       >
                         <div
                           className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                              ? "bg-[#264E86]"
-                              : "bg-black"
+                            ? "bg-[#264E86]"
+                            : "bg-black"
                             }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
@@ -389,11 +468,13 @@ const Navbar = () => {
         {/* oquv bolim end */}
 
         <Link
-          to="/finance"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/finance"
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isFinanceActive
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
+          onMouseEnter={() => set_finance_hovered(true)}
+          onMouseLeave={() => set_finance_hovered(false)}
+          to="/finance"
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -404,6 +485,48 @@ const Navbar = () => {
               Moliya
             </h1>
           </div>
+
+          {finance_is_hovered && (
+            <div className="menu-settings flex absolute mt-[230px] ml-[185px]">
+              <img
+                src={piramid || "/placeholder.svg"}
+                className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[20px]"
+                alt=""
+              />
+              <div>
+                <div className="flex cursor-auto flex-col gap-[20px] w-[661px] h-[310px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+                  <div className="flex flex-col gap-[10px]">
+                    <div className="pl-[5px]">
+                      <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Amallar</h1>
+                    </div>
+                    <div className="-ml-[10px] w-[620px] bg-[#949494] h-[0.3px]">
+                    </div>
+                  </div>
+
+                  {finance_submenu_items_action.map((item) => (
+                    <Link key={item.path} to={item.path}>
+                      <div
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
+                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                          : " text-black"
+                          }`}
+                      >
+                        <div
+                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
+                            ? "bg-[#264E86]"
+                            : "bg-black"
+                            }`}
+                        ></div>
+                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                          {item.label}
+                        </h1>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </Link>
 
         <Link
@@ -427,8 +550,8 @@ const Navbar = () => {
         <Link
           to="/management"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/management"
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
@@ -445,8 +568,8 @@ const Navbar = () => {
         <Link
           to="/marketing"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/marketing"
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
@@ -463,8 +586,8 @@ const Navbar = () => {
         <Link
           to="/reports"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/reports"
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
@@ -480,8 +603,8 @@ const Navbar = () => {
 
         <Link
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isSettingsActive
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
             }`}
           onMouseEnter={() => set_settings_is_hovered(true)}
           onMouseLeave={() => set_settings_is_hovered(false)}
@@ -509,14 +632,14 @@ const Navbar = () => {
                     <Link key={item.path} to={item.path}>
                       <div
                         className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
-                            : " text-black"
+                          ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
+                          : " text-black"
                           }`}
                       >
                         <div
                           className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                              ? "bg-[#264E86]"
-                              : "bg-black"
+                            ? "bg-[#264E86]"
+                            : "bg-black"
                             }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">

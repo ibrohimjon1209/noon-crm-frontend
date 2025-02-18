@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import order from "./Image/order.png";
 import first_lesson from "./Image/first_lesson.png";
 import new_student from "./Image/new_student.png";
@@ -13,9 +13,25 @@ import frozen from "./Image/frozen.png";
 import archive from "./Image/archive.png";
 
 const Status = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://a7db-202-79-188-194.ngrok-free.app/api/home/statics/');
+        const apiData = await response.json();
+
+        // Log the API data to the console
+        console.log(apiData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const data = [
     { label: "Buyurtma", value: 8, icon: order },
-    { label: "Birinchi daraga keladiganlar", value: 18, icon: first_lesson },
+    { label: "Birinchi daraga keladiganlar", value: 564, icon: first_lesson },
     { label: "Yangi o'quvchi", value: 38, icon: new_student },
     { label: "Aktiv o'quvchilar", value: 135, icon: active_students },
     { label: "Buyurtmadan ketganlar", value: 0, icon: left_order },
