@@ -1,4 +1,6 @@
-export default function ColorPickerModal({ onClose, onColorSelect }) {
+import React from "react"
+
+const Color_picker_modal = ({ onColorSelect }) => {
   const colors = [
     { label: "Noto'g'ri raqam", color: "#ff0000" },
     { label: "Bog'lanildi", color: "#4CAF50" },
@@ -33,3 +35,5 @@ export default function ColorPickerModal({ onClose, onColorSelect }) {
     </div>
   )
 }
+
+export default Color_picker_modal;
