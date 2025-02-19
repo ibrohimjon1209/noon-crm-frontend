@@ -62,7 +62,7 @@ const CategoryStudy = () => {
                 <IoMdAdd size={25} />
                 Kategoriya
             </button>
-            <div className="bg-white shadow-md rounded-lg min-h-[700px] mt-4 p-6">
+            <div className="bg-white shadow-md rounded-lg max-h-[770px] overflow-y-auto mt-4 p-6">
                 <table className="w-full border-collapse">
                     <thead>
                         <tr className="border-b h-[4rem]">
@@ -72,7 +72,7 @@ const CategoryStudy = () => {
                     </thead>
                     <tbody>
                         {category.map((hashtag, index) => (
-                            <tr key={hashtag.id} className="border-b hover:bg-gray-50 ">
+                            <tr key={hashtag.id} className=" border-b hover:bg-gray-50 ">
                                 <td className="h-[5rem] py-3 px-4 text-gray-800">{index + 1}</td>
                                 <td className="py-3 text-gray-800 text-base font-medium">{hashtag.name}</td>
                                 <td className="py-3 px-6 text-right space-x-2">
