@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Active_students from "./childs/active_students/Active_students";
 import Archive_students from "./childs/archive_student/Archive_students";
 import Students_list from "./childs/students_list/Students_list";
+import Parrents from "./childs/parrents/Parrents";
 
 const Teachers = () => {
   return (
@@ -12,6 +13,7 @@ const Teachers = () => {
       <Route path="students-active" element={<Active_students />} />
       <Route path="students-archive" element={<Archive_students />} />
       <Route path="students-list" element={<Students_list />} />
+      <Route path="students-parent" element={<Parrents />} />
     </Routes>
   );
 };

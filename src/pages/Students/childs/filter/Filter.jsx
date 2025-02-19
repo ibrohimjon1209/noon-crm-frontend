@@ -261,7 +261,7 @@ const Filter = ({itemText}) => {
                 </button>
               </div>
               <hr className="border-[#0000001A] border-[1.5px] w-[84%] mx-auto -mt-[3px]" />
-              <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] font-medium mb-[10px]">
+              <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] mb-[10px]">
                 <p>Du</p>
                 <p>Se</p>
                 <p>Ch</p>
@@ -329,7 +329,7 @@ const Filter = ({itemText}) => {
                 </button>
               </div>
               <hr className="border-[#0000001A] border-[1.5px] w-[84%] mx-auto -mt-[3px]" />
-              <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] font-medium mb-[10px]">
+              <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] mb-[10px]">
                 <p>Du</p>
                 <p>Se</p>
                 <p>Ch</p>
