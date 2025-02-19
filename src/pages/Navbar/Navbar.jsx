@@ -199,22 +199,12 @@ const Navbar = () => {
     {
       path: "/finance/checkout",
       active: "/finance/checkout",
-      label: "Kassa",
+      label: "Tranzaksiya turi",
     },
     {
       path: "/groups/rooms",
       active: "/groups/rooms",
-      label: "Bonus",
-    },
-    {
-      path: "/groups/students",
-      active: "/group/students",
-      label: "Jarima",
-    },
-    {
-      path: "/groups/table",
-      active: "/groups/table",
-      label: "Oylik chiqarish",
+      label: "Shartnoma",
     },
   ];
 
@@ -494,7 +484,7 @@ const Navbar = () => {
                 alt=""
               />
               <div>
-                <div className="flex cursor-auto flex-row gap-[40px] w-[661px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+                <div className="flex cursor-auto flex-row gap-[40px] w-[700px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
 
                   {/* Amallar Qismi */}
                   <div className="flex flex-col gap-[15px] w-1/2">
@@ -545,7 +535,7 @@ const Navbar = () => {
                   </div>
                   {/*Malumotlar Qismi */}
                   <div className="flex flex-col gap-[15px] w-1/2">
-                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Ma'lumot</h1>
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Ma'lumotlar</h1>
                     <div className="w-full bg-[#949494] h-[0.3px]"></div>
                     {finance_submenu_items_info.map((item) => (
                       <Link key={item.path} to={item.path}>
