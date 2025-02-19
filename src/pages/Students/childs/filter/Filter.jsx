@@ -579,11 +579,11 @@ const Filter = ({itemText}) => {
           <div className="flex items-center gap-2">
             <input
               type="checkbox"
-              className="w-[20px] h-[20px]"
+              className="w-[20px] h-[20px] bg-white"
               name=""
               id=""
             />
-            <label className="text-[22px]">{itemText}</label>
+            <label className="text-[22px] text-black">{itemText}</label>
           </div>
           <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative z-10 ">
             <div

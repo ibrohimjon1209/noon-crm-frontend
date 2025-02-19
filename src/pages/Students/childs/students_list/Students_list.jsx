@@ -89,6 +89,9 @@ function Students_list() {
     setSelectRows(value);
   };
 
+  const handleSendStudentComment = () => {
+    setIs_open_student_modal_comment(true);
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -150,11 +153,11 @@ function Students_list() {
             />
             <input
               type="text"
-              className="w-[85%] outline-none text-[18px] placeholder:text-[18px]"
+              className="w-[85%] outline-none text-[18px] bg-white placeholder:text-[18px]"
               placeholder="Qidirish"
             />
           </div>
-          <button className="w-[150px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2">
+          <button className="w-[150px] bg-blue-600 p-3 text-[18px] text-white border-none rounded-md flex items-center justify-center gap-2">
             <CiFilter style={{ fontSize: "25px" }} />
             Filter
           </button>
@@ -533,7 +536,7 @@ const StudentSendComment = ({ onClose, isOpen }) => {
           <div className="p-2 flex border-2 rounded-xl border-gray-500">
             <input
               type="text"
-              className="w-[85%] h-[50px] border-none outline-none rounded-lg pl-2 text-[18px] placeholder:text-[18px]"
+              className="w-[85%] h-[50px] border-none outline-none bg-white rounded-lg pl-2 text-[18px] placeholder:text-[18px]"
               placeholder="Izoh..."
             />
             <button
