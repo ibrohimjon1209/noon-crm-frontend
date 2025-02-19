@@ -14,6 +14,7 @@ import settings_icon from "./Image/blue/settings.png";
 import piramid from "./Image/piramid.png";
 import logo from "./Image/black/logo vector.png";
 import "./style.css";
+import { GrTooltip } from "react-icons/gr";
 
 const Navbar = () => {
   const [settings_is_hovered, set_settings_is_hovered] = useState(false);
@@ -494,8 +495,8 @@ const Navbar = () => {
                       <Link key={item.path} to={item.path}>
                         <div
                           className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
-                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
-                              : " text-black"
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                            : " text-black"
                             }`}
                         >
                           <div
@@ -518,17 +519,17 @@ const Navbar = () => {
                       <Link key={item.path} to={item.path}>
                         <div
                           className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
-                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
-                              : " text-black"
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                            : " text-black"
                             }`}
                         >
                           <div
                             className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
                               }`}
                           ></div>
-                          <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
-                            {item.label}
-                          </h1>
+                            <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px]  max-w-[200px] cursor-pointer">
+                              {item.label}
+                            </h1>
                         </div>
                       </Link>
                     ))}
@@ -541,8 +542,8 @@ const Navbar = () => {
                       <Link key={item.path} to={item.path}>
                         <div
                           className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
-                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
-                              : " text-black"
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                            : " text-black"
                             }`}
                         >
                           <div
