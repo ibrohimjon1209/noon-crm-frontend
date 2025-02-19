@@ -494,46 +494,90 @@ const Navbar = () => {
                 alt=""
               />
               <div>
-                <div className="flex cursor-auto flex-col gap-[20px] w-[661px] h-[310px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
-                  <div className="flex flex-col gap-[10px]">
-                    <div className="pl-[5px]">
-                      <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Amallar</h1>
-                    </div>
-                    <div className="-ml-[10px] w-[620px] bg-[#949494] h-[0.3px]">
-                    </div>
-                  </div>
-            
-                  {finance_submenu_items_action.map((item) => (
-                    <Link key={item.path} to={item.path}>
-                      <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                          : " text-black"
-                          }`}
-                      >
+                <div className="flex cursor-auto flex-row gap-[40px] w-[661px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+
+                  {/* Amallar Qismi */}
+                  <div className="flex flex-col gap-[15px] w-1/2">
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Amallar</h1>
+                    <div className="w-full bg-[#949494] h-[0.3px]"></div>
+                    {finance_submenu_items_action.map((item) => (
+                      <Link key={item.path} to={item.path}>
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                            ? "bg-[#264E86]"
-                            : "bg-black"
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                              : " text-black"
                             }`}
-                        ></div>
-                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
-                          {item.label}
-                        </h1>
-                      </div>
-                    </Link>
-                  ))}
+                        >
+                          <div
+                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                              }`}
+                          ></div>
+                          <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                            {item.label}
+                          </h1>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Hisobotlar Qismi */}
+                  <div className="flex flex-col gap-[15px] w-1/2">
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Hisobotlar</h1>
+                    <div className="w-full bg-[#949494] h-[0.3px]"></div>
+                    {finance_submenu_items_report.map((item) => (
+                      <Link key={item.path} to={item.path}>
+                        <div
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                              : " text-black"
+                            }`}
+                        >
+                          <div
+                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                              }`}
+                          ></div>
+                          <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                            {item.label}
+                          </h1>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                  {/*Malumotlar Qismi */}
+                  <div className="flex flex-col gap-[15px] w-1/2">
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Ma'lumot</h1>
+                    <div className="w-full bg-[#949494] h-[0.3px]"></div>
+                    {finance_submenu_items_info.map((item) => (
+                      <Link key={item.path} to={item.path}>
+                        <div
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                              : " text-black"
+                            }`}
+                        >
+                          <div
+                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                              }`}
+                          ></div>
+                          <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                            {item.label}
+                          </h1>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           )}
+
         </Link>
 
         <Link
           to="/control"
           className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/control"
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
