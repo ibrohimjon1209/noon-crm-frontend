@@ -14,6 +14,7 @@ import settings_icon from "./Image/blue/settings.png";
 import piramid from "./Image/piramid.png";
 import logo from "./Image/black/logo vector.png";
 import "./style.css";
+import { GrTooltip } from "react-icons/gr";
 
 const Navbar = () => {
   const [settings_is_hovered, set_settings_is_hovered] = useState(false);
@@ -22,6 +23,7 @@ const Navbar = () => {
   const [groups_is_hovered, set_groups_hovered] = useState(false);
   const [study_is_hovered, set_study_hovered] = useState(false);
   const [finance_is_hovered, set_finance_hovered] = useState(false);
+  const [control_is_hovered, set_control_hovered] = useState(false);
   const location = useLocation();
 
   const isSettingsActive = location.pathname.startsWith("/settings");
@@ -29,6 +31,7 @@ const Navbar = () => {
   const isStudentsActive = location.pathname.startsWith("/students");
   const isStudytsActive = location.pathname.startsWith("/study_section");
   const isFinanceActive = location.pathname.startsWith("/finance");
+  const isControlActive = location.pathname.startsWith("/control");
   const isGroupsActive = location.pathname.startsWith("/groups");
   const toActiveSubmenu = location.pathname.split("/");
   const activeSubmenu = `/${toActiveSubmenu[1]}/${toActiveSubmenu[2]}`;
@@ -199,25 +202,43 @@ const Navbar = () => {
     {
       path: "/finance/checkout",
       active: "/finance/checkout",
-      label: "Kassa",
+      label: "Tranzaksiya turi",
     },
     {
       path: "/groups/rooms",
       active: "/groups/rooms",
-      label: "Bonus",
-    },
-    {
-      path: "/groups/students",
-      active: "/group/students",
-      label: "Jarima",
-    },
-    {
-      path: "/groups/table",
-      active: "/groups/table",
-      label: "Oylik chiqarish",
+      label: "Shartnoma",
     },
   ];
-
+  const control_submenu_items_action = [
+    {
+      path: "/finance/checkout",
+      active: "/finance/checkout",
+      label: "Davomat",
+    },
+    {
+      path: "/groups/rooms",
+      active: "/groups/rooms",
+      label: "Fikr-mulohaza",
+    },
+  ]
+  const control_submenu_items_report = [
+    {
+      path: "/finance/checkout",
+      active: "/finance/checkout",
+      label: "Xodimlar reytingi",
+    },
+    {
+      path: "/groups/rooms",
+      active: "/groups/rooms",
+      label: "Davomat qilinmagan guruxlar",
+    },
+    {
+      path: "/groups/rooms",
+      active: "/groups/rooms",
+      label: "Filliallar holati",
+    },
+  ]
 
   return (
     <div className="w-[230px] top-0 h-[132vh] flex flex-col justify-between bg-white">
@@ -494,47 +515,94 @@ const Navbar = () => {
                 alt=""
               />
               <div>
-                <div className="flex cursor-auto flex-col gap-[20px] w-[661px] h-[310px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
-                  <div className="flex flex-col gap-[10px]">
-                    <div className="pl-[5px]">
-                      <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Amallar</h1>
-                    </div>
-                    <div className="-ml-[10px] w-[620px] bg-[#949494] h-[0.3px]">
-                    </div>
-                  </div>
-            
-                  {finance_submenu_items_action.map((item) => (
-                    <Link key={item.path} to={item.path}>
-                      <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                          : " text-black"
-                          }`}
-                      >
+                <div className="flex cursor-auto flex-row gap-[40px] w-[700px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+
+                  {/* Amallar Qismi */}
+                  <div className="flex flex-col gap-[15px] w-1/2">
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Amallar</h1>
+                    <div className="w-full bg-[#949494] h-[0.3px]"></div>
+                    {finance_submenu_items_action.map((item) => (
+                      <Link key={item.path} to={item.path}>
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                            ? "bg-[#264E86]"
-                            : "bg-black"
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                            : " text-black"
                             }`}
-                        ></div>
-                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
-                          {item.label}
-                        </h1>
-                      </div>
-                    </Link>
-                  ))}
+                        >
+                          <div
+                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                              }`}
+                          ></div>
+                          <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                            {item.label}
+                          </h1>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Hisobotlar Qismi */}
+                  <div className="flex flex-col gap-[15px] w-1/2">
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Hisobotlar</h1>
+                    <div className="w-full bg-[#949494] h-[0.3px]"></div>
+                    {finance_submenu_items_report.map((item) => (
+                      <Link key={item.path} to={item.path}>
+                        <div
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                            : " text-black"
+                            }`}
+                        >
+                          <div
+                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                              }`}
+                          ></div>
+                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px]  max-w-[200px] cursor-pointer">
+                            {item.label}
+                          </h1>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/*Malumotlar Qismi */}
+                  <div className="flex flex-col gap-[15px] w-1/2">
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Ma'lumotlar</h1>
+                    <div className="w-full bg-[#949494] h-[0.3px]"></div>
+                    {finance_submenu_items_info.map((item) => (
+                      <Link key={item.path} to={item.path}>
+                        <div
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                            : " text-black"
+                            }`}
+                        >
+                          <div
+                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                              }`}
+                          ></div>
+                          <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                            {item.label}
+                          </h1>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           )}
+
         </Link>
 
         <Link
-          to="/control"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/control"
-              ? "bg-[#CFEBFF] text-[#264E86]"
-              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isControlActive
+            ? "bg-[#CFEBFF] text-[#264E86]"
+            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
             }`}
+          onMouseEnter={() => set_control_hovered(true)}
+          onMouseLeave={() => set_control_hovered(false)}
+          to="/control"
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -545,6 +613,67 @@ const Navbar = () => {
               Nazorat
             </h1>
           </div>
+          {control_is_hovered && (
+            <div className="menu-settings flex absolute mt-[230px] ml-[185px]">
+              <img
+                src={piramid || "/placeholder.svg"}
+                className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[20px]"
+                alt=""
+              />
+              <div>
+                <div className="flex cursor-auto flex-row gap-[40px] w-[660px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+
+                  {/* Hisobotlar Qismi */}
+                  <div className="flex flex-col gap-[15px] w-1/2">
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Amallar</h1>
+                    <div className="w-full bg-[#949494] h-[0.3px]"></div>
+                    {control_submenu_items_action.map((item) => (
+                      <Link key={item.path} to={item.path}>
+                        <div
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                            : " text-black"
+                            }`}
+                        >
+                          <div
+                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                              }`}
+                          ></div>
+                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px]  max-w-[200px] cursor-pointer">
+                            {item.label}
+                          </h1>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/*Malumotlar Qismi */}
+                  <div className="flex flex-col gap-[15px] w-1/2">
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Hisobotlar</h1>
+                    <div className="w-full bg-[#949494] h-[0.3px]"></div>
+                    {control_submenu_items_report.map((item) => (
+                      <Link key={item.path} to={item.path}>
+                        <div
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                            : " text-black"
+                            }`}
+                        >
+                          <div
+                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
+                              }`}
+                          ></div>
+                          <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
+                            {item.label}
+                          </h1>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </Link>
 
         <Link
