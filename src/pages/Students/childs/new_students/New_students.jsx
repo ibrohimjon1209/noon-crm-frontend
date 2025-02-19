@@ -8,6 +8,78 @@ function New_students() {
     useState(false);
   const [selectRows, setSelectRows] = useState(15);
 
+  const [students, setStudents] = useState([
+    {
+      checked: false,
+      id: "123",
+      name: "Ilhomov Elyor Eldorvich",
+      phone: "+998 90 762 92 82",
+      balans: "-50.000 UZS",
+      group: "Web Dasturlash",
+      teacher: "Falonchi Falonchiyev",
+      moderator: "Asila opa",
+      level: "O'rta",
+      appDownload: "11.02.2025",
+    },
+    {
+      checked: false,
+      id: "12",
+      name: "Ilhomov Elyor Eldorvich",
+      phone: "+998 90 762 92 82",
+      balans: "-50.000 UZS",
+      group: "Web Dasturlash",
+      teacher: "Falonchi Falonchiyev",
+      moderator: "Asila opa",
+      level: "O'rta",
+      appDownload: "11.02.2025",
+    },
+    {
+      checked: false,
+      id: "13",
+      name: "Ilhomov Elyor Eldorvich",
+      phone: "+998 90 762 92 82",
+      balans: "-50.000 UZS",
+      group: "Web Dasturlash",
+      teacher: "Falonchi Falonchiyev",
+      moderator: "Asila opa",
+      level: "O'rta",
+      appDownload: "11.02.2025",
+    },
+    {
+      checked: false,
+      id: "23",
+      name: "Ilhomov Elyor Eldorvich",
+      phone: "+998 90 762 92 82",
+      balans: "-50.000 UZS",
+      group: "Web Dasturlash",
+      teacher: "Falonchi Falonchiyev",
+      moderator: "Asila opa",
+      level: "O'rta",
+      appDownload: "11.02.2025",
+    },
+    {
+      checked: false,
+      id: "33",
+      name: "Ilhomov Elyor Eldorvich",
+      phone: "+998 90 762 92 82",
+      balans: "-50.000 UZS",
+      group: "Web Dasturlash",
+      teacher: "Falonchi Falonchiyev",
+      moderator: "Asila opa",
+      level: "O'rta",
+      appDownload: "11.02.2025",
+    },
+  ])
+
+  const handleAllChecked = (e) => {
+    const checked = e.target.checked
+    setStudents(students.map((student) => ({ ...student, checked })))
+  }
+
+  const handleSingleCheck = (id) => {
+    setStudents(students.map((student) => (student.id === id ? { ...student, checked: !student.checked } : student)))
+  }
+
   const handleCloseMopdalComment = () => {
     setIs_open_student_modal_comment(false);
   };
@@ -76,11 +148,27 @@ function New_students() {
                   isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
                 } transition-all duration-300`}
               >
-                <th className="w-12 p-2 text-left border">
-                  <input
-                    type="checkbox"
-                    className="w-10 h-4 border-[#0EA5E9] checked:bg-[#0EA5E9] checked:border-[#0EA5E9]"
-                  />
+                <th className="w-12 p-2 text-left">
+                  <div className="flex -mt-[8px] flex-row gap-[30px] pr-4 w-[100%]">
+                    <label className="relative block cursor-pointer text-lg select-none">
+                      <input
+                        type="checkbox"
+                        className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+                        checked={students.every((student) => student.checked)}
+                        onChange={handleAllChecked}
+                      />
+                      <span
+                        className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
+              ${students.every((student) => student.checked) ? "bg-[#0EA5E9]" : "bg-white"} 
+              after:content-[''] after:absolute 
+              after:top-[2px] after:left-[5px] 
+              after:w-1.5 after:h-2.5 
+              after:border-white after:border-r-2 
+              after:border-b-2 after:rotate-45
+              ${students.every((student) => student.checked) ? "after:block" : "after:hidden"}`}
+                      ></span>
+                    </label>
+                  </div>
                 </th>
                 <th className="w-12 p-5 text-left border text-gray-400 text-xl">
                   №
@@ -113,19 +201,31 @@ function New_students() {
               </tr>
             </thead>
             <tbody>
-              {Array(selectRows)
-                .fill(data[0])
-                .map((row, index) => (
+              {students.map((row, index) => (
                   <tr
                     key={index}
                     className="hover:bg-[rgb(226,239,248)] cursor-pointer"
                   >
-                    <td className="p-2 border">
+                    <td className="p-2 py-[10px]">
+                    <label className="-mt-[8px] relative block cursor-pointer text-lg select-none">
                       <input
                         type="checkbox"
-                        className="w-10 h-4 border-[#0EA5E9] checked:bg-[#0EA5E9] checked:border-[#0EA5E9]"
+                        className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+                        checked={row.checked}
+                        onChange={() => handleSingleCheck(row.id)}
                       />
-                    </td>
+                      <span
+                        className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
+              ${row.checked ? "bg-[#0EA5E9]" : "bg-white"} 
+              after:content-[''] after:absolute 
+              after:top-[2px] after:left-[5px] 
+              after:w-1.5 after:h-2.5 
+              after:border-white after:border-r-2 
+              after:border-b-2 after:rotate-45
+              ${row.checked ? "after:block" : "after:hidden"}`}
+                      ></span>
+                    </label>
+                  </td>
                     <td className="p-5 border text-[18px]">{index + 1}</td>
                     <td className="p-5 border text-[18px]">{row.id}</td>
                     <td className="p-5 border text-[18px]">{row.name}</td>
