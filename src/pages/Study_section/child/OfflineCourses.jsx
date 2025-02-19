@@ -101,7 +101,7 @@ const OfflineCourses = () => {
                     className="ml-auto border rounded-lg w-[237px] h-16 indent-6 bg-white"
                 />
             </div>
-            <div className="w-full p-8 mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <div className="w-full p-8 max-h-[805px] mx-auto bg-white shadow-md rounded-lg overflow-y-auto">
                 <div className='flex items-center justify-end'>
                     <span className="text-gray-600 flex items-end">Umumiy Soni: {courses.length}</span>
                 </div>
