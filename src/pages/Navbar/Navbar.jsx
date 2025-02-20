@@ -502,7 +502,7 @@ const Navbar = () => {
                     <div className="-ml-[10px] w-[620px] bg-[#949494] h-[0.3px]">
                     </div>
                   </div>
-
+            
                   {finance_submenu_items_action.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
