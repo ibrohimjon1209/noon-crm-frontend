@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Filter from "../filter/Filter";
 
-function Active_students() {
+function Parrents() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
     useState(false);
@@ -11,55 +11,55 @@ function Active_students() {
       checked: false,
       id: "123",
       name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
+      fatherName: 'Valijon',
+      fatherPhone: "+99890*******",
+      matherName: "Muhlisa",
+      matherPhone: "+99899*******",
+      balance: "500.000",
       appDownload: "11.02.2025",
     },
     {
       checked: false,
       id: "13",
       name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
+      fatherName: 'Valijon',
+      fatherPhone: "+99890*******",
+      matherName: "Muhlisa",
+      matherPhone: "+99899*******",
+      balance: "500.000",
       appDownload: "11.02.2025",
     },
     {
       checked: false,
       id: "12",
       name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
+      fatherName: 'Valijon',
+      fatherPhone: "+99890*******",
+      matherName: "Muhlisa",
+      matherPhone: "+99899*******",
+      balance: "500.000",
       appDownload: "11.02.2025",
     },
     {
       checked: false,
       id: "33",
       name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
+      fatherName: 'Valijon',
+      fatherPhone: "+99890*******",
+      matherName: "Muhlisa",
+      matherPhone: "+99899*******",
+      balance: "500.000",
       appDownload: "11.02.2025",
     },
     {
       checked: false,
       id: "43",
       name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
+      fatherName: 'Valijon',
+      fatherPhone: "+99890*******",
+      matherName: "Muhlisa",
+      matherPhone: "+99899*******",
+      balance: "500.000",
       appDownload: "11.02.2025",
     },
   ])
@@ -175,22 +175,22 @@ function Active_students() {
                   O'quvchining ismi
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
+                  Otasining ismi
+                </th>
+                <th className="p-5 text-left border text-gray-400 text-xl">
+                  Telefon raqami
+                </th>
+                <th className="p-5 text-left border text-gray-400 text-xl">
+                  Onasining ismi
+                </th>
+                <th className="p-5 text-left border text-gray-400 text-xl">
                   Telefon raqami
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
                   Balans
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl">
-                  To'lov sanasi
-                </th>
-                <th className="p-5 text-left border text-gray-400 text-xl">
-                  Yaratilgan sana
-                </th>
-                <th className="p-5 text-left border text-gray-400 text-xl">
-                  Moderator
-                </th>
-                <th className="p-5 text-left border text-gray-400 text-xl">
-                  Taklif qilganlari ilovani yuklab olish sanasi
+                  Otasi va Onasi ilovani yuklab olish sanasi
                 </th>
                 <th className="p-5 text-left border text-gray-400 text-xl"></th>
                 <th className="p-5 text-left border text-gray-400 text-xl"></th>
@@ -225,15 +225,15 @@ function Active_students() {
                     <td className="p-5 border text-[18px]">{index + 1}</td>
                     <td className="p-5 border text-[18px]">{row.id}</td>
                     <td className="p-5 border text-[18px]">{row.name}</td>
-                    <td className="p-5 border text-[18px]">{row.phone}</td>
-                    <td className="p-5 border text-[18px]">{row.balans}</td>
+                    <td className="p-5 border text-[18px]">{row.fatherName}</td>
+                    <td className="p-5 border text-[18px]">{row.fatherPhone}</td>
                     <td className="p-5 border text-[18px]">
-                      {row.paymentDate}
+                      {row.matherName}
                     </td>
                     <td className="p-5 border text-[18px]">
-                      {row.createdDate}
+                      {row.matherPhone}
                     </td>
-                    <td className="p-5 border text-[18px]">{row.moderator}</td>
+                    <td className="p-5 border text-[18px]">{row.balance}</td>
                     <td className="p-5 border text-[18px]">
                       {row.appDownload}
                     </td>
@@ -459,4 +459,4 @@ const StudentSendComment = ({ onClose, isOpen }) => {
   );
 };
 
-export default Active_students;
+export default Parrents;

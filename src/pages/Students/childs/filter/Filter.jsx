@@ -261,7 +261,7 @@ const Filter = ({itemText}) => {
                 </button>
               </div>
               <hr className="border-[#0000001A] border-[1.5px] w-[84%] mx-auto -mt-[3px]" />
-              <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] font-medium mb-[10px]">
+              <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] mb-[10px]">
                 <p>Du</p>
                 <p>Se</p>
                 <p>Ch</p>
@@ -329,7 +329,7 @@ const Filter = ({itemText}) => {
                 </button>
               </div>
               <hr className="border-[#0000001A] border-[1.5px] w-[84%] mx-auto -mt-[3px]" />
-              <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] font-medium mb-[10px]">
+              <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] mb-[10px]">
                 <p>Du</p>
                 <p>Se</p>
                 <p>Ch</p>
@@ -579,11 +579,11 @@ const Filter = ({itemText}) => {
           <div className="flex items-center gap-2">
             <input
               type="checkbox"
-              className="w-[20px] h-[20px]"
+              className="w-[20px] h-[20px] bg-white"
               name=""
               id=""
             />
-            <label className="text-[22px]">{itemText}</label>
+            <label className="text-[22px] text-black">{itemText}</label>
           </div>
           <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative z-10 ">
             <div
