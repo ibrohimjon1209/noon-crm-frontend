@@ -189,7 +189,7 @@ const Navbar = () => {
     {
       path: "/groups/students",
       active: "/group/students",
-      label: "O'quvchining to'lanmagan to'lovlari",
+      label: "O'quvchining umumiy to'lanmagan to'lovlari",
     },
     {
       path: "/groups/table",
@@ -557,7 +557,7 @@ const Navbar = () => {
                             className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
                               }`}
                           ></div>
-                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px]  max-w-[200px] cursor-pointer">
+                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px] leading-[21.09px] truncate overflow-hidden whitespace-nowrap max-w-[200px]">
                             {item.label}
                           </h1>
                         </div>
