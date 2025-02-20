@@ -37,11 +37,11 @@ const App = () => {
 
   return (
     <Router>
-      <div className="flex w-[100%] bg-[rgba(242,238,238,1)] m-0 h-[calc(132.5vh)]">
+      <div className="flex w-[100%] bg-[#F0F2F2] m-0 h-[calc(132.5vh)]">
         <div className="z-50 h-screen sticky top-0">
           <Navbar />
         </div>
-        <div className="flex flex-col w-full overflow-hidden">
+        <div className="flex flex-col transition-all duration-300 w-full overflow-hidden">
           <Nav_top />
           <div
             className="flex-1"

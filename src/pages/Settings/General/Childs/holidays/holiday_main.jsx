@@ -136,16 +136,16 @@ const Holiday = () => {
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[10%]">Amallar</p>
         </div>
         {holidays_data.map((item, index) => (
-          <div key={index} className="flex flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
+          <div key={index} className="flex flex-row items-center w-[87%] py-[19px] border-b-[1px] border-[#D9D9D9]">
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[5%]">{index + 1}</p>
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[35%]">{item.title}</p>
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[25%]">
               {item.start_time}
             </p>
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[25%]">
-              {item.end_time}
+              {item.end_time} 
             </p>
-            <div className="w -[10%] flex justify-around">
+            <div className="w-[10%] flex justify-around">
               <img
                 src={editIcon}
                 alt="Edit"
