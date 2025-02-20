@@ -427,7 +427,7 @@ const StudentSendComment = ({ onClose, isOpen }) => {
         <div className="p-2 flex border-2 rounded-xl border-gray-500">
           <input
             type="text"
-            className="w-[85%] h-[50px] border-none outline-none rounded-lg pl-2 text-[18px] placeholder:text-[18px]"
+            className="w-[85%] h-[50px] border-none bg-white outline-none rounded-lg pl-2 text-[18px] placeholder:text-[18px]"
             placeholder="Izoh..."
           />
           <button
