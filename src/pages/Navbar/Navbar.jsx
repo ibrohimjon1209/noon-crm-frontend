@@ -194,7 +194,7 @@ const Navbar = () => {
     {
       path: "/groups/table",
       active: "/groups/table",
-      label: "Oylik chiqarish",
+      label: "Kursni asl narxidan oq'uvchi guruxning narxi boshqa bo'lib pul yechgan tranzaksiyalar",
     },
   ];
 
