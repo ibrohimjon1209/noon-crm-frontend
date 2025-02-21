@@ -508,7 +508,7 @@ const Navbar_general = () => {
           </div>
 
           {finance_is_hovered && (
-            <div className="menu-settings flex absolute mt-[230px] ml-[185px]">
+            <div className="menu-settings flex absolute mt-[280px] ml-[185px]">
               <img
                 src={piramid || "/placeholder.svg"}
                 className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[20px]"
@@ -614,7 +614,7 @@ const Navbar_general = () => {
             </h1>
           </div>
           {control_is_hovered && (
-            <div className="menu-settings flex absolute mt-[230px] ml-[185px]">
+            <div className="menu-settings flex absolute mt-[130px] ml-[185px]">
               <img
                 src={piramid || "/placeholder.svg"}
                 className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[20px]"
