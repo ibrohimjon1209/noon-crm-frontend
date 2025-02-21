@@ -20,20 +20,6 @@ const Navbar = () => {
             }, 10); // Ensuring reflow before applying class
         }
     };
-
-<<<<<<< HEAD
-    return (
-        <div className="relative">
-            <div className={` transition-all duration-300 ease-in-out ${isOpen ? 'w-[230px] scale-100' : 'w-[30px]  absolute'}`}>
-                <img
-                    src={close}
-                    alt={isOpen ? 'Close Navbar' : 'Open Navbar'}
-                    onClick={toggleNavbar}
-                    className={`z-50 absolute hover:scale-110 transition-transform duration-300 top-[50px] ${isOpen ? '-right-[15px]' : 'right-[0px]'} cursor-pointer w-[30px] h-[30px] border-[1px] rounded-[10px] border-black`}
-                />
-                <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'w-[230px] scale-100' : 'w-[30px] scale-75 opacity-0 absolute'}`}>
-                    {shouldRender && <Navbar_general />}
-=======
   const studets_submenu_items = [
     {
       path: "/students/new-student-list",
@@ -289,7 +275,6 @@ const Navbar = () => {
                       </div>
                     </Link>
                   ))}
->>>>>>> 5756f04a1ae1f0770a3e3dfbf0746fec2604d352
                 </div>
             </div>
 
@@ -302,11 +287,8 @@ const Navbar = () => {
                     />
                 </div>
             </div>
-<<<<<<< HEAD
         </div>
-    );
-=======
-          )}
+    )}
         </Link>
 
         <Link
@@ -713,7 +695,6 @@ const Navbar = () => {
       </div>
     </div>
   );
->>>>>>> 5756f04a1ae1f0770a3e3dfbf0746fec2604d352
 };
 
 export default Navbar;
