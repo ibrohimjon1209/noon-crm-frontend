@@ -17,7 +17,7 @@ const Nav_top = () => {
   return (
     <div className="w-full h-[67px] shadow-[0px_4px_4px_0_#00000040] bg-[rgba(255,255,255,1)] sticky top-0">
       <div className='flex  w-full h-full scale-[90%] bg-[rgba(255,255,255,1)] justify-between  items-center'>
-        <div className="flex  gap-[25px]">
+        <div className="flex ml-[3%] gap-[25px]">
           <div className='flex items-center justify-center gap-[13px]'>
             <Link to='/'>
               <img src={back} alt="" className='w-[24px] h-[24px] cursor-pointer object-contain' />

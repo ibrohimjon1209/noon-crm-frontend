@@ -6,7 +6,7 @@ export default defineConfig({
   base: "/",
   server: {
     allowedHosts: [
-      '9549-202-79-188-194.ngrok-free.app'
+      'ea07-213-230-72-25.ngrok-free.app'
     ]
   }
 })

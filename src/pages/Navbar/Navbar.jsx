@@ -1,73 +1,39 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import assignment_icon from "./Image/blue/assignment.png";
-import lydes_icon from "./Image/blue/lydes.png";
-import group_icon from "./Image/blue/group.png";
-import student_icon from "./Image/blue/students.png";
-import study_division from "./Image/blue/study division.png";
-import wallet_icon from "./Image/blue/wallet.png";
-import control_icon from "./Image/blue/control.png";
-import drive_icon from "./Image/blue/drive.png";
-import marketing_icon from "./Image/blue/marketing.png";
-import report_icon from "./Image/blue/report.png";
-import settings_icon from "./Image/blue/settings.png";
-import piramid from "./Image/piramid.png";
-import logo from "./Image/black/logo vector.png";
-import "./style.css";
-import { GrTooltip } from "react-icons/gr";
+import React, { useState } from 'react';
+import Navbar_general from './Navbar_general';
+import close from './Image/close.png'; // Adjust the path as needed
+import logo from './Image/black/logo vector.png';
 
 const Navbar = () => {
-  const [settings_is_hovered, set_settings_is_hovered] = useState(false);
-  const [lids_is_hovered, set_lids_is_hovered] = useState(false);
-  const [students_is_hovered, set_students_hovered] = useState(false);
-  const [groups_is_hovered, set_groups_hovered] = useState(false);
-  const [study_is_hovered, set_study_hovered] = useState(false);
-  const [finance_is_hovered, set_finance_hovered] = useState(false);
-  const [control_is_hovered, set_control_hovered] = useState(false);
-  const location = useLocation();
+    const [isOpen, setIsOpen] = useState(true);
+    const [shouldRender, setShouldRender] = useState(true);
 
-  const isSettingsActive = location.pathname.startsWith("/settings");
-  const isLidsActive = location.pathname.startsWith("/lids");
-  const isStudentsActive = location.pathname.startsWith("/students");
-  const isStudytsActive = location.pathname.startsWith("/study_section");
-  const isFinanceActive = location.pathname.startsWith("/finance");
-  const isControlActive = location.pathname.startsWith("/control");
-  const isGroupsActive = location.pathname.startsWith("/groups");
-  const toActiveSubmenu = location.pathname.split("/");
-  const activeSubmenu = `/${toActiveSubmenu[1]}/${toActiveSubmenu[2]}`;
-  const settings_submenu_items = [
-    {
-      path: "/settings/general/function",
-      active: "/settings/general",
-      label: "Umumiy sozlamalar",
-    },
-    {
-      path: "/settings/finance/sponsors",
-      active: "/settings/finance",
-      label: "Moliya",
-    },
-    {
-      path: "/settings/study/arrive",
-      active: "/settings/study",
-      label: "O'quv",
-    },
-    {
-      path: "/settings/marketing/phone",
-      active: "/settings/marketing",
-      label: "Sotuv va marketing",
-    },
-    {
-      path: "/settings/management/manager",
-      active: "/settings/management",
-      label: "Boshqaruv",
-    },
-    {
-      path: "/settings/integration",
-      active: "/settings/integration",
-      label: "Integratsiyalar",
-    },
-  ];
+    const toggleNavbar = () => {
+        if (isOpen) {
+            setIsOpen(false);
+            setTimeout(() => {
+                setShouldRender(false);
+            }, 300);
+        } else {
+            setShouldRender(true);
+            setTimeout(() => {
+                setIsOpen(true);
+            }, 10); // Ensuring reflow before applying class
+        }
+    };
 
+<<<<<<< HEAD
+    return (
+        <div className="relative">
+            <div className={` transition-all duration-300 ease-in-out ${isOpen ? 'w-[230px] scale-100' : 'w-[30px]  absolute'}`}>
+                <img
+                    src={close}
+                    alt={isOpen ? 'Close Navbar' : 'Open Navbar'}
+                    onClick={toggleNavbar}
+                    className={`z-50 absolute hover:scale-110 transition-transform duration-300 top-[50px] ${isOpen ? '-right-[15px]' : 'right-[0px]'} cursor-pointer w-[30px] h-[30px] border-[1px] rounded-[10px] border-black`}
+                />
+                <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'w-[230px] scale-100' : 'w-[30px] scale-75 opacity-0 absolute'}`}>
+                    {shouldRender && <Navbar_general />}
+=======
   const studets_submenu_items = [
     {
       path: "/students/new-student-list",
@@ -323,61 +289,23 @@ const Navbar = () => {
                       </div>
                     </Link>
                   ))}
+>>>>>>> 5756f04a1ae1f0770a3e3dfbf0746fec2604d352
                 </div>
-              </div>
             </div>
-          )}
-        </Link>
 
-        <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isGroupsActive
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
-          onMouseEnter={() => set_groups_hovered(true)}
-          onMouseLeave={() => set_groups_hovered(false)}
-        >
-          <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
-            <img
-              src={group_icon}
-              className="w-[32px] h-[32px] object-contain"
-            />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
-              Guruhlar
-            </h1>
-          </div>
-          {groups_is_hovered && (
-            <div className="menu-settings flex absolute mt-[165px] ml-[185px]">
-              <img
-                src={piramid || "/placeholder.svg"}
-                className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[20px]"
-                alt=""
-              />
-              <div>
-                <div className="flex cursor-auto flex-col gap-[20px] w-[221px] h-[226px] pl-[30px] pt-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
-                  {groups_submenu_items.map((item) => (
-                    <Link key={item.path} to={item.path}>
-                      <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                          : " text-black"
-                          }`}
-                      >
-                        <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                            ? "bg-[#264E86]"
-                            : "bg-black"
-                            }`}
-                        ></div>
-                        <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
-                          {item.label}
-                        </h1>
-                      </div>
-                    </Link>
-                  ))}
+            <div className='fixed left-[40px] pr-[30px]'>
+                <div className=' '>
+                    <img
+                        src={logo}
+                        alt="logo"
+                        className="scale-[75%] w-[67px] h-[67px] object-contain cursor-pointer"
+                    />
                 </div>
-              </div>
             </div>
+<<<<<<< HEAD
+        </div>
+    );
+=======
           )}
         </Link>
 
@@ -785,6 +713,7 @@ const Navbar = () => {
       </div>
     </div>
   );
+>>>>>>> 5756f04a1ae1f0770a3e3dfbf0746fec2604d352
 };
 
 export default Navbar;
