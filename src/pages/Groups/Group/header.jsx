@@ -207,42 +207,29 @@ const Header = () => {
   return (
     <>
       <div className="w-[112vw] h-[auto] m-auto flex items-center justify-between">
-        <div className="w-[380px] h-[160px] mt-[21px]">
-          <div className="w-[50%] h-[50%] flex justify-around items-center ">
-            <div className="bg-[#0D99FF] w-[170px] h-[60px] ms-[3%] rounded-[50px] flex justify-center items-center gap-[15px] cursor-pointer hover:scale-[1.05] active:scale-[0.95]">
+        <div className="w-[380px] h-[160px] mt-[21px] flex flex-col">
+          <div className="w-[100%] h-[50%] flex items-center">
+            <div className="bg-[#0D99FF] w-[200px] h-[60px] rounded-[50px] flex px-[35px] items-center gap-[15px] duration-300 cursor-pointer hover:scale-[102%] active:scale-[98%] duration-300">
               <img
-                className="w-[20%]"
+                className="w-[35px]"
                 src={plus || "/placeholder.svg"}
                 alt=""
               />
               <h1 className="text-white text-[20px]">Qo'shish</h1>
             </div>
           </div>
-          <div className="w-[100%] h-[50%] flex justify-around items-end">
+          <div className="w-[100%] h-[50%] flex items-center">
             <div
-              className="block bg-[#0D99FF] w-[170px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
+              className="bg-[#0D99FF] w-[200px] h-[60px] rounded-[50px] flex px-[40px] items-center gap-[19px] duration-300 cursor-pointer hover:scale-[102%] active:scale-[98%] duration-300"
               // onClick={() => setIsAddModalOpen(true)}
             >
               <img
-                className="w-[20%]"
+                className="w-[28px]"
                 src={exprt || "/placeholder.svg"}
                 alt=""
               />
               <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">
                 Export
-              </h1>
-            </div>
-            <div
-              className="block bg-[#0D99FF] w-[170px] h-[60px] rounded-[50px] flex justify-center items-center gap-[15px] duration-300 cursor-pointer hover:scale-[1.05] active:scale-[0.95]"
-              // onClick={() => setIsAddModalOpen(true)}
-            >
-              <img
-                className="w-[20%]"
-                src={imprt || "/placeholder.svg"}
-                alt=""
-              />
-              <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">
-                Import
               </h1>
             </div>
           </div>
@@ -310,7 +297,7 @@ const Header = () => {
               {/* Boshlanish vaqti */}
               <div className="w-[240px] h-[70px] bg-white rounded-[5px] relative flex items-center justify-evenly p-[10px]">
                 <p className="text-black whitespace-nowrap text-[19px]">Boshlanish vaqti</p>
-                <div className="flex gap-[2px] items-center h-full font-inter font-[500] text-black text-[18px]">
+                <div className="flex gap-[2px] items-center h-full mt-[3px] font-inter font-[500] text-black text-[18px]">
                   <input
                     type="text"
                     id="startHours"
@@ -350,7 +337,7 @@ const Header = () => {
               {/* Tugash vaqti */}
               <div className="w-[240px] h-[70px] bg-white rounded-[5px] relative flex items-center justify-evenly p-[10px]">
                 <p className="text-black whitespace-nowrap text-[19px]">Tugash vaqti</p>
-                <div className="flex gap-[2px] items-center h-full font-inter font-[500] text-black text-[18px]">
+                <div className="flex gap-[2px] items-center h-full mt-[3px] font-inter font-[500] text-black text-[18px]">
                   <input
                     type="text"
                     id="endHours"
