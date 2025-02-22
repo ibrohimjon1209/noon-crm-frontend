@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar_general from './Navbar_general';
-import close from './Image/close.png'; 
+import close from './Image/close.png';
 import logo from './Image/black/logo vector.png';
 
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [shouldRender, setShouldRender] = useState(true);
-  const isLidsActive = false; // yoki kerakli qiymat
+  const isLidsActive = false; 
   const lids_is_hovered = false
   const isStudentsActive = false
   const students_is_hovered = false
