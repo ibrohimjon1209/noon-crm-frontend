@@ -3,23 +3,42 @@ import Navbar_general from './Navbar_general';
 import close from './Image/close.png'; // Adjust the path as needed
 import logo from './Image/black/logo vector.png';
 
-const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(true);
-    const [shouldRender, setShouldRender] = useState(true);
+import { Link } from 'react-router-dom';
 
-    const toggleNavbar = () => {
-        if (isOpen) {
-            setIsOpen(false);
-            setTimeout(() => {
-                setShouldRender(false);
-            }, 300);
-        } else {
-            setShouldRender(true);
-            setTimeout(() => {
-                setIsOpen(true);
-            }, 10); // Ensuring reflow before applying class
-        }
-    };
+
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [shouldRender, setShouldRender] = useState(true);
+  const isLidsActive = false; // yoki kerakli qiymat
+  const lids_is_hovered = false
+  const isStudentsActive = false
+  const students_is_hovered = false
+  const isStudytsActive = false
+  const study_division = false
+  const study_is_hovered = false
+  const isFinanceActive = false
+  const finance_is_hovered = false
+  const isControlActive = false
+  const control_is_hovered = false
+ const isSettingsActive = false
+ const settings_is_hovered = false
+ const set_control_hovered = false
+ const set_lids_is_hovered = false
+ const set_settings_is_hovered = false
+  const toggleNavbar = () => {
+    if (isOpen) {
+      setIsOpen(false);
+      setTimeout(() => {
+        setShouldRender(false);
+      }, 300);
+    } else {
+      setShouldRender(true);
+      setTimeout(() => {
+        setIsOpen(true);
+      }, 10); // Ensuring reflow before applying class
+    }
+  };
   const studets_submenu_items = [
     {
       path: "/students/new-student-list",
@@ -219,10 +238,10 @@ const Navbar = () => {
             } pl-[10px]`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
-            <img
+            {/* <img
               src={assignment_icon}
               className="w-[32px] h-[32px] object-contain"
-            />
+            /> */}
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Topshiriqlar
             </h1>
@@ -238,10 +257,10 @@ const Navbar = () => {
           onMouseLeave={() => set_lids_is_hovered(false)}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
-            <img
+            {/* <img
               src={lydes_icon}
               className="w-[32px] h-[32px] object-contain"
-            />
+            /> */}
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
               Lidlar
             </h1>
@@ -276,19 +295,19 @@ const Navbar = () => {
                     </Link>
                   ))}
                 </div>
-            </div>
+              </div>
 
-            <div className='fixed left-[40px] pr-[30px]'>
+              <div className='fixed left-[40px] pr-[30px]'>
                 <div className=' '>
-                    <img
-                        src={logo}
-                        alt="logo"
-                        className="scale-[75%] w-[67px] h-[67px] object-contain cursor-pointer"
-                    />
+                  <img
+                    src={logo}
+                    alt="logo"
+                    className="scale-[75%] w-[67px] h-[67px] object-contain cursor-pointer"
+                  />
                 </div>
+              </div>
             </div>
-        </div>
-    )}
+          )}
         </Link>
 
         <Link
@@ -301,7 +320,7 @@ const Navbar = () => {
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
-              src={student_icon}
+              // src={}
               className="w-[32px] h-[32px] object-contain"
             />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
@@ -409,7 +428,7 @@ const Navbar = () => {
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
-              src={wallet_icon}
+              // src={wallet_icon}
               className="w-[32px] h-[32px] object-contain"
             />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
@@ -516,7 +535,7 @@ const Navbar = () => {
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
-              src={control_icon}
+              // src={control_icon}
               className="w-[32px] h-[32px] object-contain"
             />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
@@ -595,7 +614,7 @@ const Navbar = () => {
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
-              src={drive_icon}
+              // src={drive_icon}
               className="w-[32px] h-[32px] object-contain"
             />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
@@ -613,7 +632,7 @@ const Navbar = () => {
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
-              src={marketing_icon}
+              // src={marketing_icon}
               className="w-[32px] h-[32px] object-contain"
             />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[23.09px]">
@@ -631,7 +650,7 @@ const Navbar = () => {
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
-              src={report_icon}
+              // src={report_icon}
               className="w-[32px] h-[32px] object-contain"
             />
             <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
@@ -650,7 +669,7 @@ const Navbar = () => {
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
-              src={settings_icon || "/placeholder.svg"}
+              // src={settings_icon || "/placeholder.svg"}
               className="w-[32px] h-[32px] object-contain"
               alt="Settings"
             />
