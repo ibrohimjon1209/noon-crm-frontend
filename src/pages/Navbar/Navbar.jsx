@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar_general from './Navbar_general';
-import close from './Image/close.png'; // Adjust the path as needed
+import close from './Image/close.png'; 
 import logo from './Image/black/logo vector.png';
 
 import { Link } from 'react-router-dom';
