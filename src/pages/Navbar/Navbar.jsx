@@ -36,7 +36,7 @@ const Navbar = () => {
       setShouldRender(true);
       setTimeout(() => {
         setIsOpen(true);
-      }, 10); // Ensuring reflow before applying class
+      }, 10); 
     }
   };
   const studets_submenu_items = [
