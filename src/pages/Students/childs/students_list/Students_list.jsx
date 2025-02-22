@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiFilter } from "react-icons/ci";
 import { GoKebabHorizontal } from "react-icons/go";
+import Student_add_modal from "./Students_list_addStudentModal";
 
 function Students_list() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
     useState(false);
   const [selectRows, setSelectRows] = useState(15);
@@ -110,7 +112,10 @@ function Students_list() {
     <div className="w-full px-[40px] mt-[15px]">
       <div className="flex justify-between items-center">
         <div className="flex gap-3">
-          <button className="w-[250px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2">
+          <button
+            onClick={() => setIsAddModalOpen(true)}
+            className="w-[250px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2"
+          >
             <svg
               width="24"
               height="24"
@@ -376,6 +381,10 @@ function Students_list() {
         <StudentSendComment
           onClose={handleCloseMopdalComment}
           isOpen={is_open_student_modal_comment}
+        />
+        <Student_add_modal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
         />
       </div>
     </div>
