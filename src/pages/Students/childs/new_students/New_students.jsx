@@ -69,16 +69,20 @@ function New_students() {
       level: "O'rta",
       appDownload: "11.02.2025",
     },
-  ])
+  ]);
 
   const handleAllChecked = (e) => {
-    const checked = e.target.checked
-    setStudents(students.map((student) => ({ ...student, checked })))
-  }
+    const checked = e.target.checked;
+    setStudents(students.map((student) => ({ ...student, checked })));
+  };
 
   const handleSingleCheck = (id) => {
-    setStudents(students.map((student) => (student.id === id ? { ...student, checked: !student.checked } : student)))
-  }
+    setStudents(
+      students.map((student) =>
+        student.id === id ? { ...student, checked: !student.checked } : student
+      )
+    );
+  };
 
   const handleCloseMopdalComment = () => {
     setIs_open_student_modal_comment(false);
@@ -127,7 +131,7 @@ function New_students() {
       <Header is_filter_open={true} />
       <div
         id="elka"
-        className="flex-col bg-white w-[96.1%] text-[#404040] mt-[15px] pb-[0px] h-[990px] overflow-scroll rounded-xl"
+        className="flex-col bg-white w-[96.1%] text-[#404040] mt-[15px] pb-[0px] h-[990px] overflow-x-clip rounded-xl"
       >
         <div
           className={`ml-6 mt-0 flex justify-between sticky top-0 left-0 w-full p-4 ${
@@ -159,13 +163,21 @@ function New_students() {
                       />
                       <span
                         className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-              ${students.every((student) => student.checked) ? "bg-[#0EA5E9]" : "bg-white"} 
+              ${
+                students.every((student) => student.checked)
+                  ? "bg-[#0EA5E9]"
+                  : "bg-white"
+              } 
               after:content-[''] after:absolute 
               after:top-[2px] after:left-[5px] 
               after:w-1.5 after:h-2.5 
               after:border-white after:border-r-2 
               after:border-b-2 after:rotate-45
-              ${students.every((student) => student.checked) ? "after:block" : "after:hidden"}`}
+              ${
+                students.every((student) => student.checked)
+                  ? "after:block"
+                  : "after:hidden"
+              }`}
                       ></span>
                     </label>
                   </div>
@@ -202,11 +214,11 @@ function New_students() {
             </thead>
             <tbody>
               {students.map((row, index) => (
-                  <tr
-                    key={index}
-                    className="hover:bg-[rgb(226,239,248)] cursor-pointer"
-                  >
-                    <td className="p-2 py-[10px]">
+                <tr
+                  key={index}
+                  className="hover:bg-[rgb(226,239,248)] cursor-pointer"
+                >
+                  <td className="p-2 py-[10px]">
                     <label className="-mt-[8px] relative block cursor-pointer text-lg select-none">
                       <input
                         type="checkbox"
@@ -226,43 +238,40 @@ function New_students() {
                       ></span>
                     </label>
                   </td>
-                    <td className="p-5 border text-[18px]">{index + 1}</td>
-                    <td className="p-5 border text-[18px]">{row.id}</td>
-                    <td className="p-5 border text-[18px]">{row.name}</td>
-                    <td className="p-5 border text-[18px]">{row.phone}</td>
-                    <td className="p-5 border text-[18px]">{row.balans}</td>
-                    <td className="p-5 border text-[18px]">{row.group}</td>
-                    <td className="p-5 border text-[18px]">{row.teacher}</td>
-                    <td className="p-5 border text-[18px]">{row.moderator}</td>
-                    <td className="p-5 border text-[18px]">
-                      {row.appDownload}
-                    </td>
-                    <td className="p-5 border text-[18px] flex justify-center">
-                      <button onClick={() => handleSendStudentComment()}>
-                        {" "}
-                        <svg
-                          className="my-icon"
-                          xmlns="http://www.w3.org/2000/svg"
+                  <td className="p-5 border text-[18px]">{index + 1}</td>
+                  <td className="p-5 border text-[18px]">{row.id}</td>
+                  <td className="p-5 border text-[18px]">{row.name}</td>
+                  <td className="p-5 border text-[18px]">{row.phone}</td>
+                  <td className="p-5 border text-[18px]">{row.balans}</td>
+                  <td className="p-5 border text-[18px]">{row.group}</td>
+                  <td className="p-5 border text-[18px]">{row.teacher}</td>
+                  <td className="p-5 border text-[18px]">{row.moderator}</td>
+                  <td className="p-5 border text-[18px]">{row.appDownload}</td>
+                  <td className="p-5 border text-[18px] flex justify-center">
+                    <button onClick={() => handleSendStudentComment()}>
+                      {" "}
+                      <svg
+                        className="my-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="#949494"
+                        fill-rule="evenodd"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M5.9 3.026c-.896.076-1.484.326-2.016.858-.491.491-.758 1.064-.841 1.807-.059.53-.059 9.088 0 9.618.108.965.55 1.69 1.352 2.217.601.395 1.091.474 2.932.474h1.251l1.441 1.435c1.282 1.275 1.463 1.441 1.638 1.5a.987.987 0 0 0 .686 0c.175-.059.356-.225 1.638-1.5L15.422 18h1.251c1.841 0 2.331-.079 2.932-.474.802-.527 1.244-1.252 1.352-2.217.059-.53.059-9.088 0-9.618-.058-.522-.197-.941-.431-1.296-.454-.69-1.077-1.127-1.866-1.306-.249-.057-.966-.064-6.44-.07a720.046 720.046 0 0 0-6.32.007m12.474 2.048c.212.071.489.358.554.572.074.246.077 9.452.003 9.694a.956.956 0 0 1-.481.546c-.187.093-.213.094-1.83.116-2.189.03-1.96-.067-3.53 1.492L12 18.577l-1.09-1.083c-1.57-1.559-1.341-1.462-3.53-1.492-1.617-.022-1.643-.023-1.83-.116a.988.988 0 0 1-.479-.526c-.064-.186-.094-8.935-.033-9.437.067-.549.31-.815.807-.88.14-.019 2.982-.031 6.315-.027 4.851.005 6.091.016 6.214.058"
                           fill="#949494"
                           fill-rule="evenodd"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M5.9 3.026c-.896.076-1.484.326-2.016.858-.491.491-.758 1.064-.841 1.807-.059.53-.059 9.088 0 9.618.108.965.55 1.69 1.352 2.217.601.395 1.091.474 2.932.474h1.251l1.441 1.435c1.282 1.275 1.463 1.441 1.638 1.5a.987.987 0 0 0 .686 0c.175-.059.356-.225 1.638-1.5L15.422 18h1.251c1.841 0 2.331-.079 2.932-.474.802-.527 1.244-1.252 1.352-2.217.059-.53.059-9.088 0-9.618-.058-.522-.197-.941-.431-1.296-.454-.69-1.077-1.127-1.866-1.306-.249-.057-.966-.064-6.44-.07a720.046 720.046 0 0 0-6.32.007m12.474 2.048c.212.071.489.358.554.572.074.246.077 9.452.003 9.694a.956.956 0 0 1-.481.546c-.187.093-.213.094-1.83.116-2.189.03-1.96-.067-3.53 1.492L12 18.577l-1.09-1.083c-1.57-1.559-1.341-1.462-3.53-1.492-1.617-.022-1.643-.023-1.83-.116a.988.988 0 0 1-.479-.526c-.064-.186-.094-8.935-.033-9.437.067-.549.31-.815.807-.88.14-.019 2.982-.031 6.315-.027 4.851.005 6.091.016 6.214.058"
-                            fill="#949494"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                        ></path>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
-        <div className="sticky bottom-0">
-        <Pagination handleSelectedRows={handleSelectedRows} />
-        </div>
-
+          <div className="sticky bottom-0">
+            <Pagination handleSelectedRows={handleSelectedRows} />
+          </div>
         </div>
         <StudentSendComment
           onClose={handleCloseMopdalComment}
@@ -276,7 +285,7 @@ function New_students() {
 const Pagination = ({ handleSelectedRows }) => {
   return (
     <div className="w-[100%] flex justify-between items-center p-3 rounded-xl bg-white">
-        <p></p>
+      <p></p>
       <div className="flex justify-between gap-2 p-4">
         <div className="relative">
           <select
@@ -424,19 +433,19 @@ const StudentSendComment = ({ onClose, isOpen }) => {
           <p className="text-[22px]">salom !</p>
         </div>
         <div className="p-5">
-        <div className="p-2 flex border-2 rounded-xl border-gray-500">
-          <input
-            type="text"
-            className="w-[85%] h-[50px] border-none bg-white outline-none rounded-lg pl-2 text-[18px] placeholder:text-[18px]"
-            placeholder="Izoh..."
-          />
-          <button
-            onClick={onClose}
-            className="w-[80px] rounded-lg bg-blue-500 text-white"
-          >
-            Send
-          </button>
-        </div>
+          <div className="p-2 flex border-2 rounded-xl border-gray-500">
+            <input
+              type="text"
+              className="w-[85%] h-[50px] border-none bg-white outline-none rounded-lg pl-2 text-[18px] placeholder:text-[18px]"
+              placeholder="Izoh..."
+            />
+            <button
+              onClick={onClose}
+              className="w-[80px] rounded-lg bg-blue-500 text-white"
+            >
+              Send
+            </button>
+          </div>
         </div>
       </div>
     </div>

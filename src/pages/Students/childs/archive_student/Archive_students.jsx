@@ -82,16 +82,20 @@ function Archive_students() {
       archiveDate: "08.09.2020 | 20:00",
       reason: "maktabdan qochgan",
     },
-  ])
+  ]);
 
   const handleAllChecked = (e) => {
-    const checked = e.target.checked
-    setStudents(students.map((student) => ({ ...student, checked })))
-  }
+    const checked = e.target.checked;
+    setStudents(students.map((student) => ({ ...student, checked })));
+  };
 
   const handleSingleCheck = (id) => {
-    setStudents(students.map((student) => (student.id === id ? { ...student, checked: !student.checked } : student)))
-  }
+    setStudents(
+      students.map((student) =>
+        student.id === id ? { ...student, checked: !student.checked } : student
+      )
+    );
+  };
 
   const handleCloseMopdalComment = () => {
     setIs_open_student_modal_comment(false);
@@ -149,7 +153,7 @@ function Archive_students() {
       </div>
       <div
         id="elka"
-        className="flex-col bg-white w-[96.1%] text-[#404040] mt-[15px] pb-[0px] h-[990px] overflow-scroll rounded-xl"
+        className="flex-col bg-white w-[96.1%] text-[#404040] mt-[15px] pb-[0px] h-[990px] overflow-x-clip rounded-xl"
       >
         <div
           className={`ml-6 mt-0 flex justify-between sticky top-0 left-0 w-full p-4 ${
@@ -181,13 +185,21 @@ function Archive_students() {
                       />
                       <span
                         className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-              ${students.every((student) => student.checked) ? "bg-[#0EA5E9]" : "bg-white"} 
+              ${
+                students.every((student) => student.checked)
+                  ? "bg-[#0EA5E9]"
+                  : "bg-white"
+              } 
               after:content-[''] after:absolute 
               after:top-[2px] after:left-[5px] 
               after:w-1.5 after:h-2.5 
               after:border-white after:border-r-2 
               after:border-b-2 after:rotate-45
-              ${students.every((student) => student.checked) ? "after:block" : "after:hidden"}`}
+              ${
+                students.every((student) => student.checked)
+                  ? "after:block"
+                  : "after:hidden"
+              }`}
                       ></span>
                     </label>
                   </div>
@@ -234,11 +246,11 @@ function Archive_students() {
             </thead>
             <tbody>
               {students.map((row, index) => (
-                  <tr
-                    key={index}
-                    className="hover:bg-[rgb(226,239,248)] cursor-pointer"
-                  >
-                    <td className="p-2 py-[10px]">
+                <tr
+                  key={index}
+                  className="hover:bg-[rgb(226,239,248)] cursor-pointer"
+                >
+                  <td className="p-2 py-[10px]">
                     <label className="-mt-[8px] relative block cursor-pointer text-lg select-none">
                       <input
                         type="checkbox"
@@ -258,76 +270,70 @@ function Archive_students() {
                       ></span>
                     </label>
                   </td>
-                    <td className="p-5 border text-[18px]">{index + 1}</td>
-                    <td className="p-5 border text-[18px]">{row.id}</td>
-                    <td className="p-5 border text-[18px]">{row.name}</td>
-                    <td className="p-5 border text-[18px]">{row.phone}</td>
-                    <td className="p-5 border text-[18px]">{row.balans}</td>
-                    <td className="p-5 border text-[18px]">
-                      {row.archiveGroup}
-                    </td>
-                    <td className="p-5 border text-[18px]">
-                      {row.archiveTeacher}
-                    </td>
-                    <td className="p-5 border text-[18px]">
-                      {row.createdDate}
-                    </td>
-                    <td className="p-5 border text-[18px]">{row.moderator}</td>
-                    <td className="p-5 border text-[18px]">
-                      {row.proArchiveDate}
-                    </td>
-                    <td className="p-5 border text-[18px]">
-                      {row.archiveDate}
-                    </td>
-                    <td className="p-5 border text-[18px] relative">
-                      <span className="bg-gray-300 text-center text-[16px] p-2 relative group">
-                        sababi
-                        <span className="absolute left-[-15px] top-[-70px] mt-1 hidden group-hover:block bg-gray-700 text-white text-[16px] p-2 rounded-md shadow-lg">
-                          {row.reason}
-                        </span>
+                  <td className="p-5 border text-[18px]">{index + 1}</td>
+                  <td className="p-5 border text-[18px]">{row.id}</td>
+                  <td className="p-5 border text-[18px]">{row.name}</td>
+                  <td className="p-5 border text-[18px]">{row.phone}</td>
+                  <td className="p-5 border text-[18px]">{row.balans}</td>
+                  <td className="p-5 border text-[18px]">{row.archiveGroup}</td>
+                  <td className="p-5 border text-[18px]">
+                    {row.archiveTeacher}
+                  </td>
+                  <td className="p-5 border text-[18px]">{row.createdDate}</td>
+                  <td className="p-5 border text-[18px]">{row.moderator}</td>
+                  <td className="p-5 border text-[18px]">
+                    {row.proArchiveDate}
+                  </td>
+                  <td className="p-5 border text-[18px]">{row.archiveDate}</td>
+                  <td className="p-5 border text-[18px] relative">
+                    <span className="bg-gray-300 text-center text-[16px] p-2 relative group">
+                      sababi
+                      <span className="absolute left-[-15px] top-[-70px] mt-1 hidden group-hover:block bg-gray-700 text-white text-[16px] p-2 rounded-md shadow-lg">
+                        {row.reason}
                       </span>
-                      <span className="bg-red-500 ml-2 text-white text-center rounded-xl text-[16px] py-[5px] px-[10px]">
-                        active
-                      </span>
-                    </td>
+                    </span>
+                    <span className="bg-red-500 ml-2 text-white text-center rounded-xl text-[16px] py-[5px] px-[10px]">
+                      active
+                    </span>
+                  </td>
 
-                    <td className="p-5 border text-[18px]">
+                  <td className="p-5 border text-[18px]">
+                    <svg
+                      width="23"
+                      height="18"
+                      viewBox="0 0 17 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="my-icon"
+                    >
+                      <path
+                        d="M10.125 4H9V7.75L12.21 9.655L12.75 8.7475L10.125 7.1875V4ZM9.75 0.25C7.95979 0.25 6.2429 0.961159 4.97703 2.22703C3.71116 3.4929 3 5.20979 3 7H0.75L3.72 10.0225L6.75 7H4.5C4.5 5.60761 5.05312 4.27226 6.03769 3.28769C7.02226 2.30312 8.35761 1.75 9.75 1.75C11.1424 1.75 12.4777 2.30312 13.4623 3.28769C14.4469 4.27226 15 5.60761 15 7C15 8.39239 14.4469 9.72774 13.4623 10.7123C12.4777 11.6969 11.1424 12.25 9.75 12.25C8.3025 12.25 6.99 11.6575 6.045 10.705L4.98 11.77C6.2025 13 7.875 13.75 9.75 13.75C11.5402 13.75 13.2571 13.0388 14.523 11.773C15.7888 10.5071 16.5 8.79021 16.5 7C16.5 5.20979 15.7888 3.4929 14.523 2.22703C13.2571 0.961159 11.5402 0.25 9.75 0.25Z"
+                        fill="#949494"
+                        fill-rule="evenodd"
+                        viewBox="0 0 24 24"
+                      ></path>
+                    </svg>
+                  </td>
+                  <td className="p-5 border text-[18px] ">
+                    <button onClick={() => handleSendStudentComment()}>
+                      {" "}
                       <svg
-                        width="23"
-                        height="18"
-                        viewBox="0 0 17 14"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
                         className="my-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="#949494"
+                        fill-rule="evenodd"
+                        viewBox="0 0 24 24"
                       >
                         <path
-                          d="M10.125 4H9V7.75L12.21 9.655L12.75 8.7475L10.125 7.1875V4ZM9.75 0.25C7.95979 0.25 6.2429 0.961159 4.97703 2.22703C3.71116 3.4929 3 5.20979 3 7H0.75L3.72 10.0225L6.75 7H4.5C4.5 5.60761 5.05312 4.27226 6.03769 3.28769C7.02226 2.30312 8.35761 1.75 9.75 1.75C11.1424 1.75 12.4777 2.30312 13.4623 3.28769C14.4469 4.27226 15 5.60761 15 7C15 8.39239 14.4469 9.72774 13.4623 10.7123C12.4777 11.6969 11.1424 12.25 9.75 12.25C8.3025 12.25 6.99 11.6575 6.045 10.705L4.98 11.77C6.2025 13 7.875 13.75 9.75 13.75C11.5402 13.75 13.2571 13.0388 14.523 11.773C15.7888 10.5071 16.5 8.79021 16.5 7C16.5 5.20979 15.7888 3.4929 14.523 2.22703C13.2571 0.961159 11.5402 0.25 9.75 0.25Z"
+                          d="M5.9 3.026c-.896.076-1.484.326-2.016.858-.491.491-.758 1.064-.841 1.807-.059.53-.059 9.088 0 9.618.108.965.55 1.69 1.352 2.217.601.395 1.091.474 2.932.474h1.251l1.441 1.435c1.282 1.275 1.463 1.441 1.638 1.5a.987.987 0 0 0 .686 0c.175-.059.356-.225 1.638-1.5L15.422 18h1.251c1.841 0 2.331-.079 2.932-.474.802-.527 1.244-1.252 1.352-2.217.059-.53.059-9.088 0-9.618-.058-.522-.197-.941-.431-1.296-.454-.69-1.077-1.127-1.866-1.306-.249-.057-.966-.064-6.44-.07a720.046 720.046 0 0 0-6.32.007m12.474 2.048c.212.071.489.358.554.572.074.246.077 9.452.003 9.694a.956.956 0 0 1-.481.546c-.187.093-.213.094-1.83.116-2.189.03-1.96-.067-3.53 1.492L12 18.577l-1.09-1.083c-1.57-1.559-1.341-1.462-3.53-1.492-1.617-.022-1.643-.023-1.83-.116a.988.988 0 0 1-.479-.526c-.064-.186-.094-8.935-.033-9.437.067-.549.31-.815.807-.88.14-.019 2.982-.031 6.315-.027 4.851.005 6.091.016 6.214.058"
                           fill="#949494"
                           fill-rule="evenodd"
-                          viewBox="0 0 24 24"
                         ></path>
                       </svg>
-                    </td>
-                    <td className="p-5 border text-[18px] ">
-                      <button onClick={() => handleSendStudentComment()}>
-                        {" "}
-                        <svg
-                          className="my-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="#949494"
-                          fill-rule="evenodd"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M5.9 3.026c-.896.076-1.484.326-2.016.858-.491.491-.758 1.064-.841 1.807-.059.53-.059 9.088 0 9.618.108.965.55 1.69 1.352 2.217.601.395 1.091.474 2.932.474h1.251l1.441 1.435c1.282 1.275 1.463 1.441 1.638 1.5a.987.987 0 0 0 .686 0c.175-.059.356-.225 1.638-1.5L15.422 18h1.251c1.841 0 2.331-.079 2.932-.474.802-.527 1.244-1.252 1.352-2.217.059-.53.059-9.088 0-9.618-.058-.522-.197-.941-.431-1.296-.454-.69-1.077-1.127-1.866-1.306-.249-.057-.966-.064-6.44-.07a720.046 720.046 0 0 0-6.32.007m12.474 2.048c.212.071.489.358.554.572.074.246.077 9.452.003 9.694a.956.956 0 0 1-.481.546c-.187.093-.213.094-1.83.116-2.189.03-1.96-.067-3.53 1.492L12 18.577l-1.09-1.083c-1.57-1.559-1.341-1.462-3.53-1.492-1.617-.022-1.643-.023-1.83-.116a.988.988 0 0 1-.479-.526c-.064-.186-.094-8.935-.033-9.437.067-.549.31-.815.807-.88.14-.019 2.982-.031 6.315-.027 4.851.005 6.091.016 6.214.058"
-                            fill="#949494"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
           <div className="sticky bottom-0">

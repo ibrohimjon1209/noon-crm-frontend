@@ -174,7 +174,7 @@ function Students_list() {
       </div>
       <div
         id="elka"
-        className="flex-col bg-white w-[100%] text-[#404040] mt-[25px] pb-[0px] h-[990px] overflow-scroll rounded-xl"
+        className="flex-col bg-white w-[100%] text-[#404040] mt-[25px] pb-[0px] h-[990px] overflow-x-clip rounded-xl"
       >
         <div
           className={`ml-6 mt-0 flex justify-between sticky top-0 left-0 w-full p-4 ${
