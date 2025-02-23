@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./header";
-import "./Group_main.css";
-
+import Course from './Course'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 const Group_main = () => {
   const [checkedRows, setCheckedRows] = useState({});
 
@@ -28,6 +28,7 @@ const Group_main = () => {
   };
 
   return (
+
     <>
       <Header />
       <div className="overflow-auto w-[112vw] h-[45vw] m-auto rounded-[10px] mt-[50px]">
@@ -48,22 +49,20 @@ const Group_main = () => {
                     />
                     <span
                       className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-                        ${
-                          Object.keys(checkedRows).length === data.length &&
+                        ${Object.keys(checkedRows).length === data.length &&
                           Object.values(checkedRows).every(Boolean)
-                            ? "bg-[#0EA5E9]"
-                            : "bg-white"
+                          ? "bg-[#0EA5E9]"
+                          : "bg-white"
                         } 
                         after:content-[''] after:absolute 
                         after:top-[2px] after:left-[5px] 
                         after:w-1.5 after:h-2.5 
                         after:border-white after:border-r-2 
                         after:border-b-2 after:rotate-45
-                        ${
-                          Object.keys(checkedRows).length === data.length &&
+                        ${Object.keys(checkedRows).length === data.length &&
                           Object.values(checkedRows).every(Boolean)
-                            ? "after:block"
-                            : "after:hidden"
+                          ? "after:block"
+                          : "after:hidden"
                         }`}
                     ></span>
                   </label>
@@ -108,7 +107,7 @@ const Group_main = () => {
                 </td>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{index + 1}</td>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{item.id}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.group}</td>
+                <Link className="px-6 pb-[25px] whitespace-nowrap hover:text" to="/groups/course">{item.group}</Link>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{item.course}</td>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{item.level}</td>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{item.day}</td>
@@ -123,7 +122,11 @@ const Group_main = () => {
           </tbody>
         </table>
       </div>
+
+
+
     </>
+
   );
 };
 
