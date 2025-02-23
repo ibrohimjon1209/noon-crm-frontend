@@ -127,7 +127,7 @@ const Holiday = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col items-center w-[55vw] overflow-y-scroll h-[calc(135vh-255px)] bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg" style={{ scrollbarWidth: "thin" }}>
+      <div className="flex flex-col items-center w-[calc(100%-32px)] overflow-y-scroll h-[calc(135vh-255px)] bg-white rounded-t-[15px] rounded-b-[1px] shadow-lg" style={{ scrollbarWidth: "thin" }}>
         <div className="flex flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[5%]">№</p>
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[35%]">Sarlavha</p>
@@ -136,7 +136,7 @@ const Holiday = () => {
           <p className="font-inter font-[600] text-[16px] leading-[18.15px] text-[#404040] w-[10%]">Amallar</p>
         </div>
         {holidays_data.map((item, index) => (
-          <div key={index} className="flex flex-row items-center w-[87%] py-[19px] border-b-[1px] border-[#D9D9D9]">
+          <div key={index} className="flex flex-row items-center w-[90%] py-[19px] border-b-[1px] border-[#D9D9D9]">
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[5%]">{index + 1}</p>
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[35%]">{item.title}</p>
             <p className="font-inter font-[500] text-[16px] leading-[18.15px] text-[#404040] w-[25%]">

@@ -14,7 +14,6 @@ import settings_icon from "./Image/blue/settings.png";
 import piramid from "./Image/piramid.png";
 import logo from "./Image/black/logo vector.png";
 import "./style.css";
-import { GrTooltip } from "react-icons/gr";
 
 const Navbar_general = () => {
   const [settings_is_hovered, set_settings_is_hovered] = useState(false);
@@ -149,26 +148,27 @@ const Navbar_general = () => {
 
   const finance_submenu_items_action = [
     {
-      path: "/finance/checkout",
-      active: "/finance/checkout",
+      path: "/finance/Cassa",
+      active: "/finance/Cassa", 
       label: "Kassa",
     },
     {
-      path: "/groups/rooms",
-      active: "/groups/rooms",
+      path: "/finance/bonus",
+      active: "/finance/bonus",
       label: "Bonus",
     },
     {
-      path: "/groups/students",
-      active: "/group/students",
+      path: "/finance/penalty", 
+      active: "/finance/penalty", 
       label: "Jarima",
     },
     {
-      path: "/groups/table",
-      active: "/groups/table",
+      path: "/finance/monthlyPayment",
+      active: "/finance/monthlyPayment",  
       label: "Oylik chiqarish",
     },
   ];
+  
 
   const finance_submenu_items_report = [
     {
@@ -194,8 +194,8 @@ const Navbar_general = () => {
     {
       path: "/groups/table",
       active: "/groups/table",
-      label: "Oylik chiqarish",
-    },
+      label: "Kursni asl narxidan o'quvchi guruxni narxi boshqa bo'lib pul yechgan trannzaksiyalar",
+    }
   ];
 
   const finance_submenu_items_info = [
