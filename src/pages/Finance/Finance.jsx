@@ -1,31 +1,31 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Balance from './childs/balance/Balance'
-import Bonus from './childs/bonus/Bonus'
-import CashRegister from './childs/cashRegister/CashRegister'
-import Contract from './childs/contract/Contract'
-import GroupTransaction from './childs/groupTransaction/GroupTransaction'
-import IncomePlan from './childs/incomePlan/IncomePlan'
-import MonthlyPayment from './childs/monthlyPayment/MonthlyPayment'
-import Penalty from './childs/penalty/Penalty'
-import TypeTransaction from './childs/typeTransaction/TypeTransaction'
-import UnpaidPupil from './childs/unpaidPupil/UnpaidPupil'
-import Cassa from './childs/cassa/Cassa'
+import Cassa from './Action/Cassa'
+import Bonus from './Action/Bonus'
+import Penalty from './Action/Penalty'
+import Monthly_payment from './Action/Monthly_payment'
+import Input_output from './Info/Input_output'
+import Revenue from './Info/Revenue'
+import Unpaid_bills from './Info/Unpaid_bills'
+import Transaction_wihtout_bills from './Info/Transaction_wihtout_bills'
+import Transaction from './Report/Transaction'
+import Contract from './Report/Contract'
+import Balance from './Info/Balance'
 
 const Finance = () => {
   return (
     <Routes>
-      <Route path='balance' element={<Balance />} />
-      <Route path='bonus' element={<Bonus />} />
-      <Route path='cash-register' element={<CashRegister />} />
-      <Route path='contract' element={<Contract />} />
-      <Route path='group-transaction' element={<GroupTransaction />} />
-      <Route path='income-plan' element={<IncomePlan />} />
-      <Route path='monthly-payment' element={<MonthlyPayment />} />
-      <Route path='penalty' element={<Penalty />} />
-      <Route path='type-transaction' element={<TypeTransaction />} />
-      <Route path='unpaid-pupil' element={<UnpaidPupil />} />
-      <Route path='cassa' element={<Cassa />} />
+      <Route path='/cassa' element={<Cassa />} />
+      <Route path='/bonus' element={<Bonus />} />
+      <Route path='/penalty' element={<Penalty />} />
+      <Route path='/monthly_payment' element={<Monthly_payment />} />
+      <Route path='/balance' element={<Balance />} />
+      <Route path='/input-output' element={<Input_output />} />
+      <Route path='/revenue' element={<Revenue />} />
+      <Route path='/unpaid-bills' element={<Unpaid_bills />} />
+      <Route path='/transaction-without-bills' element={<Transaction_wihtout_bills />} />
+      <Route path='/transaction' element={<Transaction />} />
+      <Route path='/contract' element={<Contract />} />
     </Routes>
   )
 }
