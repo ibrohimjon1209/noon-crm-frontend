@@ -42,7 +42,7 @@ const Student_add_modal = ({ isOpen, onClose }) => {
             ✕
           </button>
         </div>
-        <hr className="border-[#00000080] w-[100%]" /> m,,
+        <hr className="border-[#00000080] w-[100%]" /> 
         <div className="pt-[20px] px-6 flex h-[100%] flex-col w-[100%]">
           <div className="space-y-[20px]">
             <label className="font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">
