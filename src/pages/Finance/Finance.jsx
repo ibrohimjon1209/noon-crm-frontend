@@ -10,6 +10,7 @@ import MonthlyPayment from './childs/monthlyPayment/MonthlyPayment'
 import Penalty from './childs/penalty/Penalty'
 import TypeTransaction from './childs/typeTransaction/TypeTransaction'
 import UnpaidPupil from './childs/unpaidPupil/UnpaidPupil'
+import Cassa from './childs/cassa/Cassa'
 
 const Finance = () => {
   return (
@@ -24,6 +25,7 @@ const Finance = () => {
       <Route path='penalty' element={<Penalty />} />
       <Route path='type-transaction' element={<TypeTransaction />} />
       <Route path='unpaid-pupil' element={<UnpaidPupil />} />
+      <Route path='cassa' element={<Cassa />} />
     </Routes>
   )
 }
