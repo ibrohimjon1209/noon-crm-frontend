@@ -194,8 +194,8 @@ const Navbar_general = () => {
     {
       path: "/groups/table",
       active: "/groups/table",
-      label: "Oylik chiqarish",
-    },
+      label: "Kursni asl narxidan o'quvchi guruxni narxi boshqa bo'lib pul yechgan trannzaksiyalar",
+    }
   ];
 
   const finance_submenu_items_info = [
