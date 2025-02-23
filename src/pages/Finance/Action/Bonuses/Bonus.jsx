@@ -31,7 +31,7 @@ const Bonus = () => {
             Bonus yaratish
           </button>
       <BonusTable bonuses={bonuses} />
-      {isModalOpen && <CreateBonusModal onClose={() => setIsModalOpen(false)} addBonus={addBonus} />}
+      {isModalOpen && <CreateBonusModal onClose={() => setIsModalOpen(false)} addBonus={addBonus} isModalOpen={isModalOpen} />}
     </div>
   );
 };
