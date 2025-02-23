@@ -14,7 +14,6 @@ import settings_icon from "./Image/blue/settings.png";
 import piramid from "./Image/piramid.png";
 import logo from "./Image/black/logo vector.png";
 import "./style.css";
-import { GrTooltip } from "react-icons/gr";
 
 const Navbar_general = () => {
   const [settings_is_hovered, set_settings_is_hovered] = useState(false);
@@ -149,64 +148,65 @@ const Navbar_general = () => {
 
   const finance_submenu_items_action = [
     {
-      path: "/finance/checkout",
-      active: "/finance/checkout",
+      path: "/finance/cassa",
+      active: "/finance/cassa",
       label: "Kassa",
     },
     {
-      path: "/groups/rooms",
-      active: "/groups/rooms",
+      path: "/finance/bonus",
+      active: "/finance/bonus",
       label: "Bonus",
     },
     {
-      path: "/groups/students",
-      active: "/group/students",
+      path: "/finance/penalty",
+      active: "/finance/penalty",
       label: "Jarima",
     },
     {
-      path: "/groups/table",
-      active: "/groups/table",
+      path: "/finance/monthly_payment",
+      active: "/finance/monthly_payment",
       label: "Oylik chiqarish",
     },
   ];
 
+
   const finance_submenu_items_report = [
     {
-      path: "/finance/checkout",
-      active: "/finance/checkout",
+      path: "/finance/balance",
+      active: "/finance/balance",
       label: "Balans",
     },
     {
-      path: "/groups/rooms",
-      active: "/groups/rooms",
+      path: "/finance/input-output",
+      active: "/finance/input-output",
       label: "Kirim chiqim",
     },
     {
-      path: "/groups/rooms",
-      active: "/groups/rooms",
+      path: "/finance/revenue",
+      active: "/finance/revenue",
       label: "Tushum rejasi",
     },
     {
-      path: "/groups/students",
-      active: "/group/students",
+      path: "/finance/unpaid-bills",
+      active: "/finance/unpaid-bills",
       label: "O'quvchining to'lanmagan to'lovlari",
     },
     {
-      path: "/groups/table",
-      active: "/groups/table",
-      label: "Oylik chiqarish",
-    },
+      path: "/finance/transaction-without-bills",
+      active: "/finance/transaction-without-bills",
+      label: "Kursni asl narxidan o'quvchi guruxni narxi boshqa bo'lib pul yechgan trannzaksiyalar",
+    }
   ];
 
   const finance_submenu_items_info = [
     {
-      path: "/finance/checkout",
-      active: "/finance/checkout",
+      path: "/finance/transaction",
+      active: "/finance/transaction",
       label: "Tranzaksiya turi",
     },
     {
-      path: "/groups/rooms",
-      active: "/groups/rooms",
+      path: "/finance/contract",
+      active: "/finance/contract",
       label: "Shartnoma",
     },
   ];
@@ -508,7 +508,7 @@ const Navbar_general = () => {
           </div>
 
           {finance_is_hovered && (
-            <div className="menu-settings flex absolute mt-[230px] ml-[185px]">
+            <div className="menu-settings flex absolute mt-[420px] ml-[185px]">
               <img
                 src={piramid || "/placeholder.svg"}
                 className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[20px]"
@@ -557,7 +557,7 @@ const Navbar_general = () => {
                             className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
                               }`}
                           ></div>
-                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px]  max-w-[200px] cursor-pointer">
+                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px] max-w-[200px] cursor-pointer">
                             {item.label}
                           </h1>
                         </div>
@@ -614,7 +614,7 @@ const Navbar_general = () => {
             </h1>
           </div>
           {control_is_hovered && (
-            <div className="menu-settings flex absolute mt-[230px] ml-[185px]">
+            <div className="menu-settings flex absolute mt-[130px] ml-[185px]">
               <img
                 src={piramid || "/placeholder.svg"}
                 className="w-[12px] object-cover z-50 border-[0px] h-[20px] mt-[20px]"
