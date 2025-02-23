@@ -31,10 +31,10 @@ const Group_main = () => {
     <>
       <Header />
       <div className="overflow-auto w-[112vw] h-[45vw] m-auto rounded-[10px] mt-[50px]">
-        <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+        <table className="w-full h-auto border-none bg-white rounded-[10px] text-black">
           <thead>
-            <tr className="bg-blue-500 text-white">
-              <th className="py-3 px-4 text-left scale-[1.5]">
+            <tr>
+              <th className="w-12 px-6 pt-[20px] pb-[25px] text-left">
                 <div className="flex -mt-[8px] flex-row gap-[30px] pr-4 w-[100%]">
                   <label className="relative block cursor-pointer text-lg select-none">
                     <input
@@ -55,7 +55,7 @@ const Group_main = () => {
                             : "bg-white"
                         } 
                         after:content-[''] after:absolute 
-                        after:top-[3px] after:left-[6px] 
+                        after:top-[2px] after:left-[5px] 
                         after:w-1.5 after:h-2.5 
                         after:border-white after:border-r-2 
                         after:border-b-2 after:rotate-45
@@ -69,24 +69,24 @@ const Group_main = () => {
                   </label>
                 </div>
               </th>
-              <th className="py-3 px-4 text-left">№</th>
-              <th className="py-3 px-4 text-left">ID</th>
-              <th className="py-3 px-4 text-left">Guruh nomi</th>
-              <th className="py-3 px-4 text-left">Kurs</th>
-              <th className="py-3 px-4 text-left">Darajasi</th>
-              <th className="py-3 px-4 text-left">Kun</th>
-              <th className="py-3 px-4 text-left">Dars vaqti</th>
-              <th className="py-3 px-4 text-left">Guruh vaqti</th>
-              <th className="py-3 px-4 text-left">O‘quvchilar</th>
-              <th className="py-3 px-4 text-left">O‘qituvchi</th>
-              <th className="py-3 px-4 text-left">Xona</th>
-              <th className="py-3 px-4 text-left">Guruh holati</th>
+              <th className="w-12 px-6 pt-[20px] pb-[25px] text whitespace-nowrap-left">№</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">ID</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">Guruh nomi</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">Kurs</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">Darajasi</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">Kun</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">Dars vaqti</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">Guruh vaqti</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">O‘quvchilar</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">O‘qituvchi</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">Xona</th>
+              <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">Guruh holati</th>
             </tr>
           </thead>
           <tbody>
             {data.map((item, index) => (
-              <tr key={index} className="border-b border-gray-200 hover:bg-gray-100">
-                <td className="py-3 px-4 scale-[1.5]">
+              <tr key={index}>
+                <td className="px-6 pb-[25px]">
                   <label className="-mt-[8px] relative block cursor-pointer text-lg select-none">
                     <input
                       type="checkbox"
@@ -98,7 +98,7 @@ const Group_main = () => {
                       className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
                         ${checkedRows[item.id] ? "bg-[#0EA5E9]" : "bg-white"} 
                         after:content-[''] after:absolute 
-                        after:top-[3px] after:left-[6px] 
+                        after:top-[2px] after:left-[5px] 
                         after:w-1.5 after:h-2.5 
                         after:border-white after:border-r-2 
                         after:border-b-2 after:rotate-45
@@ -106,18 +106,18 @@ const Group_main = () => {
                     ></span>
                   </label>
                 </td>
-                <td className="py-3 px-4 text-[black]">{index + 1}</td>
-                <td className="py-3 px-4 text-[black]">{item.id}</td>
-                <td className="py-3 px-4 text-[black]">{item.group}</td>
-                <td className="py-3 px-4 text-[black]">{item.course}</td>
-                <td className="py-3 px-4 text-[black]">{item.level}</td>
-                <td className="py-3 px-4 text-[black]">{item.day}</td>
-                <td className="py-3 px-4 text-[black]">{item.time}</td>
-                <td className="py-3 px-4 text-[black]">{item.date}</td>
-                <td className="py-3 px-4 text-[black]">{item.students}</td>
-                <td className="py-3 px-4 text-[black]">{item.teacher}</td>
-                <td className="py-3 px-4 text-[black]">{item.room}</td>
-                <td className="py-3 px-4 text-green-500">{item.status}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{index + 1}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.id}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.group}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.course}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.level}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.day}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.time}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.date}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.students}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.teacher}</td>
+                <td className="px-6 pb-[25px] whitespace-nowrap">{item.room}</td>
+                <td className="px-6 pb-[25px] text-green-500 whitespace-nowrap">{item.status}</td>
               </tr>
             ))}
           </tbody>

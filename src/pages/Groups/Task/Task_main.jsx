@@ -13,12 +13,28 @@ const Task_main = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   const [rooms, setRooms] = useState([
-    { id: 1, title: "Room", capacity: 29, checked: false },
-    { id: 2, title: "Ingliz tili xona", capacity: 29, checked: false },
-    { id: 3, title: "1-xona", capacity: 29, checked: false },
-    { id: 4, title: "Matematika xonasi", capacity: 29, checked: false },
-    { id: 5, title: "Kimyo laboratoriyasi", capacity: 29, checked: false },
-    { id: 6, title: "Tarix xonasi", capacity: 29, checked: false },
+    {
+      id: 1, // ID qo'shildi
+      type: "Vazifa",
+      name: "Vazifa nomi",
+      date: "05.12.24 | 18:00",
+      teacher: "Ali Xasanov",
+      group: "A1 Ingliz tili",
+      ball: "100",
+      comment: "To be ni yaxshi o'rganish", 
+      checked: false,
+    },
+    {
+      id: 2, // ID qo'shildi
+      type: "Vazifa",
+      name: "Vazifa nomi",
+      date: "05.12.24 | 18:00",
+      teacher: "Ali Xasanov",
+      group: "A1 Ingliz tili",
+      ball: "100",
+      comment: "To be ni yaxshi o'rganish",
+      checked: false,
+    }
   ]);
 
   // **Barcha checkbox'larni belgilash / olib tashlash**
@@ -29,12 +45,15 @@ const Task_main = () => {
 
   // **Bitta checkboxni belgilash / olib tashlash**
   const handleSingleCheck = (id) => {
-    setRooms(
-      rooms.map((room) =>
+    setRooms((prevRooms) =>
+      prevRooms.map((room) =>
         room.id === id ? { ...room, checked: !room.checked } : room
       )
     );
   };
+
+  // **Tepadagi checkboxni tekshirish**
+  const isAllChecked = rooms.length > 0 && rooms.every((room) => room.checked);
 
   return (
     <>
@@ -46,10 +65,9 @@ const Task_main = () => {
         >
           <img src={plus} alt="Add" />
           <h1 className="text-white font-roboto font-[400] text-[20px] leading-[23.44px]">
-            Xona qo'shish
+            Imtihon qo'shish
           </h1>
         </div>
-
       </div>
 
       {/* Xonalar jadvali */}
@@ -63,25 +81,30 @@ const Task_main = () => {
                     <input
                       type="checkbox"
                       className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
-                      checked={rooms.every((room) => room.checked)}
+                      checked={isAllChecked}
                       onChange={handleAllChecked}
                     />
                     <span
                       className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-                      ${rooms.every((room) => room.checked) ? "bg-[#0EA5E9]" : "bg-white"} 
+                      ${isAllChecked ? "bg-[#0EA5E9]" : "bg-white"} 
                       after:content-[''] after:absolute 
                       after:top-[3px] after:left-[6px] 
                       after:w-1.5 after:h-2.5 
                       after:border-white after:border-r-2 
                       after:border-b-2 after:rotate-45
-                      ${rooms.every((room) => room.checked) ? "after:block" : "after:hidden"}`}
+                      ${isAllChecked ? "after:block" : "after:hidden"}`}
                     ></span>
                   </label>
                 </div>
               </th>
               <th className="h-[25px] p-2 text-[black]">№</th>
-              <th className="h-[25px] p-2 text-[black]">Sarlavha</th>
-              <th className="h-[25px] p-2 text-[black]">O‘quvchilar sig‘imi</th>
+              <th className="h-[25px] p-2 text-[black]">Turi</th>
+              <th className="h-[25px] p-2 text-[black]">Nomi</th>
+              <th className="h-[25px] p-2 text-[black]">Topshirish muddati</th>
+              <th className="h-[25px] p-2 text-[black]">O'qituvchi</th>
+              <th className="h-[25px] p-2 text-[black]">Guruh</th>
+              <th className="h-[25px] p-2 text-[black]">Maksimal ball</th>
+              <th className="h-[25px] p-2 text-[black]">Izoh</th>
               <th className="h-[25px] p-2 text-[black]">
                 <h2>Umumiy son: {rooms.length}</h2>
               </th>
@@ -95,7 +118,7 @@ const Task_main = () => {
                   <label className=" w-[100%] h-[100%] -ms-[8px] mt-[10px]  m-auto block cursor-pointer text-lg select-none">
                     <input
                       type="checkbox"
-                      className="absolute opacity-0 cursor-pointer"
+                      className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
                       checked={room.checked}
                       onChange={() => handleSingleCheck(room.id)}
                     />
@@ -112,10 +135,15 @@ const Task_main = () => {
                   </label>
                 </td>
                 <td className="h-[50px] p-2 text-[black]">{index + 1}</td>
-                <td className="p-2 text-[black]">{room.title}</td>
-                <td className="p-2 text-[black]">{room.capacity}</td>
+                <td className="p-2 text-[black]">{room.type}</td>
+                <td className="p-2 text-[black]">{room.name}</td>
+                <td className="p-2 text-[black]">{room.date}</td>
+                <td className="p-2 text-[black]">{room.teacher}</td>
+                <td className="p-2 text-[black]">{room.group}</td>
+                <td className="p-2 text-[black]">{room.ball}</td>
+                <td className="p-2 text-[black]">{room.comment}</td>
                 <td className="p-2 text-[black] flex justify-center gap-3">
-                  <div className="flex w-[30%] justify-around">
+                  <div className="flex w-[40%] justify-around">
                     {/* Tahrirlash tugmasi */}
                     <img
                       src={editIcon}
