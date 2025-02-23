@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Cassa from './Action/Cassa'
-import Bonus from './Action/Bonus'
+import Bonus from './Action/Bonuses/Bonus'
 import Penalty from './Action/Penalty'
 import Monthly_payment from './Action/Monthly_payment'
 import Input_output from './Info/Input_output'
