@@ -31,7 +31,8 @@ const Penalty = () => {
             fill="#ffffff"
           ></path>
         </svg>
-        Jarima qo'shish          </Button>
+        Jarima qo'shish        
+          </Button>
       <PenaltyTable penalties={penalties} />
       <PenaltyDrawer
         open={isDrawerOpen}
