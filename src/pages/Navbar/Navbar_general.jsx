@@ -150,7 +150,7 @@ const Navbar_general = () => {
     {
       path: "/finance/cassa",
       active: "/finance/cassa",
-      label: "Kassa",
+      label: "Kassalar",
     },
     {
       path: "/finance/bonus",
