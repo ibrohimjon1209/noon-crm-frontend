@@ -10,7 +10,7 @@ const PenaltyTable = ({ penalties }) => {
     { title: "Yaratilgan Sanasi", dataIndex: "createdAt", key: "createdAt" },
   ];
 
-  return <Table dataSource={penalties} columns={columns} rowKey="id" />;
+  return <Table dataSource={penalties} columns={columns} rowKey="id" className="mt-4" />;
 };
 
 export default PenaltyTable;
