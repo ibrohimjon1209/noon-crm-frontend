@@ -3,9 +3,9 @@ import SalaryRow from "./SalaryRow";
 
 const SalaryTable = ({ data = [] }) => {
   return (
-    <div className="overflow-x-auto shadow-lg rounded-lg">
-      <table className="w-full table-auto bg-white">
-        <thead>
+    <div className="w-full overflow-x-auto shadow-md rounded-lg mt-4">
+      <table className="w-full table-auto">
+        <thead className='bg-gray-50'>
           <tr className="bg-gray-50 border-b border-gray-200">
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">№</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Oylik</th>
@@ -42,7 +42,7 @@ const SalaryTable = ({ data = [] }) => {
     </div>
   );
 };
-
+ 
 SalaryTable.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
