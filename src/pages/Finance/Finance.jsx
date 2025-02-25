@@ -10,7 +10,7 @@ import Unpaid_bills from './Info/Unpaid_bills'
 import Transaction_wihtout_bills from './Info/Transaction_wihtout_bills'
 import Transaction from './Report/Transaction'
 import Contract from './Report/Contract'
-import Balance from './Info/Balance'
+import Balance from './Info/Balans/Balance'
 
 const Finance = () => {
   return (
