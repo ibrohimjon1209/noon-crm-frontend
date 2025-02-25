@@ -1,9 +1,13 @@
-import React from 'react'
+import SalaryTable from "./SalaryTable";
+import SalaryActions from "./SalaryActions";
 
-const MonthlyPayment = () => {
+const MonthlyPayment = ({ payments }) => {
   return (
-    <div>Monthly_payment</div>
-  )
-}
+    <div>
+      <SalaryActions />
+      <SalaryTable data={payments} />
+    </div>
+  );
+};
 
-export default MonthlyPayment
+export default MonthlyPayment;
