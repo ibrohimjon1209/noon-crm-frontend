@@ -6,16 +6,16 @@ const SalaryTable = ({ data = [] }) => {
       <table className="w-full table-auto">
         <thead className='bg-gray-50'>
           <tr className="bg-gray-50 border-b border-gray-200">
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">№</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Oylik</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Davomat</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Davomat foizi</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bonus</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Avans</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jarima</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Akladi</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">To'lanmagan</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sana</th>
+            <th className="px-6 py-3 text-left text-base font-medium text-gray-500 uppercase tracking-wider">№</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">Oylik</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">Davomat</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">Davomat foizi</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">Bonus</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">Avans</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">Jarima</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">Akladi</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">To'lanmagan</th>
+            <th className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider">Sana</th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
