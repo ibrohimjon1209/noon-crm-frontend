@@ -1,9 +1,7 @@
-import React from 'react'
-
 const SalaryActions = () => {
   return (
-    <div>SalaryActions</div>
-  )
-}
+    <button className="salary-btn">Oylik chiqarish</button>
+  );
+};
 
-export default SalaryActions
+export default SalaryActions;
