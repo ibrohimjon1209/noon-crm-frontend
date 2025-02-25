@@ -1,27 +1,28 @@
 import PropTypes from 'prop-types';
-import SalaryRow from "./SalaryRow";
-const SalaryTable = ({ data = [] }) => {
+import BalanceRow from './BalanceRow';
+const Balance = ({ data = [] }) => {
   return (
     <div className="w-full overflow-x-auto shadow-md rounded-lg mt-4">
       <table className="w-full table-auto">
         <thead className='bg-gray-50'>
           <tr className="bg-gray-50 border-b border-gray-200">
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">№</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Oylik</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Davomat</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Davomat foizi</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">To'liq ismi</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telefon raqam	</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ish haqi	</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Davomat	</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Davomatdan foizi	</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bonus</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Avans</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jarima</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Akladi</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Avans	</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jarima	</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Akladi	</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">To'lanmagan</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sana</th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
           {data.length > 0 ? (
             data.map((item) => (
-              <SalaryRow 
+              <BalanceRow 
                 key={item.id || crypto.randomUUID()} 
                 item={item} 
               />
@@ -42,7 +43,7 @@ const SalaryTable = ({ data = [] }) => {
   );
 };
 
-SalaryTable.propTypes = {
+Balance.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -59,4 +60,4 @@ SalaryTable.propTypes = {
   ).isRequired
 };
 
-export default SalaryTable;
+export default Balance;
