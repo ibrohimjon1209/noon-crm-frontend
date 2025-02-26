@@ -35,7 +35,7 @@ const Student_add_modal = ({ isOpen, onClose }) => {
         onClick={onClose}
       ></div>
       <div
-        className={`relative bg-white rounded-[10px] w-[625px] h-[740px] z-50 transition-all duration-300 ease-out ${
+        className={`relative bg-white rounded-[10px] w-[625px] h-[770px] z-50 transition-all duration-300 ease-out ${
           isAnimating
             ? "translate-y-1 opacity-100"
             : "-translate-y-20 opacity-0"
@@ -104,10 +104,33 @@ const Student_add_modal = ({ isOpen, onClose }) => {
               <option value="sinf8-11">8-11 sinf</option>
             </select>
           </div>
+          <div className="space-y-[10px] pt-[15px]">
+            <label className="font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">
+              O'quvchining pul to'lash sanasi
+            </label>
+            <input
+              type="date"
+              className="w-full h-[45px] text-[18px] placeholder:text-[18px] p-2 border border-gray-300 text-black bg-[#F2EEEE] rounded-md"
+              required
+            />
+          </div>
+          <div className="space-y-[10px] pt-[15px]">
+            <label className="font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">
+              Marketing so'rovnomasi
+            </label>
+            <select name="" id="" className="w-[100%] h-[50px] text-[18px]" defaultValue="">
+            <option value="" disabled hidden>Marketing so'rovnomasini tanlang </option>
+              <option value="banner">Banner</option>
+              <option value="you-tube">You tube</option>
+              <option value="telegram">Telegram</option>
+              <option value="instagram">Instagram</option>
+              <option value="target-2">Target 2</option>
+            </select>
+          </div>
           <div className="w-[100%] items-center flex justify-end">
             <button
               type="submit"
-              className="w-[140px] h-[60px] text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF]"
+              className="w-[140px] h-[60px] mt-2 text-[20px] py-2 px-4 bg-[#0D99FF] text-white rounded-md hover:bg-[#0D89FF]"
             >
               Saqlash
             </button>
