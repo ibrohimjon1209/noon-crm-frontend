@@ -9,5 +9,6 @@ export default defineConfig({
       '2fd7-202-79-186-222.ngrok-free.app'
     ]
   }
+  
 })
 
