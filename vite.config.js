@@ -4,7 +4,10 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   base: "/",
   server: {
-    allowedHosts: ['2fd7-202-79-186-222.ngrok-free.app']
+
+    allowedHosts: [
+      '2fd7-202-79-186-222.ngrok-free.app'
+    ]
   },
   resolve: {
     alias: {
@@ -12,3 +15,7 @@ export default defineConfig({
     },
   },
 })
+    allowedHosts: ['2fd7-202-79-186-222.ngrok-free.app']
+},
+
+)
