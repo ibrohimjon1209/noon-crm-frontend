@@ -88,7 +88,7 @@ const Course = () => {
       <div className="w-[112vw] h-[400px] border-black border-[1px] m-auto">
         <div className="w-[100%] h-[100px] border-black border-[1px] flex justify-between items-center">
           <div className="w-[50%] h-[100%] border-black border-[1px] flex justify-around items-center">
-            <ul className=" w-[60%] flex gap-8 flex justify-around items-center">
+            <ul className=" w-[60%] gap-8 flex justify-around items-center">
               <li className="bg-[red] ">
                 <Link className="text-[18px] text-[#404040]" to="/Groups/Group/Course_details">
                   O'quvchilar
