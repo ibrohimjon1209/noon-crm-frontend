@@ -34,7 +34,7 @@ const FilterSection = () => {
           Export
         </button>
         <Select
-          placeholder="Select a pet…"
+          placeholder="Kassa"
           indicator={<KeyboardArrowDown />}
           sx={{
             width: 240,
@@ -60,7 +60,7 @@ const FilterSection = () => {
         </LocalizationProvider>
 
         <Select
-          placeholder="Select a pet…"
+          placeholder="To'lov turi"
           indicator={<KeyboardArrowDown />}
           disablePortal
           sx={{
