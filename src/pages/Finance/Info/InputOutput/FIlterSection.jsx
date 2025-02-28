@@ -76,15 +76,18 @@ const FilterSection = () => {
         />
 
         <FormControl sx={{ minWidth: 300 }}>
-          <InputLabel>Plastik</InputLabel>
+          <InputLabel>To'lov turi</InputLabel>
           <Select
             value={plastik}
             label="Plastik"
             onChange={handlePlastikChange}
           >
-            <MenuItem value="plastik1">Plastik 1</MenuItem>
-            <MenuItem value="plastik2">Plastik 2</MenuItem>
-            <MenuItem value="plastik3">Plastik 3</MenuItem>
+            <MenuItem value="plastik1">Naqd</MenuItem>
+            <MenuItem value="plastik2">Plastik</MenuItem>
+            <MenuItem value="plastik3">Terminal</MenuItem>
+            <MenuItem value="plastik4">Payme</MenuItem>
+            <MenuItem value="plastik5">Click</MenuItem>
+            <MenuItem value="plastik6">Uzum</MenuItem>
           </Select>
         </FormControl>
       </div>
