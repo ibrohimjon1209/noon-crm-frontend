@@ -2,19 +2,14 @@ import { useState } from "react";
 import Select, { selectClasses } from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import TextField from '@mui/material/TextField';
 
 const FilterSection = () => {
   const [activeTab, setActiveTab] = useState("Kirim");
-  // const [kassa, setKassa] = useState("");
-  // const [plastik, setPlastik] = useState("");
-
-  // const handleKassaChange = (event) => {
-  //   setKassa(event.target.value);
-  // };
-
-  // const handlePlastikChange = (event) => {
-  //   setPlastik(event.target.value);
-  // };
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const tabs = ["Kirim", "Chiqim", "Vaucher"];
 
@@ -25,10 +20,9 @@ const FilterSection = () => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-6 py-2 rounded-xl transition-colors duration-200 ${activeTab === tab
-              ? "bg-blue-600 text-white"
-              : "bg-white text-black"
-              }`}
+            className={`px-6 py-2 rounded-xl transition-colors duration-200 ${
+              activeTab === tab ? "bg-blue-600 text-white" : "bg-white text-black"
+            }`}
           >
             {tab}
           </button>
@@ -52,21 +46,23 @@ const FilterSection = () => {
             },
           }}
         >
-          <Option value="dog">Dog</Option>
-          <Option value="cat">Cat</Option>
-          <Option value="fish">Fish</Option>
-          <Option value="bird">Bird</Option>
+          <Option value="dog">User 1</Option>
+          <Option value="cat">User 2</Option>
         </Select>
 
-        <input
-          style={{ minWidth: 300 }}
-          type="date"
-          className="px-4 py-2 border rounded bg-gray-100"
-        />
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            value={selectedDate}
+            onChange={(newValue) => setSelectedDate(newValue)}
+            slotProps={{ textField: { size: 'small' } }}
+            sx={{ minWidth: 300 }}
+          />
+        </LocalizationProvider>
+
         <Select
           placeholder="Select a pet…"
           indicator={<KeyboardArrowDown />}
-          disablePortal // <-- Bu select ochilganda joyida qolishini ta'minlaydi
+          disablePortal
           sx={{
             width: 240,
             [`& .${selectClasses.indicator}`]: {
@@ -79,18 +75,19 @@ const FilterSection = () => {
           slotProps={{
             listbox: {
               sx: {
-                position: "absolute", // <-- Bu select opsiyalarini o'z joyida ochilishiga yordam beradi
-                zIndex: 1000, // <-- Element oldinga chiqib turishi uchun
+                position: "absolute",
+                zIndex: 1000,
               },
             },
           }}
         >
-          <Option value="dog">Dog</Option>
-          <Option value="cat">Cat</Option>
-          <Option value="fish">Fish</Option>
-          <Option value="bird">Bird</Option>
+          <Option value="dog">Naqd</Option>
+          <Option value="cat">Plastik</Option>
+          <Option value="fish">Terminal</Option>
+          <Option value="bird">Payme</Option>
+          <Option value="bird">Click</Option>
+          <Option value="bird">Uzum</Option>
         </Select>
-
       </div>
     </div>
   );
