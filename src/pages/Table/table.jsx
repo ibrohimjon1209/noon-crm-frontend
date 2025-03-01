@@ -39,7 +39,7 @@ const Test = () => {
 
     const getCurrentDay = () => {
         const today = new Date();
-        const dayIndex = today.getDay(); // 0: Yak, 1: Du, ..., 6: Sha
+        const dayIndex = today.getDay();
         return days[dayIndex];
     };
 

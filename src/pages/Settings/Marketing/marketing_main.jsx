@@ -26,6 +26,7 @@ const Marketing_settings_main = () => {
             </Routes>
             </div>
         </div>
+
     </div>
     </>
     );
