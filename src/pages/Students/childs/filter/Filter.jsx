@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import arrow_down_black_icon from "../../../Lids/childs/first_lesson/imgs/arrow_down_black_icon.png";
-import calendar_icon from "../../../Lids/childs/first_lesson/imgs/calendar_icon.png";
-import "../../../Lids/childs/first_lesson/style.css";
+import arrow_down_black_icon from "../../Image/arrow_down_black_icon.png";
+import calendar_icon from "../../Image/calendar_icon.png";
+import "../style.css";
 
 const Filter = ({itemText}) => {
   const [is_human_open, set_is_human_open] = useState(false);

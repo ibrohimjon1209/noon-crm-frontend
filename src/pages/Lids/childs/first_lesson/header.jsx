@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import arrow_down_black_icon from "./imgs/arrow_down_black_icon.png";
-import calendar_icon from "./imgs/calendar_icon.png"
+import arrow_down_black_icon from "../../../assigments/images/arrow_down_black_icon.png";
+import calendar_icon from "../../../assigments/images/calendar_icon.png"
 import './style.css'
 
 const Header = () => {
