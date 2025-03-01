@@ -9,7 +9,7 @@ import arrowdown from "../imgs/arrowdown.png";
 import archive from "../imgs/solar-history.png";
 import plus from "../imgs/add_icon.png";
 import exprt from "../imgs/export.png";
-import search from '../imgs/search-normal.png'
+// import search from '../imgs/search-normal.png'
 
 const Course = () => {
   const location = useLocation();
@@ -33,10 +33,10 @@ const Course = () => {
       <div className="w-[112vw] h-[350px] bg-white rounded-[10px] m-auto mt-[30px] block overflow-auto">
         <div className="w-[100%] h-[70px] flex justify-end">
           <div className="w-[300px] h-[40px] flex justify-around items-center mt-[30px]">
-            <img className="h-[100%]" src={calendar} alt="" />
-            <img className="h-[100%]" src={edit} alt="" />
-            <img className="h-[100%]" src={arrowdown} alt="" />
-            <img className="h-[100%]" src={archive} alt="" />
+            <img className="h-[80%]" src={calendar} alt="" />
+            <img className="h-[80%]" src={edit} alt="" />
+            <img className="h-[80%]" src={arrowdown} alt="" />
+            <img className="h-[80%]" src={archive} alt="" />
           </div>
         </div>
 
@@ -57,15 +57,15 @@ const Course = () => {
           <tbody>
             {info.map((item, index) => (
               <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{item.name}</td>
-                <td>{item.degre}</td>
-                <td>{item.mentor}</td>
-                <td>{item.room}</td>
-                <td>{item.type}</td>
-                <td>{item.l_duration}</td>
-                <td>{item.g_duration}</td>
-                <td>{item.days}</td>
+                <td className="text-center h-[40px]">{index + 1}</td>
+                <td className="text-center h-[40px]">{item.name}</td>
+                <td className="text-center h-[40px]">{item.degre}</td>
+                <td className="text-center h-[40px]">{item.mentor}</td>
+                <td className="text-center h-[40px]">{item.room}</td>
+                <td className="text-center h-[40px]">{item.type}</td>
+                <td className="text-center h-[40px]">{item.l_duration}</td>
+                <td className="text-center h-[40px]">{item.g_duration}</td>
+                <td className="text-center h-[40px]">{item.days}</td>
               </tr>
             ))}
           </tbody>
@@ -88,7 +88,7 @@ const Course = () => {
       <div className="w-[112vw] h-[400px] border-black border-[1px] m-auto">
         <div className="w-[100%] h-[100px] border-black border-[1px] flex justify-between items-center">
           <div className="w-[50%] h-[100%] border-black border-[1px] flex justify-around items-center">
-            <ul className=" w-[60%] flex gap-8 flex justify-around items-center">
+            <ul className=" w-[60%] gap-8 flex justify-around items-center">
               <li className="bg-[red] ">
                 <Link className="text-[18px] text-[#404040]" to="/Groups/Group/Course_details">
                   O'quvchilar
@@ -128,7 +128,8 @@ const Course = () => {
 
         </div>
       </div>
-
+      
+      
 
       <Routes>
         <Route path="/Groups/Group/Course_details" element={<Student />} />
@@ -141,3 +142,13 @@ const Course = () => {
 };
 
 export default Course;
+
+// import React from 'react'
+// import Students from './Course_details/Students'
+// const Course = () => {
+//   return (
+//     <div><Students /></div>
+//   )
+// }
+
+// export default Course
