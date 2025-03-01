@@ -118,18 +118,18 @@ const Course = () => {
 
           </div>
 
-          
+
           <input
               type="text"
               className="w-[300px] h-[80px] bg-white rounded-[5px] relative font-roboto font-[400] text-[19px] leading-[23.44px] text-black px-[20px]"
               placeholder="Qidirish"
             />
-          
+
 
         </div>
       </div>
-      
-      
+
+
 
       <Routes>
         <Route path="/Groups/Group/Course_details" element={<Student />} />
@@ -143,12 +143,18 @@ const Course = () => {
 
 export default Course;
 
-// import React from 'react'
-// import Students from './Course_details/Students'
+
+
+
+// import React from 'react';
+// import Students from './Course_details/Students';
+
 // const Course = () => {
 //   return (
-//     <div><Students /></div>
-//   )
-// }
+//     <>
+//       <Students />
+//     </>
+//   );
+// };
 
-// export default Course
+// export default Course;
