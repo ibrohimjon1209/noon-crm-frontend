@@ -68,7 +68,36 @@ const DateFilter = () => {
     };
 
     return (
-        <div className="flex gap-4">
+        <div className="flex gap-4 mt-4 ml-6">
+             <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
+                <div className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_calendar_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between px-[25px]`}
+                    onClick={() => set_is_calendar_open(!is_calendar_open)}>
+                    <img src={calendar_icon} className={`w-[33px] h-[33px] object-contain duration-[0.3s]`} alt=""/>
+                    <p className={`font-roboto font-[400] text-[19px] whitespace-nowrap leading-[23.44px] text-black`}>
+                        {calendar_value}
+                    </p>
+                </div>
+                <div className={`absolute top-[70px] left-0 w-full bg-white border-[#C5C5C5] shadow-md rounded-[5px] z-10 overflow-hidden transition-all duration-[300ms] ease-out ${is_calendar_open ? `h-[286px] mt-[5px] border-[1.5px] overflow-hidden menu_scroll` : 'h-0 border-[0px]'}`}>
+                    <div className="flex justify-between items-center p-[22px]">
+                        <button onClick={() => changeMonth(-1)} className="cursor-pointer">
+                            <img src={arrow_down_black_icon} className="w-[25px] h-[25px] object-contain rotate-90" alt="" />
+                        </button>
+                        <p className="font-[700] font-[inter] text-[14px] text-black tracking-[-0.5px]">
+                            {monthNames[currentDate.getMonth()]} <span className="font-[400]">{currentDate.getFullYear()}</span>
+                        </p>
+                        <button onClick={() => changeMonth(1)} className="cursor-pointer">
+                            <img src={arrow_down_black_icon} className="w-[25px] h-[25px] object-contain -rotate-90" alt="" />
+                        </button>
+                    </div>
+                    <hr className="border-[#0000001A] border-[1.5px] w-[84%] mx-auto -mt-[3px]" />
+                    <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] mb-[10px]">
+                        <p>Du</p><p>Se</p><p>Ch</p><p>Pa</p><p>Ju</p><p>Sh</p><p>Ya</p>
+                    </div>
+                    <div className="grid grid-cols-7 mt-[25px] px-[10px]">
+                        {renderCalendar()}
+                    </div>
+                </div>
+            </div>
             <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
                 <div
                     className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_human_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between ${moderator_value.length > 15 ? 'px-[20px]' : 'px-[28px]'}`}
@@ -97,37 +126,6 @@ const DateFilter = () => {
                             </li>
                         ))}
                     </ul>
-                </div>
-            </div>
-
-            {/* Calendar Component */}
-            <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
-                <div className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_calendar_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between px-[25px]`}
-                    onClick={() => set_is_calendar_open(!is_calendar_open)}>
-                    <img src={calendar_icon} className={`w-[33px] h-[33px] object-contain duration-[0.3s]`} alt=""/>
-                    <p className={`font-roboto font-[400] text-[19px] whitespace-nowrap leading-[23.44px] text-black`}>
-                        {calendar_value}
-                    </p>
-                </div>
-                <div className={`absolute top-[70px] left-0 w-full bg-white border-[#C5C5C5] shadow-md rounded-[5px] z-10 overflow-hidden transition-all duration-[300ms] ease-out ${is_calendar_open ? `h-[286px] mt-[5px] border-[1.5px] overflow-hidden menu_scroll` : 'h-0 border-[0px]'}`}>
-                    <div className="flex justify-between items-center p-[22px]">
-                        <button onClick={() => changeMonth(-1)} className="cursor-pointer">
-                            <img src={arrow_down_black_icon} className="w-[25px] h-[25px] object-contain rotate-90" alt="" />
-                        </button>
-                        <p className="font-[700] font-[inter] text-[14px] text-black tracking-[-0.5px]">
-                            {monthNames[currentDate.getMonth()]} <span className="font-[400]">{currentDate.getFullYear()}</span>
-                        </p>
-                        <button onClick={() => changeMonth(1)} className="cursor-pointer">
-                            <img src={arrow_down_black_icon} className="w-[25px] h-[25px] object-contain -rotate-90" alt="" />
-                        </button>
-                    </div>
-                    <hr className="border-[#0000001A] border-[1.5px] w-[84%] mx-auto -mt-[3px]" />
-                    <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] font-medium mb-[10px]">
-                        <p>Du</p><p>Se</p><p>Ch</p><p>Pa</p><p>Ju</p><p>Sh</p><p>Ya</p>
-                    </div>
-                    <div className="grid grid-cols-7 mt-[25px] px-[10px]">
-                        {renderCalendar()}
-                    </div>
                 </div>
             </div>
         </div>

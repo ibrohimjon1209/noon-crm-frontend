@@ -44,60 +44,63 @@ const ChatModal = ({ isOpen, onClose }) => {
     setInputText(""); // Input maydonini tozalash
   };
 
+  // Modal ichidagi hodisalarni to'xtatish
+  const handleModalClick = (e) => {
+    e.stopPropagation(); // Tashqi divning onClick hodisasi ishlamasligi uchun
+  };
+
   // Agar modal ochilmasa, hech narsa ko'rsatma
   if (!shouldRender) return null;
 
   return (
-    <div className="fixed inset-0 z-50 h-full ">
+    <div className="fixed inset-0 z-50 h-full">
       {/* Blur (o'chok) effekt */}
       <div
-        className={` bg-black/30 backdrop-blur-sm w-full h-[134%] p-[30px] flex justify-end items-end border-black border-[1px] transition-opacity duration-300 ${
+        className={`bg-black/30 backdrop-blur-sm w-full h-[134%] p-[30px] flex justify-end items-end border-black border-[1px] transition-opacity duration-300 ${
           isAnimating ? "opacity-100" : "opacity-0"
         }`}
         onClick={onClose} // Modalni yopish uchun
       >
-      <div
-        className={`bg-white rounded-lg shadow-lg w-full max-w-md transform transition-all duration-300 ]${
-          isAnimating ? "scale-100 opacity-100" : "scale-95 opacity-0"
-        }`}
-      >
-        {/* Sarlavha */}
-        <div className="p-4 border-b">
-          <h2 className="font-medium">Nicolas Cage</h2>
-        </div>
+        <div
+          className={`bg-white rounded-lg shadow-lg w-full max-w-md transform transition-all duration-300 ${
+            isAnimating ? "scale-100 opacity-100" : "scale-95 opacity-0"
+          }`}
+          onClick={handleModalClick} // Modal ichidagi hodisalarni to'xtatish
+        >
+          {/* Sarlavha */}
+          <div className="p-4 border-b">
+            <h2 className="font-medium">Nicolas Cage</h2>
+          </div>
 
-        {/* Xabarlar ro'yxati */}
-        <div className="h-96 overflow-y-auto p-4 space-y-4">
-          {messages.map((message, index) => (
-            <div key={index} className="bg-gray-100 rounded-lg p-3">
-              <p className="mb-1">{message.text}</p>
-              <span className="text-xs text-gray-500">{message.timestamp}</span>
-            </div>
-          ))}
-        </div>
+          {/* Xabarlar ro'yxati */}
+          <div className="h-96 overflow-y-auto p-4 space-y-4">
+            {messages.map((message, index) => (
+              <div key={index} className="bg-gray-100 rounded-lg p-3">
+                <p className="mb-1">{message.text}</p>
+                <span className="text-xs text-gray-500">{message.timestamp}</span>
+              </div>
+            ))}
+          </div>
 
-        {/* Input maydoni va tugma */}
-        <form onSubmit={handleSubmit} className="border-t p-4 flex gap-2">
-          <input
-            type="text"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            placeholder="Izoh qoldirish"
-            className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-          >
-            <Send className="w-5 h-5" />
-          </button>
-        </form>
+          {/* Input maydoni va tugma */}
+          <form onSubmit={handleSubmit} className="border-t p-4 flex gap-2">
+            <input
+              type="text"
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              placeholder="Izoh qoldirish"
+              className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+              type="submit"
+              className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              <Send className="w-5 h-5" />
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-
-      </div>
-
-      
   );
 };
 

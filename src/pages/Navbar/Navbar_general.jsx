@@ -271,7 +271,7 @@ const Navbar_general = () => {
               src={assignment_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               Topshiriqlar
             </h1>
           </div>
@@ -290,7 +290,7 @@ const Navbar_general = () => {
               src={lydes_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               Lidlar
             </h1>
           </div>
@@ -342,7 +342,7 @@ const Navbar_general = () => {
               src={group_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               Guruhlar
             </h1>
           </div>
@@ -394,7 +394,7 @@ const Navbar_general = () => {
               src={student_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               O'quvchilar
             </h1>
           </div>
@@ -446,7 +446,7 @@ const Navbar_general = () => {
               src={study_division}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               O'quv bo'limi
             </h1>
           </div>
@@ -502,7 +502,7 @@ const Navbar_general = () => {
               src={wallet_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               Moliya
             </h1>
           </div>
@@ -609,7 +609,7 @@ const Navbar_general = () => {
               src={control_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               Nazorat
             </h1>
           </div>
@@ -688,7 +688,7 @@ const Navbar_general = () => {
               src={drive_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               Boshqaruv
             </h1>
           </div>
@@ -706,7 +706,7 @@ const Navbar_general = () => {
               src={marketing_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[23.09px]">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px]">
               Sotuv va marketing
             </h1>
           </div>
@@ -724,7 +724,7 @@ const Navbar_general = () => {
               src={report_icon}
               className="w-[32px] h-[32px] object-contain"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               Hisobotlar
             </h1>
           </div>
@@ -744,7 +744,7 @@ const Navbar_general = () => {
               className="w-[32px] h-[32px] object-contain"
               alt="Settings"
             />
-            <h1 className="font-roboto font-[500] text-[17px] tracking-[0.2px] leading-[21.09px] whitespace-nowrap">
+            <h1 className="font-[SF Pro Display] font-[400] text-[19px] leading-[23.09px] whitespace-nowrap">
               Sozlamalar
             </h1>
           </div>
