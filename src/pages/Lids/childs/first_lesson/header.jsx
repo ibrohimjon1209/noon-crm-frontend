@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import arrow_down_black_icon from "./imgs/arrow_down_black_icon.png";
-import calendar_icon from "./imgs/calendar_icon.png"
+import arrow_down_black_icon from "../../../assigments/images/arrow_down_black_icon.png";
+import calendar_icon from "../../../assigments/images/calendar_icon.png"
 import './style.css'
 
 const Header = () => {
@@ -302,7 +302,7 @@ const Header = () => {
                             </button>
                         </div>
                         <hr className="border-[#0000001A] border-[1.5px] w-[84%] mx-auto -mt-[3px]" />
-                        <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] font-medium mb-[10px]">
+                        <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] mb-[10px]">
                             <p>Du</p>
                             <p>Se</p>
                             <p>Ch</p>
@@ -402,7 +402,7 @@ const Header = () => {
                     placeholder="Qidirish"
                 />
             </div>
-    </div>
+        </div>
     );
 };
 
