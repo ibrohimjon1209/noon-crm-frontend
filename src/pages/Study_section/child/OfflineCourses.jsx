@@ -1,4 +1,4 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { CiCirclePlus } from 'react-icons/ci';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { GoChevronDown, GoChevronUp } from 'react-icons/go';
@@ -6,8 +6,15 @@ import { PiArrowCircleDown, PiArrowCircleUp } from 'react-icons/pi';
 import { RiPencilLine } from 'react-icons/ri';
 import HashtagModal from '../../Settings/Marketing/childs/hashtag/hashtag_modal';
 import DeleteModal from '../../Settings/Marketing/childs/hashtag/DeleteModal';
+import { useNavigate } from 'react-router-dom';
+import { useLevel } from '../../../store/ContexApi';
 
 const OfflineCourses = () => {
+
+    const navigate = useNavigate();
+    const { setSelectedLevels } = useLevel();
+
+
     const [openDropdown, setOpenDropdown] = useState(null);
 
     const toggleDropdown = (index) => {
@@ -69,6 +76,12 @@ const OfflineCourses = () => {
         setDeleteIndex(null);
     };
 
+    const handleSelectLanguage = (level) => {
+        setSelectedLevels(level);
+        navigate("/study_section/tabsComponent");
+        console.log(level,'handleSelectLanguage ishladi');
+    };
+
 
     return (
         <div className="w-full p-6">
@@ -113,10 +126,12 @@ const OfflineCourses = () => {
                 {courses.map((course, index) => (
                     <div key={index} className="border-b">
                         <div className="flex justify-around items-center cursor-pointer py-3 px-4 hover:bg-gray-50">
-                            <span>{openDropdown === index ? <GoChevronUp size={30} className='text-black' /> : <GoChevronDown size={30} className='text-black' />}</span>
                             <span
-                                className="text-lg h-10 flex-1 ml-2 text-black"
                                 onClick={() => toggleDropdown(index)}
+                            >{openDropdown === index ? <GoChevronUp size={30} className='text-black' /> : <GoChevronDown size={30} className='text-black' />}</span>
+                            <span
+                                onClick={() => handleSelectLanguage(course.levels)}
+                                className="text-lg h-10 flex-1 ml-2 text-black"
                             >{course.title}</span>
                             <div className='flex '>
                                 <span className={`w-6 h-6 mr-72 ${course.color} rounded`} />
