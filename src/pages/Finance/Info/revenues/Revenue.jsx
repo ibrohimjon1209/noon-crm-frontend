@@ -1,8 +1,13 @@
 import React from 'react'
+import DateFilter from './DateFilter'
+import RevenueTable from './RevenueTable'
 
 const Revenue = () => {
   return (
-    <div>Revenue</div>
+    <div>
+    <DateFilter />
+    <RevenueTable />
+  </div>
   )
 }
 

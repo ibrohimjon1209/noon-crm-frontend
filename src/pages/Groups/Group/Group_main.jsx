@@ -6,8 +6,8 @@ const Group_main = () => {
   const [checkedRows, setCheckedRows] = useState({});
 
   const data = [
-    { id: 123, group: "IT", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 124, group: "IT", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
+    { id: 123, group: "Ingliz tili", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
+    { id: 124, group: "Rus tili", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
     { id: 125, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" }
   ];
 
@@ -107,7 +107,7 @@ const Group_main = () => {
                 </td>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{index + 1}</td>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{item.id}</td>
-                <Link className="px-6 pb-[25px] whitespace-nowrap hover:text" to="/groups/course">{item.group}</Link>
+                <Link className="px-6 pb-[25px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">{item.group}</Link>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{item.course}</td>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{item.level}</td>
                 <td className="px-6 pb-[25px] whitespace-nowrap">{item.day}</td>
