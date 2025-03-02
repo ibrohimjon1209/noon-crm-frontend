@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Cassa from './Action/Cassa'
 import Bonus from './Action/Bonuses/Bonus'
 import Penalty from './Action/Penalties/Penalty'
 import Monthly_payment from './Action/Payment/MonthlyPayment'
@@ -11,6 +10,7 @@ import Transaction_wihtout_bills from './Info/Transaction_wihtout_bills'
 import Transaction from './Report/Transaction'
 import Contract from './Report/Contract'
 import Balance from './Info/Balans/Balance'
+import Cassa from './Action/Cassa/Cassa'
 
 const Finance = () => {
   return (
