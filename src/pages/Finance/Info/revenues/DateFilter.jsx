@@ -68,7 +68,7 @@ const DateFilter = () => {
     };
 
     return (
-        <div className="flex gap-4">
+        <div className="flex gap-4 mt-4 ml-6">
              <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
                 <div className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_calendar_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between px-[25px]`}
                     onClick={() => set_is_calendar_open(!is_calendar_open)}>
@@ -90,7 +90,7 @@ const DateFilter = () => {
                         </button>
                     </div>
                     <hr className="border-[#0000001A] border-[1.5px] w-[84%] mx-auto -mt-[3px]" />
-                    <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] font-medium mb-[10px]">
+                    <div className="grid grid-cols-7 mt-[10px] mx-[11px] font-[inter] font-[400] leading-[12.1px] text-center text-[#292A34] text-[11.5px] mb-[10px]">
                         <p>Du</p><p>Se</p><p>Ch</p><p>Pa</p><p>Ju</p><p>Sh</p><p>Ya</p>
                     </div>
                     <div className="grid grid-cols-7 mt-[25px] px-[10px]">
@@ -128,8 +128,6 @@ const DateFilter = () => {
                     </ul>
                 </div>
             </div>
-
-            {/* Calendar Component */}
         </div>
     );
 };
