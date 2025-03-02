@@ -1,0 +1,93 @@
+import React, { useState } from 'react';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import Students from './Students';
+import Assigment from './Assigment';
+import Training from './Training';
+
+const NavbarSections = () => {
+    const location = useLocation(); // Hozirgi URL’ni olish
+    const [isChecked, setIsChecked] = useState(false);
+
+    return (
+        <div className="w-full h-[88px] mt-[30px] rounded-[15px]">
+            <ul className="w-[100%] h-[8%] mt-[50px] flex justify-between gap-[6%] items-center">
+                <li
+                    className="rounded-t-lg px-6 py-4"
+                    style={{
+                        backgroundColor:
+                            location.pathname === '/groups/course/students'
+                                ? 'white'
+                                : '#F5F8FA',
+                    }}
+                >
+                    <Link
+                        className="text-[18px] text-[#404040] font-inter font-[600]"
+                        to="/groups/course/students"
+                    >
+                        O'quvchilar
+                    </Link>
+                    {location.pathname === '/groups/course/students' && (
+                        <div className="line-bottom mt-[5px] h-[1px] w-full bg-[#264E86]"></div>
+                    )}
+                </li>
+                <li
+                    className="rounded-t-lg px-6 py-4"
+                    style={{
+                        backgroundColor:
+                            location.pathname === '/groups/course/assigment'
+                                ? 'white'
+                                : '#F5F8FA',
+                    }}
+                >
+                    <Link
+                        className="text-[18px] text-[#404040] font-inter font-[600]"
+                        to="/groups/course/assigment"
+                    >
+                        Topshiriqlar
+                    </Link>
+                    {location.pathname === '/groups/course/assigment' && (
+                        <div className="line-bottom mt-[5px] h-[1px] w-full bg-[#264E86]"></div>
+                    )}
+                </li>
+                <li
+                    className="rounded-t-lg px-6 py-4"
+                    style={{
+                        backgroundColor:
+                            location.pathname === '/groups/course/training'
+                                ? 'white'
+                                : '#F5F8FA',
+                    }}
+                >
+                    <Link
+                        className="text-[18px] text-[#404040] font-inter font-[600]"
+                        to="/groups/course/training"
+                    >
+                        Mashg'ulot biriktirish
+                    </Link>
+                    {location.pathname === '/groups/course/training' && (
+                        <div className="line-bottom mt-[5px] h-[1px] w-full bg-[#264E86]"></div>
+                    )}
+                </li>
+                <div className="flex items-center gap-3 bg-gray-100 p-2 rounded-lg">
+                    <span className="text-gray-600 text-lg">Arxiv Talabalar</span>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                        <input
+                            type="checkbox"
+                            className="sr-only peer"
+                            checked={isChecked}
+                            onChange={() => setIsChecked(!isChecked)}
+                        />
+                        <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:after:translate-x-5 peer-checked:bg-blue-500 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:h-5 after:w-5 after:rounded-full after:transition-all"></div>
+                    </label>
+                </div>
+            </ul>
+            <Routes>
+                <Route path="/students" element={<Students />} />
+                <Route path="/assigment" element={<Assigment />} />
+                <Route path="/training" element={<Training />} />
+            </Routes>
+        </div>
+    );
+};
+
+export default NavbarSections;
