@@ -11,8 +11,9 @@ const RevenueTable = () => (
       <tbody>
         <tr className="border-b hover:bg-gray-50">
           <td className="p-3">27/02/2025</td>
-          <td className="p-3"></td>
-          <td className="p-3"></td>
+          <td className="p-3">Eski oydan qarzdor bo'lib o'tgan o'quvchilar summasi</td>
+          <td className="p-3">Shu oyda to'lagan summa </td>
+          <td className="p-3">Qolgan kutilayotgan tushum </td>
         </tr>
       </tbody>
     </table>
