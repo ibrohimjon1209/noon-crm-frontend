@@ -2,7 +2,7 @@ import React from 'react'
 
 const Transaction_wihtout_bills = () => {
   return (
-    <div>Transaction_wihtout_bills </div>
+    <div></div>
   )
 }
 
