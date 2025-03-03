@@ -407,46 +407,6 @@ const Assigments = () => {
                             </div>
                         </div>
 
-                        <div className="w-full h-full border-t-[3px] border-[#3DFE5D] flex flex-col items-center pt-[25px] gap-3">
-                            <p className="uppercase text-black font-roboto font-semibold text-lg leading-6">Bugun</p>
-                            <p className="text-black font-roboto font-semibold text-lg leading-6 text-[#3DFE5D]">{everyday_count()}</p>
-                            <div className="w-full h-full bg-transparent flex flex-col gap-4 overflow-y-scroll">
-                                {assigments.map((item, index) => (
-                                    item.status === 'everyday' && (
-                                        <div
-                                            key={index}
-                                            className="w-full h-[auto] bg-white rounded-lg flex flex-col pt-3 pl-4 pb-3 gap-3"
-                                        >
-                                            <p className="text-[#0D99FF] text-lg leading-6 font-roboto font-medium">
-                                                {item.name}
-                                            </p>
-                                            <div className="flex flex-row gap-3 items-center">
-                                                <img
-                                                    src={green_phone_icon}
-                                                    alt="phone"
-                                                    className="w-5 h-5 object-contain"
-                                                />
-                                                <p className="text-[#3EC483] text-sm leading-5 font-roboto font-medium">
-                                                    {item.phone}
-                                                </p>
-                                            </div>
-                                            <p className="text-[#3EC483] text-xs leading-4 font-roboto font-medium">
-                                                {item.date} | {item.time}
-                                            </p>
-                                            <div className="flex flex-col gap-2">
-                                                <p className="text-black text-xs leading-4 font-roboto font-medium">
-                                                    Izoh :
-                                                </p>
-                                                <p className="text-black text-xs leading-4 font-roboto font-medium max-w-[90%]">
-                                                    {item.description}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    )
-                                ))}
-                            </div>
-                        </div>
-
                         <div className="w-full h-full border-t-[3px] border-[#A1A1A1] flex flex-col items-center pt-[25px] gap-3">
                             <p className="uppercase text-black font-roboto font-semibold text-lg leading-6">Oylik</p>
                             <p className="text-black font-roboto font-semibold text-lg leading-6 text-[#A1A1A1]">{monthly_count()}</p>

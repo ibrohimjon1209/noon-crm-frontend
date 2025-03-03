@@ -10,8 +10,8 @@ const Groups = () => {
   return (
     <>
       <Routes>
-          <Route path="/group/*" element={<Group />} />
-          <Route path="/course" element={<Course />} />
+          <Route path="/group*" element={<Group />} />
+          <Route path="/course*" element={<Course />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/students" element={<Students />} />
           <Route path="/table" element={<Table />} />

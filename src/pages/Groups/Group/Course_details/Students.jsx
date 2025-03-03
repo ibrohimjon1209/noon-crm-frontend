@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom"; // Faqat useNavigate kerak
 import menu from "../../imgs/menu.png";
 import closeIcon from "../../imgs/close.png";
 import warningIcon from "../../imgs/warning-2.png";
@@ -11,12 +12,18 @@ import trashIcon from "../../imgs/trash.png";
 import undoIcon from "../../imgs/undo.png";
 import ColorPickerModal from "./Students_items/color_picker";
 import FreezeModal from './Students_items/Freeze';
-import InfoModal from './Students_items/InfoModal'
-import ChatModal from './Students_items/ChatModal'
-import TransferModal from './Students_items/TransferModal'
+import InfoModal from './Students_items/InfoModal';
+import ChatModal from './Students_items/ChatModal';
+import TransferModal from './Students_items/TransferModal';
+import GraduateModal from './Students_items/Graduate';
+import DeleteModal from './Students_items/Delete';
+import ReturnToLidModal from './Students_items/ReturnToLid';
+// import Archive from './Students_items/Archive_modal/Archive  '
 import './Students_items/Students.css';
 
 const Students = () => {
+  const navigate = useNavigate(); // Navigatsiya uchun hook
+
   const [students, setStudents] = useState([
     { id: 1, name: "Nuraliyev Muhammad Sodiq", phone: "+998 90 990 09 99", balance: "892 765 uzs", price: "56 000 uzs", checked: false, menuOpen: false, num_color: "#ffffff" },
     { id: 2, name: "Ismoilov Aziz", phone: "+998 91 111 11 11", balance: "750 000 uzs", price: "45 000 uzs", checked: false, menuOpen: false, num_color: "#ffffff" },
@@ -28,6 +35,9 @@ const Students = () => {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const [isTransferModalOpen, setIsTransferModalOpen] = useState(false);
+  const [isGraduateModalOpen, setIsGraduateModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isReturnToLidModalOpen, setIsReturnToLidModalOpen] = useState(false);
 
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [closingMenuId, setClosingMenuId] = useState(null);
@@ -124,29 +134,13 @@ const Students = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const closeMenu = (event) => {
-  //     if (!event.target.closest(".menu-container")) {
-  //       setStudents((prevStudents) =>
-  //         prevStudents.map((student) => {
-  //           if (student.menuOpen) {
-  //             setClosingMenuId(student.id);
-  //             setTimeout(() => {
-  //               setStudents((prev) => prev.map((s) => ({ ...s, menuOpen: false })));
-  //               setClosingMenuId(null);
-  //             }, 300);
-  //           }
-  //           return student;
-  //         })
-  //       );
-  //     }
-  //   };
-  //   document.addEventListener("click", closeMenu);
-  //   return () => document.removeEventListener("click", closeMenu);
-  // }, []);
+  // Archive sahifasiga o'tish uchun funksiya
+  const handleArchiveClick = () => {
+    navigate('/archive');
+  };
 
   return (
-    <div className="w-[112vw] h-[400px] bg-[white] m-[auto] overflow-auto">
+    <div className="w-[112vw] h-auto bg-[white] m-[auto] overflow-auto mt-[20px]">
       <h2 className="text-[#747474] underline text-[20px] float-right mr-[30px] mt-[30px]">
         Umumiy son: {students.length}
       </h2>
@@ -217,38 +211,74 @@ const Students = () => {
                 {student.menuOpen && (
                   <div className="absolute z-10 right-[50px] -top-[32px] w-[490px] h-[80px] rounded-lg overflow-hidden ">
                     <div
-                      className={`ml-[60px] w-[410px] h-[40px] mt-[39px] bg-white shadow-md rounded-lg  flex justify-evenly items-center p-2 z-50 ${closingMenuId === student.id ? "menuSlideOut" : "menuSlideIn"
-                        }`}
+                      className={`ml-[60px] w-[410px] h-[40px] mt-[39px] bg-white shadow-md rounded-lg flex justify-evenly items-center p-2 z-50 ${
+                        closingMenuId === student.id ? "menuSlideOut" : "menuSlideIn"
+                      }`}
                     >
                       {[
                         {
-                          src: warningIcon, label: "O'quvchini gurhdan muzlatish", onClick: () => {
+                          src: warningIcon,
+                          label: "O'quvchini guruhdan muzlatish",
+                          onClick: () => {
                             setSelectedStudent(student);
                             setIsFreezeModalOpen(true);
-                          }
+                          },
                         },
                         {
-                          src: infoIcon, label: "Ma'lumot", onClick: () => {
+                          src: infoIcon,
+                          label: "Ma'lumot",
+                          onClick: () => {
                             setSelectedStudent(student);
                             setIsInfoModalOpen(true);
-                          }
+                          },
                         },
                         {
-                          src: smsEditIcon, label: "Izoh", onClick: () => {
+                          src: smsEditIcon,
+                          label: "Izoh",
+                          onClick: () => {
                             setSelectedStudent(student);
                             setIsChatModalOpen(true);
+                          },
+                        },
+                        {
+                          src: repeatIcon,
+                          label: "Transfer",
+                          onClick: () => {
+                            setSelectedStudent(student);
+                            setIsTransferModalOpen(true);
+                          },
+                        },
+                        {
+                          src: teacherIcon,
+                          label: "Bitiruvchi",
+                          onClick: () => {
+                            setSelectedStudent(student);
+                            setIsGraduateModalOpen(true);
+                          },
+                        },
+                        {
+                          src: archiveIcon,
+                          label: "O'quvchini tarixi",
+                          onClick: () => {
+                            handleArchiveClick(true)
                           }
                         },
                         {
-                          src: repeatIcon, label: "Transfer", onClick: () => {
+                          src: trashIcon,
+                          label: "Guruhdan chiqarish",
+                          onClick: () => {
                             setSelectedStudent(student);
-                            setIsTransferModalOpen(true);
-                          }
+                            setIsDeleteModalOpen(true);
+                          },
                         },
-                        { src: teacherIcon, label: "Bitiruvchi" },
-                        { src: archiveIcon, label: "O'quvchini tarixi" },
-                        { src: trashIcon, label: "Guruhdan chiqarish" },
-                        { src: undoIcon, label: "Lidga qaytarish" },
+                        {
+                          src: undoIcon,
+                          label: "Lidga qaytarish",
+                          onClick: () => {
+                            setSelectedStudent(student);
+                            setIsReturnToLidModalOpen(true);
+                          },
+                        },
                       ].map((ikonka, indeks) => (
                         <div key={indeks} className="icon-wrapper">
                           <img
@@ -256,6 +286,7 @@ const Students = () => {
                             src={ikonka.src}
                             alt={ikonka.label.toLowerCase()}
                             onClick={ikonka.onClick}
+                            title={ikonka.label}
                           />
                           <div className="tooltip">
                             <div className="tooltip-text">{ikonka.label}</div>
@@ -296,6 +327,27 @@ const Students = () => {
         <TransferModal
           isOpen={isTransferModalOpen}
           onClose={() => setIsTransferModalOpen(false)}
+          Students={selectedStudent}
+        />
+      )}
+      {isGraduateModalOpen && (
+        <GraduateModal
+          isOpen={isGraduateModalOpen}
+          onClose={() => setIsGraduateModalOpen(false)}
+          Students={selectedStudent}
+        />
+      )}
+      {isDeleteModalOpen && (
+        <DeleteModal
+          isOpen={isDeleteModalOpen}
+          onClose={() => setIsDeleteModalOpen(false)}
+          Students={selectedStudent}
+        />
+      )}
+      {isReturnToLidModalOpen && (
+        <ReturnToLidModal
+          isOpen={isReturnToLidModalOpen}
+          onClose={() => setIsReturnToLidModalOpen(false)}
           Students={selectedStudent}
         />
       )}
