@@ -5,7 +5,6 @@ const Student_add_modal = ({ isOpen, onClose }) => {
   const [shouldRender, setShouldRender] = useState(false);
   const [phone, setPhone] = useState("+998");
 
-
   const handleChange = (e) => {
     const value = e.target.value;
     if (!value.startsWith("+998")) return;
@@ -52,7 +51,7 @@ const Student_add_modal = ({ isOpen, onClose }) => {
             ✕
           </button>
         </div>
-        <hr className="border-[#00000080] w-[100%]" /> 
+        <hr className="border-[#00000080] w-[100%]" />
         <p className="pl-5 text-[18px] pt-3">* Zarur ekanini bildiradi</p>
         <div className="pt-[20px] px-6 flex h-[100%] flex-col w-[100%]">
           <div className="space-y-[10px]">
@@ -93,8 +92,15 @@ const Student_add_modal = ({ isOpen, onClose }) => {
             <label className="font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">
               Katigoriyani tanlang
             </label>
-            <select name="" id="" className="w-[100%] h-[50px] text-[18px]" defaultValue="">
-            <option value="" disabled hidden>Katigoriyani tanlang </option>
+            <select
+              name=""
+              id=""
+              className="w-[100%] bg-white h-[50px] text-[18px]"
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Katigoriyani tanlang{" "}
+              </option>
               <option value="talaba">Talaba</option>
               <option value="abuturent">Abuturent</option>
               <option value="sinf1-4">1-4 sinf</option>
@@ -118,8 +124,15 @@ const Student_add_modal = ({ isOpen, onClose }) => {
             <label className="font-roboto font-[400] block text-[18px] leading-[21.09px] text-black">
               Marketing so'rovnomasi
             </label>
-            <select name="" id="" className="w-[100%] h-[50px] text-[18px]" defaultValue="">
-            <option value="" disabled hidden>Marketing so'rovnomasini tanlang </option>
+            <select
+              name=""
+              id=""
+              className="w-[100%] h-[50px] text-[18px] bg-white"
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Marketing so'rovnomasini tanlang{" "}
+              </option>
               <option value="banner">Banner</option>
               <option value="you-tube">You tube</option>
               <option value="telegram">Telegram</option>
