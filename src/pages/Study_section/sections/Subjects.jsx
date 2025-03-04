@@ -4,6 +4,8 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 const Subjects = () => {
 
     const [openDropdown, setOpenDropdown] = useState(false);
+    const [tavsifChecked, setTavsifChecked] = useState(false);
+    const [savollarChecked, setSavollarChecked] = useState(false);
 
 
     return (
@@ -89,15 +91,60 @@ const Subjects = () => {
 
                             </div>
                         </div>
-                        <ul className="py-2 flex">
-                            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                Tavsif
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                Savollar
-                            </li>
-                        </ul>
+
+                        <div className="flex gap-2 mt-4">
+                            <div className=' flex items-center justify-between w-1/2 border-2 border-gray-400 border-dotted p-4'>
+                                <span className='border-dashed'>Tavsif</span>
+                                <input type="checkbox" />
+                            </div>
+
+                            <div className='flex items-center justify-between w-1/2 border-2 border-gray-400 border-dotted p-4'>
+                                <span className='border-dashed'>Savollar</span>
+                                <input type="checkbox" />
+                            </div>
+                        </div>
+
+                        <div className="flex gap-2 mt-4">
+                            {/* Tavsif qismi */}
+                            <div
+                                className={`flex items-center justify-between w-1/2 border-2 p-4 cursor-pointer transition border-dashed ${tavsifChecked ? "border-[#0D99FF]" : "border-gray-400"
+                                    }`}
+                                onClick={() => setTavsifChecked(!tavsifChecked)}
+                            >
+                                <span>Tavsif</span>
+                                <input
+                                    type="checkbox"
+                                    checked={tavsifChecked}
+                                    onChange={() => setTavsifChecked(!tavsifChecked)}
+                                    className="hidden"
+                                />
+                            </div>
+
+                            {/* Savollar qismi */}
+                            <div
+                                className={`flex items-center justify-between w-1/2 border-2 p-4 cursor-pointer transition border-dashed ${savollarChecked ? "border-[#0D99FF]" : "border-gray-400"
+                                    }`}
+                                onClick={() => setSavollarChecked(!savollarChecked)}
+                            >
+                                <span>Savollar</span>
+                                <input
+                                    type="checkbox"
+                                    checked={savollarChecked}
+                                    onChange={() => setSavollarChecked(!savollarChecked)}
+                                    className="hidden"
+                                />
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+
+
                     </div>
+
+
+
+
                 )}
 
                 {/* ===================== */}
