@@ -23,11 +23,11 @@ const useFetchData = (ENDPOINT, method = "GET", body = null, options = {}) => {
             });
 
             setData(response.data ?? {});
-            return response.data; 
+            return response.data;
         } catch (err) {
             const errorMessage = err.response?.data?.message || err.message || "Xatolik yuz berdi";
             setError(errorMessage);
-            return null; 
+            return null;
         } finally {
             setLoading(false);
         }

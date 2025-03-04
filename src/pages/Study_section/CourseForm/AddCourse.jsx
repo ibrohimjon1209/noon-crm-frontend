@@ -53,16 +53,12 @@ const AddCourse = () => {
             console.log("✅ Kurs qo‘shildi:", response);
             setCourseData({
                 title: "",
-                price: 0,
-                description: "A description",
-                categoryId: 1,
-                images: ["https://placeimg.com/640/480/any"],
+                color: "#000000",
                 course_branch: [],
                 course_levels: [
                     { name: "Boshlang‘ich", color: "#FF5733" },
                     { name: "O‘rta", color: "#33FF57" },
                 ],
-                color: "#000000",
             });
             setSelectedBranches([]);
             setPrices({});
