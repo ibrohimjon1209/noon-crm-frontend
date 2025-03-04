@@ -1,12 +1,12 @@
-import React from 'react';
-import { FaRegTrashAlt } from 'react-icons/fa';
-import { RiPencilLine } from 'react-icons/ri';
+import React  from 'react';
 
 const BooksPage = () => {
+
     const books = [
         { id: 1, name: "Men" },
     ]
-    
+
+
     return (
         <div className="w-full min-h-[500px] overflow-x-auto">
             <table className="w-full border-collapse">
