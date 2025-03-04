@@ -4,6 +4,7 @@ import { IoMdAdd } from 'react-icons/io';
 import { RiPencilLine } from 'react-icons/ri';
 // import HashtagModal from '../../Settings/Marketing/childs/hashtag/hashtag_modal';
 // import DeleteModal from '../../Settings/Marketing/childs/hashtag/DeleteModal';
+import { useNavigate } from 'react-router-dom';
 
 const TransactionTable = () => {
     const [open, setIsOpen] = useState(false);
@@ -11,6 +12,7 @@ const TransactionTable = () => {
     const [editValue, setEditValue] = useState("");   // Eski qiymatni inputga yuklash
     const [deleteIndex, setDeleteIndex] = useState(null);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const navigate = useNavigate();
 
     const [category, setcategory] = useState([
         { id: 1, name: "Aniq Fanlar" },
@@ -56,7 +58,7 @@ const TransactionTable = () => {
             <div className="bg-white shadow-md rounded-lg max-h-[770px] overflow-y-auto mt-4 p-6">
              <div className='flex justify-end'>
             <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => navigate('/transaction-actions')}
             className="w-[300px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2"
           >
             <svg
