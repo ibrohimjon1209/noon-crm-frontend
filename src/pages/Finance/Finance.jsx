@@ -15,19 +15,22 @@ import Cassa from './Action/Cassa/Cassa'
 const Finance = () => {
   return (
     <Routes>
-      <Route path='/cassa' element={<Cassa />} />
-      <Route path='/bonus' element={<Bonus />} />
-      <Route path='/penalty' element={<Penalty />} />
-      <Route path='/monthly_payment' element={<Monthly_payment />} />
-      <Route path='/balance' element={<Balance />} />
-      <Route path='/input-output' element={<Input_output />} />
-      <Route path='/revenue' element={<Revenue />} />
-      <Route path='/unpaid-bills' element={<Unpaid_bills />} />
-      <Route path='/transaction-without-bills' element={<Transaction_wihtout_bills />} />
-      <Route path='/transaction' element={<Transaction />} />
-      <Route path='/contract' element={<Contract />} />
+      <Route path="/cassa" element={<Cassa />} />
+      <Route path="/bonus" element={<Bonus />} />
+      <Route path="/penalty" element={<Penalty />} />
+      <Route path="/monthly_payment" element={<Monthly_payment />} />
+      <Route path="/balance" element={<Balance />} />
+      <Route path="/input-output" element={<Input_output />} />
+      <Route path="/revenue" element={<Revenue />} />
+      <Route path="/unpaid-bills" element={<Unpaid_bills />} />
+      <Route
+        path="/transaction-without-bills"
+        element={<Transaction_wihtout_bills />}
+      />
+      <Route path="/transaction" element={<Transaction />} />
+      <Route path="/contract" element={<Contract />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default Finance
+export default Finance;
