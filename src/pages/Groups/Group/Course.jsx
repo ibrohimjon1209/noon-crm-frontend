@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { Link, Routes, Route, useLocation } from "react-router-dom";
-import Students from "./Course_details/Students";
-import Assigment from "./Course_details/Assigment";
-import Training from "./Course_details/Training";
+import {useLocation } from "react-router-dom";
 import calendar from "../imgs/black-calendar.png";
 import edit from "../imgs/edit2.png";
 import arrowdown from "../imgs/arrowdown.png";
@@ -29,7 +26,7 @@ const Course = () => {
 
   return (
     <>
-      <div className="w-[112vw] h-[350px] bg-white rounded-[10px] m-auto mt-[30px] block overflow-auto">
+      <div className="w-[112vw] h-[350px] bg-white rounded-[10px] m-auto mt-[30px] block overflow-hidden">
         <div className="w-[100%] h-[70px] flex justify-end">
           <div className="w-[300px] h-[40px] flex justify-around items-center mt-[30px]">
             <img className="h-[80%]" src={calendar} alt="" />
@@ -86,8 +83,12 @@ const Course = () => {
 
       <div className="w-[112vw] h-[400px] m-auto">
         <div className="w-[100%] h-[100px] flex justify-between items-center">
-          <div className="w-[50%] h-[100%] flex justify-around items-center">
-            <Nav_sec />
+          <div className="w-[60%] h-[100%] flex justify-around items-center">
+           
+              <Nav_sec />
+            
+
+            
           </div>
 
           <input
@@ -103,7 +104,7 @@ const Course = () => {
 };
 
 export default Course;
-// <<<<<<< HEAD
+
 
 // =======
 

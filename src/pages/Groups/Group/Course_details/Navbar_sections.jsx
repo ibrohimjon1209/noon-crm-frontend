@@ -12,7 +12,7 @@ const NavbarSections = () => {
         <div className="w-full h-[88px] mt-[30px] rounded-[15px]">
             <ul className="w-[100%] h-[8%] mt-[50px] flex justify-between gap-[6%] items-center">
                 <li
-                    className="rounded-t-lg px-6 py-4"
+                    className="rounded-t-lg px-6 py-4 -mt-[5px]"
                     style={{
                         backgroundColor:
                             location.pathname === '/groups/course/students'
@@ -21,7 +21,7 @@ const NavbarSections = () => {
                     }}
                 >
                     <Link
-                        className="text-[18px] text-[#404040] font-inter font-[600]"
+                        className="text-[18px] text-[#404040] font-inter font-[600] "
                         to="/groups/course/students"
                     >
                         O'quvchilar
@@ -31,7 +31,7 @@ const NavbarSections = () => {
                     )}
                 </li>
                 <li
-                    className="rounded-t-lg px-6 py-4"
+                    className="rounded-t-lg px-6 py-4 -mt-[10px]"
                     style={{
                         backgroundColor:
                             location.pathname === '/groups/course/assigment'
@@ -40,7 +40,7 @@ const NavbarSections = () => {
                     }}
                 >
                     <Link
-                        className="text-[18px] text-[#404040] font-inter font-[600]"
+                        className="text-[18px] text-[#404040] font-inter font-[600] p-5"
                         to="/groups/course/assigment"
                     >
                         Topshiriqlar
@@ -50,7 +50,7 @@ const NavbarSections = () => {
                     )}
                 </li>
                 <li
-                    className="rounded-t-lg px-6 py-4"
+                    className="rounded-t-lg px-6 py-4 -mt-[12px]"
                     style={{
                         backgroundColor:
                             location.pathname === '/groups/course/training'
