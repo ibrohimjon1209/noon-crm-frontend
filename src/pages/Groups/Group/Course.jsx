@@ -29,7 +29,7 @@ const Course = () => {
 
   return (
     <>
-      <div className="w-[112vw] h-[350px] bg-white rounded-[10px] m-auto mt-[30px] block overflow-auto">
+      <div className="w-[112vw] h-[350px] bg-white rounded-[10px] m-auto mt-[30px] block overflow-hidden">
         <div className="w-[100%] h-[70px] flex justify-end">
           <div className="w-[300px] h-[40px] flex justify-around items-center mt-[30px]">
             <img className="h-[80%]" src={calendar} alt="" />
@@ -86,7 +86,7 @@ const Course = () => {
 
       <div className="w-[112vw] h-[400px] m-auto">
         <div className="w-[100%] h-[100px] flex justify-between items-center">
-          <div className="w-[50%] h-[100%] flex justify-around items-center">
+          <div className="w-[60%] h-[100%] flex justify-around items-center">
            
               <Nav_sec />
             
