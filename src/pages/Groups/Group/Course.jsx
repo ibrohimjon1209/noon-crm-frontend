@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { Link, Routes, Route, useLocation } from "react-router-dom";
-import Students from "./Course_details/Students";
-import Assigment from "./Course_details/Assigment";
-import Training from "./Course_details/Training";
+import {useLocation } from "react-router-dom";
 import calendar from "../imgs/black-calendar.png";
 import edit from "../imgs/edit2.png";
 import arrowdown from "../imgs/arrowdown.png";
 import archive from "../imgs/solar-history.png";
 import plus from "../imgs/add_icon.png";
 import exprt from "../imgs/export.png";
-import Nav_sec from './Course_details/Navbar_sections'
+import Nav_sec from "./Course_details/Navbar_sections";
 const Course = () => {
   const location = useLocation();
   const [isChecked, setIsChecked] = useState(false);
@@ -94,22 +91,14 @@ const Course = () => {
             
           </div>
 
-          
           <input
             type="text"
             className="w-[300px] h-[80px] bg-white rounded-[5px] relative font-roboto font-[400] text-[19px] leading-[23.44px] text-black px-[20px]"
             placeholder="Qidirish"
           />
-
-
-          
         </div>
-          {/* <Students /> */}
+        {/* <Students /> */}
       </div>
-
-
-
-      
     </>
   );
 };
@@ -117,17 +106,18 @@ const Course = () => {
 export default Course;
 
 
+// =======
 
+// // import React from 'react';
+// // import Students from './Course_details/Students';
 
-// import React from 'react';
-// import Students from './Course_details/Students';
+// // const Course = () => {
+// //   return (
+// //     <>
+// //       <Students />
+// //     </>
+// //   );
+// // };
 
-// const Course = () => {
-//   return (
-//     <>
-//       <Students />
-//     </>
-//   );
-// };
-
-// export default Course;
+// // export default Course;
+// >>>>>>> 863ffdb76f188f2808f02b40a90f3de6176ed213
