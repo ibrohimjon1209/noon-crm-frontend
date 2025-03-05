@@ -1,8 +1,11 @@
 import React from 'react'
+import ContractTable from './ContractTable'
 
 const Contract = () => {
   return (
-    <div>Contract</div>
+    <div>
+      <ContractTable/>
+    </div>
   )
 }
 
