@@ -6,6 +6,8 @@ const ContractFilter = () => {
     const [is_student_open, set_is_student_open] = useState(false);
     const [moderator_value, set_moderator_value] = useState("Moderator");
     const [teacher_value, set_teacher_value] = useState("O'qituvchi");
+    const [is_calendar_open, set_is_calendar_open] = useState(false);
+    const [currentDate, setCurrentDate] = useState(new Date());
 
     const humans_list = [
         "Diyorbek Omonboyev",
@@ -40,8 +42,13 @@ const ContractFilter = () => {
         set_teacher_value(student);
         set_is_student_open(false);
     };
+      const monthNames = [
+        "Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun",
+        "Iyul", "Avgust", "Sentabr", "Oktyabr", "Noyabr", "Dekabr"
+    ];
+
     return (
-        <div>
+        <div className="flex ">
             <button className="w-[250px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2 mt-6 ml-8">
                 Shartnoma yaratish
             </button>
