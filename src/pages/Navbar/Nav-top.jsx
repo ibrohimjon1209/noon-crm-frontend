@@ -50,7 +50,9 @@ const Nav_top = () => {
             <img src={message_have_icon} className='w-[33px] h-[33px] cursor-pointer' />
             <img src={notification_have_icon} className='w-[33px] h-[33px] cursor-pointer' />
           </div>
-          <img src={profile} className="w-[39px] h-[39px] rounded-[50%] cursor-pointer" />
+          <Link to={"/profile/transaction"}>
+            <img src={profile} className="w-[39px] h-[39px] rounded-[50%] cursor-pointer" />
+          </Link>
         </div>
       </div>
     </div>
