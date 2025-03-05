@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import instance from '../../../api/instance';
 import GenericModal from '../GenericModal';
 import ConfirmDelModal from '../ConfirmDeleteModal';
-import { useFetchData } from '../../../hook/useFetchData';
+import { useDeleteData, useFetchData } from '../../../hook/useFetchData';
 
 
 const OfflineCourses = () => {
@@ -27,7 +27,10 @@ const OfflineCourses = () => {
         setOpenDropdown(openDropdown === index ? null : index);
     };
 
-    const [data, loading, fetchData] = useFetchData("/courses");  // API dan ma'lumotlarni olish, Get uchun.
+    const [data, loading, fetchData, setData] = useFetchData("/courses");  // API dan ma'lumotlarni olish, Get uchun.
+    const [deleteData, deleteLoading] = useDeleteData(); // O‘chirish hooki
+    console.log(data);
+
 
     const course_levels = data?.course_levels || [];
 
@@ -60,16 +63,14 @@ const OfflineCourses = () => {
     const handleDeleteCourse = async () => {
         if (deleteIndex !== null) {
             try {
-                await instance.delete(`/courses/${deleteIndex}/delete`); // ID bo‘yicha o‘chiramiz
-                then(response => { console.log(response) })
-
-                fetchData(); // API dan qayta yuklash
+                await deleteData(`/courses/${deleteIndex}/delete`);
+                setData((prevData) => prevData.filter(course => course.id !== deleteIndex)); // UI dan o‘chiramiz
             } catch (error) {
                 console.error("O‘chirishda xatolik:", error);
             }
+            setIsDeleteModalOpen(false);
+            setDeleteIndex(null);
         }
-        setIsDeleteModalOpen(false);
-        setDeleteIndex(null);
     };
 
     const handleSelectLanguage = (level) => {
@@ -136,6 +137,12 @@ const OfflineCourses = () => {
                                 >
                                     {course.name}
                                 </span>
+
+                                {/* <span className="px-2 py-1"rounded style={{ backgroundColor: course.color }}>
+                                    {course.color}
+                                </span> */}
+
+
                                 <div className='flex '>
                                     <span className={`w-6 h-6 mr-72 ${course.color} rounded`} />
                                     <RiPencilLine
