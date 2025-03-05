@@ -1,52 +1,90 @@
+import { useEffect, useState } from "react";
 import instance from "../api/instance";
 
-import { useCallback, useEffect, useState } from "react";
-
-const useFetchData = (ENDPOINT, method = "GET", body = null, options = {}) => {
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
+// 🔹 Ma'lumotlarni olish (GET)
+const useFetchData = (ENDPOINT) => {
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-
-    const fetchData = useCallback(async () => {
-        if (!ENDPOINT) return null;
+    useEffect(() => {
+        if (!ENDPOINT) return;
 
         setLoading(true);
-        setError(null);
+        setData([]); // Eski ma'lumotlarni tozalash
 
-        try {
-            const response = await instance({
-                url: ENDPOINT,
-                method,
-                data: method !== "GET" ? body : null,
-                ...options,
+        instance.get(ENDPOINT)
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(err => {
+                console.error("Xatolik:", err);
+            })
+            .finally(() => {
+                setLoading(false);
             });
 
-            setData(response.data ?? {});
+    }, [ENDPOINT]);
+
+    return [data, loading, setData];
+};
+
+// 🔹 Ma'lumot qo‘shish (POST)
+const usePostData = () => {
+    const [loading, setLoading] = useState(false);
+
+    const postData = async (ENDPOINT, newData) => {
+        setLoading(true);
+        try {
+            const response = await instance.post(ENDPOINT, newData);
             return response.data;
-        } catch (err) {
-            const errorMessage = err.response?.data?.message || err.message || "Xatolik yuz berdi";
-            setError(errorMessage);
-            return null;
+        } catch (error) {
+            console.error("POST xatolik:", error);
+            throw error;
         } finally {
             setLoading(false);
         }
-    }, [ENDPOINT, method, body]);
+    };
 
-    useEffect(() => {
-        if (method === "GET") {
-            fetchData();
-        }
-    }, [fetchData]);
-
-    return { data, error, loading, fetchData };
+    return [postData, loading];
 };
 
-export default useFetchData;
+// 🔹 Ma'lumotni yangilash (PUT)
+const usePutData = () => {
+    const [loading, setLoading] = useState(false);
 
+    const putData = async (ENDPOINT, updatedData) => {
+        setLoading(true);
+        try {
+            const response = await instance.put(ENDPOINT, updatedData);
+            return response.data;
+        } catch (error) {
+            console.error("PUT xatolik:", error);
+            throw error;
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    return [putData, loading];
+};
 
+// 🔹 Ma'lumotni o‘chirish (DELETE)
+const useDeleteData = () => {
+    const [loading, setLoading] = useState(false);
 
+    const deleteData = async (ENDPOINT) => {
+        setLoading(true);
+        try {
+            await instance.delete(ENDPOINT);
+        } catch (error) {
+            console.error("DELETE xatolik:", error);
+            throw error;
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    return [deleteData, loading];
+};
 
-
+export { useFetchData, usePostData, usePutData, useDeleteData };

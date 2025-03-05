@@ -14,13 +14,16 @@ const TabsComponent = () => {
         { id: "darajalar", title: "Darajalar", component: <Levels />, buttonText: "Daraja qo‘shish" },
         { id: "haftaKunlari", title: "Hafta Kunlari", component: <WeekdaysPage />, buttonText: "Kun qo‘shish" },
         { id: "kursVaqtlari", title: "Kurs Vaqtlari", component: <CourseTimes />, buttonText: "Vaqt qo‘shish" },
-        { id: "oqituvchilar", title: "O‘qituvchilar", component: <Mentors />, buttonText: null },
+        { id: "oqituvchilar", title: "O‘qituvchilar", component: <Mentors />, buttonText: "O‘qituvchi qo‘shish" },
         { id: "kitoblar", title: "Kitoblar", component: <BooksPage />, buttonText: "Kitob qo‘shish" },
         { id: "mavzular", title: "Mavzular", component: <Subjects />, buttonText: "Mavzu qo‘shish" },
     ];
 
     // Hozirgi aktiv tab uchun tugma matnini olish
     const activeButtonText = tabs.find((tab) => tab.id === activeTab)?.buttonText || null;
+    const isDisabled = activeButtonText === "O‘qituvchi qo‘shish";
+    console.log(isDisabled);
+
 
 
     return (
@@ -28,7 +31,10 @@ const TabsComponent = () => {
             <div className="flex items-center gap-10 mb-4">
                 {/* Dinamik button (Faqat oqituvchilar bo‘lmagan holatda ko‘rinadi) */}
                 {activeButtonText && (
-                    <button className="flex items-center justify-center gap-1 w-56 p-4 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+                    <button disabled={isDisabled} className={`flex items-center justify-center gap-1 w-56 p-4 rounded-lg shadow-md
+                        ${isDisabled ? "bg-blue-500 text-blue-500 cursor-not-allowed" : "bg-blue-500 text-white hover:bg-blue-600"}
+                    `}
+                    >
                         <FaPlus />
                         {activeButtonText}
                     </button>

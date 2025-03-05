@@ -2,19 +2,16 @@ import React from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { RiPencilLine } from 'react-icons/ri';
 // import { useLevel } from '../../../store/ContexApi';
-import useFetchData from '../../../hook/useFetchData';
+import {useFetchData} from '../../../hook/useFetchData';
 
 const Levels = () => {
 
+    const [data, loading] = useFetchData("/course-levels");
     // const { selectedLevels } = useLevel();
-    const { data: levels, error } = useFetchData("/courses");
+    // const { data: levels, error } = useFetchData("/courses");
     // console.log(levels, error, "useFetchData ishladi");
     // const courseLevel = levels?.[0]?.course_levels || "Ma'lumot yo‘q"
-    const courseLevel = levels?.[0]?.course_levels ?? []; // Faqat array yoki bo‘sh massiv
-
-    console.log(courseLevel);
-
-    // course_levels
+    // const courseLevel = levels?.[0]?.course_levels ?? []; // Faqat array yoki bo‘sh massiv
 
 
     return (
@@ -28,8 +25,8 @@ const Levels = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {courseLevel.length > 0 ? (
-                        courseLevel.map((level, index) => (
+                    {data.length > 0 ? (
+                        data.map((level, index) => (
                             <tr key={level.id || index} className="border-b text-black text-[20px]">
                                 <td className="p-3">{index + 1}</td>
                                 <td className="p-3">{level.name}</td>
