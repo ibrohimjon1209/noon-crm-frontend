@@ -140,7 +140,7 @@ const Students = () => {
   };
 
   return (
-    <div className="w-[112vw] h-auto bg-[white] m-[auto] overflow-auto mt-[20px]">
+    <div className="w-[112vw] h-auto bg-[white] m-[auto] overflow-auto mt-[20px] z-50">
       <h2 className="text-[#747474] underline text-[20px] float-right mr-[30px] mt-[30px]">
         Umumiy son: {students.length}
       </h2>

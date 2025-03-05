@@ -1,8 +1,12 @@
 import React from 'react'
-
+import UnpaidAction from './UnpaidAction'
+import UnpaidTable from './UnpaidTable'
 const Unpaid_bills = () => {
   return (
-    <div>Unpaid_bills</div>
+    <div>
+      <UnpaidAction />
+      <UnpaidTable />
+    </div>
   )
 }
 

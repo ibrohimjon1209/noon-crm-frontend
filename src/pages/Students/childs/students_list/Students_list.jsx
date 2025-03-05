@@ -3,10 +3,12 @@ import { CiSearch } from "react-icons/ci";
 import { CiFilter } from "react-icons/ci";
 import { GoKebabHorizontal } from "react-icons/go";
 import Student_add_modal from "./Students_list_addStudentModal";
+import Students_list_filter from "./Students_list_filter";
 
 function Students_list() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
     useState(false);
   const [selectRows, setSelectRows] = useState(15);
@@ -162,7 +164,10 @@ function Students_list() {
               placeholder="Qidirish"
             />
           </div>
-          <button className="w-[150px] bg-blue-600 p-3 text-[18px] text-white border-none rounded-md flex items-center justify-center gap-2">
+          <button
+            onClick={() => setIsOpenFilter(true)}
+            className="w-[150px] bg-blue-600 p-3 text-[18px] text-white border-none rounded-md flex items-center justify-center gap-2"
+          >
             <CiFilter style={{ fontSize: "25px" }} />
             Filter
           </button>
@@ -385,6 +390,10 @@ function Students_list() {
         <Student_add_modal
           isOpen={isAddModalOpen}
           onClose={() => setIsAddModalOpen(false)}
+        />
+        <Students_list_filter
+          isOpen={isOpenFilter}
+          onClose={() => setIsOpenFilter(false)}
         />
       </div>
     </div>

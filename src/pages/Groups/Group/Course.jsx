@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { Link, Routes, Route, useLocation } from "react-router-dom";
-import Students from "./Course_details/Students";
-import Assigment from "./Course_details/Assigment";
-import Training from "./Course_details/Training";
+import {useLocation } from "react-router-dom";
 import calendar from "../imgs/black-calendar.png";
 import edit from "../imgs/edit2.png";
 import arrowdown from "../imgs/arrowdown.png";
 import archive from "../imgs/solar-history.png";
 import plus from "../imgs/add_icon.png";
 import exprt from "../imgs/export.png";
-import Nav_sec from './Course_details/Navbar_sections'
+import Nav_sec from "./Course_details/Navbar_sections";
 const Course = () => {
   const location = useLocation();
   const [isChecked, setIsChecked] = useState(false);
@@ -29,7 +26,7 @@ const Course = () => {
 
   return (
     <>
-      <div className="w-[112vw] h-[350px] bg-white rounded-[10px] m-auto mt-[30px] block overflow-auto">
+      <div className="w-[112vw] h-[350px] bg-white rounded-[10px] m-auto mt-[30px] block overflow-hidden">
         <div className="w-[100%] h-[70px] flex justify-end">
           <div className="w-[300px] h-[40px] flex justify-around items-center mt-[30px]">
             <img className="h-[80%]" src={calendar} alt="" />
@@ -86,7 +83,14 @@ const Course = () => {
 
       <div className="w-[112vw] h-[400px] m-auto">
         <div className="w-[100%] h-[100px] flex justify-between items-center">
+<<<<<<< HEAD
           <div className="w-[50%] h-[100%] flex justify-around items-center">
+=======
+          <div className="w-[60%] h-[100%] flex justify-around items-center">
+           
+              <Nav_sec />
+            
+>>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4
 
             <Nav_sec />
 
@@ -94,12 +98,16 @@ const Course = () => {
 
           </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4
           <input
             type="text"
             className="w-[300px] h-[80px] bg-white rounded-[5px] relative font-roboto font-[400] text-[19px] leading-[23.44px] text-black px-[20px]"
             placeholder="Qidirish"
           />
+<<<<<<< HEAD
 
 
 
@@ -110,9 +118,33 @@ const Course = () => {
 
 
 
+=======
+        </div>
+        {/* <Students /> */}
+      </div>
+>>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4
     </>
   );
 };
 
 export default Course;
 
+<<<<<<< HEAD
+=======
+
+// =======
+
+// // import React from 'react';
+// // import Students from './Course_details/Students';
+
+// // const Course = () => {
+// //   return (
+// //     <>
+// //       <Students />
+// //     </>
+// //   );
+// // };
+
+// // export default Course;
+// >>>>>>> 863ffdb76f188f2808f02b40a90f3de6176ed213
+>>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4

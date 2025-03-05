@@ -1,11 +1,18 @@
 import React from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { RiPencilLine } from 'react-icons/ri';
-import { useLevel } from '../../../store/ContexApi';
+// import { useLevel } from '../../../store/ContexApi';
+import {useFetchData} from '../../../hook/useFetchData';
 
 const Levels = () => {
 
-    const { selectedLevels } = useLevel();
+    const [data, loading] = useFetchData("/course-levels");
+    // const { selectedLevels } = useLevel();
+    // const { data: levels, error } = useFetchData("/courses");
+    // console.log(levels, error, "useFetchData ishladi");
+    // const courseLevel = levels?.[0]?.course_levels || "Ma'lumot yo‘q"
+    // const courseLevel = levels?.[0]?.course_levels ?? []; // Faqat array yoki bo‘sh massiv
+
 
     return (
         <div className="w-full overflow-x-auto">
@@ -18,26 +25,30 @@ const Levels = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {selectedLevels.map((level, index) => (
-                        <tr key={level.id || index} className="border-b text-black text-[20px]">
-                            <td className="p-3">{index + 1}</td>
-                            <td className="p-3">{level}</td>
-                            <td className="p-3">
-                                <span
-                                    className="w-6 h-6 inline-block rounded-md"
-                                    style={{ backgroundColor: level.color || "#3EC483" }}
-                                />
-                            </td>
-                            <td className="p-3 text-right">
-                                <button className="text-blue-500 hover:text-blue-700 mr-3">
-                                    <RiPencilLine size={25} />
-                                </button>
-                                <button className="text-red-500 hover:text-red-700">
-                                    <FaRegTrashAlt size={25} />
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
+                    {data.length > 0 ? (
+                        data.map((level, index) => (
+                            <tr key={level.id || index} className="border-b text-black text-[20px]">
+                                <td className="p-3">{index + 1}</td>
+                                <td className="p-3">{level.name}</td>
+                                <td className="p-3">
+                                    <span
+                                        className="w-6 h-6 inline-block rounded-md"
+                                        style={{ backgroundColor: level.color || "#3EC483" }}
+                                    />
+                                </td>
+                                <td className="p-3 text-right">
+                                    <button className="text-blue-500 hover:text-blue-700 mr-3">
+                                        <RiPencilLine size={25} />
+                                    </button>
+                                    <button className="text-red-500 hover:text-red-700">
+                                        <FaRegTrashAlt size={25} />
+                                    </button>
+                                </td>
+                            </tr>
+                        ))
+                    ) : (
+                        <p>Ma'lumot yo‘q</p>
+                    )}
                 </tbody>
             </table>
         </div>
