@@ -9,18 +9,17 @@ import instance from '../../../api/instance';
 import GenericModal from '../GenericModal';
 import ConfirmDelModal from '../ConfirmDeleteModal';
 import { useDeleteData, useFetchData } from '../../../hook/useFetchData';
+import axios from 'axios';
+import Loader from '../../Loader/Loader';
 
 
 const OfflineCourses = () => {
     const [editIndex, setEditIndex] = useState(null);
     const [editValue, setEditValue] = useState('');
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-
     const [deleteIndex, setDeleteIndex] = useState(null);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-
     const [openDropdown, setOpenDropdown] = useState(null);
-
     const navigate = useNavigate();
 
     const toggleDropdown = (index) => {
@@ -28,10 +27,6 @@ const OfflineCourses = () => {
     };
 
     const [data, loading, fetchData, setData] = useFetchData("/courses");  // API dan ma'lumotlarni olish, Get uchun.
-    const [deleteData, deleteLoading] = useDeleteData(); // O‘chirish hooki
-    console.log(data);
-
-
     const course_levels = data?.course_levels || [];
 
     // Kursni tahrirlash
@@ -59,14 +54,20 @@ const OfflineCourses = () => {
         setDeleteIndex(id); // ID ni saqlaymiz
         setIsDeleteModalOpen(true);
     };
+    const URL = "http://nightmafia.uz/dashboard"
 
     const handleDeleteCourse = async () => {
         if (deleteIndex !== null) {
             try {
-                await deleteData(`/courses/${deleteIndex}/delete`);
-                setData((prevData) => prevData.filter(course => course.id !== deleteIndex)); // UI dan o‘chiramiz
+                const response = await axios.delete(`${URL}/courses/${deleteIndex}/delete/`); // DELETE so‘rov jo‘natish
+                console.log("O‘chirish natijasi:", response);
+
+                setData(prevData => prevData.filter(course => course.id !== deleteIndex));
+
+                fetchData(); // API dan yangi ma’lumotlarni yuklash
+
             } catch (error) {
-                console.error("O‘chirishda xatolik:", error);
+                console.error("O‘chirishda xatolik:", error.response?.data || error.message);
             }
             setIsDeleteModalOpen(false);
             setDeleteIndex(null);
@@ -119,7 +120,7 @@ const OfflineCourses = () => {
 
                 {/* Courses */}
                 {loading ? (
-                    <p>Yuklanmoqda...</p>
+                    <Loader/>
                 ) : (
                     data?.map((course, index) => (
                         <div key={index} className="border-b">

@@ -2,30 +2,58 @@ import { useEffect, useState } from "react";
 import instance from "../api/instance";
 
 // 🔹 Ma'lumotlarni olish (GET)
+// const useFetchData = (ENDPOINT) => {
+//     const [data, setData] = useState([]);
+//     const [loading, setLoading] = useState(false);
+//     console.log(data);
+
+
+//     useEffect(() => {
+//         if (!ENDPOINT) return;
+
+//         setLoading(true);
+//         setData([]); // Eski ma'lumotlarni tozalash
+
+//         instance.get(ENDPOINT)
+//             .then(response => {
+//                 setData(response.data);
+//             })
+//             .catch(err => {
+//                 console.error("Xatolik:", err);
+//             })
+//             .finally(() => {
+//                 setLoading(false);
+//             });
+
+//     }, [ENDPOINT]);
+
+//     return [data, loading, setData];
+// };
+
+// 🔹 Ma'lumotlarni olish (GET)
 const useFetchData = (ENDPOINT) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
+    const fetchData = async () => {
         if (!ENDPOINT) return;
-
         setLoading(true);
-        setData([]); // Eski ma'lumotlarni tozalash
 
-        instance.get(ENDPOINT)
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(err => {
-                console.error("Xatolik:", err);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+        try {
+            const response = await instance.get(ENDPOINT);
+            setData(response.data);
+        } catch (err) {
+            console.error("Xatolik:", err);
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    useEffect(() => {
+        fetchData();
     }, [ENDPOINT]);
 
-    return [data, loading, setData];
+    return [data, loading, fetchData, setData]; // ✅ `setData` qaytadi
 };
 
 // 🔹 Ma'lumot qo‘shish (POST)
@@ -72,10 +100,10 @@ const usePutData = () => {
 const useDeleteData = () => {
     const [loading, setLoading] = useState(false);
 
-    const deleteData = async (ENDPOINT) => {
+    const deleteData = async (DELURL) => {
         setLoading(true);
         try {
-            await instance.delete(ENDPOINT);
+            await instance.delete(DELURL);
         } catch (error) {
             console.error("DELETE xatolik:", error);
             throw error;
