@@ -13,6 +13,8 @@ import vector_rise from './Images/vector_rise.png';
 import bottom_icon from './Images/bottom.png';
 import './Cassa.css'; // CSS faylini import qilish
 import Money_card from './Money_card';
+import Header from './header';
+import Table_payent from './Table_payent';
 
 const Cassa = () => {
   const [accounts, setAccounts] = useState([
@@ -61,10 +63,12 @@ const Cassa = () => {
           : { ...account, isSelected: false }
       )
     );
-  };
+  }; const [is_filter_open, set_is_filter_open] = useState(false);
+  const [is_add_modal_open, set_is_add_modal_open] = useState(false);
+
 
   return (
-    <div className='pt-[30px] pb-[25px] px-[32px] flex gap-[32px]'>
+    <div className='pt-[30px] pb-[25px] px-[32px] flex gap-[32px] '>
 
       <div className='w-[550px] h-[calc(128vh-100px)] overflow-hidden bg-white rounded-[12px] flex flex-col'>
         <div className='p-[25px]'>
@@ -79,7 +83,7 @@ const Cassa = () => {
 
             {accounts.map((account) => (
               <div key={account.id}
-                className={`pl-[20px] flex flex-col w-full h-[220px] bg-[#264E86] rounded-[10px] overflow-hidden transition-opacity duration-300 ${account.isSelected ? 'opacity-100' : 'opacity-40 h-[170px]'}`}
+                className={`pl-[20px] flex flex-col w-full bg-[#264E86] rounded-[10px] overflow-hidden transition-opacity duration-300 ${account.isSelected ? 'opacity-100 h-[220px]' : 'opacity-40 h-[170px]'}`}
                 onClick={() => handleSelect(account.id)}
               >
                 <div className='pt-[20px] flex w-full items-center gap-[16px]'>
@@ -134,6 +138,8 @@ const Cassa = () => {
 
       <div className='w-[74%] h-full'>
         <Money_card />
+        <Header is_filter_open={is_filter_open} set_is_filter_open={set_is_filter_open} set_is_add_modal_open={set_is_add_modal_open} />
+        <Table_payent />
 
       </div>
 
