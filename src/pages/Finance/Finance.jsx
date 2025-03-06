@@ -5,20 +5,12 @@ import Penalty from './Action/Penalties/Penalty'
 import Monthly_payment from './Action/Payment/MonthlyPayment'
 import Input_output from './Info/InputOutput/Input_output'
 import Revenue from './Info/revenues/Revenue'
-<<<<<<< HEAD
 import Transaction_wihtout_bills from './Info/Transaction_wihtout_bills'
 import Transaction from './Report/Transaction'
 import Contract from './Report/Contract'
-=======
-import Unpaid_bills from './Info/Unpaid/Unpaid_bills_main'
-import Transaction_wihtout_bills from './Info/TransactionBills/Transaction_without_bills'
-import Transaction from './Report/Transactions/Transaction'
-import TransactionActions from './Report/Transactions/TransactionActions'
-import Contract from './Report/Contract/Contract'
->>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4
 import Balance from './Info/Balans/Balance'
 import Cassa from './Action/Cassa/Cassa'
-import Unpaid_bills from './Info/Unpaid/Unpaid_bills_main'
+import Unpaid_bills from './info/Unpaid/Unpaid_bills_main'
 
 const Finance = () => {
   return (

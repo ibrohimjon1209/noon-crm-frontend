@@ -83,14 +83,7 @@ const Course = () => {
 
       <div className="w-[112vw] h-[400px] m-auto">
         <div className="w-[100%] h-[100px] flex justify-between items-center">
-<<<<<<< HEAD
           <div className="w-[50%] h-[100%] flex justify-around items-center">
-=======
-          <div className="w-[60%] h-[100%] flex justify-around items-center">
-           
-              <Nav_sec />
-            
->>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4
 
             <Nav_sec />
 
@@ -98,16 +91,11 @@ const Course = () => {
 
           </div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4
           <input
             type="text"
             className="w-[300px] h-[80px] bg-white rounded-[5px] relative font-roboto font-[400] text-[19px] leading-[23.44px] text-black px-[20px]"
             placeholder="Qidirish"
           />
-<<<<<<< HEAD
 
 
 
@@ -118,33 +106,9 @@ const Course = () => {
 
 
 
-=======
-        </div>
-        {/* <Students /> */}
-      </div>
->>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4
     </>
   );
 };
 
 export default Course;
 
-<<<<<<< HEAD
-=======
-
-// =======
-
-// // import React from 'react';
-// // import Students from './Course_details/Students';
-
-// // const Course = () => {
-// //   return (
-// //     <>
-// //       <Students />
-// //     </>
-// //   );
-// // };
-
-// // export default Course;
-// >>>>>>> 863ffdb76f188f2808f02b40a90f3de6176ed213
->>>>>>> 6d58f104452ceac052a6d07fa03c83e1d0fbe6f4
