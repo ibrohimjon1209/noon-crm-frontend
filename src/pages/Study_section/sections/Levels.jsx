@@ -1,32 +1,30 @@
 import React from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { RiPencilLine } from 'react-icons/ri';
-// import { useLevel } from '../../../store/ContexApi';
-import {useFetchData} from '../../../hook/useFetchData';
+import { useFetchData } from '../../../hook/useFetchData';
+import Loader from '../../Loader/Loader';
 
 const Levels = () => {
 
     const [data, loading] = useFetchData("/course-levels");
-    // const { selectedLevels } = useLevel();
-    // const { data: levels, error } = useFetchData("/courses");
-    // console.log(levels, error, "useFetchData ishladi");
-    // const courseLevel = levels?.[0]?.course_levels || "Ma'lumot yo‘q"
-    // const courseLevel = levels?.[0]?.course_levels ?? []; // Faqat array yoki bo‘sh massiv
+   
 
 
     return (
         <div className="w-full overflow-x-auto">
-            <table className="w-full border-collapse">
-                <thead>
-                    <tr className="text-gray-500 border-b">
-                        <th className="p-3 text-left">№</th>
-                        <th className="p-3 text-left">Turlari</th>
-                        <th className="p-3 text-left">Rang</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.length > 0 ? (
-                        data.map((level, index) => (
+            {loading ? (
+                <Loader />
+            ) : data.length > 0 ? (
+                <table className="w-full border-collapse">
+                    <thead>
+                        <tr className="text-gray-500 border-b">
+                            <th className="p-3 text-left">№</th>
+                            <th className="p-3 text-left">Turlari</th>
+                            <th className="p-3 text-left">Rang</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.map((level, index) => (
                             <tr key={level.id || index} className="border-b text-black text-[20px]">
                                 <td className="p-3">{index + 1}</td>
                                 <td className="p-3">{level.name}</td>
@@ -45,13 +43,14 @@ const Levels = () => {
                                     </button>
                                 </td>
                             </tr>
-                        ))
-                    ) : (
-                        <p>Ma'lumot yo‘q</p>
-                    )}
-                </tbody>
-            </table>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
+                <p className="text-center text-gray-500 text-xl mt-5">Ma'lumot topilmadi</p>
+            )}
         </div>
+
     );
 }
 

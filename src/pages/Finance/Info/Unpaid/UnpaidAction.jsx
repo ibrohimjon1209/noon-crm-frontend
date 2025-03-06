@@ -3,8 +3,6 @@ import calendar_icon from './imgs/calendar_icon.png'
 import arrow_down_black_icon from './imgs/arrow_down_black_icon.png'
 
 const UnpaidAction = () => {
-    const [is_human_open, set_is_human_open] = useState(false);
-    const [moderator_value, set_moderator_value] = useState("Aktiv");
     const [calendar_value, set_calendar_value] = useState("Oraliqni tanlang");
     const [is_calendar_open, set_is_calendar_open] = useState(false);
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -12,11 +10,6 @@ const UnpaidAction = () => {
         "Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun",
         "Iyul", "Avgust", "Sentabr", "Oktyabr", "Noyabr", "Dekabr"
     ];
-
-    const handle_select_human = (human) => {
-        set_moderator_value(human);
-        set_is_human_open(false);
-    };
 
     const changeMonth = (increment) => {
         const newDate = new Date(currentDate);
