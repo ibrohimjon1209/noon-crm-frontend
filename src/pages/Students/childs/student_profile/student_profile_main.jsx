@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import bro from "./imgs/bro.png";
 import { Route, Routes, useLocation, Link } from "react-router-dom";
 import General from "./chields/general/general_main";

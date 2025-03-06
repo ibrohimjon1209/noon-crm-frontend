@@ -25,7 +25,7 @@ const Finance = () => {
       <Route path="/unpaid-bills" element={<Unpaid_bills />} />
       <Route
         path="/transaction-without-bills"
-        element={<Transaction_wihtout_bills />}
+        element={<Transaction_without_bills />}
       />
       <Route path="/transaction" element={<Transaction />} />
       <Route path="/contract" element={<Contract />} />
