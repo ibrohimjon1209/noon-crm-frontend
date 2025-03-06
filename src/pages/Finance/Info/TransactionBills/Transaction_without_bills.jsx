@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import TransactionRow from './TransactionRow';
+
 const Transaction_without_bills = ({ data = [] }) => {
   return (
     <div className="w-full p-4 bg-white shadow-md rounded-md m-8  overflow-auto">

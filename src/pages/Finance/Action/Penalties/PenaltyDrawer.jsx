@@ -3,14 +3,14 @@ import { Drawer, Form, Input, Button } from "antd";
 
 const PenaltyDrawer = ({ open, onClose, onAdd }) => {
   const [form] = Form.useForm();
-  
+
   const handleSubmit = () => {
     form.validateFields().then((values) => {
       onAdd({ ...values, createdAt: new Date().toLocaleDateString() });
       form.resetFields();
     });
   };
-  
+
   return (
     <Drawer title="Yangi Jarima" open={open} onClose={onClose} width={400}>
       <Form form={form} layout="vertical" onFinish={handleSubmit}>
@@ -19,7 +19,7 @@ const PenaltyDrawer = ({ open, onClose, onAdd }) => {
         </Form.Item>
         <Form.Item name="amount" label="Miqdori" rules={[{ required: true, message: "Miqdor kiriting!" }]}>
           <Input type="number" />
-        </Form.Item>
+        </Form.Item>vb
         <Form.Item name="note" label="Izoh">
           <Input.TextArea rows={3} />
         </Form.Item>
