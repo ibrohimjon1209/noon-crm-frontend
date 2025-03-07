@@ -29,7 +29,7 @@ const Finance = () => {
       />
       <Route path="/transaction" element={<Transaction />} />
       <Route path="/contract" element={<Contract />} />
-      <Route path="/transaction-actions" element={<TransactionActions />} />
+      {/* <Route path="/transaction-actions" element={<TransactionActions />} /> */}
     </Routes>
   );
 };
