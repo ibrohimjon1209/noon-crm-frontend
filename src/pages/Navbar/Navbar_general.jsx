@@ -189,7 +189,7 @@ const Navbar_general = () => {
     {
       path: "/finance/unpaid-bills",
       active: "/finance/unpaid-bills",
-      label: "O'quvchining to'lanmagan to'lovlari",
+      label: "O'quvchining umumiy to'lanmagan to'lovlari",
     },
     {
       path: "/finance/transaction-without-bills",
@@ -515,7 +515,7 @@ const Navbar_general = () => {
                 alt=""
               />
               <div>
-                <div className="flex cursor-auto flex-row gap-[40px] w-[700px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
+                <div className="flex cursor-auto flex-row gap-[40px] w-[780px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg mb-44">
 
                   {/* Amallar Qismi */}
                   <div className="flex flex-col gap-[15px] w-1/2">
@@ -557,9 +557,10 @@ const Navbar_general = () => {
                             className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
                               }`}
                           ></div>
-                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px] max-w-[200px] cursor-pointer">
+                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px] max-w-[250px] cursor-pointer overflow-hidden whitespace-nowrap text-ellipsis">
                             {item.label}
                           </h1>
+
                         </div>
                       </Link>
                     ))}
