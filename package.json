@@ -43,7 +43,8 @@
     "react-spinners": "^0.15.0",
     "react-transition-group": "^4.4.5",
     "shadcn-ui": "^0.9.4",
-    "vite": "^6.1.1"
+    "vite": "^6.1.1",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/node": "^22.13.5",
