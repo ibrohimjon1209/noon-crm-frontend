@@ -24,10 +24,12 @@ const CreateBonusModal = ({ onClose, addBonus, isModalOpen }) => {
 
   return (
     <Drawer 
-    title="Bonus yaratish" 
-    placement="right" 
+    title="Bonus yaratish"
+    placement="right"
+    width={400} 
     onClose={onClose} 
-    open={isModalOpen}>
+    open={isModalOpen}
+  >  
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
         <Input name="type" placeholder="Bonus turi" onChange={handleChange} required />
         <Input name="fullName" placeholder="To'liq ismi" onChange={handleChange} required />
