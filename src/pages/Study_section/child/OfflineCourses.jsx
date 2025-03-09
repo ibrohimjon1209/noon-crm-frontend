@@ -4,84 +4,102 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 import { GoChevronDown, GoChevronUp } from 'react-icons/go';
 import { PiArrowCircleDown, PiArrowCircleUp } from 'react-icons/pi';
 import { RiPencilLine } from 'react-icons/ri';
-import HashtagModal from '../../Settings/Marketing/childs/hashtag/hashtag_modal';
-import DeleteModal from '../../Settings/Marketing/childs/hashtag/DeleteModal';
 import { useNavigate } from 'react-router-dom';
-import { useLevel } from '../../../store/ContexApi';
+import instance from '../../../api/instance';
+import GenericModal from '../GenericModal';
+import ConfirmDelModal from '../ConfirmDeleteModal';
+import { useDeleteData, useFetchData, usePutData } from '../../../hook/useFetchData';
+import axios from 'axios';
+import Loader from '../../Loader/Loader';
+
 
 const OfflineCourses = () => {
-
-    const navigate = useNavigate();
-    const { setSelectedLevels } = useLevel();
-
-
+    const [editIndex, setEditIndex] = useState(null);
+    const [editValue, setEditValue] = useState('');
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [deleteIndex, setDeleteIndex] = useState(null);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
+    const navigate = useNavigate();
 
     const toggleDropdown = (index) => {
         setOpenDropdown(openDropdown === index ? null : index);
     };
 
-    const [open, setIsOpen] = useState(false);
-    const [editIndex, setEditIndex] = useState(null); // Edit qilingan index
-    const [editValue, setEditValue] = useState("");   // Eski qiymatni inputga yuklash
-    const [deleteIndex, setDeleteIndex] = useState(null);
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-
-    const [courses, setCourses] = useState([
-        { title: "Korean", color: "bg-green-500", levels: ["Beginner", "Elementary"] },
-        { title: "SAT", color: "bg-gray-700", levels: ["Math", "Reading"] },
-        { title: "Notiqlik Kursi", color: "bg-gray-300", levels: ["Public Speaking", "Debate"] },
-        { title: "English Kids", color: "bg-blue-700", levels: ["Phonics", "Storytelling"] },
-        { title: "Logistika", color: "bg-green-500", levels: ["Supply Chain", "Warehouse"] },
-        { title: "Tarix", color: "bg-red-500", levels: ["Ancient", "Modern"] },
-        { title: "English", color: "bg-blue-500", levels: ["Grammar", "Writing"] },
-        { title: "IT", color: "bg-blue-500", levels: ["Programming", "Networking"] },
-        { title: "Arab Tili", color: "bg-gray-700", levels: ["Beginner", "Advanced"] },
-        { title: "Rus Tili", color: "bg-gray-300", levels: ["Beginner", "Intermediate"] },
-        { title: "Yapon Tili", color: "bg-blue-700", levels: ["Hiragana", "Kanji"] },
-    ])
-
-    console.log(courses[3].color);
+    const [data, loading, fetchData, setData] = useFetchData("/courses");  // API dan ma'lumotlarni olish, Get uchun.
+    const course_levels = data?.course_levels || [];
 
 
-    const handleSaveHashtag = (newCourses) => {
-        if (editIndex !== null) {
-            const updatedHashtags = [...courses];
-            updatedHashtags[editIndex] = { ...updatedHashtags[editIndex], title: newCourses, color: "bg-green-500", levels: ['Boshlangich'] };
-            setCourses(updatedHashtags);
-            setEditIndex(null);
-        } else {
-            setCourses([...courses, { title: newCourses, color: "bg-green-500", levels: ['Boshlangich'] }]);
-        }
-        setIsOpen(false);
-
-    };
-
+    // Kursni tahrirlash
     const handleEditHashtag = (index) => {
         setEditIndex(index);
-        setEditValue(courses[index].name);
-        setIsOpen(true);
+        setEditValue(data[index]);
+        setIsEditModalOpen(true);
     };
 
-    const confirmDeleteHashtag = (index) => {
-        setDeleteIndex(index);
+    const [putData, updating] = usePutData();
+
+    const handleSaveHashtag = async (updatedData) => {
+        if (editIndex !== null) {
+            const courseId = data[editIndex].id; // ID ni olish
+
+            try {
+                const updatedCourse = await putData(`/courses/${courseId}/update/`, updatedData);
+
+                // ✅ Ma'lumotlarni oldingilarni o‘zgartirib yangilash
+                setData(prevData =>
+                    prevData.map(course =>
+                        course.id === courseId ? { ...course, ...updatedData } : course
+                    )
+                );
+
+                fetchData(); // API dan yangi ma’lumotlarni yuklash
+
+            } catch (error) {
+                console.error("Tahrirlashda xatolik:", error);
+                if (error.response) {
+                    console.error("Server javobi:", error.response.data);
+                }
+            }
+
+            setIsEditModalOpen(false);
+            setEditIndex(null);
+        }
+    };
+
+
+    // Kursni o‘chirish
+    const confirmDeleteCourse = (id) => {
+        setDeleteIndex(id); // ID ni saqlaymiz
         setIsDeleteModalOpen(true);
     };
+    const URL = "http://nightmafia.uz/dashboard"
 
-    const handleDelete = () => {
+    const handleDeleteCourse = async () => {
         if (deleteIndex !== null) {
-            setCourses(courses.filter((_, i) => i !== deleteIndex));
+            try {
+                const response = await axios.delete(`${URL}/courses/${deleteIndex}/delete/`); // DELETE so‘rov jo‘natish
+                console.log("O‘chirish natijasi:", response);
+
+                setData(prevData => prevData.filter(course => course.id !== deleteIndex));
+
+                fetchData(); // API dan yangi ma’lumotlarni yuklash
+
+            } catch (error) {
+                console.error("O‘chirishda xatolik:", error.response?.data || error.message);
+            }
+            setIsDeleteModalOpen(false);
+            setDeleteIndex(null);
         }
-        setIsDeleteModalOpen(false);
-        setDeleteIndex(null);
     };
 
     const handleSelectLanguage = (level) => {
-        setSelectedLevels(level);
         navigate("/study_section/tabsComponent");
-        console.log(level,'handleSelectLanguage ishladi');
     };
 
+    const handleAddCourse = () => {
+        navigate("/study_section/addCourse");
+    };
 
     return (
         <div className="w-full p-6">
@@ -89,13 +107,10 @@ const OfflineCourses = () => {
             <div className="flex items-center justify-between mb-4">
                 <div className='flex gap-8'>
                     <button
-                        onClick={() => {
-                            setIsOpen(true);
-                        }
-                        }
-                        className="bg-[#0D99FF] text-white taxt-[20px] w-[254px] h-[66px] rounded-lg flex items-center justify-center gap-2">
+                        onClick={handleAddCourse}
+                        className="bg-[#0D99FF] text-white text-[20px] w-[254px] h-[66px] rounded-lg flex items-center justify-center gap-2">
                         <CiCirclePlus size={25} />
-                        O‘quvchi qo‘shish
+                        Kurs qo‘shish
                     </button>
                     <div className='flex gap-2'>
                         <button className="bg-[#0D99FF] text-white px-4 py-2 rounded-lg w-32 flex items-center gap-2">
@@ -114,59 +129,86 @@ const OfflineCourses = () => {
                     className="ml-auto border rounded-lg w-[237px] h-16 indent-6 bg-white"
                 />
             </div>
+
+            {/* Kurslar jadvali */}
             <div className="w-full p-8 max-h-[805px] mx-auto bg-white shadow-md rounded-lg overflow-y-auto">
-                <div className='flex items-center justify-end'>
-                    <span className="text-gray-600 flex items-end">Umumiy Soni: {courses.length}</span>
-                </div>
+            <span className='flex items-center justify-end underline underline-offset-8'>Umumiy soni: {data.length}</span>
                 <div className="flex justify-between items-center p-8 border-b text-gray-400">
-                    <h2 className="text-lg font-bold">SARLAVXA</h2>
-                    <h2 className="text-lg font-bold mr-[335px]">RANG</h2>
+                    <h2 className="text-lg font-bold">SARLAVHA</h2>
+                    <h2 className="text-lg font-bold mr-[350px]">RANG</h2>
                 </div>
+
                 {/* Courses */}
-                {courses.map((course, index) => (
-                    <div key={index} className="border-b">
-                        <div className="flex justify-around items-center cursor-pointer py-3 px-4 hover:bg-gray-50">
-                            <span
-                                onClick={() => toggleDropdown(index)}
-                            >{openDropdown === index ? <GoChevronUp size={30} className='text-black' /> : <GoChevronDown size={30} className='text-black' />}</span>
-                            <span
-                                onClick={() => handleSelectLanguage(course.levels)}
-                                className="text-lg h-10 flex-1 ml-2 text-black"
-                            >{course.title}</span>
-                            <div className='flex '>
-                                <span className={`w-6 h-6 mr-72 ${course.color} rounded`} />
-                                <RiPencilLine onClick={() => handleEditHashtag(index)} className="text-blue-500 size-7 cursor-pointer mr-4" />
-                                <FaRegTrashAlt onClick={() => confirmDeleteHashtag(index)} className="text-red-500 size-7 cursor-pointer" />
+                {loading ? (
+                    <Loader />
+                ) : (
+                    data?.map((course, index) => (
+                        <div key={index} className="border-b">
+                            <div className="flex justify-around items-center cursor-pointer py-3 px-4 hover:bg-gray-50">
+                                <span onClick={() => toggleDropdown(index)}>
+                                    {openDropdown === index ? (
+                                        <GoChevronUp size={30} className='text-black' />
+                                    ) : (
+                                        <GoChevronDown size={30} className='text-black' />
+                                    )}
+                                </span>
+                                <span
+                                    onClick={() => handleSelectLanguage(course.levels)}
+                                    className="flex items-center text-lg h-10 flex-1 ml-2 text-black"
+                                >
+                                    {course.name}
+                                </span>
+
+                                <span 
+                                className="w-8 h-8 rounded" 
+                                style={{ backgroundColor: course.color }}>
+                                </span>
+
+
+                                <div className='flex '>
+                                    <span className={`w-6 h-6 mr-72 ${course.color} rounded`} />
+                                    <RiPencilLine
+                                        onClick={() => handleEditHashtag(index)}
+                                        className="text-blue-500 size-7 cursor-pointer mr-4"
+                                    />
+                                    <FaRegTrashAlt
+                                        onClick={() => confirmDeleteCourse(course.id)}
+                                        // onClick={() => confirmDeleteCourse(index)}
+                                        className="text-red-500 size-7 cursor-pointer"
+                                    />
+                                </div>
                             </div>
+
+                            {openDropdown === index && (
+                                <div className="bg-gray-50">
+                                    {course_levels?.map((level, idx) => (
+                                        <div key={idx} className="pl-8 py-2 border-b text-black last:border-none">
+                                            {level.name}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
-                        {/* Dropdown (Levels) */}
-                        {openDropdown === index && (
-                            <div className="bg-gray-50">
-                                {course.levels.map((level, idx) => (
-                                    <div key={idx} className="pl-8 py-2 border-b text-black last:border-none">
-                                        {level}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                ))}
+                    ))
+                )}
             </div>
 
-            <HashtagModal
-                isOpen={open}
-                onClose={() => setIsOpen(false)}
-                onSave={handleSaveHashtag}
-                // editValue={editIndex !== null ? editValue : ""}
-                editValue={editValue}
+            {/* Modal oynalar */}
+            <GenericModal
+                isOpen={isEditModalOpen}
+                onClose={() => setIsEditModalOpen(false)}
+                onSave={(updatedData) => handleSaveHashtag(updatedData)}
+                editValue={editValue || { name: '', color: '' }}
+                onDelete={handleDeleteCourse}
             />
-            <DeleteModal
+            <ConfirmDelModal
                 isOpen={isDeleteModalOpen}
                 onClose={() => setIsDeleteModalOpen(false)}
-                onConfirm={handleDelete}
+                onConfirm={handleDeleteCourse}
             />
         </div>
     );
 };
 
 export default OfflineCourses;
+

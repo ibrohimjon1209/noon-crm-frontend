@@ -4,7 +4,8 @@ const LevelContext = createContext();
 
 export const LevelProvider = ({ children }) => {
     const [selectedLevels, setSelectedLevels] = useState(() => {
-        return JSON.parse(localStorage.getItem("selectedLevels")) || [];
+        const storedLevels = localStorage.getItem("selectedLevels");
+        return storedLevels ? JSON.parse(storedLevels) : [];
     });
 
     useEffect(() => {
@@ -19,3 +20,7 @@ export const LevelProvider = ({ children }) => {
 };
 
 export const useLevel = () => useContext(LevelContext);
+
+
+// contextAPI ni ishlatish uchun: 
+//main.jsx faylida LevelProvider ni import qilib, App componentini orab turishi kerak.

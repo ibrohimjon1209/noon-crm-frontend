@@ -1,8 +1,15 @@
 import React from 'react'
+import ContractTable from './ContractTable'
+import ContractFilter from './ContractFilter'
+// import ContractDrawer from './ContractDrawer'
 
 const Contract = () => {
   return (
-    <div>Contract</div>
+    <div>
+      <ContractFilter/>
+      <ContractTable/>
+      {/* <ContractDrawer/> */}
+    </div>
   )
 }
 

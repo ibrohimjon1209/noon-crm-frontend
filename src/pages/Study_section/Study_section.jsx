@@ -4,6 +4,7 @@ import CategoryStudy from './child/CategoryStudy'
 import OnlineCourses from './child/OnlineCourses'
 import OfflineCourses from './child/OfflineCourses'
 import TabsComponent from './TabsComponent'
+import AddCourse from './CourseForm/AddCourse'
 
 const Study_section = () => {
   return (
@@ -12,6 +13,7 @@ const Study_section = () => {
       <Route path='/onlineCourses' element={<OnlineCourses/>} />
       <Route path='/offlineCourses' element={<OfflineCourses/>} />
       <Route path='/tabsComponent' element={<TabsComponent/>} />
+      <Route path='/addCourse' element={<AddCourse/>}/>
     </Routes>
   )
 }

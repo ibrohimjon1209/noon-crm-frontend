@@ -5,12 +5,12 @@ import Penalty from "./Action/Penalties/Penalty";
 import Monthly_payment from "./Action/Payment/MonthlyPayment";
 import Input_output from "./Info/InputOutput/Input_output";
 import Revenue from "./Info/revenues/Revenue";
-import Unpaid_bills from "./Info/Unpaid/Unpaid_bills_main";
 import Transaction_wihtout_bills from "./Info/TransactionBills/Transaction_without_bills";
 import Transaction from "./Report/Transactions/Transaction";
 import Contract from "./Report/Contract/Contract";
 import Balance from "./Info/Balans/Balance";
 import Cassa from "./Action/Cassa/Cassa";
+import Unpaid_bills from "./info/Unpaid/Unpaid_bills_main";
 
 const Finance = () => {
   return (
@@ -29,6 +29,7 @@ const Finance = () => {
       />
       <Route path="/transaction" element={<Transaction />} />
       <Route path="/contract" element={<Contract />} />
+      {/* <Route path="/transaction-actions" element={<TransactionActions />} /> */}
     </Routes>
   );
 };

@@ -4,6 +4,7 @@ import { CiFilter } from "react-icons/ci";
 import { GoKebabHorizontal } from "react-icons/go";
 import Student_add_modal from "./Students_list_addStudentModal";
 import Students_list_filter from "./Students_list_filter";
+import { Link } from "react-router-dom";
 
 function Students_list() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -197,7 +198,7 @@ function Students_list() {
           </div>
           <p className="mr-9 text-[25px] text-gray-400 ">Umumiy 44</p>
         </div>
-        <div className="w-full pt-[8px] px-[25px]">
+        <div className="w-full h-[96vh] pt-[8px] px-[25px] flex flex-col justify-between">
           <table className="w-full border-collapse">
             <thead>
               <tr
@@ -295,7 +296,14 @@ function Students_list() {
                   </td>
                   <td className="p-5 border text-[18px]">{index + 1}</td>
                   <td className="p-5 border text-[18px]">{row.id}</td>
-                  <td className="p-5 border text-[18px]">{row.name}</td>
+                  <td className="p-5 border text-[18px]">
+                    <Link
+                      to={"/students/profile/general"}
+                      className="hover:underline"
+                    >
+                      {row.name}
+                    </Link>
+                  </td>
                   <td className="p-5 border text-[18px]">{row.phone}</td>
                   <td className="p-5 border text-[18px]">{row.balans}</td>
                   <td className="p-5 border text-[18px]">{row.paymentDate}</td>

@@ -14,7 +14,7 @@ const Penalty = () => {
   };
 
   return (
-    <div className="w-full px-[40px] mt-[15px]">
+    <div className="w-full px-[40px]  mt-[15px]">
       <Button
         onClick={() => setIsDrawerOpen(true)}
         className="w-[250px] h-14 bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2"
