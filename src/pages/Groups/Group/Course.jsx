@@ -7,6 +7,7 @@ import archive from "../imgs/solar-history.png";
 import plus from "../imgs/add_icon.png";
 import exprt from "../imgs/export.png";
 import Nav_sec from "./Course_details/Navbar_sections";
+import Students from './Course_details/Students'
 const Course = () => {
   const location = useLocation();
   const [isChecked, setIsChecked] = useState(false);
