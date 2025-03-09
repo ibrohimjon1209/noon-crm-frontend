@@ -7,63 +7,27 @@ function Active_students() {
   const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
     useState(false);
   const [selectRows, setSelectRows] = useState(15);
-  const [students, setStudents] = useState([
-    {
-      checked: false,
-      id: "123",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-    },
-    {
-      checked: false,
-      id: "13",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-    },
-    {
-      checked: false,
-      id: "12",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-    },
-    {
-      checked: false,
-      id: "33",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-    },
-    {
-      checked: false,
-      id: "43",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      paymentDate: "12.01.2024 | 00:00",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-    },
-  ]);
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const response = await fetch(
+          "http://nightmafia.uz/dashboard/students/"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch students");
+        }
+        const data = await response.json();
+        console.log(data);
+        setStudents(data);
+      } catch (error) {
+        console.error("Error fetching students:", error);
+      }
+    };
+
+    fetchStudents();
+  }, []);
 
   const handleAllChecked = (e) => {
     const checked = e.target.checked;
@@ -244,10 +208,16 @@ function Active_students() {
                       {row.name}
                     </Link>
                   </td>
-                  <td className="p-5 border text-[18px]">{row.phone}</td>
-                  <td className="p-5 border text-[18px]">{row.balans}</td>
-                  <td className="p-5 border text-[18px]">{row.paymentDate}</td>
-                  <td className="p-5 border text-[18px]">{row.createdDate}</td>
+                  <td className="p-5 border text-[18px]">
+                    {row.user.phone_number}
+                  </td>
+                  <td className="p-5 border text-[18px]">{row.balance}</td>
+                  <td className="p-5 border text-[18px]">
+                    {row.payment_deadline}
+                  </td>
+                  <td className="p-5 border text-[18px]">
+                    {row.registration_date}
+                  </td>
                   <td className="p-5 border text-[18px]">{row.moderator}</td>
                   <td className="p-5 border text-[18px]">{row.appDownload}</td>
                   <td className="p-5 border text-[18px]">
