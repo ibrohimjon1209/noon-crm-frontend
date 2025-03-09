@@ -29,7 +29,7 @@ const Page2 = () => {
   ]
   return (
     <>
-      <div className='fixed w-[112vw] h-[600px] bg-none mt-[700px] overflow-auto'>
+      <div className=' w-[112vw] h-[112vh] mt-[20px] bg-none '>
       {info.map((item) => (
         <div className='w-full h-[250px] flex justify-center bg-white rounded-[15px] mt-[10px]'>
           <div className='w-[95%] h-[70%] mt-[10px]  flex justify-around flex-col items-start'>

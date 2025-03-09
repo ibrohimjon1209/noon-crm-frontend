@@ -5,7 +5,7 @@ import * as React from "react"
 // Asosiy DatePicker komponenti
 export default function DatePicker() {
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
+    <div>
       <div className="w-full max-w-md">
         <DatePickerSimple />
       </div>
@@ -206,7 +206,7 @@ function Calendar({ selectedDate, onChange }) {
 
   return (
     <div className="w-64">
-      <div className="flex justify-between items-center mb-2">
+      <div className="flex justify-between mt-[] mb-2">
         <button className="p-1 hover:bg-gray-100 rounded-full" onClick={prevMonth}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path

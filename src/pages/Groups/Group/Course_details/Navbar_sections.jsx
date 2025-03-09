@@ -11,7 +11,7 @@ const NavbarSections = () => {
     return (
         <div className="w-full h-[88px] mt-[30px] rounded-[15px]">
             <div className="flex items-center justify-between">
-                <ul className="w-[70%] h-[8%] mt-[50px] flex justify-start gap-[6%] items-center">
+                <ul className="w-[80%] h-[8%] mt-[50px] flex justify-start gap-[6%] items-center">
                     <li
                         className="rounded-t-lg px-6 py-4 -mt-[5px]"
                         style={{
@@ -51,7 +51,7 @@ const NavbarSections = () => {
                         )}
                     </li>
                     <li
-                        className="rounded-t-lg px-6 py-4 -mt-[12px]"
+                        className="rounded-t-lg py-4 -mt-[12px]    "
                         style={{
                             backgroundColor:
                                 location.pathname === '/groups/course/training'
@@ -60,7 +60,7 @@ const NavbarSections = () => {
                         }}
                     >
                         <Link
-                            className="text-[18px] text-[#404040] font-inter font-[600]"
+                            className="text-[18px] w-[20px] bg-black text-[#404040] font-inter font-[600]"
                             to="/groups/course/training"
                         >
                             Mashg'ulot biriktirish
@@ -71,7 +71,7 @@ const NavbarSections = () => {
                     </li>
                 </ul>
                 {location.pathname === '/groups/course/students' && (
-                    <div className="flex items-center gap-3 bg-gray-100 p-2 rounded-lg mt-[30px]">
+                    <div className="w-[200px] flex items-center gap-3 bg-gray-100 p-2 rounded-lg mt-[30px]">
                         <span className="text-gray-600 text-lg">Arxiv Talabalar</span>
                         <label className="relative inline-flex items-center cursor-pointer">
                             <input

@@ -19,7 +19,7 @@ import GraduateModal from './Students_items/Graduate';
 import DeleteModal from './Students_items/Delete';
 import ReturnToLidModal from './Students_items/ReturnToLid';
 // import Archive from './Students_items/Archive_modal/Archive'
-import Archive from '../../Archive'
+// import Archive from '../../Archive'
 import './Students_items/Students.css';
 
 const Students = () => {
@@ -141,7 +141,7 @@ const Students = () => {
   };
 
   return (
-    <div className="w-[112vw] h-auto bg-[white] m-auto overflow-none z-50">
+    <div className="w-[112vw] h-auto bg-[white] m-auto -mt-[12px] overflow-none z-50">
       <h2 className="text-[#747474] underline text-[20px] float-right mr-[30px] mt-[30px]">
         Umumiy son: {students.length}
       </h2>
@@ -156,11 +156,11 @@ const Students = () => {
                 onChange={handleAllChecked}
               />
             </th>
-            <th className="h-[25px] p-2 text-left">№</th>
-            <th className="h-[25px] p-2 text-left">O'quvchini Ismi</th>
-            <th className="h-[25px] p-2 text-left">Telefon Raqam</th>
-            <th className="h-[25px] p-2 text-left">Balans</th>
-            <th className="h-[25px] p-2 text-left">Narxi</th>
+            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">№</th>
+            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">O'quvchini Ismi</th>
+            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">Telefon Raqam</th>
+            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">Balans</th>
+            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">Narxi</th>
             <th className="h-[25px] p-2 text-left w-[30%]"></th>
           </tr>
         </thead>
@@ -218,6 +218,7 @@ const Students = () => {
                     >
                       {[
                         {
+                          
                           src: warningIcon,
                           label: "O'quvchini guruhdan muzlatish",
                           onClick: () => {

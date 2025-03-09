@@ -9,49 +9,53 @@ import blackArchive from './img/black_archive.png';
 import DatePicker from './DatePicker';
 
 const ArchiveNavbar = () => {
-  const location = useLocation(); 
+  const location = useLocation();
 
 
-  const showDatePicker = location.pathname !== '/groups/archive/page2';
+  const showDatePicker = location.pathname === '/groups/archive/page1';
 
-  
-  const isPage1Active = location.pathname === '/groups/archive/page1'; 
-  const isPage2Active = location.pathname === '/groups/archive/page2'; 
+
+  const isPage1Active = location.pathname === '/groups/archive/page1';
+  const isPage2Active = location.pathname === '/groups/archive/page2';
   return (
-    <>
+    <div className=''>
 
-      <div className="w-[180px] h-[80%] rounded-lg border-[1px] flex justify-center items-center overflow-hidden">
+      <div className="  w-full  h-[80%] rounded-lg flex  justify-between items-center ">
 
-        <Link to="/groups/archive/page1" className='w-full h-full'>
-          <div
-            className={`w-full h-full bg-[#0D99FF] ${isPage1Active ? 'bg-[#0D99FF]' : 'bg-white'
-              } flex justify-center items-center cursor-pointer transition duration-300`}
-          >
-            <img
-              className='w-[40%]'
-              src={isPage1Active ? whiteDollar : blackDollar}
-              alt="Dollar belgisi"
-            />
-          </div>
-        </Link>
+        <div className=' flex '>
+          <Link to="/groups/archive/page1" className='w-full h-full'>
+            <div
+              className={`w-[100px] h-[66px] bg-[#0D99FF] ${isPage1Active ? 'bg-[#0D99FF]' : 'bg-white'
+                } flex justify-center items-center cursor-pointer transition duration-300`}
+            >
+              <img
+                className='w-[40%]'
+                src={isPage1Active ? whiteDollar : blackDollar}
+                alt="Dollar belgisi"
+              />
+            </div>
+          </Link>
 
-      
-        <Link to="/groups/archive/page2" className='w-full h-full'>
-          <div
-            className={`w-full h-full ${isPage2Active ? 'bg-[#0D99FF]' : 'bg-white'
-              } flex justify-center items-center cursor-pointer transition duration-300`}
-          >
-            <img
-              className='w-[35%]'
-              src={isPage2Active ? whiteArchive : blackArchive}
-              alt="Arxiv belgisi"
-            />
-          </div>
-        </Link>
+
+          <Link to="/groups/archive/page2" className='w-full h-full'>
+            <div
+              className={`w-[100px] h-[66px] ${isPage2Active ? 'bg-[#0D99FF]' : 'bg-white'
+                } flex justify-center items-center cursor-pointer transition duration-300`}
+            >
+              <img
+                className='w-[35%]'
+                src={isPage2Active ? whiteArchive : blackArchive}
+                alt="Arxiv belgisi"
+              />
+            </div>
+          </Link>
+        </div>
+
+        {showDatePicker && <DatePicker />}
+
       </div>
 
 
-      {showDatePicker && <DatePicker />}
 
 
       <Routes>
@@ -59,8 +63,8 @@ const ArchiveNavbar = () => {
         <Route path="/page1" element={<Page1 />} />
         <Route path="/page2" element={<Page2 />} />
       </Routes>
-      
-    </>
+
+    </div>
   );
 };
 
