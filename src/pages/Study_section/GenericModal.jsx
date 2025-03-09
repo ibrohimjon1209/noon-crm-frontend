@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { CgClose } from "react-icons/cg";
 
-const GenericModal = ({ isOpen, onClose, onSave, onDelete, editValue }) => {
+const GenericModal = ({ isOpen, onClose, onSave, onDelete, editValue, activeTab}) => {
     const [isAnimating, setIsAnimating] = useState(false);
     const [shouldRender, setShouldRender] = useState(false);
     const [name, setName] = useState("");
     const [color, setColor] = useState("");
     const [courseId, setCourseId] = useState(null); // ID ni saqlash uchun state
 
+    console.log(activeTab);
+    
+  
     useEffect(() => {
         if (isOpen) {
             setShouldRender(true);
@@ -86,7 +89,8 @@ const GenericModal = ({ isOpen, onClose, onSave, onDelete, editValue }) => {
                         value={color}
                         onChange={(e) => setColor(e.target.value)}
                         placeholder="Rangni kiriting..."
-                        type="text"
+                        // type="text"
+                        type={activeTab === "darajalar" ? "color" : "text"}
                         className="w-full h-[45px] p-2 border border-gray-300 text-black text-[17px] bg-[#F2EEEE] rounded-md"
                         required
                     />
@@ -97,7 +101,7 @@ const GenericModal = ({ isOpen, onClose, onSave, onDelete, editValue }) => {
                                 onClick={handleDelete}
                                 className="w-[140px] h-[60px] text-[20px] py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-500"
                             >
-                                O‘chirish
+                                Bekor qilish
                             </button>
                         )}
                         <button

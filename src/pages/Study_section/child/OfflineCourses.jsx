@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import instance from '../../../api/instance';
 import GenericModal from '../GenericModal';
 import ConfirmDelModal from '../ConfirmDeleteModal';
-import { useDeleteData, useFetchData } from '../../../hook/useFetchData';
+import { useDeleteData, useFetchData, usePutData } from '../../../hook/useFetchData';
 import axios from 'axios';
 import Loader from '../../Loader/Loader';
 
@@ -29,25 +29,44 @@ const OfflineCourses = () => {
     const [data, loading, fetchData, setData] = useFetchData("/courses");  // API dan ma'lumotlarni olish, Get uchun.
     const course_levels = data?.course_levels || [];
 
+
     // Kursni tahrirlash
     const handleEditHashtag = (index) => {
         setEditIndex(index);
-        setEditValue(data[index].name);
+        setEditValue(data[index]);
         setIsEditModalOpen(true);
     };
 
-    const handleSaveHashtag = async (newName) => {
+    const [putData, updating] = usePutData();
+
+    const handleSaveHashtag = async (updatedData) => {
         if (editIndex !== null) {
+            const courseId = data[editIndex].id; // ID ni olish
+
             try {
-                await instance.put(`/courses/${data[editIndex].id}`, { name: newName });
-                fetchData(); // API dan qayta yuklash
+                const updatedCourse = await putData(`/courses/${courseId}/update/`, updatedData);
+
+                // ✅ Ma'lumotlarni oldingilarni o‘zgartirib yangilash
+                setData(prevData =>
+                    prevData.map(course =>
+                        course.id === courseId ? { ...course, ...updatedData } : course
+                    )
+                );
+
+                fetchData(); // API dan yangi ma’lumotlarni yuklash
+
             } catch (error) {
                 console.error("Tahrirlashda xatolik:", error);
+                if (error.response) {
+                    console.error("Server javobi:", error.response.data);
+                }
             }
+
             setIsEditModalOpen(false);
             setEditIndex(null);
         }
     };
+
 
     // Kursni o‘chirish
     const confirmDeleteCourse = (id) => {
@@ -113,14 +132,15 @@ const OfflineCourses = () => {
 
             {/* Kurslar jadvali */}
             <div className="w-full p-8 max-h-[805px] mx-auto bg-white shadow-md rounded-lg overflow-y-auto">
+            <span className='flex items-center justify-end underline underline-offset-8'>Umumiy soni: {data.length}</span>
                 <div className="flex justify-between items-center p-8 border-b text-gray-400">
                     <h2 className="text-lg font-bold">SARLAVHA</h2>
-                    <h2 className="text-lg font-bold mr-[335px]">RANG</h2>
+                    <h2 className="text-lg font-bold mr-[350px]">RANG</h2>
                 </div>
 
                 {/* Courses */}
                 {loading ? (
-                    <Loader/>
+                    <Loader />
                 ) : (
                     data?.map((course, index) => (
                         <div key={index} className="border-b">
@@ -139,9 +159,10 @@ const OfflineCourses = () => {
                                     {course.name}
                                 </span>
 
-                                {/* <span className="px-2 py-1"rounded style={{ backgroundColor: course.color }}>
-                                    {course.color}
-                                </span> */}
+                                <span 
+                                className="w-8 h-8 rounded" 
+                                style={{ backgroundColor: course.color }}>
+                                </span>
 
 
                                 <div className='flex '>
@@ -176,8 +197,8 @@ const OfflineCourses = () => {
             <GenericModal
                 isOpen={isEditModalOpen}
                 onClose={() => setIsEditModalOpen(false)}
-                onSave={handleSaveHashtag}
-                editValue={editValue}
+                onSave={(updatedData) => handleSaveHashtag(updatedData)}
+                editValue={editValue || { name: '', color: '' }}
                 onDelete={handleDeleteCourse}
             />
             <ConfirmDelModal

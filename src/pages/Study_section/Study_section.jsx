@@ -13,7 +13,7 @@ const Study_section = () => {
       <Route path='/onlineCourses' element={<OnlineCourses/>} />
       <Route path='/offlineCourses' element={<OfflineCourses/>} />
       <Route path='/tabsComponent' element={<TabsComponent/>} />
-      <Route path='addCourse' element={<AddCourse/>}/>
+      <Route path='/addCourse' element={<AddCourse/>}/>
     </Routes>
   )
 }

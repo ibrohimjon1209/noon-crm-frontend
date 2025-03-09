@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFetchData, usePostData } from "../../../hook/useFetchData";
+import { usePostData } from "../../../hook/useFetchData";
 
 const AddCourse = () => {
     const navigation = useNavigate();
+    
 
     //  Yangi kurs obyektini state-da saqlash
     const [courseData, setCourseData] = useState({
@@ -33,9 +34,6 @@ const AddCourse = () => {
             ...courseData,
 
         };
-
-        console.log("📤 Yuborilayotgan JSON:", JSON.stringify(newCourse, null, 2));
-
         const response = await postData("/courses/create/", newCourse);
 
         if (response) {
