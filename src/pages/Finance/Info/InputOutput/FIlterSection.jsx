@@ -2,6 +2,7 @@ import { useState } from "react";
 import arrow_down_black_icon from "../../../assigments/images/arrow_down_black_icon.png";
 import calendar_icon from "../../../assigments/images/calendar_icon.png";
 // import * as XLSX from "xlsx";
+import { BiExport } from "react-icons/bi";
 
 const FilterSection = () => {
   const [activeTab, setActiveTab] = useState("Kirim");
@@ -121,7 +122,7 @@ const FilterSection = () => {
 
   return (
     <div>
-      <div className="flex bg-gray-100 p-1 rounded-xl mb-4">
+      <div className="flex bg-gray-100 p-1 rounded-xl mt-4 ml-4">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -137,9 +138,10 @@ const FilterSection = () => {
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-4 p-4 rounded-md">
+      <div className="flex justify-start gap-4 p-4 ">
         <div className="flex items-center justify-between">
           <button className="w-[250px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2 mt-6 ml-8">
+          <BiExport className="text-[25px] text-white mr-4" />
             Export
           </button>
           <div className="flex flex-row justify-end pr-[2%] gap-[10px] pl-[130px] h-[95px] pt-[25px] -mb-[5px]">
@@ -201,6 +203,11 @@ const FilterSection = () => {
                 </ul>
               </div>
             </div>
+            <div className="w-[320px] h-[70px] bg-white rounded-[5px] relative">
+              <div className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_calendar_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between px-[25px]`}
+                onClick={() => set_is_calendar_open(!is_calendar_open)}>
+                <img src={calendar_icon} className={`w-[33px] h-[33px] object-contain duration-[0.3s]`} alt="" />
+                <p className={`font-roboto font-[400] text-[19px] whitespace-nowrap leading-[23.44px] text-black`}>
             <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
               <div
                 className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${
@@ -269,6 +276,11 @@ const FilterSection = () => {
                 </div>
               </div>
             </div>
+            <div
+              className="w-[320px] h-[70px] bg-white rounded-[5px] relative"
+            >
+              <div
+                className={`h-[70px] w-[320px] cursor-pointer flex items-center border-[#C5C5C5] ${is_student_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between ${teacher_value.length > 15 ? 'px-[20px]' : 'px-[28px]'}`}
             <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
               <div
                 className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${
