@@ -11,7 +11,7 @@ const TabsComponent = () => {
     const [activeTab, setActiveTab] = useState("darajalar");
 
     const tabs = [
-        { id: "darajalar", title: "Darajalar", component: <Levels />, buttonText: "Daraja qo‘shish" },
+        { id: "darajalar", title: "Darajalar", component: <Levels activeTab={'darajalar'}/>, buttonText: "Daraja qo‘shish" },
         { id: "haftaKunlari", title: "Hafta Kunlari", component: <WeekdaysPage />, buttonText: "Kun qo‘shish" },
         { id: "kursVaqtlari", title: "Kurs Vaqtlari", component: <CourseTimes />, buttonText: "Vaqt qo‘shish" },
         { id: "oqituvchilar", title: "O‘qituvchilar", component: <Mentors />, buttonText: "O‘qituvchi qo‘shish" },
