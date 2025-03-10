@@ -415,8 +415,8 @@ const StudentSendComment = ({ onClose, isOpen }) => {
       ></div>
       <div
         className={`absolute flex justify-between flex-col bottom-9 right-5 rounded-tl-[100px]  bg-white rounded-[20px] w-[525px] h-[630px] z-50 transition-all duration-300 ease-out ${isAnimating
-            ? "translate-y-1 opacity-100"
-            : "-translate-y-20 opacity-0"
+          ? "translate-y-1 opacity-100"
+          : "-translate-y-20 opacity-0"
           }`}
       >
         <div className="p-6 border-b-[10px] rounded-tl-[100px] flex pl-[60px]  justify-between border-black/30">
