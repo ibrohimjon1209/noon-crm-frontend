@@ -138,7 +138,7 @@ function Parrents() {
           </div>
           <p className="mr-9 text-[25px] text-gray-400 ">Umumiy 44</p>
         </div>
-        <div className="w-full pt-[8px] px-[25px]">
+        <div className="w-full h-[96vh] pt-[8px] px-[25px] flex flex-col justify-between">
           <table className="w-full border-collapse">
             <thead>
               <tr

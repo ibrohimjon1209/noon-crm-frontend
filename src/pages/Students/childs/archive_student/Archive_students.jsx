@@ -7,83 +7,27 @@ function Archive_students() {
   const [is_open_student_modal_comment, setIs_open_student_modal_comment] =
     useState(false);
   const [selectRows, setSelectRows] = useState(15);
-  const [students, setStudents] = useState([
-    {
-      checked: false,
-      id: "123",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      archiveGroup: "Elementry",
-      archiveTeacher: "Oydin Islomova",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-      proArchiveDate: "10.04.2022 | 14:00",
-      archiveDate: "08.09.2020 | 20:00",
-      reason: "maktabdan qochgan",
-    },
-    {
-      checked: false,
-      id: "13",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      archiveGroup: "Elementry",
-      archiveTeacher: "Oydin Islomova",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-      proArchiveDate: "10.04.2022 | 14:00",
-      archiveDate: "08.09.2020 | 20:00",
-      reason: "maktabdan qochgan",
-    },
-    {
-      checked: false,
-      id: "12",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      archiveGroup: "Elementry",
-      archiveTeacher: "Oydin Islomova",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-      proArchiveDate: "10.04.2022 | 14:00",
-      archiveDate: "08.09.2020 | 20:00",
-      reason: "maktabdan qochgan",
-    },
-    {
-      checked: false,
-      id: "15",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      archiveGroup: "Elementry",
-      archiveTeacher: "Oydin Islomova",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-      proArchiveDate: "10.04.2022 | 14:00",
-      archiveDate: "08.09.2020 | 20:00",
-      reason: "maktabdan qochgan",
-    },
-    {
-      checked: false,
-      id: "19",
-      name: "Ilhomov Elyor Eldorvich",
-      phone: "+998 90 762 92 82",
-      balans: "-50.000 UZS",
-      archiveGroup: "Elementry",
-      archiveTeacher: "Oydin Islomova",
-      createdDate: "14.11.2023 | 12:00",
-      moderator: "Asila opa",
-      appDownload: "11.02.2025",
-      proArchiveDate: "10.04.2022 | 14:00",
-      archiveDate: "08.09.2020 | 20:00",
-      reason: "maktabdan qochgan",
-    },
-  ]);
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const response = await fetch(
+          "http://nightmafia.uz/dashboard/students/"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch students");
+        }
+        const data = await response.json();
+        console.log(data);
+        setStudents(data);
+      } catch (error) {
+        console.error("Error fetching students:", error);
+      }
+    };
+
+    fetchStudents();
+  }, []);
 
   const handleAllChecked = (e) => {
     const checked = e.target.checked;
@@ -157,8 +101,9 @@ function Archive_students() {
         className="flex-col bg-white w-[96.1%] text-[#404040] mt-[15px] pb-[0px] h-[990px] overflow-x-clip rounded-xl"
       >
         <div
-          className={`ml-6 mt-0 flex justify-between sticky top-0 left-0 w-full p-4 ${isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
-            } transition-all duration-300`}
+          className={`ml-6 mt-0 flex justify-between sticky top-0 left-0 w-full p-4 ${
+            isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
+          } transition-all duration-300`}
         >
           <div className="flex gap-[40px]">
             <p className="text-[25px] text-red-500">Qarzdor: -45229917</p>
@@ -166,12 +111,13 @@ function Archive_students() {
           </div>
           <p className="mr-9 text-[25px] text-gray-400 ">Umumiy 44</p>
         </div>
-        <div className="w-full pt-[8px] px-[25px]">
+        <div className="w-full h-[96vh] pt-[8px] px-[25px] flex flex-col justify-between">
           <table className="w-full border-collapse">
             <thead>
               <tr
-                className={`sticky top-[70px] left-0 w-full p-4 ${isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
-                  } transition-all duration-300`}
+                className={`sticky top-[70px] left-0 w-full p-4 ${
+                  isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
+                } transition-all duration-300`}
               >
                 <th className="w-12 p-2 text-left">
                   <div className="flex -mt-[8px] flex-row gap-[30px] pr-4 w-[100%]">
@@ -184,19 +130,21 @@ function Archive_students() {
                       />
                       <span
                         className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-              ${students.every((student) => student.checked)
-                            ? "bg-[#0EA5E9]"
-                            : "bg-white"
-                          } 
+              ${
+                students.every((student) => student.checked)
+                  ? "bg-[#0EA5E9]"
+                  : "bg-white"
+              } 
               after:content-[''] after:absolute 
               after:top-[2px] after:left-[5px] 
               after:w-1.5 after:h-2.5 
               after:border-white after:border-r-2 
               after:border-b-2 after:rotate-45
-              ${students.every((student) => student.checked)
-                            ? "after:block"
-                            : "after:hidden"
-                          }`}
+              ${
+                students.every((student) => student.checked)
+                  ? "after:block"
+                  : "after:hidden"
+              }`}
                       ></span>
                     </label>
                   </div>
@@ -270,12 +218,17 @@ function Archive_students() {
                   <td className="p-5 border text-[18px]">{index + 1}</td>
                   <td className="p-5 border text-[18px]">{row.id}</td>
                   <td className="p-5 border text-[18px]">
-                    <Link to={"/students/profile/general"} className="hover:underline">
+                    <Link
+                      to={"/students/profile/general"}
+                      className="hover:underline"
+                    >
                       {row.name}
                     </Link>
                   </td>
-                  <td className="p-5 border text-[18px]">{row.phone}</td>
-                  <td className="p-5 border text-[18px]">{row.balans}</td>
+                  <td className="p-5 border text-[18px]">
+                    {row.user.phone_number}
+                  </td>
+                  <td className="p-5 border text-[18px]">{row.balance}</td>
                   <td className="p-5 border text-[18px]">{row.archiveGroup}</td>
                   <td className="p-5 border text-[18px]">
                     {row.archiveTeacher}
@@ -476,15 +429,17 @@ const StudentSendComment = ({ onClose, isOpen }) => {
   return (
     <div className="w-full h-[135vh] fixed inset-0 z-50 flex items-center justify-center">
       <div
-        className={`w-full h-[135vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${isAnimating ? "opacity-100" : "opacity-0"
-          }`}
+        className={`w-full h-[135vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
+          isAnimating ? "opacity-100" : "opacity-0"
+        }`}
         onClick={onClose}
       ></div>
       <div
-        className={`absolute flex justify-between flex-col bottom-9 right-5 rounded-tl-[100px]  bg-white rounded-[20px] w-[525px] h-[630px] z-50 transition-all duration-300 ease-out ${isAnimating
-          ? "translate-y-1 opacity-100"
-          : "-translate-y-20 opacity-0"
-          }`}
+        className={`absolute flex justify-between flex-col bottom-9 right-5 rounded-tl-[100px]  bg-white rounded-[20px] w-[525px] h-[630px] z-50 transition-all duration-300 ease-out ${
+          isAnimating
+            ? "translate-y-1 opacity-100"
+            : "-translate-y-20 opacity-0"
+        }`}
       >
         <div className="p-6 border-b-[10px] rounded-tl-[100px] flex pl-[60px]  justify-between border-black/30">
           <p className="text-3xl">Ilhomov</p>

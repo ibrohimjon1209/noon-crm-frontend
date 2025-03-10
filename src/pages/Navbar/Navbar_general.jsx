@@ -145,7 +145,6 @@ const Navbar_general = () => {
     },
   ];
 
-
   const finance_submenu_items_action = [
     {
       path: "/finance/cassa",
@@ -169,7 +168,6 @@ const Navbar_general = () => {
     },
   ];
 
-
   const finance_submenu_items_report = [
     {
       path: "/finance/balance",
@@ -189,13 +187,14 @@ const Navbar_general = () => {
     {
       path: "/finance/unpaid-bills",
       active: "/finance/unpaid-bills",
-      label: "O'quvchining to'lanmagan to'lovlari",
+      label: "O'quvchining umumiy to'lanmagan to'lovlari",
     },
     {
       path: "/finance/transaction-without-bills",
       active: "/finance/transaction-without-bills",
-      label: "Kursni asl narxidan o'quvchi guruxni narxi boshqa bo'lib pul yechgan trannzaksiyalar",
-    }
+      label:
+        "Kursni asl narxidan o'quvchi guruxni narxi boshqa bo'lib pul yechgan trannzaksiyalar",
+    },
   ];
 
   const finance_submenu_items_info = [
@@ -221,7 +220,7 @@ const Navbar_general = () => {
       active: "/groups/rooms",
       label: "Fikr-mulohaza",
     },
-  ]
+  ];
   const control_submenu_items_report = [
     {
       path: "/finance/checkout",
@@ -238,7 +237,7 @@ const Navbar_general = () => {
       active: "/groups/rooms",
       label: "Filliallar holati",
     },
-  ]
+  ];
 
   return (
     <div className="w-[230px] top-0 h-[132vh] flex flex-col justify-between bg-white">
@@ -261,10 +260,11 @@ const Navbar_general = () => {
       >
         <Link
           to="/assigments"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${location.pathname === "/assigments"
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            } pl-[10px]`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 ${
+            location.pathname === "/assigments"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          } pl-[10px]`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -278,10 +278,11 @@ const Navbar_general = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isLidsActive
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            isLidsActive
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
           onMouseEnter={() => set_lids_is_hovered(true)}
           onMouseLeave={() => set_lids_is_hovered(false)}
         >
@@ -306,16 +307,18 @@ const Navbar_general = () => {
                   {lids_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                          : " text-black"
-                          }`}
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${
+                          activeSubmenu === item.active
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                            : " text-black"
+                        }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                            ? "bg-[#264E86]"
-                            : "bg-black"
-                            }`}
+                          className={`w-[5px] h-[5px] rounded-[50%] ${
+                            activeSubmenu === item.path
+                              ? "bg-[#264E86]"
+                              : "bg-black"
+                          }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
@@ -330,10 +333,11 @@ const Navbar_general = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isGroupsActive
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            isGroupsActive
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
           onMouseEnter={() => set_groups_hovered(true)}
           onMouseLeave={() => set_groups_hovered(false)}
         >
@@ -358,16 +362,18 @@ const Navbar_general = () => {
                   {groups_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                          : " text-black"
-                          }`}
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${
+                          activeSubmenu === item.active
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                            : " text-black"
+                        }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                            ? "bg-[#264E86]"
-                            : "bg-black"
-                            }`}
+                          className={`w-[5px] h-[5px] rounded-[50%] ${
+                            activeSubmenu === item.path
+                              ? "bg-[#264E86]"
+                              : "bg-black"
+                          }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
@@ -382,10 +388,11 @@ const Navbar_general = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isStudentsActive
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            isStudentsActive
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
           onMouseEnter={() => set_students_hovered(true)}
           onMouseLeave={() => set_students_hovered(false)}
         >
@@ -410,16 +417,18 @@ const Navbar_general = () => {
                   {studets_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                          : " text-black"
-                          }`}
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${
+                          activeSubmenu === item.active
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                            : " text-black"
+                        }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                            ? "bg-[#264E86]"
-                            : "bg-black"
-                            }`}
+                          className={`w-[5px] h-[5px] rounded-[50%] ${
+                            activeSubmenu === item.path
+                              ? "bg-[#264E86]"
+                              : "bg-black"
+                          }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
@@ -434,10 +443,11 @@ const Navbar_general = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isStudytsActive
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            isStudytsActive
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
           onMouseEnter={() => set_study_hovered(true)}
           onMouseLeave={() => set_study_hovered(false)}
         >
@@ -463,16 +473,18 @@ const Navbar_general = () => {
                   {study_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                          ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
-                          : " text-black"
-                          }`}
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${
+                          activeSubmenu === item.active
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-[221px]"
+                            : " text-black"
+                        }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                            ? "bg-[#264E86]"
-                            : "bg-black"
-                            }`}
+                          className={`w-[5px] h-[5px] rounded-[50%] ${
+                            activeSubmenu === item.path
+                              ? "bg-[#264E86]"
+                              : "bg-black"
+                          }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}
@@ -489,10 +501,11 @@ const Navbar_general = () => {
         {/* oquv bolim end */}
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isFinanceActive
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            isFinanceActive
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
           onMouseEnter={() => set_finance_hovered(true)}
           onMouseLeave={() => set_finance_hovered(false)}
           to="/finance"
@@ -515,23 +528,28 @@ const Navbar_general = () => {
                 alt=""
               />
               <div>
-                <div className="flex cursor-auto flex-row gap-[40px] w-[700px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
-
+                <div className="flex cursor-auto flex-row gap-[40px] w-[780px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg mb-44">
                   {/* Amallar Qismi */}
                   <div className="flex flex-col gap-[15px] w-1/2">
-                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Amallar</h1>
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">
+                      Amallar
+                    </h1>
                     <div className="w-full bg-[#949494] h-[0.3px]"></div>
                     {finance_submenu_items_action.map((item) => (
                       <Link key={item.path} to={item.path}>
                         <div
-                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
-                            : " text-black"
-                            }`}
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${
+                            activeSubmenu === item.path
+                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                              : " text-black"
+                          }`}
                         >
                           <div
-                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
-                              }`}
+                            className={`w-[5px] h-[5px] rounded-[50%] ${
+                              activeSubmenu === item.path
+                                ? "bg-[#264E86]"
+                                : "bg-black"
+                            }`}
                           ></div>
                           <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                             {item.label}
@@ -543,23 +561,36 @@ const Navbar_general = () => {
 
                   {/* Hisobotlar Qismi */}
                   <div className="flex flex-col gap-[15px] w-1/2">
-                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Hisobotlar</h1>
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">
+                      Hisobotlar
+                    </h1>
                     <div className="w-full bg-[#949494] h-[0.3px]"></div>
                     {finance_submenu_items_report.map((item) => (
                       <Link key={item.path} to={item.path}>
                         <div
-                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
-                            : " text-black"
-                            }`}
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${
+                            activeSubmenu === item.path
+                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                              : " text-black"
+                          }`}
                         >
                           <div
-                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
-                              }`}
+                            className={`w-[5px] h-[5px] rounded-[50%] ${
+                              activeSubmenu === item.path
+                                ? "bg-[#264E86]"
+                                : "bg-black"
+                            }`}
                           ></div>
-                          <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px] max-w-[200px] cursor-pointer">
-                            {item.label}
-                          </h1>
+                          <div className="group relative">
+                            <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px] max-w-[250px] cursor-pointer overflow-hidden whitespace-nowrap text-ellipsis">
+                              {item.label}
+                            </h1>
+                            {item.label.length > 30 && (
+                              <div className="absolute left-0 -top-16 hidden group-hover:block bg-gray-800 text-white text-sm rounded px-2 py-1 w-[200px] break-words">
+                                {item.label}
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </Link>
                     ))}
@@ -567,19 +598,25 @@ const Navbar_general = () => {
 
                   {/*Malumotlar Qismi */}
                   <div className="flex flex-col gap-[15px] w-1/2">
-                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Ma'lumotlar</h1>
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">
+                      Ma'lumotlar
+                    </h1>
                     <div className="w-full bg-[#949494] h-[0.3px]"></div>
                     {finance_submenu_items_info.map((item) => (
                       <Link key={item.path} to={item.path}>
                         <div
-                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
-                            : " text-black"
-                            }`}
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${
+                            activeSubmenu === item.path
+                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                              : " text-black"
+                          }`}
                         >
                           <div
-                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
-                              }`}
+                            className={`w-[5px] h-[5px] rounded-[50%] ${
+                              activeSubmenu === item.path
+                                ? "bg-[#264E86]"
+                                : "bg-black"
+                            }`}
                           ></div>
                           <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                             {item.label}
@@ -592,14 +629,14 @@ const Navbar_general = () => {
               </div>
             </div>
           )}
-
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isControlActive
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            isControlActive
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
           onMouseEnter={() => set_control_hovered(true)}
           onMouseLeave={() => set_control_hovered(false)}
           to="/control"
@@ -622,22 +659,27 @@ const Navbar_general = () => {
               />
               <div>
                 <div className="flex cursor-auto flex-row gap-[40px] w-[660px] h-auto px-[30px] py-[20px] bg-white rounded-[10px] shadow-[rgba(0,0,0,0.25)] shadow-lg">
-
                   {/* Hisobotlar Qismi */}
                   <div className="flex flex-col gap-[15px] w-1/2">
-                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Amallar</h1>
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">
+                      Amallar
+                    </h1>
                     <div className="w-full bg-[#949494] h-[0.3px]"></div>
                     {control_submenu_items_action.map((item) => (
                       <Link key={item.path} to={item.path}>
                         <div
-                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
-                            : " text-black"
-                            }`}
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${
+                            activeSubmenu === item.path
+                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                              : " text-black"
+                          }`}
                         >
                           <div
-                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
-                              }`}
+                            className={`w-[5px] h-[5px] rounded-[50%] ${
+                              activeSubmenu === item.path
+                                ? "bg-[#264E86]"
+                                : "bg-black"
+                            }`}
                           ></div>
                           <h1 className="hover:text-[#264E86] font-roboto font-medium text-[18px]  max-w-[200px] cursor-pointer">
                             {item.label}
@@ -649,19 +691,25 @@ const Navbar_general = () => {
 
                   {/*Malumotlar Qismi */}
                   <div className="flex flex-col gap-[15px] w-1/2">
-                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">Hisobotlar</h1>
+                    <h1 className="font-roboto text-[#949494] font-[600] text-[18px]">
+                      Hisobotlar
+                    </h1>
                     <div className="w-full bg-[#949494] h-[0.3px]"></div>
                     {control_submenu_items_report.map((item) => (
                       <Link key={item.path} to={item.path}>
                         <div
-                          className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.path
-                            ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
-                            : " text-black"
-                            }`}
+                          className={`gap-[10px] flex items-center transition-all duration-300 ${
+                            activeSubmenu === item.path
+                              ? "text-[#264E86] -ml-[30px] pl-[30px] w-full"
+                              : " text-black"
+                          }`}
                         >
                           <div
-                            className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path ? "bg-[#264E86]" : "bg-black"
-                              }`}
+                            className={`w-[5px] h-[5px] rounded-[50%] ${
+                              activeSubmenu === item.path
+                                ? "bg-[#264E86]"
+                                : "bg-black"
+                            }`}
                           ></div>
                           <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                             {item.label}
@@ -678,10 +726,11 @@ const Navbar_general = () => {
 
         <Link
           to="/management"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/management"
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/management"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -696,10 +745,11 @@ const Navbar_general = () => {
 
         <Link
           to="/marketing"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/marketing"
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/marketing"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -714,10 +764,11 @@ const Navbar_general = () => {
 
         <Link
           to="/reports"
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${location.pathname === "/reports"
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            location.pathname === "/reports"
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86]"
+          }`}
         >
           <div className="w-[101px] h-[60px] flex gap-[15px] items-center">
             <img
@@ -731,10 +782,11 @@ const Navbar_general = () => {
         </Link>
 
         <Link
-          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${isSettingsActive
-            ? "bg-[#CFEBFF] text-[#264E86]"
-            : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
-            }`}
+          className={`w-[85%] rounded-[10px] flex items-center cursor-pointer transition-all duration-300 pl-[10px] ${
+            isSettingsActive
+              ? "bg-[#CFEBFF] text-[#264E86]"
+              : "bg-white text-black hover:bg-[#CFEBFF] hover:text-[#264E86] "
+          }`}
           onMouseEnter={() => set_settings_is_hovered(true)}
           onMouseLeave={() => set_settings_is_hovered(false)}
         >
@@ -760,16 +812,18 @@ const Navbar_general = () => {
                   {settings_submenu_items.map((item) => (
                     <Link key={item.path} to={item.path}>
                       <div
-                        className={`gap-[10px] flex items-center transition-all duration-300 ${activeSubmenu === item.active
-                          ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
-                          : " text-black"
-                          }`}
+                        className={`gap-[10px] flex items-center transition-all duration-300 ${
+                          activeSubmenu === item.active
+                            ? "text-[#264E86] -ml-[30px] pl-[30px] py-[5px] w-[221px]"
+                            : " text-black"
+                        }`}
                       >
                         <div
-                          className={`w-[5px] h-[5px] rounded-[50%] ${activeSubmenu === item.path
-                            ? "bg-[#264E86]"
-                            : "bg-black"
-                            }`}
+                          className={`w-[5px] h-[5px] rounded-[50%] ${
+                            activeSubmenu === item.path
+                              ? "bg-[#264E86]"
+                              : "bg-black"
+                          }`}
                         ></div>
                         <h1 className="hover:text-[#264E86] font-roboto font-[500] text-[18px] leading-[21.09px]">
                           {item.label}

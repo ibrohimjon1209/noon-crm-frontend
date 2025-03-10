@@ -1,34 +1,6 @@
 import { useEffect, useState } from "react";
 import instance from "../api/instance";
 
-// 🔹 Ma'lumotlarni olish (GET)
-// const useFetchData = (ENDPOINT) => {
-//     const [data, setData] = useState([]);
-//     const [loading, setLoading] = useState(false);
-//     console.log(data);
-
-
-//     useEffect(() => {
-//         if (!ENDPOINT) return;
-
-//         setLoading(true);
-//         setData([]); // Eski ma'lumotlarni tozalash
-
-//         instance.get(ENDPOINT)
-//             .then(response => {
-//                 setData(response.data);
-//             })
-//             .catch(err => {
-//                 console.error("Xatolik:", err);
-//             })
-//             .finally(() => {
-//                 setLoading(false);
-//             });
-
-//     }, [ENDPOINT]);
-
-//     return [data, loading, setData];
-// };
 
 // 🔹 Ma'lumotlarni olish (GET)
 const useFetchData = (ENDPOINT) => {

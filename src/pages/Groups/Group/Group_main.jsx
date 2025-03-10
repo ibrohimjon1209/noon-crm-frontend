@@ -66,7 +66,7 @@ const Group_main = () => {
                         }`}
                     ></span>
                   </label>
-                </div>
+                </div>  
               </th>
               <th className="w-12 px-6 pt-[20px] pb-[25px] text whitespace-nowrap-left">№</th>
               <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">ID</th>
@@ -84,9 +84,9 @@ const Group_main = () => {
           </thead>
           <tbody>
             {data.map((item, index) => (
-              <tr key={index}>
-                <td className="px-6 pb-[25px]">
-                  <label className="-mt-[8px] relative block cursor-pointer text-lg select-none">
+              <tr className="hover:bg-blue-200" key={index}>
+                <td className="px-6 pb-[50px] flex items-center">
+                  <label className="-mt-[px] relative block cursor-pointer text-lg select-none">
                     <input
                       type="checkbox"
                       className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
@@ -105,18 +105,18 @@ const Group_main = () => {
                     ></span>
                   </label>
                 </td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{index + 1}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.id}</td>
-                <Link className="px-6 pb-[25px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">{item.group}</Link>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.course}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.level}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.day}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.time}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.date}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.students}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.teacher}</td>
-                <td className="px-6 pb-[25px] whitespace-nowrap">{item.room}</td>
-                <td className="px-6 pb-[25px] text-green-500 whitespace-nowrap">{item.status}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{index + 1}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.id}</td>
+                <Link className="px-6 flex items-center mt-[40px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">{item.group}</Link>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.course}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.level}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.day}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.time}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.date}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.students}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.teacher}</td>
+                <td className=" px-6 pb-[px] whitespace-nowrap">{item.room}</td>
+                <td className=" px-6 pb-[px] text-green-500 whitespace-nowrap">{item.status}</td>
               </tr>
             ))}
           </tbody>
