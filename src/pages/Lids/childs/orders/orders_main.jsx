@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import Header from "./header"
 import ColorPickerModal from "./color_picker"
+import Add_modal from "./add_modal"
 
 const Orders_lesson = () => {
   const [students, setStudents] = useState([
@@ -135,9 +136,11 @@ const Orders_lesson = () => {
     }
   }, [colorPickerState.isOpen])
 
+  const [is_add_modal_open, set_is_add_modal_open] = useState(false);
+
   return (
     <div className="flex flex-col items-center justify-center">
-      <Header />
+      <Header set_is_add_modal_open={set_is_add_modal_open}/>
       <div className="flex-col bg-white w-[96.1%] h-[calc(125vh-250px)] rounded-[10px] overflow-x-auto text-[#404040] my-[25px]">
         <div className="w-full py-[15px] px-[15px]">
           <table className="w-full border-none">
@@ -235,6 +238,7 @@ const Orders_lesson = () => {
           </table>
         </div>
       </div>
+      <Add_modal is_add_modal_open={is_add_modal_open} set_is_add_modal_open={set_is_add_modal_open}/>
     </div>
   )
 }

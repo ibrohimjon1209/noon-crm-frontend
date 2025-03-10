@@ -5,7 +5,7 @@ import arrow_down_black_icon from "./imgs/arrow_down_black_icon.png";
 import calendar_icon from "./imgs/calendar_icon.png";
 import "./style.css";
 
-const Header = () => {
+const Header = ({ set_is_add_modal_open }) => {
   const [is_status_open, set_is_status_open] = useState(false);
   const [is_sub_course_open, set_is_sub_course_open] = useState(false);
   const [is_group_open, set_is_group_open] = useState(false);
@@ -176,7 +176,7 @@ const Header = () => {
   return (
     <div className="w-full h-[175px] flex items-center mt-[12.5px] -mb-[12.5px] justify-between px-[2%]">
       <div className="flex flex-col gap-[10px]">
-        <div className="bg-[#0D99FF] w-[250px] h-[60px] rounded-[45px] flex items-center justify-start gap-[15px] pl-[15px] cursor-pointer hover:scale-[102%] active:scale-[99%] duration-300">
+        <div onClick={() => set_is_add_modal_open(true)} className="bg-[#0D99FF] w-[250px] h-[60px] rounded-[45px] flex items-center justify-start gap-[15px] pl-[15px] cursor-pointer hover:scale-[102%] active:scale-[99%] duration-300">
           <img src={add_icon} alt="add" />
           <p className="text-white font-roboto font-400 text-[20px] leading-[23.44px]">
             Buyurtma qo’shish
