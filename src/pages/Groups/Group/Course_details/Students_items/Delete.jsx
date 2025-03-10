@@ -89,7 +89,7 @@ const Delete_modal = ({ isOpen, onClose, onConfirm }) => {
     return (
         <div className="w-full h-[135vh] fixed inset-0 z-50 flex items-center justify-center">
             <div
-                className={`w-full h-[135vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${isAnimating ? "opacity-100" : "opacity-0"
+                className={`w-full h-[140vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${isAnimating ? "opacity-100" : "opacity-0"
                     }`}
                 onClick={onClose}
             ></div>
@@ -99,7 +99,7 @@ const Delete_modal = ({ isOpen, onClose, onConfirm }) => {
             >
 
                 <h2 className="font-roboto font-[500] p-6 text-[20px] leading-[23.44px] uppercase text-black text-center">
-                O'quvchini guruhdan o'chirish uchun izoh qoldiring
+                    O'quvchini guruhdan o'chirish uchun izoh qoldiring
                 </h2>
                 <p className="text-[20px] ml-[25px]">Sababi</p>
                 <div className="p-6">
