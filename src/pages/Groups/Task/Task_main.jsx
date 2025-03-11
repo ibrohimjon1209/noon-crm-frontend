@@ -97,15 +97,15 @@ const Task_main = () => {
                   </label>
                 </div>
               </th>
-              <th className="h-[25px] p-2 text-[black]">№</th>
-              <th className="h-[25px] p-2 text-[black]">Turi</th>
-              <th className="h-[25px] p-2 text-[black]">Nomi</th>
-              <th className="h-[25px] p-2 text-[black]">Topshirish muddati</th>
-              <th className="h-[25px] p-2 text-[black]">O'qituvchi</th>
-              <th className="h-[25px] p-2 text-[black]">Guruh</th>
-              <th className="h-[25px] p-2 text-[black]">Maksimal ball</th>
-              <th className="h-[25px] p-2 text-[black]">Izoh</th>
-              <th className="h-[25px] p-2 text-[black]">
+              <th className="h-[25px] p-2 text-[black] text-left">№</th>
+              <th className="h-[25px] p-2 text-[black] text-left">Turi</th>
+              <th className="h-[25px] p-2 text-[black] text-left">Nomi</th>
+              <th className="h-[25px] p-2 text-[black] text-left">Topshirish muddati</th>
+              <th className="h-[25px] p-2 text-[black] text-left">O'qituvchi</th>
+              <th className="h-[25px] p-2 text-[black] text-left">Guruh</th>
+              <th className="h-[25px] p-2 text-[black] text-left">Maksimal ball</th>
+              <th className="h-[25px] p-2 text-[black] text-left">Izoh</th>
+              <th className="h-[25px] p-2 text-[black] ">
                 <h2>Umumiy son: {rooms.length}</h2>
               </th>
             </tr>
@@ -134,14 +134,14 @@ const Task_main = () => {
                     ></span>
                   </label>
                 </td>
-                <td className="h-[50px] p-2 text-[black]">{index + 1}</td>
-                <td className="p-2 text-[black]">{room.type}</td>
-                <td className="p-2 text-[black]">{room.name}</td>
-                <td className="p-2 text-[black]">{room.date}</td>
-                <td className="p-2 text-[black]">{room.teacher}</td>
-                <td className="p-2 text-[black]">{room.group}</td>
-                <td className="p-2 text-[black]">{room.ball}</td>
-                <td className="p-2 text-[black]">{room.comment}</td>
+                <td className="h-[50px] p-2 text-[black] text-left">{index + 1}</td>
+                <td className="p-2 text-[black] text-left">{room.type}</td>
+                <td className="p-2 text-[black] text-left">{room.name}</td>
+                <td className="p-2 text-[black] text-left">{room.date}</td>
+                <td className="p-2 text-[black] text-left">{room.teacher}</td>
+                <td className="p-2 text-[black] text-left">{room.group}</td>
+                <td className="p-2 text-[black] text-left">{room.ball}</td>
+                <td className="p-2 text-[black] text-left">{room.comment}</td>
                 <td className="p-2 text-[black] flex justify-center gap-3">
                   <div className="flex w-[40%] justify-around">
                     {/* Tahrirlash tugmasi */}

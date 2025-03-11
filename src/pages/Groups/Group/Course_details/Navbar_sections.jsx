@@ -51,7 +51,7 @@ const NavbarSections = () => {
                         )}
                     </li>
                     <li
-                        className="rounded-t-lg py-4 -mt-[12px]    "
+                        className="rounded-t-lg px-6 py-4 -mt-[10px] w-[250px]"
                         style={{
                             backgroundColor:
                                 location.pathname === '/groups/course/training'
@@ -60,7 +60,7 @@ const NavbarSections = () => {
                         }}
                     >
                         <Link
-                            className="text-[18px] w-[20px] bg-black text-[#404040] font-inter font-[600]"
+                            className="text-[18px] text-[#404040] font-inter font-[600] text-center"
                             to="/groups/course/training"
                         >
                             Mashg'ulot biriktirish
