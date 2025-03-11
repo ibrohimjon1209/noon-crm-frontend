@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import filter_icon from "./images/filter_icon.png";
-import arrow_down_icon from "./images/arrow_down_icon.png";
 import arrow_down_black_icon from "./images/arrow_down_black_icon.png";
 import calendar_icon from "./images/calendar_icon.png"
-import add_icon from "./images/add_icon.png";
 import './style.css'
 import up_icon from './images/up_icon.png'
 

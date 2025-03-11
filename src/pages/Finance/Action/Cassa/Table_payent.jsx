@@ -7,7 +7,6 @@ const Table_payent = () => {
         <div className='mt-[30px]'>
             <Transaction />
             <Payment_with_phone />
-
         </div>
     )   
 }
