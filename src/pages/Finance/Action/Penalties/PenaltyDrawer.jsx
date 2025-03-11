@@ -19,7 +19,7 @@ const PenaltyDrawer = ({ open, onClose, onAdd }) => {
         </Form.Item>
         <Form.Item name="amount" label="Miqdori" rules={[{ required: true, message: "Miqdor kiriting!" }]}>
           <Input type="number" />
-        </Form.Item>vb
+        </Form.Item>
         <Form.Item name="note" label="Izoh">
           <Input.TextArea rows={3} />
         </Form.Item>
