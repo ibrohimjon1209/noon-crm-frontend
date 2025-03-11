@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
-import delete_icon from './Images/delete.png';
 import add_icon from './Images/add_icon.png';
 import export_icon from './Images/export.png';
-import eye_slash from './Images/eye_slash.png';
 import medal_star from './Images/medal_star.png';
 import money_recive from './Images/money_recive.png';
 import money_send from './Images/money_send.png';
-import notification from './Images/notification.png';
 import rename from './Images/rename.png';
-import vector_decrise from './Images/vector_decrise.png';
-import vector_rise from './Images/vector_rise.png';
 import bottom_icon from './Images/bottom.png';
 import './Cassa.css'; 
 import Money_card from './Money_card';
 import Header from './header';
 import Table_payent from './Table_payent';
-
+import DrawerCassa from './DrawerCassa';
 const Cassa = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [cassa, setCassa] = useState([]);
+
+  const addCassa = (newCassa) => {
+    setCassa([...cassa, { id: cassa.length + 1, ...newCassa }]);
+    setIsDrawerOpen(false);
+  };
+
+
   const [accounts, setAccounts] = useState([
     {
       id: 1,
       name: 'Asosiy kassa',
-      balance: '99 066 530.56 uzs',
+      balance: '99 066 530.56 uzs', 
       owner: 'Maher Al-muaqly',
       isSelected: true,
     },
@@ -72,7 +76,9 @@ const Cassa = () => {
 
       <div className='w-[550px] h-[calc(128vh-100px)] overflow-hidden bg-white rounded-[12px] flex flex-col'>
         <div className='p-[25px]'>
-          <button className='w-full h-[60px] flex items-center justify-center gap-[20px] bg-[#0D99FF] rounded-[8px] '>
+          <button 
+          onClick={() => setIsDrawerOpen(true)}
+          className='w-full h-[60px] flex items-center justify-center gap-[20px] bg-[#0D99FF] rounded-[8px] '>
             <img src={add_icon} alt="Add" />
             <h1 className='font-roboto font-[400] text-[20px] leading-[23.44px] text-white'>Yangi kassa qo'shish</h1>
           </button>
@@ -133,9 +139,6 @@ const Cassa = () => {
         </div>
 
       </div>
-
-
-
       <div className='w-[74%] h-full'>
         <Money_card />
         <Header is_filter_open={is_filter_open} set_is_filter_open={set_is_filter_open} set_is_add_modal_open={set_is_add_modal_open} />
@@ -143,7 +146,11 @@ const Cassa = () => {
 
       </div>
 
-
+      <DrawerCassa
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        onAdd={addCassa}
+      />
     </div>
   );
 }
