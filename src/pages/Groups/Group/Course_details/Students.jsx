@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Faqat useNavigate kerak
+import { useNavigate } from "react-router-dom";
 import menu from "../../imgs/menu.png";
 import closeIcon from "../../imgs/close.png";
 import warningIcon from "../../imgs/warning-2.png";
@@ -18,13 +18,12 @@ import TransferModal from './Students_items/TransferModal';
 import GraduateModal from './Students_items/Graduate';
 import DeleteModal from './Students_items/Delete';
 import ReturnToLidModal from './Students_items/ReturnToLid';
-// import Archive from './Students_items/Archive_modal/Archive'
-// import Archive from '../../Archive'
 import './Students_items/Students.css';
 
 const Students = () => {
-  const navigate = useNavigate(); // Navigatsiya uchun hook
+  const navigate = useNavigate(); // Sahifalar o‘rtasida navigatsiya uchun hook
 
+  // O‘quvchilar ro‘yxati va ularning holatini saqlash
   const [students, setStudents] = useState([
     { id: 1, name: "Nuraliyev Muhammad Sodiq", phone: "+998 90 990 09 99", balance: "892 765 uzs", price: "56 000 uzs", checked: false, menuOpen: false, num_color: "#ffffff" },
     { id: 2, name: "Ismoilov Aziz", phone: "+998 91 111 11 11", balance: "750 000 uzs", price: "45 000 uzs", checked: false, menuOpen: false, num_color: "#ffffff" },
@@ -32,6 +31,7 @@ const Students = () => {
     { id: 4, name: "Raxmatov Akmal", phone: "+998 94 333 33 33", balance: "500 000 uzs", price: "30 000 uzs", checked: false, menuOpen: false, num_color: "#ffffff" },
   ]);
 
+  // Modal oynalar uchun holatlar
   const [isFreezeModalOpen, setIsFreezeModalOpen] = useState(false);
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
@@ -40,19 +40,25 @@ const Students = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isReturnToLidModalOpen, setIsReturnToLidModalOpen] = useState(false);
 
+  // Tanlangan o‘quvchi va menyu yopilish ID si uchun holatlar
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [closingMenuId, setClosingMenuId] = useState(null);
+
+  // Rang tanlash modalining holati
   const [colorPickerState, setColorPickerState] = useState({
     isOpen: false,
     selectedStudentId: null,
   });
-  const phoneRefs = useRef({});
 
+  const phoneRefs = useRef({}); // Telefon raqamlari uchun ref
+
+  // Barcha checkbox’larni tanlash yoki bekor qilish
   const handleAllChecked = (e) => {
     const checked = e.target.checked;
     setStudents((prevStudents) => prevStudents.map((student) => ({ ...student, checked })));
   };
 
+  // Har bir o‘quvchi uchun alohida checkbox’ni boshqarish
   const handleSingleCheck = (id) => {
     setStudents((prevStudents) =>
       prevStudents.map((student) =>
@@ -61,6 +67,7 @@ const Students = () => {
     );
   };
 
+  // Telefon raqamiga bosilganda rang tanlash modalini ochish
   const handlePhoneClick = (studentId) => {
     setColorPickerState({
       isOpen: true,
@@ -68,6 +75,7 @@ const Students = () => {
     });
   };
 
+  // Rang tanlash funksiyasi
   const handleColorSelect = (color) => {
     if (colorPickerState.selectedStudentId) {
       setStudents(
@@ -79,6 +87,7 @@ const Students = () => {
     }
   };
 
+  // Rangga qarab kontrast rangni aniqlash (qora yoki oq)
   const getContrastColor = (hexColor) => {
     if (!hexColor) return "black";
     const r = parseInt(hexColor.slice(1, 3), 16);
@@ -88,6 +97,7 @@ const Students = () => {
     return brightness > 128 ? "black" : "white";
   };
 
+  // Tashqariga bosilganda rang tanlash modalini yopish
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (colorPickerState.isOpen) {
@@ -109,6 +119,7 @@ const Students = () => {
     };
   }, [colorPickerState.isOpen]);
 
+  // Rang tanlash modal ochiq bo‘lsa sahifani aylantirishni bloklash
   useEffect(() => {
     document.body.style.overflow = colorPickerState.isOpen ? 'hidden' : 'auto';
     return () => {
@@ -116,6 +127,7 @@ const Students = () => {
     };
   }, [colorPickerState.isOpen]);
 
+  // Menyuni ochish/yopish funksiyasi
   const toggleMenu = (id) => {
     const student = students.find((s) => s.id === id);
     if (student.menuOpen) {
@@ -135,16 +147,28 @@ const Students = () => {
     }
   };
 
-  // Archive sahifasiga o'tish uchun funksiya
+  // Arxiv sahifasiga o‘tish
   const handleArchiveClick = () => {
     navigate('/groups/archive');
   };
 
+  // Tanlangan o‘quvchilar sonini hisoblash
+  const selectedCount = students.filter((student) => student.checked).length;
+
   return (
     <div className="w-[112vw] h-auto bg-[white] m-auto -mt-[12px] overflow-none z-50">
-      <h2 className="text-[#747474] underline text-[20px] float-right mr-[30px] mt-[30px]">
-        Umumiy son: {students.length}
-      </h2>
+      {/* Umumiy son va tanlanganlar sonini ko‘rsatish */}
+      <div className="flex justify-end items-end relative top-[10px] ms-[30px] mr-[30px] gap-4">
+        {selectedCount > 0 && (
+          <h2 className="text-blue-400 text-[22px] mr-[30px]">
+            {selectedCount} ta o'quvchi tanlangan
+          </h2>
+        )}
+        <h2 className="text-[#747474] underline text-[20px]">
+          Umumiy son: {students.length}
+        </h2>
+      </div>
+
       <table className="w-full mt-[30px] m-auto">
         <thead>
           <tr>
@@ -157,8 +181,8 @@ const Students = () => {
               />
             </th>
             <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">№</th>
-            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">O'quvchini Ismi</th>
-            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">Telefon Raqam</th>
+            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">O‘quvchining ismi</th>
+            <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">Telefon raqami</th>
             <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">Balans</th>
             <th className="h-[25px] p-2 text-left text-[23px] font-[450] text-gray-600">Narxi</th>
             <th className="h-[25px] p-2 text-left w-[30%]"></th>
@@ -210,17 +234,15 @@ const Students = () => {
                   }}
                 />
                 {student.menuOpen && (
-                  <div className="absolute z-10 right-[50px] -top-[32px] w-[490px] h-[80px] rounded-lg overflow-hidden ">
+                  <div className="absolute z-10 right-[50px] -top-[32px] w-[490px] h-[80px] rounded-lg overflow-hidden">
                     <div
-                      className={`ml-[60px] w-[410px] h-[40px] mt-[39px] bg-white shadow-md rounded-lg flex justify-evenly items-center p-2 z-50 ${
-                        closingMenuId === student.id ? "menuSlideOut" : "menuSlideIn"
-                      }`}
+                      className={`ml-[60px] w-[410px] h-[40px] mt-[39px] bg-white shadow-md rounded-lg flex justify-evenly items-center p-2 z-50 ${closingMenuId === student.id ? "menuSlideOut" : "menuSlideIn"
+                        }`}
                     >
                       {[
                         {
-                          
                           src: warningIcon,
-                          label: "O'quvchini guruhdan muzlatish",
+                          label: "O‘quvchini guruhdan muzlatish",
                           onClick: () => {
                             setSelectedStudent(student);
                             setIsFreezeModalOpen(true);
@@ -228,7 +250,7 @@ const Students = () => {
                         },
                         {
                           src: infoIcon,
-                          label: "Ma'lumot",
+                          label: "Ma‘lumot",
                           onClick: () => {
                             setSelectedStudent(student);
                             setIsInfoModalOpen(true);
@@ -260,7 +282,7 @@ const Students = () => {
                         },
                         {
                           src: archiveIcon,
-                          label: "O'quvchini tarixi",
+                          label: "O‘quvchi tarixi",
                           onClick: handleArchiveClick,
                         },
                         {
@@ -302,6 +324,8 @@ const Students = () => {
           ))}
         </tbody>
       </table>
+
+      {/* Modal oynalar */}
       {isFreezeModalOpen && (
         <FreezeModal
           isOpen={isFreezeModalOpen}
