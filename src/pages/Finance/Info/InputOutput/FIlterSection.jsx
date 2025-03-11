@@ -3,7 +3,7 @@ import arrow_down_black_icon from "../../../assigments/images/arrow_down_black_i
 import calendar_icon from "../../../assigments/images/calendar_icon.png";
 import { BiExport } from "react-icons/bi";
 
-const FilterSection = () => {
+const FilterSection = ({ data }) => {
   const [activeTab, setActiveTab] = useState("Kirim");
   const tabs = ["Kirim", "Chiqim", "Vaucher"];
   const [is_human_open, set_is_human_open] = useState(false);
@@ -13,6 +13,32 @@ const FilterSection = () => {
   const [calendar_value, set_calendar_value] = useState("Oraliqni tanlang");
   const [is_calendar_open, set_is_calendar_open] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
+
+  const downloadCSV = () => {
+    if (data.length === 0) {
+      alert("Jadval bo'sh, yuklab olish uchun ma'lumot yo'q!");
+      return;
+    }
+
+    let csvContent = "№,Turlari,Summa\n";
+    let totalSum = 0;
+
+    data.forEach((item, index) => {
+      csvContent += `${index + 1},${item.type},${item.amount}\n`;
+      totalSum += item.amount;
+    });
+
+    // Jami summani qo'shish
+    csvContent += `\nJami,,${totalSum}\n`;
+
+    const blob = new Blob([csvContent], { type: "text/csv" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "table_data.csv";
+    link.click();
+  };
+
+
 
   const monthNames = [
     "Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun",
@@ -103,15 +129,12 @@ const FilterSection = () => {
       {/* Filter Section */}
       <div className="flex justify-start gap-4 p-4">
         <div className="flex items-center justify-between w-full">
-          {/* Export Button */}
-          <button className="w-[250px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2 mt-6 ml-8">
+          <button onClick={downloadCSV} className="w-[250px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2 mt-6 ml-8">
             <BiExport className="text-[25px] text-white mr-4" />
             Export
           </button>
 
-          {/* Dropdowns */}
           <div className="flex flex-row justify-end gap-[10px] pr-[2%] pl-[130px] pt-[25px]">
-            {/* Human Dropdown */}
             <div className="w-[260px] h-[70px] bg-white rounded-[5px] relative">
               <div
                 className={`h-[70px] w-[260px] cursor-pointer flex items-center border-[#C5C5C5] ${is_human_open ? "border-[1.5px]" : "border-[0px]"

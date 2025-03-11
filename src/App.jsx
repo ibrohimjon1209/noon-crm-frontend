@@ -38,7 +38,7 @@ const App = () => {
         document.body.style.transformOrigin = "top left";
         document.body.style.width = "133.33%";
         document.body.style.overflow = "hidden";
-        document.body.style.height = "100vh";
+        document.body.style.height = "133vh";
     }, []);
 
     return (
