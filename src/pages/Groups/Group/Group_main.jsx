@@ -8,7 +8,8 @@ const Group_main = () => {
   const data = [
     { id: 123, group: "Ingliz tili", course: "IT", level: "Boshlang‘ich", day: "Toq", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
     { id: 124, group: "Rus tili", course: "Ingliz Tili", level: "O‘rta", day: "Juft", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
-    { id: 125, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" }
+    { id: 125, group: "IT", course: "Rus Tili", level: "Yuqori", day: "Du-Se", time: "11:25–13:05", date: "22.05.2024–22.05.2025", students: 31, teacher: "Ali Xasanov", room: "121-xona", status: "Active" },
+
   ];
 
   const handleAllChecked = (e) => {
@@ -66,7 +67,7 @@ const Group_main = () => {
                         }`}
                     ></span>
                   </label>
-                </div>  
+                </div>
               </th>
               <th className="w-12 px-6 pt-[20px] pb-[25px] text whitespace-nowrap-left">№</th>
               <th className="px-6 pt-[20px] pb-[25px] text-left whitespace-nowrap">ID</th>
@@ -85,11 +86,11 @@ const Group_main = () => {
           <tbody>
             {data.map((item, index) => (
               <tr className="hover:bg-blue-200" key={index}>
-                <td className="px-6 pb-[50px] flex items-center">
-                  <label className="-mt-[px] relative block cursor-pointer text-lg select-none">
+                <td className="px-6 pb-[40px] flex items-center">
+                  <label className="mt-[15px] relative flex items-start cursor-pointer text-lg select-none">
                     <input
                       type="checkbox"
-                      className="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+                      className="absolute opacity-0 cursor-pointer"
                       checked={checkedRows[item.id] || false}
                       onChange={() => handleSingleCheck(item.id)}
                     />
@@ -105,18 +106,67 @@ const Group_main = () => {
                     ></span>
                   </label>
                 </td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{index + 1}</td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.id}</td>
-                <Link className="px-6 flex items-center mt-[40px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">{item.group}</Link>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.course}</td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.level}</td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.day}</td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.time}</td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.date}</td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.students}</td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.teacher}</td>
-                <td className=" px-6 pb-[px] whitespace-nowrap">{item.room}</td>
-                <td className=" px-6 pb-[px] text-green-500 whitespace-nowrap">{item.status}</td>
+                
+                <td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {index + 1}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.id}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.group}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.course}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.level}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.day}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.time}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.date}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.students}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.teacher}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.room}
+  </Link>
+</td>
+<td>
+  <Link className="px-6 flex1 items-center mt-[50px] whitespace-nowrap duration-300 ease-in-out hover:underline hover:text-[#28BBF8]" to="/groups/course">
+    {item.status}
+  </Link>
+</td>
               </tr>
             ))}
           </tbody>
