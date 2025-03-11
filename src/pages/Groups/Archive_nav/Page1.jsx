@@ -44,7 +44,7 @@ export default function Page1({ dateRange }) {
 
   return (
     <div className="p-4">
-      <div className="w-[112vw] h-[calc(120vh-200px)] mt-[20px] m-auto flex flex-col overflow-auto">
+      <div className="w-[112vw] h-[calc(120vh-200px)] m-auto flex flex-col overflow-auto">
         {filteredData.length > 0 ? (
           <table className="bg-white w-full mt-[20px] rounded-[15px]">
             <thead>
