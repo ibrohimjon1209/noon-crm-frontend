@@ -11,7 +11,7 @@ import rename from './Images/rename.png';
 import vector_decrise from './Images/vector_decrise.png';
 import vector_rise from './Images/vector_rise.png';
 import bottom_icon from './Images/bottom.png';
-import './Cassa.css'; // CSS faylini import qilish
+import './Cassa.css'; 
 import Money_card from './Money_card';
 import Header from './header';
 import Table_payent from './Table_payent';
