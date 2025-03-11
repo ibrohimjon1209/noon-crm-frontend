@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Drawer = () => {
+const DrawerCassa = () => {
   return (
     <div>
-       
+      
     </div>
   )
 }
 
-export default Drawer
+export default DrawerCassa
