@@ -10,9 +10,6 @@ import Cassa from './Action/Cassa/Cassa'
 import Unpaid_bills from './Info/Unpaid/Unpaid_bills_main'
 import Transaction from './Report/Transactions/Transaction'
 import Contract from './Report/Contract/Contract'
-import Transaction_without_bills from './Info/TransactionBills/Transaction_without_bills'
-import TransactionActions from './Report/Transactions/TransactionActions'
-
 const Finance = () => {
   return (
     <Routes>
@@ -24,13 +21,8 @@ const Finance = () => {
       <Route path="/input-output" element={<Input_output />} />
       <Route path="/revenue" element={<Revenue />} />
       <Route path="/unpaid-bills" element={<Unpaid_bills />} />
-      <Route
-        path="/transaction-without-bills"
-        element={<Transaction_wihtout_bills />}
-      />
       <Route path="/transaction" element={<Transaction />} />
       <Route path="/contract" element={<Contract />} />
-      {/* <Route path="/transaction-actions" element={<TransactionActions />} /> */}
     </Routes>
   );
 };
