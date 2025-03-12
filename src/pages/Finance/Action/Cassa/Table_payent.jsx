@@ -1,6 +1,6 @@
 import React from 'react'
 import Transaction from './TransactionTable/Transaction'
-import Payment_with_phone from './Payment_with_phone'
+// import Payment_with_phone from './Payment_with_phone'
 import Drawer from './DrawerCassa'
 
 const Table_payent = () => {
@@ -8,7 +8,7 @@ const Table_payent = () => {
         <div className='mt-[30px]'>
             <Drawer />
             <Transaction />
-            <Payment_with_phone />
+            {/* <Payment_with_phone /> */}
         </div>
     )   
 }
