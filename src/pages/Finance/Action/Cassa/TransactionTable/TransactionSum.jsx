@@ -1,11 +1,10 @@
-import React from 'react'
-
-const TransactionSum = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default TransactionSum
+const TransactionSum = ({ totalTransactions }) => {
+    return (
+      <div>
+        <p>Umumiy soni: {totalTransactions}</p>
+      </div>
+    );
+  };
+  
+  export default TransactionSum;
+  
