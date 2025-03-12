@@ -1,5 +1,5 @@
 import React from 'react'
-import Transaction from './Transaction'
+import Transaction from './TransactionTable/Transaction'
 import Payment_with_phone from './Payment_with_phone'
 import Drawer from './DrawerCassa'
 
