@@ -1,5 +1,11 @@
-/* Cassa.css */
 .transition-opacity {
     transition: opacity 0.3s ease;
   }
+  
+
+  .w-full.h-full.overflow-y-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #3d68ff #f1f1f1;
+  }
+  
   
