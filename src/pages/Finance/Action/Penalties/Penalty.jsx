@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
 import PenaltyTable from "./PenaltyTable";
 import PenaltyDrawer from "./PenaltyDrawer";
 

@@ -94,9 +94,8 @@ function New_students() {
         className="flex-col bg-white w-[96.1%] text-[#404040] mt-[15px] pb-[0px] h-[990px] overflow-x-clip rounded-xl"
       >
         <div
-          className={`ml-6 mt-0 flex justify-between sticky top-0 left-0 w-full p-4 ${
-            isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
-          } transition-all duration-300`}
+          className={`ml-6 mt-0 flex justify-between sticky top-0 left-0 w-full p-4 ${isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
+            } transition-all duration-300`}
         >
           <div className="flex gap-[40px]">
             <p className="text-[25px] text-red-500">Qarzdor: -45229917</p>
@@ -108,9 +107,8 @@ function New_students() {
           <table className="w-full border-collapse">
             <thead>
               <tr
-                className={`sticky top-[70px] left-0 w-full p-4 ${
-                  isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
-                } transition-all duration-300`}
+                className={`sticky top-[70px] left-0 w-full p-4 ${isScrolled ? "bg-blue-500 shadow-lg" : "bg-white"
+                  } transition-all duration-300`}
               >
                 <th className="w-12 p-2 text-left">
                   <div className="flex -mt-[8px] flex-row gap-[30px] pr-4 w-[100%]">
@@ -123,21 +121,19 @@ function New_students() {
                       />
                       <span
                         className={`border-[2px] border-[#0EA5E9] absolute h-5 w-5 rounded-sm 
-              ${
-                students.every((student) => student.checked)
-                  ? "bg-[#0EA5E9]"
-                  : "bg-white"
-              } 
+              ${students.every((student) => student.checked)
+                            ? "bg-[#0EA5E9]"
+                            : "bg-white"
+                          } 
               after:content-[''] after:absolute 
               after:top-[2px] after:left-[5px] 
               after:w-1.5 after:h-2.5 
               after:border-white after:border-r-2 
               after:border-b-2 after:rotate-45
-              ${
-                students.every((student) => student.checked)
-                  ? "after:block"
-                  : "after:hidden"
-              }`}
+              ${students.every((student) => student.checked)
+                            ? "after:block"
+                            : "after:hidden"
+                          }`}
                       ></span>
                     </label>
                   </div>
@@ -379,9 +375,8 @@ const StudentSendComment = ({ onClose, isOpen }) => {
   return (
     <div className="w-full h-[135vh] fixed inset-0 z-50 flex items-center justify-center">
       <div
-        className={`w-full h-[135vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
-          isAnimating ? "opacity-100" : "opacity-0"
-        }`}
+        className={`w-full h-[135vh] fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${isAnimating ? "opacity-100" : "opacity-0"
+          }`}
         onClick={onClose}
       ></div>
       <div
