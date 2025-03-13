@@ -1,6 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
-import Transaction from './Transaction'
+import Transaction from './Transaction_cassa'
 import Payment_with_phone from './Payment_with_phone'
 import Notification_icon from './Images/notification.svg'
 import eye_icon from './Images/eye.svg'
@@ -28,18 +27,6 @@ const Table_payent = () => {
                 </div>
             </div>
 
-=======
-import Transaction from './TransactionTable/Transaction'
-// import Payment_with_phone from './Payment_with_phone'
-import Drawer from './DrawerCassa'
-
-const Table_payent = () => {
-    return (
-        <div className='mt-[30px]'>
-            <Drawer />
-            <Transaction />
-            {/* <Payment_with_phone /> */}
->>>>>>> 623072be0a025d2c09531cb646cdb1b60836052e
         </div>
     )
 }

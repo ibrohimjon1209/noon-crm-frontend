@@ -22,17 +22,11 @@ const ArchiveNavbar = () => {
   const isPage2Active = location.pathname === '/groups/archive/page2';
 
   return (
-<<<<<<< HEAD
     <div className=''>
 
       <div className="w-full  h-[80%] rounded-lg flex  justify-between items-center ">
 
         <div className=' flex '>
-=======
-    <div>
-      <div className="w-[112vw] ms-[15px] h-[80%] rounded-lg flex justify-between items-center">
-        <div className='flex rounded-l-lg overflow-hidden'>
->>>>>>> 623072be0a025d2c09531cb646cdb1b60836052e
           <Link to="/groups/archive/page1" className='w-full h-full'>
             <div
               className={`w-[100px] h-[66px] bg-[#0D99FF] ${isPage1Active ? 'bg-[#0D99FF]' : 'bg-white'} flex justify-center items-center cursor-pointer transition duration-300`}
