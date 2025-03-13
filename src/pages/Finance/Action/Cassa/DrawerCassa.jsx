@@ -12,7 +12,11 @@ const DrawerCassa = ({ open, onClose, onAdd }) => {
   };
 
   return (
-    <Drawer  title="Yangi kassa qo'shish" open={open} onClose={onClose} width={500}>
+    <Drawer 
+     title="Yangi kassa qo'shish" 
+     open={open}
+      onClose={onClose} 
+      width={500}>
       <Form form={form} layout="vertical" onFinish={handleSubmit}>
         <Form.Item name="fullName" label="To'liq Ismi" rules={[{ required: true, message: "Ismni kiriting!" }]}>
           <Input />
