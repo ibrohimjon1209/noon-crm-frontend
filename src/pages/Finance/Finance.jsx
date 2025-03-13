@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Bonus from './Action/Bonuses/Bonus'
@@ -13,21 +12,6 @@ import Transaction from './Report/Transactions/Transaction'
 import Contract from './Report/Contract/Contract'
 import Transaction_without_bills from './Info/TransactionBills/Transaction_without_bills'
 import TransactionActions from './Report/Transactions/TransactionActions'
-=======
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Bonus from "./Action/Bonuses/Bonus";
-import Penalty from "./Action/Penalties/Penalty";
-import Monthly_payment from "./Action/Payment/MonthlyPayment";
-import Input_output from "./Info/InputOutput/Input_output";
-import Revenue from "./Info/revenues/Revenue";
-import Transaction_wihtout_bills from "./Info/TransactionBills/Transaction_without_bills";
-import Transaction from "./Report/Transactions/Transaction";
-import Contract from "./Report/Contract/Contract";
-import Balance from "./Info/Balans/Balance";
-import Cassa from "./Action/Cassa/Cassa";
-import Unpaid_bills from "./info/Unpaid/Unpaid_bills_main";
->>>>>>> 2818da9ed56660b5a1c73b439c624a5224882d7e
 
 const Finance = () => {
   return (

@@ -175,7 +175,7 @@ const Filter = ({itemText}) => {
     <div className="w-[98%]">
       <div className="w-full flex-col items-center">
         <div className="flex gap-4 h-[70px] mt-[25px]">
-          <button className="w-[150px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2">
+          <button className="w-[150px] bg-blue-500 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2">
             <svg
               width="24"
               height="24"
@@ -190,7 +190,7 @@ const Filter = ({itemText}) => {
             </svg>
             Import
           </button>
-          <button className="w-[150px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2">
+          <button className="w-[150px] bg-blue-500 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2">
             <svg
               width="24"
               height="24"
