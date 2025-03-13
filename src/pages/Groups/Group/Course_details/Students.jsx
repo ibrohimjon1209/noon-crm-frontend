@@ -141,7 +141,7 @@ const Students = () => {
   };
 
   return (
-    <div className="w-[112vw] h-auto bg-[white] m-auto -mt-[12px] overflow-none z-50">
+    <div className="w-[112vw] h-auto bg-[white] m-auto -mt-[12px] overflow-none ">
       <h2 className="text-[#747474] underline text-[20px] float-right mr-[30px] mt-[30px]">
         Umumiy son: {students.length}
       </h2>

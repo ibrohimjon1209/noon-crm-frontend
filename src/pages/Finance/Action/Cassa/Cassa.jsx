@@ -68,7 +68,7 @@ const Cassa = () => {
 
 
   return (
-    <div className='pt-[30px] pb-[25px] px-[32px] flex gap-[32px] '>
+    <div className='pt-[30px] pb-[25px] px-[32px] flex gap-[32px] justify-between'>
 
       <div className='w-[550px] h-[calc(128vh-100px)] overflow-hidden bg-white rounded-[12px] flex flex-col'>
         <div className='p-[25px]'>
@@ -140,7 +140,7 @@ const Cassa = () => {
         <Money_card />
         <Header is_filter_open={is_filter_open} set_is_filter_open={set_is_filter_open} set_is_add_modal_open={set_is_add_modal_open} />
         <Table_payent />
-
+          
       </div>
 
 

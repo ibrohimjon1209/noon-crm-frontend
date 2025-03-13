@@ -20,7 +20,7 @@ const ArchiveNavbar = () => {
   return (
     <div className=''>
 
-      <div className="  w-full  h-[80%] rounded-lg flex  justify-between items-center ">
+      <div className="w-full  h-[80%] rounded-lg flex  justify-between items-center ">
 
         <div className=' flex '>
           <Link to="/groups/archive/page1" className='w-full h-full'>
