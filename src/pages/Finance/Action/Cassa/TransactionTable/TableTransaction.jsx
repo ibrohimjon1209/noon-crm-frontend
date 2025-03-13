@@ -3,6 +3,7 @@ import TransactionRow from "./TransactionRow";
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import { Link, useLocation } from 'react-router-dom';
+// import TransactionTabs from "./TransactionTabs";
 
 const TableTransactions = ({ transactions }) => {
   const location = useLocation();
