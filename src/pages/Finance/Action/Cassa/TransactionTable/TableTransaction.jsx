@@ -3,7 +3,7 @@ import TransactionRow from "./TransactionRow";
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import { Link, useLocation } from 'react-router-dom';
-// import TransactionTabs from "./TransactionTabs";
+import TransactionTabs from "./TransactionTabs";
 
 const TableTransactions = ({ transactions }) => {
   const location = useLocation();
@@ -12,6 +12,7 @@ const TableTransactions = ({ transactions }) => {
 
   return (
     <div className="w-full overflow-x-auto shadow-md rounded-lg mt-4 h-[820px] bg-white relative">
+      <TransactionTabs />
       <table className="w-full table-auto">
         <thead className="bg-gray-50">
           <tr>
