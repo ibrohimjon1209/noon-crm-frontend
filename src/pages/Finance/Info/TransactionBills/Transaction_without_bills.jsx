@@ -3,7 +3,7 @@ import TransactionRow from './TransactionRow';
 
 const Transaction_without_bills = ({ data = [] }) => {
   return (
-    <div className="w-full p-4 bg-white shadow-md rounded-md m-8  overflow-auto">
+    <div className="w-[calc(133vw-300px)] p-4 bg-white shadow-md rounded-md m-8  overflow-auto">
       <table className="w-full h-full table-auto">
         <thead className='bg-gray-50'>
           <tr className="bg-gray-50 border-b border-gray-200">

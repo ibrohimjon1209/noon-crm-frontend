@@ -28,7 +28,6 @@ const FilterSection = ({ data }) => {
       totalSum += item.amount;
     });
 
-    // Jami summani qo'shish
     csvContent += `\nJami,,${totalSum}\n`;
 
     const blob = new Blob([csvContent], { type: "text/csv" });
@@ -126,7 +125,6 @@ const FilterSection = ({ data }) => {
         ))}
       </div>
 
-      {/* Filter Section */}
       <div className="flex justify-start gap-4 p-4">
         <div className="flex items-center justify-between w-full">
           <button onClick={downloadCSV} className="w-[250px] bg-blue-600 p-3 text-[18px] text-white rounded-md flex items-center justify-center gap-2 mt-6 ml-8">

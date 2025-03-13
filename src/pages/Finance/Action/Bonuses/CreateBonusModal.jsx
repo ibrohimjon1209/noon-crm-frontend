@@ -21,23 +21,33 @@ const CreateBonusModal = ({ onClose, addBonus, isModalOpen }) => {
     addBonus(bonus);
     onClose();
   };
-
+  const inputStyle = {
+    height: "45px",
+    borderRadius: "8px",
+    fontSize: "16px",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+    transition: "all 0.3s ease",
+    ':hover': {
+      borderColor: "#40a9ff",
+      boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+    },
+    ':focus': {
+      borderColor: "#1890ff",
+      boxShadow: "0 0 0 2px rgba(24,144,255,0.2)"
+    }
+  };
   return (
     <Drawer 
     title="Bonus yaratish"
     placement="right"
-    width={400} 
+    width={500} 
     onClose={onClose} 
     open={isModalOpen}
   >  
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-        <Input name="type" placeholder="Bonus turi" onChange={handleChange} required />
-        <Input name="fullName" placeholder="To'liq ismi" onChange={handleChange} required />
-        <Input name="previousAmount" type="number" placeholder="Oldingi miqdor" onChange={handleChange} required />
-        <Input name="amount" type="number" placeholder="Miqdori" onChange={handleChange} required />
-        <Input name="nextAmount" type="number" placeholder="Keyingi miqdor" onChange={handleChange} required />
-        <Input name="note" placeholder="Izoh" onChange={handleChange} />
-
+        <Input name="type" placeholder="Bonus turi" style={inputStyle} onChange={handleChange} required />
+        <Input name="fullName" placeholder="To'liq ismi" style={inputStyle} onChange={handleChange} required />
+        <Input name="previousAmount" type="number" placeholder="Oldingi miqdor" style={inputStyle} onChange={handleChange} required />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Button onClick={onClose} type="default">
             Orqaga

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import SalaryRow from "./SalaryRow";
 const SalaryTable = ({ data = [] }) => {
   return (
-    <div className="w-full overflow-x-auto shadow-md rounded-lg mt-4">
+    <div className="w-[calc(133vw-300px)] ml-[40px] overflow-x-auto shadow-md rounded-lg mt-4">
       <table className="w-full table-auto">
         <thead className='bg-gray-50'>
           <tr className="bg-gray-50 border-b border-gray-200">

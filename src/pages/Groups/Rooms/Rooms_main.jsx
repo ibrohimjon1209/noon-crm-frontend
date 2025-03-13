@@ -94,15 +94,15 @@ const Rooms_main = () => {
                   </label>
                 </div>
               </th>
-              <th className="h-[25px] p-2 text-[black]">№</th>
-              <th className="h-[25px] p-2 text-[black]">Sarlavha</th>
-              <th className="h-[25px] p-2 text-[black]">O‘quvchilar sig‘imi</th>
-              <th className="h-[25px] p-2 text-[black]"><h2>Umumiy son: {rooms.length}</h2></th>
+              <th className="h-[25px] p-2 px-10 text-[black] text-left ms-[10px]">№</th>
+              <th className="h-[25px] p-2 px-5 text-[black] text-left ms-[10px]">Sarlavha</th>
+              <th className="h-[25px] p-2 px-5 text-[black] text-left ms-[10px]">O‘quvchilar sig‘imi</th>
+              <th className="h-[25px] p-2 px-5 text-[black] "><h2>Umumiy son: {rooms.length}</h2></th>
             </tr>
           </thead>
           <tbody>
             {rooms.map((room, index) => (
-              <tr key={room.id} className="text-center">
+              <tr key={room.id} className="text-center hover:bg-slate-200">
                 <td className="h-[25px] p-2 scale-[1.5]">
                   <label className="-mt-[8px] relative block cursor-pointer text-lg select-none">
                     <input
@@ -123,10 +123,10 @@ const Rooms_main = () => {
                     ></span>
                   </label>
                 </td>
-                <td className="h-[50px] p-2 text-[black]">{index + 1}</td>
-                <td className="p-2 text-[black]">{room.title}</td>
-                <td className="p-2 text-[black]">{room.capacity}</td>
-                <td className="p-2 text-[black] flex justify-center gap-3">
+                <td className="h-[50px] p-2 text-[black] text-left px-10 ">{index + 1}</td>
+                <td className="p-2 text-[black] text-left px-5">{room.title}</td>
+                <td className="p-2 text-[black] text-left px-5">{room.capacity}</td>
+                <td className="p-2 text-[black] flex justify-center gap-3 text-left px-5">
                   <div className="flex w-[30%] justify-around">
                     {/* Tahrirlash tugmasi */}
                     <img

@@ -2,51 +2,49 @@
 
 import * as React from "react"
 
-// Asosiy DatePicker komponenti
-export default function DatePicker() {
-  return (
-    <div>
-      <div className="w-full max-w-md">
-        <DatePickerSimple />
-      </div>
-    </div>
-  )
-}
+export default function DatePicker({ dateRange, onDateChange }) {
+  const { startDate, endDate } = dateRange; // dateRange dan sanalarni olamiz
+  const [showStartCalendar, setShowStartCalendar] = React.useState(false);
+  const [showEndCalendar, setShowEndCalendar] = React.useState(false);
 
-// Sana tanlash komponenti
-function DatePickerSimple() {
-  const [startDate, setStartDate] = React.useState(new Date(2005, 4, 13))
-  const [endDate, setEndDate] = React.useState(new Date(2025, 3, 2))
-  const [showStartCalendar, setShowStartCalendar] = React.useState(false)
-  const [showEndCalendar, setShowEndCalendar] = React.useState(false)
+  const startRef = React.useRef(null);
+  const endRef = React.useRef(null);
 
-  const startRef = React.useRef(null)
-  const endRef = React.useRef(null)
-
-  // Sanani DD/MM/YYYY formatida ko'rsatish
   const formatDate = (date) => {
-    const day = date.getDate().toString().padStart(2, "0")
-    const month = (date.getMonth() + 1).toString().padStart(2, "0")
-    const year = date.getFullYear()
-    return `${day}/${month}/${year}`
-  }
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
 
-  // Kalendar tashqarisiga bosganda yopish
+  const handleStartDateChange = (date) => {
+    const newEndDate = endDate < date ? date : endDate; // Agar endDate startDate dan kichik bo‘lsa, tenglashtiramiz
+    onDateChange({ startDate: date, endDate: newEndDate });
+    setShowStartCalendar(false);
+  };
+
+  const handleEndDateChange = (date) => {
+    if (date >= startDate) {
+      onDateChange({ startDate, endDate: date });
+      setShowEndCalendar(false);
+    }
+  };
+
   React.useEffect(() => {
     const handleClickOutside = (event) => {
       if (startRef.current && !startRef.current.contains(event.target)) {
-        setShowStartCalendar(false)
+        setShowStartCalendar(false);
       }
       if (endRef.current && !endRef.current.contains(event.target)) {
-        setShowEndCalendar(false)
+        setShowEndCalendar(false);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex items-center bg-white rounded-lg p-4 shadow-sm">
@@ -70,22 +68,15 @@ function DatePickerSimple() {
           <button
             className="focus:outline-none"
             onClick={() => {
-              setShowStartCalendar(!showStartCalendar)
-              setShowEndCalendar(false)
+              setShowStartCalendar(!showStartCalendar);
+              setShowEndCalendar(false);
             }}
           >
             {formatDate(startDate)}
           </button>
-
           {showStartCalendar && (
             <div className="absolute z-10 mt-1 bg-white shadow-lg rounded-lg p-2">
-              <Calendar
-                selectedDate={startDate}
-                onChange={(date) => {
-                  setStartDate(date)
-                  setShowStartCalendar(false)
-                }}
-              />
+              <Calendar selectedDate={startDate} onChange={handleStartDateChange} />
             </div>
           )}
         </div>
@@ -96,117 +87,92 @@ function DatePickerSimple() {
           <button
             className="focus:outline-none"
             onClick={() => {
-              setShowEndCalendar(!showEndCalendar)
-              setShowStartCalendar(false)
+              setShowEndCalendar(!showEndCalendar);
+              setShowStartCalendar(false);
             }}
           >
             {formatDate(endDate)}
           </button>
-
           {showEndCalendar && (
             <div className="absolute z-10 mt-1 bg-white shadow-lg rounded-lg p-2 -right-4">
               <Calendar
                 selectedDate={endDate}
-                onChange={(date) => {
-                  setEndDate(date)
-                  setShowEndCalendar(false)
-                }}
+                onChange={handleEndDateChange}
+                minDate={startDate}
               />
             </div>
           )}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-// Kalendar komponenti
-function Calendar({ selectedDate, onChange }) {
-  const [currentMonth, setCurrentMonth] = React.useState(selectedDate.getMonth())
-  const [currentYear, setCurrentYear] = React.useState(selectedDate.getFullYear())
+function Calendar({ selectedDate, onChange, minDate }) {
+  const [currentMonth, setCurrentMonth] = React.useState(selectedDate.getMonth());
+  const [currentYear, setCurrentYear] = React.useState(selectedDate.getFullYear());
 
   const monthNames = [
-    "Yanvar",
-    "Fevral",
-    "Mart",
-    "Aprel",
-    "May",
-    "Iyun",
-    "Iyul",
-    "Avgust",
-    "Sentabr",
-    "Oktabr",
-    "Noyabr",
-    "Dekabr",
-  ]
+    "Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun",
+    "Iyul", "Avgust", "Sentabr", "Oktabr", "Noyabr", "Dekabr",
+  ];
 
-  // Oydagi kunlar sonini hisoblash
-  const daysInMonth = (month, year) => {
-    return new Date(year, month + 1, 0).getDate()
-  }
+  const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
+  const firstDayOfMonth = (month, year) => new Date(year, month, 1).getDay();
 
-  // Oyning birinchi kuni qaysi hafta kuniga to'g'ri kelishini aniqlash
-  const firstDayOfMonth = (month, year) => {
-    return new Date(year, month, 1).getDay()
-  }
-
-  // Kalendar kunlarini ko'rsatish
   const renderDays = () => {
-    const days = []
-    const totalDays = daysInMonth(currentMonth, currentYear)
-    const firstDay = firstDayOfMonth(currentMonth, currentYear)
+    const days = [];
+    const totalDays = daysInMonth(currentMonth, currentYear);
+    const firstDay = firstDayOfMonth(currentMonth, currentYear);
 
-    // Oyning birinchi kunidan oldingi bo'sh katakchalar
     for (let i = 0; i < firstDay; i++) {
-      days.push(<div key={`empty-${i}`} className="w-8 h-8"></div>)
+      days.push(<div key={`empty-${i}`} className="w-8 h-8"></div>);
     }
 
-    // Oyning har bir kuni uchun katakchalar
     for (let day = 1; day <= totalDays; day++) {
-      const date = new Date(currentYear, currentMonth, day)
+      const date = new Date(currentYear, currentMonth, day);
       const isSelected =
         selectedDate.getDate() === day &&
         selectedDate.getMonth() === currentMonth &&
-        selectedDate.getFullYear() === currentYear
+        selectedDate.getFullYear() === currentYear;
+      const isDisabled = minDate && date < minDate;
 
       days.push(
         <div
           key={day}
-          className={`w-8 h-8 flex items-center justify-center rounded-full cursor-pointer
-            ${isSelected ? "bg-blue-500 text-white" : "hover:bg-gray-100"}`}
-          onClick={() => onChange(date)}
+          className={`w-8 h-8 flex items-center justify-center rounded-full
+            ${isSelected ? "bg-blue-500 text-white" : ""}
+            ${isDisabled ? "text-gray-400 cursor-not-allowed" : "cursor-pointer hover:bg-gray-100"}`}
+          onClick={() => !isDisabled && onChange(date)}
         >
           {day}
-        </div>,
-      )
+        </div>
+      );
     }
+    return days;
+  };
 
-    return days
-  }
-
-  // Oldingi oyga o'tish
   const prevMonth = () => {
     if (currentMonth === 0) {
-      setCurrentMonth(11)
-      setCurrentYear(currentYear - 1)
+      setCurrentMonth(11);
+      setCurrentYear(currentYear - 1);
     } else {
-      setCurrentMonth(currentMonth - 1)
+      setCurrentMonth(currentMonth - 1);
     }
-  }
+  };
 
-  // Keyingi oyga o'tish
   const nextMonth = () => {
     if (currentMonth === 11) {
-      setCurrentMonth(0)
-      setCurrentYear(currentYear + 1)
+      setCurrentMonth(0);
+      setCurrentYear(currentYear + 1);
     } else {
-      setCurrentMonth(currentMonth + 1)
+      setCurrentMonth(currentMonth + 1);
     }
-  }
+  };
 
   return (
     <div className="w-64">
-      <div className="flex justify-between mt-[] mb-2">
+      <div className="flex justify-between mb-2">
         <button className="p-1 hover:bg-gray-100 rounded-full" onClick={prevMonth}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path
@@ -216,9 +182,7 @@ function Calendar({ selectedDate, onChange }) {
             />
           </svg>
         </button>
-        <div className="font-medium">
-          {monthNames[currentMonth]} {currentYear}
-        </div>
+        <div className="font-medium">{monthNames[currentMonth]} {currentYear}</div>
         <button className="p-1 hover:bg-gray-100 rounded-full" onClick={nextMonth}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path
@@ -229,18 +193,10 @@ function Calendar({ selectedDate, onChange }) {
           </svg>
         </button>
       </div>
-
       <div className="grid grid-cols-7 gap-1 text-center text-xs mb-1">
-        <div>Ya</div>
-        <div>Du</div>
-        <div>Se</div>
-        <div>Ch</div>
-        <div>Pa</div>
-        <div>Ju</div>
-        <div>Sh</div>
+        <div>Ya</div><div>Du</div><div>Se</div><div>Ch</div><div>Pa</div><div>Ju</div><div>Sh</div>
       </div>
-
       <div className="grid grid-cols-7 gap-1">{renderDays()}</div>
     </div>
-  )
+  );
 }
