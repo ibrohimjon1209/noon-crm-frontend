@@ -53,8 +53,7 @@ Transaction_without_bills.propTypes = {
       jarima: PropTypes.number,
       akladi: PropTypes.number,
       tolanmagan: PropTypes.number,
-      sana: PropTypes.string,
-      tolanmagan: PropTypes.number
+      sana: PropTypes.string
     })
   ).isRequired
 };

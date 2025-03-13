@@ -11,7 +11,10 @@ import Unpaid_bills from './Info/Unpaid/Unpaid_bills_main'
 import Transaction from './Report/Transactions/Transaction'
 import Contract from './Report/Contract/Contract'
 import TransactionActions from './Report/Transactions/TransactionActions'
+<<<<<<< HEAD
+=======
 import Transaction_without_bills from './Info/TransactionBills/Transaction_without_bills'
+>>>>>>> 0c0e0c9cc8326264d9e96256c14a54c0327cf45c
 
 const Finance = () => {
   return (
