@@ -136,3 +136,65 @@
     }
 }
 
+
+
+
+
+/* Add these styles to your existing CSS file */
+
+/* Page container */
+.page-container {
+    position: relative;
+  }
+  
+  .page {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  /* Regular animations */
+  .page-enter {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  .page-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .page-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  /* No animation class for when navigating to the same route */
+  .page-no-animation-enter {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .page-no-animation-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .page-no-animation-exit {
+    opacity: 0;
+  }
+  
+  .page-no-animation-exit-active {
+    opacity: 0;
+  }
+  
+  

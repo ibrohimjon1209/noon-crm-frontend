@@ -156,26 +156,10 @@ const Students = () => {
   const selectedCount = students.filter((student) => student.checked).length;
 
   return (
-<<<<<<< HEAD
     <div className="w-[112vw] h-auto bg-[white] m-auto -mt-[12px] overflow-none ">
       <h2 className="text-[#747474] underline text-[20px] float-right mr-[30px] mt-[30px]">
         Umumiy son: {students.length}
       </h2>
-=======
-    <div className="w-[112vw] h-auto bg-[white] m-auto -mt-[12px] overflow-none z-50">
-      {/* Umumiy son va tanlanganlar sonini ko‘rsatish */}
-      <div className="flex justify-end items-end relative top-[10px] ms-[30px] mr-[30px] gap-4">
-        {selectedCount > 0 && (
-          <h2 className="text-blue-400 text-[22px] mr-[30px]">
-            {selectedCount} ta o'quvchi tanlangan
-          </h2>
-        )}
-        <h2 className="text-[#747474] underline text-[20px]">
-          Umumiy son: {students.length}
-        </h2>
-      </div>
-
->>>>>>> 623072be0a025d2c09531cb646cdb1b60836052e
       <table className="w-full mt-[30px] m-auto">
         <thead>
           <tr>
