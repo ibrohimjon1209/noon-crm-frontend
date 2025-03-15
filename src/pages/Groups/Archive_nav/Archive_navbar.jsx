@@ -26,10 +26,10 @@ const ArchiveNavbar = () => {
 
       <div className="w-full  h-[80%] rounded-lg flex  justify-between items-center ">
 
-        <div className=' flex '>
+        <div className=' flex'>
           <Link to="/groups/archive/page1" className='w-full h-full'>
             <div
-              className={`w-[100px] h-[66px] bg-[#0D99FF] ${isPage1Active ? 'bg-[#0D99FF]' : 'bg-white'} flex justify-center items-center cursor-pointer transition duration-300`}
+              className={`w-[100px] h-[66px] rounded-s-lg bg-[#0D99FF] ${isPage1Active ? 'bg-[#0D99FF]' : 'bg-white'} flex justify-center items-center cursor-pointer transition duration-300`}
             >
               <img
                 className='w-[40%]'

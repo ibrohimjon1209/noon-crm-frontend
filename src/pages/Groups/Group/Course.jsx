@@ -1,4 +1,3 @@
-// Course.jsx
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import calendar from "../imgs/black-calendar.png";
@@ -10,15 +9,16 @@ import exprt from "../imgs/export.png";
 import Nav_sec from "./Course_details/Navbar_sections";
 import Students from './Course_details/Students';
 import AddModal from './Course_addmodal/Add_modal';
-
+import GraduateModal from './Course_addmodal/Graduate'; // Yangi import
+import EditModal from './Course_addmodal/Edit_modal'
 const Course = () => {
   const location = useLocation();
   const [isChecked, setIsChecked] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  
-  // Sample teacher/student value - replace with your actual data source
+  const [isGraduateModalOpen, setIsGraduateModalOpen] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState(null); // Yangi state
   const teacher_value = "Hafizullo Omon";
-
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const info = [
     {
       name: "Kriminalogiya",
@@ -34,14 +34,34 @@ const Course = () => {
 
   return (
     <>
-      {/* Your existing Course component code remains the same until the modal */}
       <div className="w-[112vw] h-[350px] bg-white rounded-[10px] m-auto mt-[30px] block overflow-hidden">
         <div className="w-[100%] h-[70px] flex justify-end">
           <div className="w-[300px] h-[40px] flex justify-around items-center mt-[30px]">
-            <img className="h-[80%]" src={calendar} alt="Calendar" />
-            <img className="h-[80%]" src={edit} alt="Edit" />
-            <img className="h-[80%]" src={arrowdown} alt="Arrow Down" />
-            <img className="h-[80%]" src={archive} alt="Archive" />
+            <img className="h-[80%]" src={calendar} alt="Kalendar" />
+            <img
+              className="h-[80%]"
+              src={edit}
+              alt="Tahrirlash"
+              onClick={() => {
+                setSelectedStudent(info[0]); // Tanlov qilish
+                setIsEditModalOpen(true);
+              }}
+            />
+            <img
+              className="h-[80%]"
+              src={arrowdown}
+              alt="Pastga strelka"
+              onClick={() => {
+                setSelectedStudent(info[0]); // Tanlov qilish
+                setIsGraduateModalOpen(true);
+              }}
+            />
+            <img
+              className="h-[80%]"
+              src={archive}
+              alt="Arxiv"
+
+            />
           </div>
         </div>
 
@@ -83,12 +103,12 @@ const Course = () => {
             className="bg-[#0D99FF] w-[300px] h-[60px] rounded-[50px] flex px-[35px] items-center gap-[15px] cursor-pointer hover:scale-[102%] active:scale-[98%] duration-300"
             onClick={() => setIsAddModalOpen(true)}
           >
-            <img className="w-[35px]" src={plus} alt="Add" />
+            <img className="w-[35px]" src={plus} alt="Qo'shish" />
             <h1 className="text-white text-[20px]">O'quvchini qo'shish</h1>
           </div>
           <div className="bg-[#0D99FF] w-[200px] h-[60px] rounded-[50px] flex px-[40px] items-center gap-[19px] cursor-pointer hover:scale-[102%] active:scale-[98%] duration-300">
-            <img className="w-[28px]" src={exprt} alt="Export" />
-            <h1 className="text-white text-[20px]">Export</h1>
+            <img className="w-[28px]" src={exprt} alt="Eksport" />
+            <h1 className="text-white text-[20px]">Eksport</h1>
           </div>
         </div>
       </div>
@@ -106,7 +126,7 @@ const Course = () => {
         </div>
       </div>
 
-      {/* Modal rendering */}
+      {/* Modalni ko‘rsatish */}
       {isAddModalOpen && (
         <AddModal
           isOpen={isAddModalOpen}
@@ -114,10 +134,22 @@ const Course = () => {
           teacher={teacher_value}
         />
       )}
+      {isGraduateModalOpen && (
+        <GraduateModal
+          isOpen={isGraduateModalOpen}
+          onClose={() => setIsGraduateModalOpen(false)}
+          Students={selectedStudent}
+        />
+      )}
+      {isEditModalOpen && (
+        <EditModal
+          isOpen={isEditModalOpen}
+          onClose={() => setIsEditModalOpen(false)}
+          Students={selectedStudent}
+        />
+      )}
     </>
   );
 };
 
 export default Course;
-
-
