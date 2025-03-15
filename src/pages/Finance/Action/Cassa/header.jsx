@@ -150,7 +150,7 @@ const Header = ({ is_filter_open, set_is_filter_open, set_is_add_modal_open }) =
                     className="w-[244px] h-[67px] bg-white rounded-[5px] relative z-auto"
                 >
                     <div
-                        className={`absolute bg-white z-50 h-[67px] w-[244px] cursor-pointer flex items-center border-[#C5C5C5] ${is_calendar_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between px-[25px]`}
+                        className={` h-[67px] w-[244px] cursor-pointer flex items-center border-[#C5C5C5] ${is_calendar_open ? 'border-[1.5px]' : 'border-[0px]'} rounded-[5px] justify-between px-[25px]`}
                         onClick={() => set_is_calendar_open(!is_calendar_open)}
                     >
                         <img
