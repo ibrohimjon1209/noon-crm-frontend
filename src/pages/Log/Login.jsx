@@ -2,10 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import pic from "./Images/login.png"
-import logo from "./Images/logo.png"
-import eye from "./Images/eye.png"
-import eyeSlash from "./Images/eye.png" // Ensure you have a different image for eye slash
+import { Eye, EyeOff } from "lucide-react"
 import axios from "axios"
 
 const Login = () => {
@@ -52,13 +49,14 @@ const Login = () => {
       localStorage.setItem("refreshToken", response.data.refresh)
       localStorage.setItem("userData", JSON.stringify(response.data))
 
-      // Force a small delay to ensure localStorage is updated
-      setTimeout(() => {
-        // Redirect to profile page
-        console.log("Redirecting to profile...")
-        navigate("/profile", { replace: true })
-      }, 100)
+      // Dispatch a custom event to notify other components about login
+      window.dispatchEvent(new Event("auth-change"))
+
+      // Redirect to profile page
+      navigate("/profile")
     } catch (error) {
+      console.error("Login error:", error)
+
       if (error.response) {
         console.error("Server error:", error.response.data)
         const errorMessage =
@@ -80,12 +78,12 @@ const Login = () => {
     <div className="flex">
       <div className="hidden sm:block w-[50%] h-[calc(132.5vh)] bg-[#FFFFFF]">
         <div className="w-full h-full flex justify-center items-center">
-          <img src={pic || "/placeholder.svg"} alt="Login Illustration" />
+          <img src="/placeholder.svg" alt="Login Illustration" />
         </div>
       </div>
       <div className="w-[100%] sm:w-[50%] h-[132.5vh] bg-[#D9D9D9] flex flex-col">
         <div className="flex justify-end mt-[82px] pr-[82px]">
-          <img src={logo || "/placeholder.svg"} alt="Logo" />
+          <img src="/placeholder.svg" alt="Logo" />
         </div>
 
         <div className="flex justify-center">
@@ -125,17 +123,22 @@ const Login = () => {
                   }
                 }}
               />
-              <img
-                src={showPassword ? eyeSlash : eye}
-                alt="Password Visibility"
-                className="absolute transition-all duration-300 hover:scale-[102%] top-1/2 -translate-y-1/2 right-4 cursor-pointer"
+              <button
+                type="button"
                 onClick={handlePasswordVisibility}
-              />
+                className="absolute transition-all duration-300 hover:scale-[102%] top-1/2 -translate-y-1/2 right-4 cursor-pointer"
+              >
+                {showPassword ? (
+                  <EyeOff className="h-5 w-5 text-gray-500" />
+                ) : (
+                  <Eye className="h-5 w-5 text-gray-500" />
+                )}
+              </button>
             </div>
           </div>
 
           <button
-            className={`hover:bg-[#628ac3e5] translate-all duration-300 active:scale-[97%] w-[300px] sm:w-[26vw] h-[75px] rounded-[10px] bg-[#264E86E5] font-inter font-[600] text-[20px] leading-[22px] text-white mt-[60px] ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
+            className={`hover:bg-[#628ac3e5] transition-all duration-300 active:scale-[97%] w-[300px] sm:w-[26vw] h-[75px] rounded-[10px] bg-[#264E86E5] font-inter font-[600] text-[20px] leading-[22px] text-white mt-[60px] ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
             onClick={handleLogin}
             disabled={isLoading}
           >

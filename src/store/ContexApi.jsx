@@ -16,7 +16,7 @@ export const LevelProvider = ({ children }) => {
         <LevelContext.Provider value={{ selectedLevels, setSelectedLevels }}>
             {children}
         </LevelContext.Provider>
-    );
+    );  
 };
 
 export const useLevel = () => useContext(LevelContext);

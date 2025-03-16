@@ -4,11 +4,10 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { ChevronLeft, CircleUser } from "lucide-react"
 import axios from "axios"
-import add_pass from "./Images/icon_1.svg"
-import archive_moder from "./Images/icon_2.svg"
-import rename from "./Images/icon_3.svg"
-import star from "./Images/star.svg"
-import Nav_profile from "./Nav_profile"
+import icon_1 from './Images/icon_1.svg'
+import icon_2 from './Images/icon_2.svg'
+import icon_3 from './Images/icon_3.svg'
+import star from './Images/star.svg'
 
 const Profile = () => {
   const [userData, setUserData] = useState(null)
@@ -32,18 +31,36 @@ const Profile = () => {
       setLoading(true)
 
       try {
-        // First try to get data from localStorage
         const storedUserData = localStorage.getItem("userData")
+        const token = localStorage.getItem("token")
+
+        if (!token) {
+          console.warn("Token topilmadi, login sahifasiga yo'naltirilmoqda")
+          throw new Error("No authentication token found")
+        }
 
         if (storedUserData) {
+          console.log("LocalStorage'dan userData olindi:", storedUserData)
           setUserData(JSON.parse(storedUserData))
-        } else {
-          // If not in localStorage, fetch from API
-          const token = localStorage.getItem("token")
 
-          if (!token) {
-            throw new Error("No authentication token found")
+          // Verify token is still valid by making a lightweight API call
+          try {
+            await axios.get("https://backend.noonedu.uz/account/profile/", {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            })
+          } catch (verifyError) {
+            // If token verification fails, clear storage and redirect to login
+            if (verifyError.response && (verifyError.response.status === 401 || verifyError.response.status === 403)) {
+              localStorage.removeItem("token")
+              localStorage.removeItem("userData")
+              localStorage.removeItem("refreshToken")
+              throw new Error("Token invalid or expired")
+            }
           }
+        } else {
+          console.log("Token mavjud, API so'rov yuborilyapti:", token)
 
           const response = await axios.get("https://backend.noonedu.uz/account/profile/", {
             headers: {
@@ -51,18 +68,22 @@ const Profile = () => {
             },
           })
 
+          console.log("API response:", response.data)
+
           setUserData(response.data)
-          // Save to localStorage for future use
           localStorage.setItem("userData", JSON.stringify(response.data))
         }
       } catch (err) {
         console.error("Error fetching user data:", err)
         setError("Failed to load user data. Please try logging in again.")
 
-        // If there's an authentication error, redirect to login
         if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+          console.warn("Token eskirgan yoki noto'g'ri, o'chirilmoqda")
           localStorage.removeItem("token")
           localStorage.removeItem("userData")
+          localStorage.removeItem("refreshToken")
+          navigate("/login")
+        } else if (err.message === "No authentication token found" || err.message === "Token invalid or expired") {
           navigate("/login")
         }
       } finally {
@@ -75,6 +96,17 @@ const Profile = () => {
 
   const handleGoBack = () => {
     navigate(-1)
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    localStorage.removeItem("userData")
+    localStorage.removeItem("refreshToken")
+
+    // Dispatch a custom event to notify other components about logout
+    window.dispatchEvent(new Event("auth-change"))
+
+    navigate("/login")
   }
 
   if (loading) {
@@ -99,6 +131,12 @@ const Profile = () => {
           >
             Return to Login
           </button>
+          <button
+          onClick={handleLogout}
+          className="mr-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
+        >
+          Chiqish
+        </button>
         </div>
       </div>
     )
@@ -106,9 +144,23 @@ const Profile = () => {
 
   return (
     <div className="pl-[32px] pt-[32px] pr-[32px]">
-      <div className="w-full h-[80px] pl-[17px] flex items-center gap-[12px] rounded-[12px] bg-white">
-        <ChevronLeft color="#747474" width={"30px"} height={"50px"} className="cursor-pointer" onClick={handleGoBack} />
-        <h1 className="font-inter font-[500] text-[22px] leading-[26.63px] text-[#404040]">Xodimlar ro'yhati</h1>
+      <div className="w-full h-[80px] pl-[17px] flex items-center justify-between rounded-[12px] bg-white">
+        <div className="flex items-center gap-[12px]">
+          <ChevronLeft
+            color="#747474"
+            width={"30px"}
+            height={"50px"}
+            className="cursor-pointer"
+            onClick={handleGoBack}
+          />
+          <h1 className="font-inter font-[500] text-[22px] leading-[26.63px] text-[#404040]">Xodimlar ro'yhati</h1>
+        </div>
+        <button
+          onClick={handleLogout}
+          className="mr-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
+        >
+          Chiqish
+        </button>
       </div>
 
       <div className="flex gap-[20px] mt-[10px]">
@@ -132,23 +184,21 @@ const Profile = () => {
           </div>
           <div className="w-[25%] h-full flex flex-col justify-between">
             <div className="flex justify-end p-[20px] gap-[20px]">
-              <img
-                src={add_pass || "/placeholder.svg"}
-                alt="Add Password"
-                className="w-[30px] h-[30px] cursor-pointer"
-              />
-              <img
-                src={archive_moder || "/placeholder.svg"}
-                alt="Archive"
-                className="w-[30px] h-[30px] cursor-pointer"
-              />
-              <img src={rename || "/placeholder.svg"} alt="Rename" className="w-[30px] h-[30px] cursor-pointer" />
+              <button className="w-[30px] h-[30px] cursor-pointer">
+                <img src={icon_1} alt="Add Password" width={30} height={30} />
+              </button>
+              <button className="w-[30px] h-[30px] cursor-pointer">
+                <img src={icon_2} alt="Archive" width={30} height={30} />
+              </button>
+              <button className="w-[30px] h-[30px] cursor-pointer">
+                <img src={icon_3} alt="Rename" width={30} height={30} />
+              </button>
             </div>
             <div className="w-full h-[44px] flex items-center justify-end pb-[20px] pr-[24px]">
               <h1 className="font-roboto font-[500] text-[18px] leading-[21.09px] text-[#0D99FF] uppercase">
                 reyting <span className="text-[#FFCC00] text-[20px]">{userData?.rating || "5"}</span>
               </h1>
-              <img src={star || "/placeholder.svg"} alt="Star" className="w-[24px] h-[24px]" />
+              <img src={star} alt="Star" width={24} height={24} />
             </div>
           </div>
         </div>
@@ -170,8 +220,12 @@ const Profile = () => {
         </div>
       </div>
 
-      <div>
-        <Nav_profile />
+      <div className="mt-4">
+        {/* Nav_profile component would go here */}
+        <div className="bg-white p-4 rounded-[12px]">
+          <h2 className="text-xl font-medium text-[#404040]">Profile Navigation</h2>
+          <p className="text-[#747474]">Additional profile navigation would appear here</p>
+        </div>
       </div>
     </div>
   )

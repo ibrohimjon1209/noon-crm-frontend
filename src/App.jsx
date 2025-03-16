@@ -1,12 +1,12 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom"
+import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Navbar from "./pages/Navbar/Navbar"
 import Nav_top from "./pages/Navbar/Nav-top"
 import Main_home from "./pages/home/main_home"
 import Assigments from "./pages/assigments/assigments.jsx"
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom"
-import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Lids from "./pages/Lids/Lids_main.jsx"
 import Groups from "./pages/Groups/Groups"
 import Students from "./pages/Students/Students"
@@ -40,17 +40,13 @@ const AnimatedRoutes = ({ isLoggedIn }) => {
 
   return (
     <TransitionGroup component={null}>
-      <CSSTransition
-        key={location.key}
-        classNames={shouldAnimate ? "page" : "page-no-animation"}
-        timeout={shouldAnimate ? 300 : 0}
-      >
+      <CSSTransition key={location.key} timeout={shouldAnimate ? 300 : 0} classNames="page">
         <Routes location={location}>
           {/* Simple conditional rendering for root path */}
           <Route path="/" element={isLoggedIn ? <Main_home /> : <Navigate to="/login" />} />
 
           <Route path="/assigments" element={isLoggedIn ? <Assigments /> : <Navigate to="/login" />} />
-          <Route path="/login" element={isLoggedIn ? <Navigate to="/profile" /> : <Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/lids/*" element={isLoggedIn ? <Lids /> : <Navigate to="/login" />} />
           <Route path="/groups/*" element={isLoggedIn ? <Groups /> : <Navigate to="/login" />} />
           <Route path="/students/*" element={isLoggedIn ? <Students /> : <Navigate to="/login" />} />
@@ -88,8 +84,12 @@ const App = () => {
     // Listen for storage events (in case token is updated in another tab)
     window.addEventListener("storage", checkAuth)
 
+    // Listen for custom auth change events
+    window.addEventListener("auth-change", checkAuth)
+
     return () => {
       window.removeEventListener("storage", checkAuth)
+      window.removeEventListener("auth-change", checkAuth)
     }
   }, [])
 
@@ -105,6 +105,15 @@ const App = () => {
     document.body.style.width = "133.33%"
     document.body.style.overflow = "hidden"
     document.body.style.height = "133vh"
+
+    return () => {
+      // Clean up the styles when component unmounts
+      document.body.style.transform = ""
+      document.body.style.transformOrigin = ""
+      document.body.style.width = ""
+      document.body.style.height = ""
+      document.body.style.overflow = ""
+    }
   }, [])
 
   if (isLoading) {
